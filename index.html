@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <script async src="card_match_engine.js"></script>
+    <link rel="stylesheet" href="math.css">
+  </head>
+  <body>
+    <div id="start" class="overlay-text">
+      Click to Start
+    </div>
+    <div id="game-over-text" class="overlay-text">
+      GAME OVER
+    </div>
+    <div id="victory-text" class="overlay-text">
+      VICTORY
+    </div>
+    <div class="game-info-container">
+      <div class="game-info">
+        Time <span id="time-remaining">60</span>
+      </div>
+      <div class="game-info">
+        Winsteak <span id="winsteak">0</span>
+      </div>
+      <div class="game-info">
+        Flips <span id="flips">0</span>
+      </div>
+    </div>
+    <div class="game-info-container">
+      <div class='game-info'>
+        Best Time Remaining<span id='max-time'> - </span>
+      </div>
+      <div class="game-info">
+        Best Flip <span id="min-flip"> - </span>
+      </div>
+    </div>
+    <div class="cardcontainer">
+      <div class="card" name="blackplus">
+        <div class="cardface cardback"><span>?</span></div>
+        <div class="cardface cardfront black"><span>&plus;</span></div>
+      </div>
+      <div class="card" name="blackplus">
+        <div class="cardface cardback"><span>?</span></div>
+        <div class="cardface cardfront black"><span>&plus;</span></div>
+      </div>
+      <div class="card" name="whiteplus">
+        <div class="cardface cardback"><span>?</span></div>
+        <div class="cardface cardfront white"><span>&plus;</span></div>
+      </div>
+
+      <div class="card" name="whiteplus">
+        <div class="cardface cardback"><span>?</span></div>
+        <div class="cardface cardfront white"><span>&plus;</span></div>
+      </div>
+      <div class="card" name="blackminus">
+        <div class="cardface cardback"><span>?</span></div>
+        <div class="cardface cardfront black"><span>&minus;</span></div>
+        <!--alt+0215-->
+      </div>
+      <div class="card" name="blackminus">
+        <div class="cardface cardback"><span>?</span></div>
+        <div class="cardface cardfront black"><span>&minus;</span></div>
+      </div>
+
+      <div class="card" name="whiteminus">
+        <div class="cardface cardback"><span>?</span></div>
+        <div class="cardface cardfront white"><span>&minus;</span></div>
+        <!--alt+0247-->
+      </div>
+      <div class="card" name="whiteminus">
+        <div class="cardface cardback"><span>?</span></div>
+        <div class="cardface cardfront white"><span>&minus;</span></div>
+      </div>
+      <div class="card" name="blackdivide">
+        <div class="cardface cardback"><span>?</span></div>
+        <div class="cardface cardfront black">
+          <span>&divide;</span>
+        </div>
+      </div>
+
+      <div class="card" name="blackdivide">
+        <div class="cardface cardback"><span>?</span></div>
+        <div class="cardface cardfront black">
+          <span>&divide;</span>
+        </div>
+      </div>
+      <div class="card" name="whitedivide">
+        <div class="cardface cardback"><span>?</span></div>
+        <div class="cardface cardfront white">
+          <span>&divide;</span>
+        </div>
+      </div>
+      <div class="card" name="whitedivide">
+        <div class="cardface cardback"><span>?</span></div>
+        <div class="cardface cardfront white">
+          <span>&divide;</span>
+        </div>
+      </div>
+      <div class="card" name="blacktimes">
+        <div class="cardface cardback"><span>?</span></div>
+        <div class="cardface cardfront black"><span>&times;</span></div>
+      </div>
+      <div class="card" name="blacktimes">
+        <div class="cardface cardback"><span>?</span></div>
+        <div class="cardface cardfront black"><span>&times;</span></div>
+      </div>
+      <div class="card" name="whitetimes">
+        <div class="cardface cardback"><span>?</span></div>
+        <div class="cardface cardfront white"><span>&times;</span></div>
+      </div>
+      <div class="card" name="whitetimes">
+        <div class="cardface cardback"><span>?</span></div>
+        <div class="cardface cardfront white"><span>&times;</span></div>
+      </div>
+    </div>
+
+
+  </body>
+</html>
