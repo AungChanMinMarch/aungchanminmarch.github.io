@@ -1,0 +1,27 @@
+<div class="definition">
+	<h2>Convergent Series</h2>
+	<p>A <em>convergent series</em> is a series whose partial sums tend to a specific number, also called <em>a limit</em></p>
+</div>
+<div class="definition">
+	<h2>Divergent Series</h2>
+	<p>A <em>divergent series</em> is a series whose partial sums don't approach a limit.</p>
+	<p>Divergent Series typically go to $\infty$ or $-\infty$, don't approach one specific number.</p>
+</div>
+
+<div class="example">
+	<div class="question" data-math="analysis/seriesConvergeQ1">\frac{1}{2^n}</div>
+	<div class="answer">
+		<p>The partial sums are $s_N = \sum\limits_{n=1}^{N} \frac{1}{2^n} = \frac{\frac{1}{2}(1-(\frac{1}{2})^N)}{1-\frac{1}{2}} = 1 - (\frac{1}{2})^N$</p>
+		$$\Lim_{N \to \infty} s_N = \Lim_{N \to \infty} (1-(\frac{1}{2})^N) =1$$
+		<p class="center">The series converges and its sum is $1$.</p>
+	</div>
+</div>
+
+<div class="example">
+	<div class="question" data-math="analysis/seriesConvergeQ1">2^n</div>
+	<div class="answer">
+		<p>The partial sums are $s_N = \sum\limits_{n=1}^{N} 2^N = \frac{2(2^N-1)}{2-1} = 2(2^N-1)$</p>
+		$$\Lim_{N \to \infty} s_N = \Lim_{N \to \infty} (2(2^N-1)) = 2((\Lim_{N \to \infty}2^N)-1) = \infty$$
+		<p class="center">The series does not approach specific number. Thus the series diverges</p>
+	</div>
+</div>

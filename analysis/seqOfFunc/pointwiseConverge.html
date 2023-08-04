@@ -1,0 +1,130 @@
+<div class="definition">
+	<h2>Pointwise Convergenet</h2>
+	<p>Suppose $\{f_n\}, n=1,2,3...$ is a sequence of functions defined on a set $E$ and suppose that the sequence of numbers $\{f_n(x)\}$ converges for every $x\in E$. We can then define a function $f$ by $$f(x)=\lim_{n \to \infty}f_n(x) \ \ \ (x \in E)$$</p>
+	<p>Then $\{f_n\}$ converges to $f$ <em>pointwise</em> on $E$ and $f$ is called the <em>limit</em> or <em>limit function</em> of $\{f_n\}$</p>
+</div>
+
+<div class="examples">
+	<div class="example">
+		<div class="question" data-math="analysis/pointwiseConvergeQ1">$f_n(x)=nx$ for all $x \ \in \ R$</div>
+		<div class="answer">$$\begin{align*} \text{For all } x \ &\in R \\
+		\lim_{n \to \infty}f_n(x) &= \lim_{n \to \infty} nx \\
+	&= \infty \end{align*}$$
+	<p class="center">Since $f_n(x)$ does not converge, $\{f_n\}$ is not pointwise convergent.</p>
+	</div>
+	</div>
+
+	<div class="example">
+		<div class="question" data-math="analysis/pointwiseConvergeQ1">$f_n(x)=\frac{nx+x^2}{n^2}$ for all $x \ \in \ R$</div>
+		<div class="answer">
+			$$\begin{align*} 
+			\text{For all } x \ &\in R \\
+			\lim_{n \to \infty}f_n(x) &= \lim_{n \to \infty} \frac{nx+x^2}{n^2} \\
+			&= \lim_{n \to \infty} \frac{x}{n}+\frac{x^2}{n^2} \\
+			&= 0 + 0 \\\
+			&= 0
+			\end{align*}$$
+			<p class="center">$\{f_n\}$ converges pointwise.</p>
+		</div>
+	</div>
+
+	<div class="example">
+		<div class="question" data-math="analysis/pointwiseConvergeQ1">$f_n(x)=\frac{\sin(nx+3)}{\sqrt{n+1}}$ for all $x \in R$</div>
+		<div class="answer">
+			<p>For every $x \in R$, we have</p>
+			<div data-math="table" data-cols="rlcll">
+				-1 & \leq & \sin(nx+3) & \leq & 1 \\
+				\frac{-1}{\sqrt{n+1}} & \leq & \frac{\sin(nx+3)}{\sqrt{n+1}} & \leq & \frac{1}{\sqrt{n+1}} \\
+				\Lim_{n \to \infty}\frac{-1}{\sqrt{n+1}} & \leq &\Lim_{n \to \infty} \frac{\sin(nx+3)}{\sqrt{n+1}} & \leq & \Lim_{n \to \infty}\frac{1}{\sqrt{n+1}} \\
+				0 & \leq & \Lim_{n \to \infty} f_n(x) & \leq & 0
+			</div>
+			<p class="center">Since $\Lim_{n\to \infty}f_n(x) = 0$ for all $x$ in $R$, $\{f_n\}$ converges pointwise.</p>
+		</div>
+	</div>
+
+	<div class="example">
+		<div class="question" data-math="analysis/pointwiseConvergeQ1">$f(x)=n^2x^n$ for $0 \leq x \leq 1$s</div>
+		<div class="answer">
+			$$\begin{align*}
+			&\text{For } x=0, & f_n(0) &= 0 \\
+			&\text{For } 0 < x < 1, & \Lim_{n\to \infty}f_n(x) &= \Lim_{n\to \infty} n^2 x^n \\
+			&&&= \Lim_{n \to \infty} \frac{n^2}{x^{-n}} (\frac{\infty}{\infty}) \\
+			&&&= \Lim_{n \to \infty} \frac{2n}{-x^{-n}} (\frac{\infty}{\infty}) \\
+			&&&= \Lim_{n \to \infty} \frac{2}{x^{-n}} \\
+			&&&= \Lim_{n \to \infty} x^n \\
+			&&&= 0 (\because 0 < x < 1)\\
+			&\text{For } x=1, & f_n(1) &= n^2 \\
+			&& \Lim_{n\to \infty} f_n(1) &= \Lim_{n \to \infty} n^2 = \infty
+			\end{align*}$$
+		</div>
+		<p class="center">Therefore $\{f_n\}$ does not pointwise converge</p>
+	</div>
+</div>
+
+<div class="examples">
+	<h2>A Convergent series of continuous functions may have a discontinuous sum.</h2>
+	<div class="example">
+		<div class="question">
+			Let $f_n: \R \to \R$ be defined by $f_n(x) =\frac{x^2}{(1+x^2)^n}, (n=1,2,3,...)$
+			<ol>
+				<li>Does $\{f_n\} converge pointwise?</li>
+				<li>Are the functions $f_n$ and the limit function $f$ continuous?</li>
+				<li>Is the sum of the series $\Sum_{n=0}^{\infty}f_n$ continouos?</li>
+			</ol>
+		</div>
+		<div class="answer">
+			<ol>
+				<li>
+					<div data-math="table" data-cols="rcl">
+						\text{For } x \neq 0, & \Lim_{n \to \infty} f_n(x) &= \limit \frac{x^2}{(1+x^2)^n} = 0 \\
+						\text{For } x = 0, & \Lim_{n \to \infty} f_n(0) &= \limit 0 = 0
+					</div>
+					<p class="center">Since $\{f_n(x)\}$ converges every $x\in \R$, $\{f_n\}$ converges pointwise.</p>
+				</li>
+				<li>
+					<p class="center">Each $f_n$ is continuous since it is rational function.</p>
+					<p class="center">The limit function $f(x)=\limit f_n(x)$ is continuous since $f(x)=0$</p>
+				</li>
+				<li>
+					<div data-math="table" data-cols="crl">
+						\text{For } x \neq 0,& \summ f_n(x) &=\summ \frac{x^2}{(1+x^2)^n} \\
+						&&=x^2 \summ \frac{1}{(1+x^2)n}\\
+						&&=x^2 (1+\frac{1}{1+x^2} + \frac{1}{(1+x^2)^2} + \frac{1}{(1+x^2)^3}+...)\\
+						&&=x^2 \frac{1}{1-\frac{1}{1+x^2}}\\
+						&&=x^2 \frac{1+x^2}{1+x^2-1}\\
+						&&=1+x^2 \\
+						\text{For } x = 0,& f_n(0) &= 0 \\
+						& \summ f_n(0) &= 0
+					</div>
+					<p class="center">Define $f(x)=\sum_{n=0}^{\infty} f_n(x)$ by $f(x)= \begin{cases}
+						0 & \mbox{ if $x=0$}\\
+						1+x^2 & \mbox{ if $x\neq 0$}
+					\end{cases}$
+					</p>
+					<p class="center">The sum of the series is not continuous.</p>
+				</li>
+			</ol>
+		</div>
+	</div>
+
+	<div class="example">
+		<div class="question">For $m=1,2,3,...,$ put $f_m(x)=\Lim_{n\to \infty} (\cos m!\pi x)^{2n}$. <br>
+		Show that each function $f_m$ and the limit function of $\{f_m\}$ are discontinous.</div>
+		<div class="answer">
+			<p>For $m=1,2,3,...$, $f_m(x)=\Lim_{n\to \infty} (\cos m!\pi x)^{2n}$</p>
+			<p>When $m!x$ is an integer, say $a$,
+				$$\begin{align*}(\cos m!\pi x)^{2n} = (\cos a x)^{2n} = \{(-1)^a\}^{2n} = 
+				(-1)^{2na}=1 \\
+				f_m(x) = \limit (\cos m!\pi x)^{2n} = \limit 1 = 1\end{align*}
+				$$
+			</p>
+			<p>For all other values of $x$,$$\begin{align*}
+				|\cos m! \pi x | < 1 \\
+				f_m(x) = \limit (\cos m! \pi x)^2n = 0
+			\end{align*}$$</p>
+			<p class="center">Hence $f_m(x) = \begin{cases} 1 &\mbox{if $m!x$ is an integer} \\ 0 &\mbox{if $m!x$ is not integer} \end{cases}$</p>
+			<p class="center">Therefore each $f_m$ is discontinuous.</p>
+			<div data-math="plot"></div>
+		</div>
+	</div>
+</div>
