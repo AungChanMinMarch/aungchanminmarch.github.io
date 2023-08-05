@@ -29,30 +29,48 @@ window.onload = function() {
     const params = new URLSearchParams(window.location.search);
     const fileName = params.get("file") ?? "/home.html";
     const root = document.getElementById("root");
+    log(fileName.endsWith("/"))
     fetchHTML(fileName, root).then(function(res){
         loadMathModules();
         loadMathJax();
+    }).catch((e)=>{
+        log("eee")
     })
 };
 
 async function fetchHTML(fileName, parentDiv) {
+    // let fileName = (fileName.endsWith(".html")) ? fileName : `${fileName}.html`;
     return new Promise((resolve, reject) => {
-        fetch(fileName).then(function(response) {
-            response.text().then(function(htmlStr) {
-                const container = document.createElement("div");
-                container.innerHTML = htmlStr;
-                parentDiv.appendChild(container);
-                const fetchPromises = Array.from(container.querySelectorAll("[data-input]")).map(function(el) {
-                    const file = el.getAttribute("data-input");
-                    return fetchHTML(file, el);
+        fetch(fileName)
+            .then(function(response) {
+                if (!response.ok) {
+                    if (response.status === 404) {
+                        if(!fileName.endsWith(".html")){
+                            const newFileName = (fileName.endsWith("/")) ? `${fileName}index.html` : `${fileName}/index.html`
+                            fetchHTML(newFileName, parentDiv);
+                        }
+                        throw new Error({message: 'Data not found', fileName}); // Custom error message for 404 status
+                    } else {
+                        throw new Error({message: 'Network response was not ok', fileName});
+                    }
+
+                }
+                response.text().then(function(htmlStr) {
+                    const container = document.createElement("div");
+                    container.innerHTML = htmlStr;
+                    parentDiv.appendChild(container);
+                    const fetchPromises = Array.from(container.querySelectorAll("[data-input]")).map(function(el) {
+                        const file = el.getAttribute("data-input");
+                        return fetchHTML(file, el);
+                    });
+                    Promise.all(fetchPromises).then(() => {
+                        resolve(); // Resolve the main promise when all fetches are complete
+                    });
                 });
-                Promise.all(fetchPromises).then(() => {
-                    resolve(); // Resolve the main promise when all fetches are complete
-                });
+            })
+            .catch((err)=>{
+                log(err)
+                reject(err);
             });
-        }).catch(function(err) {
-            reject(err);
-            log(err);
-        });
     });
 }
