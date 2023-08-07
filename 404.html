@@ -5,22 +5,31 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Math Uni</title>
 	<link rel="stylesheet" type="text/css" href="assets/index.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+	<!-- <script src="https://unpkg.com/function-plot/dist/function-plot.js"></script> -->
 </head>
 <body>
 	<div style="display: none;">
 	\(
+		\def\bracket#1{\left({#1}\right)}
+		\def\sbracket#1{\left[{#1}\right]} %square bracket
+		\def\cbracket#1{\left\{{#1}\right\}} %curly bracket
+
 		\def\Lim_#1{{\lim\limits_{#1}}}
 		\def\limit{{\lim\limits_{n \to \infty}}}
+
 		\def\Sum_#1^#2{{\sum\limits_{#1}^#2}}
 		\def\summ{\sum\limits_{n=0}^{\infty}}
+		
 		\def\R{{\mathbb R}}
+		\def\fQ{{\mathcal{Q}}}
+
+		\def\mod#1{\left | {#1} \right |}
+		\def\abs#1{\left | {#1} \right |}
 	\)
 	</div>
 	<div id="root" data-state="loading"></div>
-	<script src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
 	<script type="text/javascript" src="mathModules/analysis/pointwiseConvergeQ1.js"></script>
 	<script type="text/javascript" src="mathModules/analysis/seriesConvergeQ1.js"></script>
 	<script type="text/javascript" src="mathModules/table.js"></script>

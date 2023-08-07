@@ -1,0 +1,26 @@
+<div class="theorem">
+	<div class="statement">
+		<p>The sequence of functions $\{f_n\}$, defined on $E$, converges uniformly on $E$ if and only if for every $\varepsilon > 0$, there exists an integer $N$ such that $m \geq N, n\geq N, x \in E$ implies $\mod{f_n(x)-f_m(x)} \leq \varepsilon$</p>
+	</div>
+	<div class="proof">
+		<p>Suppose $\{f_n\}$ converges uniformly on $E$.</p>
+		<p>Let $f$ be the limit function</p>
+		<p class="center">Then there exists an integer $N$ such that $n\geq N, x \in E$ implies $\abs{f_n(x)-f(x)} \leq \frac{\varepsilon}{2}$ <br>
+			$$\abs{f_n(x)-f_m(x)} = \abs{f_n(x)-f(x)+f(x)-f_m(x)} \leq \abs{f_n(x)-f(x)} + \abs{f_m(x)-f(x)} $$
+			$$\begin{align*}
+			n\geq N, m \geq N, x \in E \ \text{ implies } \abs{f_n(x)-f_m(x)}
+			&\leq \abs{f_n(x)-f(x)} + \abs{f_m(x)-f(x)}\\
+			&\leq \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
+			\end{align*}$$
+		</p>
+		<p>Therefore there exists an integer $N$ such that $n\geq N, m \geq N x \in E$ implies $\abs{f_n(x)-f_m(x)} \leq \varepsilon$</p>
+
+		<p>Now suppose that for every $\varepsilon > 0$, there exists an integer $N$ such that $m \geq N, n\geq N, x \in E$ implies $\mod{f_n(x)-f_m(x)} \leq \varepsilon$</p>
+		<p>Then, by theorem $3.11$, for every $x$, the sequence $\{f_n(x)\}$ converges to the limit, say $f(x)$. Thus the sequence $\{f_n\}$ converges pointwise to $f$ on $E$. We need to prove the convergence is uniform.</p>
+		<p>Let $\varepsilon > 0$ be given. Choose an integer $N$ such that $m \geq N, n\geq N, x \in E$ implies $\mod{f_n(x)-f_m(x)} \leq \varepsilon$</p>
+		<p>Now fix $n$. As $m \to \infty$, $f_m(x) \to f(x)$</p>
+		<p>Hence $n\geq N, x \in E$ implies $\mod{f_n(x)-f(x)} \leq \varepsilon$</p>
+		<p>Therefore $\{f_n\}$ converges uniformly on $E$</p>
+		<p class="center">The proof is completed.</p>
+	</div>
+</div>
