@@ -5,6 +5,11 @@ const symbols = {
 	"r": "right",
 	"l": "left"
 }
+function hasOnlySpacesOrEmpty(str) {
+  // Use a regular expression to check if the string contains only spaces or is empty
+  return /^\s*$/.test(str);
+}
+
 window.table = function (el) {
 	const str = el.innerHTML;
 	el.innerHTML = "";
@@ -23,7 +28,7 @@ window.table = function (el) {
 			const tdEl = document.createElement("div");
 			trEl.appendChild(tdEl);
 			tdEl.classList.add(symbols[cols[index]]);
-			tdEl.innerHTML = `$${td}$`;
+			tdEl.innerHTML = (hasOnlySpacesOrEmpty(td)) ? "" : `$${td}$`;
 		})
 	})
 }
