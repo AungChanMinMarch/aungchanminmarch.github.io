@@ -1,1 +1,69 @@
-<h1>The author is too busy to write this page</h1>
+<div class="example">
+	<div class="question">
+At the point in an incompressible fluid having spherical polar coordinates $(r, \theta, \psi)$, the velocity components are $[ 2Mr^{-3}\cos \theta, Mr^{-3} \sin \theta, 0 ]$, where $M$ is a constant. Show that the velocity is of the potential kind. Find the velocity potential and the equations of the streamlines.</div>
+<div class="answer">
+	<p data-math="table" data-cols="lccccc">
+		\text{Taking } ds= & dr \hat{r} &+& r d\theta \hat{\theta} &+& r \sin \theta \hat{\psi}\\
+		\vec{q}= & 2Mr^{-3}\cos \theta \hat{r} &+& Mr^{-2}\sin \theta \hat{\theta} &+& 0 \hat{\psi}\\
+	</p>
+	<p>We obtain</p>
+	$$\begin{align*}
+	\curl \vec{q}&= \frac{1}{r^2 \sin \theta} 
+	\begin{vmatrix}
+	\hat{r} & \hat{\theta} & \hat{\psi} \\
+	\partialwrt{r} & \partialwrt{\theta} & \partialwrt{\psi} \\
+	2Mr^{-3}\cos \theta & Mr^{-3}\sin \theta & 0
+	\end{vmatrix}\\
+
+	&= \frac{1}{r^2 \sin \theta} \bracket{
+		\bracket{0-\partialwrt{\psi}(Mr^{-3}\sin \theta)} \hat{r} 
+		- \bracket{0-\partialwrt{\psi}(2Mr^{-3}\cos \theta)} \hat{\theta}
+		+ \bracket{\partialwrt{r}(Mr^{-2}\sin \theta) - \partialwrt{\theta}(2Mr^{-3}\cos \theta)\hat{\psi}}
+	}\\
+	&= \frac{1}{r^2 \sin \theta} \bracket{
+		0 \hat{r} + 0 \hat{\theta} + \bracket(-2Mr^{-3}\sin \theta - 2Mr^{-3}\cos \theta)\hat{\psi}
+	}\\
+	&= 0 \hat{r} + 0 \hat{\theta} + 0 \hat{\psi}\\
+	&= \vec{0}
+	\end{align*}$$
+	<p class="center">Therefore the flow is of the potential kind.</p>
+
+	<p>Let $\varphi = \varphi(r, \theta, \psi)$ be the appropriate velocity potential.</p>
+	$$-\partialwrt[\varphi]{r} = 2Mr^{-3}\cos \theta,\ - \frac{\partial \varphi}{r \partial \theta} = Mr^{-3}\sin \theta,\ \frac{\partial \varphi}{r \sin \theta \partial \psi} = 0$$
+	<p>Since $\partialwrt[\varphi]{\psi} = 0$, we get $\varphi = \varphi(r, \theta)$</p>
+	<p>$$\begin{align*}
+		-\partialwrt[\varphi]{r} &= 2Mr^{-3}\cos \theta \\ 
+		\partial \varphi &= -2Mr^{-3}\cos \theta \partial r \\
+		%\text{Integrating both sides with respect to } r, \\
+		\varphi &= \frac{-2Mr^{-2}\cos \theta}{-2} + f(\theta) \\
+		\varphi &= Mr^{-2}\cos \theta + f(\theta) \tag{1} \\
+		\partialwrt[\varphi]{\theta} &= - Mr^{-2}\sin \theta + f'(\theta) \\
+		-Mr^{-2}\sin \theta &= - Mr^{-2}\sin \theta + f'(\theta) \\
+		f'(\theta) &= 0 \\
+		f(\theta) &= \text{ constant } \\
+	\end{align*}$$</p>
+	<p>Therefore Eq(1) gives $\varphi = Mr^{-2} \cos \theta$</p>
+
+	<p>The equations of the stramlines are given by</p>
+	<p data-math="table" data-cols="ccccc">
+		\frac{dr}{2Mr^{-3}\cos \theta} &=& \frac{rd\theta}{Mr^{-3}\sin \theta} &=& \frac{r \sin \theta d \psi}{0} \\
+		\frac{dr}{2 \cos \theta} &=& \frac{rd\theta}{\sin \theta} &=& \frac{r \sin \theta d \psi}{0} \\
+	</p>
+	<p>$$\begin{align*}
+		\frac{dr}{2 \cos \theta} &= \frac{rd\theta}{\sin \theta} \\
+		\frac{1}{r}dr &= 2 \cot \theta d \theta \\
+		\ln(r) &= 2 \ln(\abs{\sin \theta}) + C, \ \text{ where $C$ is aribtrary constant} \\
+		\ln(r) &= \ln(\sin^2 \theta) + C \\
+		e^{\ln(r)} &= e^{\ln(\sin^2 \theta) + C}\\
+		r &= e^C e^{\ln(sin^2 \theta)} = e^C \sin^2 \theta \\
+		\therefore r&= A \sin^2 \theta, \text{ where $A=e^C$ is constant}\\
+		\frac{dr}{2 \cos \theta} &=  \frac{r \sin \theta d \psi}{0} \\
+		d \psi &= 0 \\
+		\psi &= \text{constant}
+	\end{align*}$$</p>
+	<p>The equations of the streamlines are $$\begin{align*}
+		\psi &= \text{ constant } \\
+		r &= A \sin^2 \theta
+	\end{align*}$$</p>
+</div>
+</div>
