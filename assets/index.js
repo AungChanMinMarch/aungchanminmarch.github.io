@@ -33,25 +33,26 @@ window.onload = function() {
     fetchHTML(fileName, root).then(function(res){
         loadMathModules();
         loadMathJax();
-    }).catch((e)=>{
-        log("eee")
+    }).catch(function(err){
+        root.innerHTML = `<h1>Sorry Something went wrong</h1><p> message ${err}</p>`
     })
 };
 
 async function fetchHTML(fileName, parentDiv) {
-    // let fileName = (fileName.endsWith(".html")) ? fileName : `${fileName}.html`;
+    if (fileName.endsWith("/")) fileName += "index.html";
+    else if(!fileName.endsWith(".html")) fileName += ".html";
     return new Promise((resolve, reject) => {
         fetch(fileName)
             .then(function(response) {
                 if (!response.ok) {
                     if (response.status === 404) {
-                        if(!fileName.endsWith(".html")){
-                            const newFileName = (fileName.endsWith("/")) ? `${fileName}index.html` : `${fileName}/index.html`
-                            fetchHTML(newFileName, parentDiv);
+                        if (fileName.endsWith("index.html")) {
+                            throw new Error('Data not found');
+                            return;
                         }
-                        throw new Error({message: 'Data not found', fileName}); // Custom error message for 404 status
+                        fetchHTML(fileName.replace(".html", "/"), parentDiv);
                     } else {
-                        throw new Error({message: 'Network response was not ok', fileName});
+                        throw new Error('Network response was not ok');
                     }
 
                 }
@@ -69,7 +70,7 @@ async function fetchHTML(fileName, parentDiv) {
                 });
             })
             .catch((err)=>{
-                log(err)
+                log(err);
                 reject(err);
             });
     });
