@@ -1,0 +1,27 @@
+<div class="example">
+	<div class="question">For a fluid moving in a fine tube of variable section $A$, prove from first principles that the equation of continuity is 
+		$$A \partialwrt[\rho]{t} + \partialwrt{s}(A \rho v) = 0$$
+		where $v$ is the speed at a point $P$ of the fluid and $s$ the length of the tube up to $P$.
+		<p>What does this become for steady incompressible flow?</p>
+	</div>
+	<div class="answer">
+		<p><strong>Draw the diagram in the text, I am to busy to find a way to add diagrams in my website</strong></p>
+		<p>Let $OPP'$ be the central streamline of the tube(not necessarily straight)</p>
+		<p>Let $v$ be the speed of the fluid at $P$.</p>
+		<p>let $s,s+\delta s$ be the arc lengths $OP, OP'$</p>
+		<p>Let $A$ be the area of the section at $P$.</p>
+		<p>At the section $A$ through $P$, the mass flux per unit time in the direction of $s$ increasing is $\frac{\rho V}{t} = \frac{\rho sA}{t} =\rho v A = A \rho v$</p>
+		<p>At the neighbouring section $A+\delta A$ through $P'$, the mass flux per unit time in the direction of $s$ increasing is $A\rho v+ \delta s \partialwrt{s}(A\rho v)$</p>
+		<p>Thus the net flow of mass into the elements between the sections $A$ and $A+\delta A$ is $-\delta s \partialwrt{s}(A\rho v)$</p>
+		<p>But the mass between the sections is $\rho A \delta s$</p>
+		<p>The rate of mass increasing is $\partialwrt{t} \rho A \delta s = A \delta s \partialwrt[\rho]{t}$</p>
+		<p class="center">In the absence of sources and sinks, we have $-\delta s \partialwrt{s}(A\rho v)= A \delta s \partialwrt[\rho]{t}$</p>
+		$$\therefore A \partialwrt[\rho]{t} +  \partialwrt{s}(A\rho v)=0$$
+		<p class="center">For steady incompressible flow, $\rho$ is constant.</p>
+		$$\begin{align*}
+		0+\rho \partialwrt{t}(vA) &= 0 \\
+		\partialwrt{t}(vA) &= 0 \\
+		vA&= \text{constant}
+		\end{align*}$$
+	</div>
+</div>

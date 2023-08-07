@@ -1,0 +1,38 @@
+<div class="example">
+	<div class="question">
+		<p>Liquid flows through a pipe whose surface is the surface of revolution of the curve $y=a+\frac{kx^2}{a}$ about the $x$ x-axis ($-a \leq x \leq a$). If the liquid enters at the end $x=-a$ of the pipe with velocity $V$, show that the time taken by a liquid particle to traverse the entire length of the pipe from $x=-a$ to $x=+a$ is 
+			$$ \cbracket{\frac{2a}{V(1+k)^2}} \bracket{1+\frac{2}{3}k+\frac{1}{5}k^2}$$
+			<!-- [Assume that $k$ is so small that the flow remains appreciable one-dimensional throughout] -->
+		</p>
+	</div>
+	<div class="answer">
+		<p><strong>Draw the diagram from textbook. The author haven't learned how to plot diagrams to his website</strong></p>
+		<p>At the section $x=0$ <br>
+			Let $v_0$ be the velocity of the liquid. <br>
+			The radius of the section is $y=a+ \frac{k0^2}{a} =a$ <br>
+			The area of the section is $\pi r^2 = \pi a^2$
+		</p>
+		<p>At the section $x=-a$ <br>
+			The velocity of the liquid is $V$. <br>
+			The radius of the section is $y=a+ \frac{k(-a)^2}{a} =a+ka=a(1+k)$ <br>
+			The area of the section is $\pi r^2 = \pi a^2(1+k)^2$
+		</p>
+		<p>At the section distant $x$ from $0$ <br>
+			Let $\frac{dx}{dt}$ be the velocity of the liquid. <br>
+			The radius of the section is $y=a+ \frac{kx^2}{a}$ <br>
+			The area of the section is $\pi r^2 = \pi \cbracket{a+ \frac{kx^2}{a}}^2 = \pi \cbracket{a\bracket{1+\frac{kx^2}{a^2}}}^2 = \pi a^2 \bracket{1+\frac{kx^2}{a^2}}^2$
+		</p>
+		<p>Thus the equation of continuity is</p>
+		<p>$$\begin{align*}
+			v_0 \pi a^2 = V \pi a^2 (1+k)^2 &= \frac{dx}{dt} \pi a^2 \bracket{1+\frac{kx^2}{a^2}}^2\\
+			V (1+k)^2 &= \frac{dx}{dt} \bracket{1+\frac{kx^2}{a^2}}^2 \\
+			dt &= \frac{1}{V(1+k)^2} \bracket{1+ \frac{kx^2}{a^2}}^2 dx\\
+			t &=\int_{-a}^{a}  \frac{1}{V(1+k)^2} \bracket{1+ \frac{kx^2}{a^2}}^2 dx\\
+			&=  \frac{2}{V(1+k)^2} \int_{0}^{a} \bracket{1+ \frac{kx^2}{a^2}}^2 dx\\
+			&=  \frac{2}{V(1+k)^2} \int_{0}^{a} \bracket{1+ \frac{2kx^2}{a^2} + \frac{k^2x^4}{a^4}} dx\\
+			&=  \frac{2}{V(1+k)^2} \sbracket{x+ \frac{2kx^3}{3a^2} + \frac{k^2x^5}{5a^4}}_{0}^{a}\\
+			&=  \frac{2}{V(1+k)^2} \bracket{a+ \frac{2ka}{3} + \frac{k^2a}{5}}\\
+			&=  \frac{2a}{V(1+k)^2} \bracket{1+ \frac{2}{3}k + \frac{1}{5}k^2}\\
+		\end{align*}$$</p>
+	</div>
+</div>
