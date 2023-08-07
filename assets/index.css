@@ -1,3 +1,7 @@
+strong{
+	color: red;
+	font-weight: 500;
+}
 *{
 	box-sizing: border-box;
 }
@@ -43,6 +47,15 @@ body{
 	padding: 5px 5px;
 }
 
-.example{
-	margin: 1;
+.example, .theorem{
+	margin: 10px;
+	border: 1px dotted #777;
+}
+.question, .statement{
+	padding: 10px 20px;
+	color: black;
+	box-shadow: 0px 3px 5px #555;
+}
+.answer, .proof{
+	padding: 10px 40px;
 }
