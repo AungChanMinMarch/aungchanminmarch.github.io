@@ -1,0 +1,13 @@
+[
+	{
+		"folder_name": "ch07",
+		"title": "Function of Sequences",
+		"articles": {
+			"pointwiseConverge": "Pointwise Convergence",
+			"uniformConverge": "Uniform Convergence"
+		},
+		"files": {
+			"7.02": "pointwiseConverge"
+		}
+	}
+]

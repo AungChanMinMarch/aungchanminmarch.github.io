@@ -24,12 +24,23 @@ function loadMathModules(){
         window[mathModuleName](el);
     })
 }
-
+async function buildNav(fileName) {
+    const moduleUrl = "/"+ fileName.split("/")[0]+'/index.js';
+    try {
+        const module = await import(moduleUrl);
+        // Now you can use functions, classes, and variables from the loaded module
+        module.buildNav(fileName);
+        // const instance = new module.MyClass();
+        // console.log(module.someVariable);
+    } catch (error) {
+        console.error('Error loading module:', error);
+    }
+}
 window.onload = function() {
     const params = new URLSearchParams(window.location.search);
     const fileName = params.get("file") ?? "/home.html";
     const root = document.getElementById("root");
-    log(fileName.endsWith("/"))
+    buildNav(fileName)
     fetchHTML(fileName, root).then(function(res){
         loadMathModules();
         loadMathJax();
