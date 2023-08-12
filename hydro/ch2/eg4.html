@@ -6,7 +6,46 @@
 		</p>
 	</div>
 	<div class="answer">
-		<p><strong>Draw the diagram from textbook. The author haven't learned how to plot diagrams to his website</strong></p>
+		<div data-math="plot"
+		data-disable-zoom="true"
+		data-annotations= "[{
+			x:-5, y:1, text: 'V'
+		}]"
+		data-data="
+			[{
+		        vector: [1,0],
+		        offset: [-5,1],
+		        fnType: 'vector',
+		        graphType: 'polyline'
+		    },{
+		        fn: '0.75 + (0.05 x^2) / 0.75',
+		        graphType: 'polyline'
+		    }, {
+		        fn: '-0.75 - (0.05 x^2) / 0.75',
+		        title: 'hi',
+		        graphType: 'polyline'
+		    },{
+				points: [
+					[2.8, 1.27],
+					[2.8, -1.27]
+				],
+				scope: {'color': 'blue'},
+				fnType: 'points',
+				graphType: 'polyline'
+			},{
+			    x: '2.75',
+			    y: 'sin(t)',
+			    fnType: 'parametric',
+			    graphType: 'polyline'
+			},{
+				fn: '-0.2',
+				nSamples: 10,
+				range: [0, 2.8],
+				graphType: 'scatter'
+			}]"
+		>
+		</div>
+		<!-- <div data-math="splotly"></div> -->
 		<p>At the section $x=0$ <br>
 			Let $v_0$ be the velocity of the liquid. <br>
 			The radius of the section is $y=a+ \frac{k0^2}{a} =a$ <br>
