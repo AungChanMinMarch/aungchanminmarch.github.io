@@ -1,0 +1,43 @@
+<div class="example">
+	<div class="question">
+		Let $f_n:[0,1] \to \R$ be defined by $f_n(x)=n^2x(1-x^2)^n, n=1,2,3,\dots$. Are $\limit \int\limits_{0}^{1}f_n(x) dx$ and $\int_{0}^{1} \limit f_n(x) dx$ equal?
+	</div>
+	<div class="answer">
+		<p class="center">
+			Let $f_n:[0,1] \to \R$ be defined by $f_n(x)=n^2x(1-x^2)^n, n=1,2,3,\dots$.
+			$$\begin{align*}
+			\int_{0}^{1} f_n(x) dx &= \int_{0}^{1} n^2x(1-x^2)^n dx \\
+			\text{Let } u &= 1-x^2 \\
+			du &= -2x dx\\
+			-\frac{1}{2} du &= xdx\\
+			\text{If } x=0, u&= 1-0^2 =1\\
+			\text{If } x=1, u&= 1-1^2 =0\\
+			\int_{0}^{1} f_n(x) dx &= \int_{1}^{0}n^2u^n\frac{-1}{2}du \\
+			&=\frac{-n^2}{2} \sbracket{ \frac{u^{n+1}}{n+1}}_{u=1}^{u=0}\\
+			&= \frac{-n^2}{2} \bracket{0-\frac{1}{n+1}}\\
+			&= \frac{n^2}{2n+2}\\
+			\limit \int_0^1 f_n(x) dx &= \limit \frac{n^2}{2n+2} =\limit \frac{1}{\frac{2}{n}+\frac{2}{n^2}} \to \infty
+			\end{align*}$$
+		</p>
+		<p>
+			$$\begin{align*}
+			\text{If }x=0,\ &f_n(0)=0 \text{ for all } n\\
+			\text{If }x=1,\ &f_n(1)=0 \text{ for all } n\\
+			\text{If }0 < x < 1,\ & 0 < x^2 < 1\\
+			&0 > -x^2 > -1 \\
+			&1 > 1-x^2 > 0\\
+			&0 < 1-x^2 <1 \\
+			& \frac{1}{1-x^2} > 1 \\
+			\limit n^2x(1-x^2)^n
+			&= x\limit \frac{n^2}{(\frac{1}{1-x^2})^n} \bracket{\text{indeterminate form } \frac{\infty}{\infty}}\\
+			&= x\limit \frac{2n}{log(\frac{1}{1-x^2})(\frac{1}{1-x^2})^n} \bracket{\text{indeterminate form } \frac{\infty}{\infty}}\\
+			&= x \limit \frac{2}{\bracket{log(\frac{1}{1-x^2})}^2(\frac{1}{1-x^2})^n}\\
+			&= \frac{2x}{\bracket{log(\frac{1}{1-x^2})}^2}\limit(1-x^2)^n \\
+			&= 0 \ (\because 1-x^2 < 1)\\
+			\therefore \limit f_n(x) &= 0  \forall x \in [0,1]\\
+			\int_0^{1} \limit f_n(x) dx &=0
+			\end{align*}$$
+		</p>
+		<p class="center">So $\limit \int\limits_{0}^{1}f_n(x) dx \neq \int_{0}^{1} \limit f_n(x) dx$</p>
+	</div>
+</div>

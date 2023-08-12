@@ -1,0 +1,25 @@
+<div class="example">
+	<div class="question">For $m=1,2,3,\dots,$ put $f_m(x)=\Lim_{n\to \infty} (\cos m!\pi x)^{2n}$. <br>
+	Show that each function $f_m$ and the limit function of $\{f_m\}$ are discontinous.</div>
+	<div class="answer">
+		<p>For $m=1,2,3,...$, $f_m(x)=\Lim_{n\to \infty} (\cos m!\pi x)^{2n}$</p>
+		<p>When $m!x$ is an integer, say $a$,
+			$$\begin{align*}(\cos m!\pi x)^{2n} = (\cos a x)^{2n} = \{(-1)^a\}^{2n} = 
+			(-1)^{2na}=1 \\
+			f_m(x) = \limit (\cos m!\pi x)^{2n} = \limit 1 = 1\end{align*}
+			$$
+		</p>
+		<p>For all other values of $x$,$$\begin{align*}
+			|\cos m! \pi x | < 1 \\
+			|\cos m! \pi x |^2 < 1 \\
+			f_m(x) = \limit (\cos m! \pi x)^{2n} = 0
+		\end{align*}$$</p>
+		<p class="center">Hence $f_m(x) = \begin{cases} 1 &\mbox{if $m!x$ is an integer} \\ 0 &\mbox{if $m!x$ is not integer} \end{cases}$</p>
+		<p class="center">Therefore each $f_m$ is discontinuous.</p>
+		<!-- <div data-math="plot"></div> -->
+		<p>Let the limit function $f(x)=\Lim_{m \to \infty} f_m(x)$</p>
+		<p>If $x$ is irrational, then $m!x$ can never be integer. Hence $f_m(x) =0$</p>
+		<p>If $x$ is rational, say $\frac{p}{q}$, then $m!x= m!\frac{p}{q}$ is an integer if $m \geq q$. Hence $\Lim_{m \to \infty} f_m(x) = 1$</p>
+		<p class="center">Therefore, $f(x) = \Lim_{m \to \infty} f_m(x) = \begin{cases} 0 \mbox{ if $x$ is irrational} \\ 1 \mbox{ if $x$ is rational} \end{cases}$</p>
+	</div>
+</div>
