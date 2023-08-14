@@ -1,76 +1,59 @@
-const defaultWidth = document.body.getBoundingClientRect().width;
-const defaultRatio = 16 / 9;
-const defaultY = [-1,9];
-// const default
-window.plot = function(el) {
-    // Define the function f(x)
-    function f(x) {
-        const n = Infinity; // We are approximating n to infinity
-        const cosTerm = Math.cos(120 * Math.PI * x);
-        console.log(cosTerm);
-        console.log(n)
-        const fValue = Math.pow(cosTerm, 2 * n);
-        return fValue;
+// To specify x-range use data-x-domain(this is also true for y)
+// e.g. data-x-domain="[-2,3]" will plot the function between -2 and 3 of x
+// e.g. data-y-domain="[-2,3]" will plot the function between -2 and 3 of y
+
+//  to plot grid use data-grid="true"
+// to disable zoom use data-disable-zoom = "true"
+// data-annotations = "[{x: -1 }, {    x: 1,    text: 'x = 1'  }"
+
+function generateDefaults(){
+    const screenWidth = document.body.getBoundingClientRect().width;
+    let width = screenWidth;
+    if(screenWidth > 825) width = 825;
+
+    const ratio = 16 / 9;
+    return {
+        width, ratio
     }
-
-    // Generate data for plotting
-    const data = [];
-    const step = 0.01;
-    for (let x = -2; x <= 2; x += step) {
-        console.log(f(x))
-        data.push({ x: x, y: f(x) });
-    }
-
-    // Plot the function using Chart.js
-    const canvas = document.createElement("canvas");
-    el.appendChild(canvas)
-    const ctx = canvas.getContext('2d');
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            datasets: [{
-                label: 'f(x) = (cos(5! * π * x))^(2n) as n tends to infinity',
-                data: data,
-                borderColor: 'blue',
-                fill: false,
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                x: {
-                    type: 'linear',
-                    position: 'bottom'
-                },
-                y: {
-                    type: 'linear',
-                    position: 'left',
-                    max: 2
-                }
-            }
-        }
-    });
-
 }
-// window.plot = function (el) {
-//     const width = el.dataset.width ?? defaultWidth;
-//     const ratio = el.dataset.ratio ?? defaultRatio;
-//     const yAxis = el.dataset.yAxis ?? defaultY;
-//     let data = [{
-//         x: 'sin(t) * (exp(cos(t)) - 2 cos(4t) - sin(t/12)^5)',
-//         y: 'cos(t) * (exp(cos(t)) - 2 cos(4t) - sin(t/12)^5)',
-//         range: [-10 * Math.PI, 10 * Math.PI],
-//         fnType: 'parametric',
-//         graphType: 'polyline'
-//     }];
-//     let plotConfig = {
-//         target: `#${el.id}`,
-//         width: width,
-//         height: width / ratio,
-//         yAxis: yAxis,
-//         data: data
-//     }
-//     console.log(`#${el.id}`)
-//     functionPlot(plotConfig)
-// }
+const defaults = generateDefaults();
+let myUinqueIDCount = 0;
+window.generateUniqueID = function(){
+    const date = Date.now().toString(36);
+    const random = Math.random().toString(36).substr(2, 9);
+    myUinqueIDCount++;
+    return `${date}${random}${random}`;
+}
+function myEval(strFromHtml){
+    let value;
+    eval(`value=${strFromHtml}`)
+    return value;
+}
+window.plot = function (el) {
+    let config = {...defaults};
+    for(const key in el.dataset){
+        if(key === "math") continue
+        const value = el.dataset[key];
+        if(value === undefined) continue;
+        if(key === "data"){
+            const data = eval(value);
+            console.log(data);
+            data.forEach(function(fn){
+                if(!fn.color){
+                    fn.color = "black"
+                }
+            })
+            config.data = data;
+            continue
+        }
+        config[key] = eval(value);
+    }
+    if(!!config.data){
+        const uniqueId = generateUniqueID();
+        el.dataset.id = uniqueId;
+        el.style.width = `${config.width}px`;
+        config.target = `[data-id=${uniqueId}]`;
+        console.log(functionPlot.globals.COLORS)
+        functionPlot(config);
+    }
+}
