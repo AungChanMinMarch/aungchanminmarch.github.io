@@ -6,8 +6,8 @@ strong{
 	box-sizing: border-box;
 }
 body{
-	background:#eee;
-	color: #1133ee;
+	background:#333;
+	color: #eee;
 	font-size: 20px;
 	font-family: serif;
 }
@@ -18,7 +18,10 @@ body{
 	text-align: right;
 }
 
-
+[data-math="plot"]{
+	margin: auto;
+	background: #fff;
+}
 .center-box{
 	display: flex;
 	justify-content: center;
@@ -50,12 +53,12 @@ body{
 
 .example, .theorem{
 	margin: 10px;
-	border: 1px dotted #777;
+	border: 1px dotted #aaa;
 }
 .question, .statement{
 	padding: 10px 20px;
-	color: black;
-	box-shadow: 0px 3px 5px #555;
+	color: #ee7700;
+	box-shadow: 0px 3px 5px #fff;
 }
 .answer, .proof{
 	padding: 10px 40px;
