@@ -1,10 +1,13 @@
-function secrchSection(sectionName) {
-    // body...
+function createSecrchFn(data) {
+
 }
+
 export function buildNav(fileName) {
     const parts = fileName.split("/");
-    const jsonUrl = `${parts[0]}/${parts[1]}/index.json`
-    fetch(jsonUrl)
+    if(parts[0] !== 'analysis'){
+        return alert("wrong build nav");
+    }
+    fetch('analysis/index.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Network response was not ok: ${response.status}`);
@@ -13,10 +16,17 @@ export function buildNav(fileName) {
         })
         .then(data => {
             const nav = document.getElementById("nav");
-            const files = data.files;
-            const titles = data.titles;
+
+            const analysis = document.createElement("a");
+            data.forEach(function(folder){
+
+            })
+            let title = "index.html"
+            if(parts.length === 1){
+                bildToc(data)
+            }
             for(let title in titles){
-                console.log(title)
+                
             }
             // if(parts.length === 3){
             //     const sectionName = parts[2];
