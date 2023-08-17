@@ -4,13 +4,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title>Math Uni</title>
-	<link rel="stylesheet" type="text/css" href="assets/index.css">
+	<link rel="stylesheet" type="text/css" href="assets/pdf.css">
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 	<script defer src="https://unpkg.com/function-plot/dist/function-plot.js"></script>
 	 <!-- <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script> -->
 </head>
-<body>
+<body class=".center-box">
 	<div style="display: none;">
 	\(
 		\def\curl#1{\text{curl }#1}
@@ -28,15 +28,20 @@
 		\def\fQ{{\mathcal{Q}}}
 		\def\fR{{\mathscr{R}}}
 		\def\ep{\varepsilon}
+		\def\d{\displaystyle}
+		\def\grad{\nabla}
 
 		\def\mod#1{\left | {#1} \right |}
 		\def\abs#1{\left | {#1} \right |}
 
+		\def\crossProduct#1{\left\|\begin{array}{ccc} #1 \end{array}\right\|}
+
 		\newcommand{\partialwrt}[2][]{\frac{\partial {#1}}{\partial {#2}}}
+		\newcommand{\dpartialwrt}[2][]{\dfrac{\partial {#1}}{\partial {#2}}}
 	\)
 	</div>
-	<nav id="nav"></nav>
-	<div id="root" data-state="loading"></div>
+	<!-- <nav id="nav"></nav> -->
+	<div id="root" class="pdf" data-state="loading"></div>
 	<script type="text/javascript" src="mathModules/analysis/pointwiseConvergeQ1.js"></script>
 	<script type="text/javascript" src="mathModules/analysis/seriesConvergeQ1.js"></script>
 	<script type="text/javascript" src="mathModules/table.js"></script>
