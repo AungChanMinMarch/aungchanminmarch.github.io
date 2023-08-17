@@ -1,15 +1,13 @@
-strong{
-	color: red;
-	font-weight: 500;
-}
 *{
 	box-sizing: border-box;
 }
 body{
-	background:#333;
-	color: #eee;
-	font-size: 20px;
+	background:#fff;
+	color: #000;
+	font-size: 16px;
 	font-family: serif;
+	margin: 0;
+	padding: 0;
 }
 .center{
 	text-align: center;
@@ -33,12 +31,6 @@ body{
 	border: 2px solid black;
 	border-radius: 5px;
 }
-.definition > h2{
-	font-size: 1.4em;
-}
-.definition p{
-	font-size: 1.2em;
-}
 .table{
 	display: table;
 	margin: auto;
@@ -52,20 +44,30 @@ body{
 }
 
 .example, .theorem{
-	margin: 10px;
-	border: 1px dotted #aaa;
+	padding: 10px;
+	border-bottom: 2px solid;
 }
 .question, .statement{
+	border: 1px dotted #aaa;
 	padding: 10px 20px;
-	color: #ee7700;
-	box-shadow: 0px 3px 5px #fff;
+/*	color: #ee7700;*/
+/*	box-shadow: 0px 3px 5px #fff;*/
 }
 .answer, .proof{
 	padding: 10px 40px;
 }
-
 #root.pdf{
-	background: #fff;
-	color: #000;
-	font-size: 12px;
+	--width: 780px;
+	--scale: 1;
+	width: var(--width);
+	transform: scale(var(--scale));
+	transform-origin: top left;
+}
+.h1{
+	font-size: 1.2em;
+	letter-spacing: 1px;
+	padding: 0px 10px;
+}
+p{
+	margin: 0.5em 0;
 }

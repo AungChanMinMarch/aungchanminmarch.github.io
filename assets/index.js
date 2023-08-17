@@ -40,6 +40,9 @@ window.onload = function() {
     const params = new URLSearchParams(window.location.search);
     const fileName = params.get("file") ?? "/home.html";
     const root = document.getElementById("root");
+    const width = window.innerWidth;
+    root.style.setProperty('--width', '780px')
+    root.style.setProperty('--scale', width/780)
     buildNav(fileName)
     fetchHTML(fileName, root).then(function(res){
         loadMathModules();
