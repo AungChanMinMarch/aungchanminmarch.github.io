@@ -5,7 +5,7 @@ import slugify from "@utils/slugify";
 import { SITE } from "@config";
 
 export async function get() {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("analysis");
   const sortedPosts = getSortedPosts(posts);
   return rss({
     title: SITE.title,

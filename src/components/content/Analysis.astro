@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+
+import LinkButton from "@components/LinkButton.astro";
+import Branches from "@components/Branches.astro";
+import Hr from "@components/Hr.astro";
+import getToc from "@utils/getToc";
+
+const posts = await getCollection("analysis");
+
+const toc = getToc(posts);
+
+---
+<p>
+  Hello
+</p>
+
+<style>
+  p{
+    color: red;
+  }
+</style>
