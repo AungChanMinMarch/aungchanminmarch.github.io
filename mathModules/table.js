@@ -18,6 +18,7 @@ window.table = function (el) {
 	const table = document.createElement("div");
 	table.classList.add("table");
 	el.appendChild(table)
+	const circumfix = (el.dataset.displayMath)? '$$':'$';
 	str.split("\\\\").forEach(function(tr){
 		console.log(tr)
 		const trEl = document.createElement("div");
@@ -28,7 +29,7 @@ window.table = function (el) {
 			const tdEl = document.createElement("div");
 			trEl.appendChild(tdEl);
 			tdEl.classList.add(symbols[cols[index]]);
-			tdEl.innerHTML = (hasOnlySpacesOrEmpty(td)) ? "" : `$${td}$`;
+			tdEl.innerHTML = (hasOnlySpacesOrEmpty(td)) ? "" : circumfix +td + circumfix;
 		})
 	})
 }

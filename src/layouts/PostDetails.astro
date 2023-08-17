@@ -47,6 +47,16 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
     </ul>
   </main>
   <Footer />
+  <script is:inline>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  }
+};
+</script>
+  <script is:inline id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
 </Layout>
 
 <style>
