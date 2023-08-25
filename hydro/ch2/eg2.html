@@ -1,0 +1,38 @@
+<div class="example">
+	<div class="question">
+		<div class="h1">Example 2 (page 81)</div>
+	For an incompressible fluid, $\vec{q} = [-wy, wx, 0]$ ($w=$constant). Discuss the nature of the flow.</div>
+	<div class="answer">
+		$$\vec{q} = -wy \hat{i} + wx \hat{j} (k= \text{constant})$$
+	<p>
+		Since $\nabla \cdot \vec{q} = \dpartialwrt{x} (-wy) + \dpartialwrt{y} wx = 0$, the flow is a possible motion.
+	</p>
+	<p>The equations of the streamlines are given by
+		$$\dfrac{dx}{u} = \dfrac{dy}{v} = \dfrac{dz}{0}$$
+		$$\dfrac{dx}{-wy} = \dfrac{dy}{wx} = \dfrac{dz}{0}$$
+	</p>
+		<p>$$\begin{align*}
+			dz &= 0 \\
+			z &= \text{constant}\\
+			\frac{dx}{-wy} &= \frac{dy}{wx} \\
+			x dx &= -y dy \\
+			\frac{x^2}{2} &= - \frac{y^2}{2} + \text{constant}\\
+			\frac{x^2}{2} + \frac{y^2}{2} &= \text{constant}\\
+			x^2 + y^2 &= \text{constant} \\
+		\end{align*}$$</p>
+	<p>The equations of the streamlines are $$\begin{align*}
+			z &= \text{constant}\\
+			x^2 + y^2 &= \text{constant}
+	\end{align*}$$</p>
+	<p>
+		$$ \curl \vec{q} = \crossProduct{
+			\dpartialwrt{x} & \dpartialwrt{y} & \dpartialwrt{z} \\
+			-wy & wx & 0
+		} = 0 \hat{i} 
+		- 0\hat{j}
+		+ \bracket{\partialwrt{x}wx - \partialwrt{y}(-wy)} \hat{k}
+		= 2w \hat{k} $$
+		Hence the flow is not the potential kind.
+	</p>
+	</div>
+</div>

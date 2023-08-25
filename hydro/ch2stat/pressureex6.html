@@ -1,0 +1,57 @@
+<div class="example">
+	<div class="question">
+		<div class="h1">Ex 6 Page 17</div>
+		<p>A circular tube centre $O$ is filled with three fluids of densities $\rho_1, \rho_2, \rho_3$ (in descending order of magnitude) and placed in a vertical plane. If $2\alpha, 2\beta, 2\gamma$ be the angles subtended at the centres by the fluids and $P$ be the point on the circumference midway between the ends of the lightest fluid, then angle $\theta$ which $OP$ makes with the vertical is given by</p>
+		$$\frac{\rho_2 - \rho_3}{\rho_1 - \rho_3} = \frac{\sin \alpha}{\sin (\alpha + \theta)} \frac{\sin (\beta - \theta)}{\sin \beta}$$
+	</div>
+	<div class="answer">
+		<img src="assets/ex6.jpeg">
+		<p>Let $AB, BC, CA$ contain the liquids of densities $\rho_1, \rho_2, \rho_3$. Then $\angle AOB = 2 \alpha, \angle BOC = 2 \beta, \angle COA = 2 \gamma$.</p>
+		<p>$P$ is the midpoint of arc $AC$. Let $M$ be the lowest point of the circular tube. Then $\angle POD = \theta$</p>
+		$$\begin{align*}
+			\mbox{Since } 2 \alpha + 2 \beta + 2 \gamma &= 2 \pi,\\
+			\alpha + \beta + \gamma &= \pi \\
+			\angle AOM &= \pi - \angle AOD = \pi - (\gamma + \theta) = \pi - \gamma - \theta = \alpha + \beta - \theta \\
+			\angle BOM &= 2 \alpha - \angle AOM = 2 \alpha - (\alpha + \beta - \theta ) = \alpha - \beta + \theta\\
+			\angle COD &= \angle COP - \angle POD = \gamma - \theta = \pi - \beta - \alpha - \theta = \pi - (\alpha+ \beta+\theta)\\
+		\end{align*}$$
+		<p>The pressures must be the same on the two sides of $M$.</p>
+		$$\begin{align*}
+		\rho_1 g A'M + \rho_3 g DA' &= \rho_1 g B'M + \rho_2 g C'B' + \rho_3 g DC' \\
+		\rho_1 (r - OA') + \rho_3 (r + OA') &= \rho_1 (r - OB') + \rho_2 (OC' + OB') + \rho_3 (r - OC') \\
+		\rho_1 r - \rho_1 OA' + \rho_3 r + \rho_3 OA' &= \rho_1 r - \rho_1 OB' + \rho_2 OC' + \rho_2 OB' + \rho_3 r - \rho_3 OC' \\
+		- \rho_1 OA' + \rho_3 OA' &= - \rho_1 OB' + \rho_2 OC' + \rho_2 OB' - \rho_3 OC' \\
+		\rho_1 (OB' - OA')  - \rho_2 (OC' + OB') &= - \rho_3 (OA' + OC')\\[1.5em]
+		
+		\begin{matrix}
+		\rho_1 (r \cos (\alpha - \beta + \theta) - r \cos (\alpha + \beta - \theta))\\
+		-\rho_2 (r \cos (\pi - (\alpha+ \beta+\theta)) + r \cos (\alpha - \beta + \theta))
+		\end{matrix}
+		&= - \rho_3 (r \cos(\alpha+ \beta - \theta) + r \cos(\pi - (\alpha+ \beta+\theta)))\\[1.5em]
+		
+		\begin{matrix}
+		\rho_1 (\cos (\alpha - \beta + \theta) -\cos (\alpha + \beta - \theta)) \\
+		-\rho_2 (\cos (\alpha - \beta + \theta) - \cos(\alpha+ \beta+\theta))\\
+		\end{matrix}
+		&=- \rho_3 (\cos(\alpha+ \beta - \theta) - \cos (\alpha+ \beta+\theta))\\[1.5em]
+
+		&= -\rho_3 \begin{matrix}
+		 (\cos (\alpha + \beta - \theta) -\cos (\alpha - \beta + \theta)) \\
+		+ \cos(\alpha - \beta + \theta) - \cos (\alpha+ \beta+\theta))
+		\end{matrix} \\[1.5em]
+
+		\rho_1 (-2 \sin\alpha \sin (-\beta+\theta)) - \rho_2 (-2 \sin (\alpha+ \theta) \sin (-\beta))
+		&= -\rho_3(-2 \sin \alpha \sin (\beta-\theta) - 2 \sin (\alpha+ \theta) \sin(-\beta))\\
+
+		\rho_1 \sin \alpha \sin (-\beta+\theta) - \rho_2 \sin (\alpha+ \theta) \sin (-\beta)
+		&= -\rho_3(\sin \alpha \sin (\beta-\theta) + \sin (\alpha+ \theta) \sin(-\beta))\\
+
+		-\rho_1 \sin \alpha \sin (\beta-\theta) + \rho_2 \sin (\alpha+ \theta) \sin (\beta)
+		&= -\rho_3 \sin \alpha \sin (\beta-\theta)  +\rho_3 \sin (\alpha+ \theta) \sin(\beta)\\
+
+		(\rho_2 - \rho_3) \sin (\alpha+ \theta) \sin (\beta) &= (\rho_1 - \rho_3)\sin \alpha \sin (\beta-\theta) \\
+		
+		\frac{\rho_2 - \rho_3}{\rho_1 - \rho_3} &= \frac{\sin \alpha}{\sin (\alpha + \theta)} \frac{\sin (\beta - \theta)}{\sin \beta}
+		\end{align*}$$
+	</div>
+</div>

@@ -27,9 +27,9 @@ function loadMathModules(){
 async function buildNav(fileName) {
     const moduleUrl = "/"+ fileName.split("/")[0]+'/index.js';
     try {
-        const module = await import(moduleUrl);
+        // const module = await import(moduleUrl);
         // Now you can use functions, classes, and variables from the loaded module
-        module.buildNav(fileName);
+        // module.buildNav(fileName);
         // const instance = new module.MyClass();
         // console.log(module.someVariable);
     } catch (error) {
@@ -40,9 +40,11 @@ window.onload = function() {
     const params = new URLSearchParams(window.location.search);
     const fileName = params.get("file") ?? "/home.html";
     const root = document.getElementById("root");
-    const width = window.innerWidth;
-    root.style.setProperty('--width', '780px')
-    root.style.setProperty('--scale', width/780)
+    if(!fileName.endsWith('pdf') && !fileName.endsWith('pdf/') && !fileName.endsWith('pdf/index.html') && !fileName.endsWith('pdf.html')){
+        const width = window.innerWidth;
+        root.style.setProperty('--width', '780px')
+        root.style.setProperty('--scale', width/780)
+    }
     buildNav(fileName)
     fetchHTML(fileName, root).then(function(res){
         loadMathModules();

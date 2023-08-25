@@ -7,7 +7,7 @@
 // data-annotations = "[{x: -1 }, {    x: 1,    text: 'x = 1'  }"
 
 function generateDefaults(){
-    const screenWidth = document.body.getBoundingClientRect().width;
+    const screenWidth = window.innerWidth *0.8;
     let width = screenWidth;
     if(screenWidth > 825) width = 825;
 

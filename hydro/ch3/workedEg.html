@@ -1,0 +1,61 @@
+<div class="example">
+	<div class="question">
+	<div class="h1">Worked Example (page 97)</div>
+		$AB$ is a tube of small uniform bore forming a quadrantal arc of a circle of radius $a$ and centre $O$, $OA$ being horizontal and $OB$ vertical with $B$  below $O$. The tube is full of liquid of density $\rho$, the end $B$ being closed. If $B$ is suddenly opened, show that initially $\dfrac{du}{dt} = \dfrac{2g}{\pi}$, where $u=u(t)$ is the velocity, and that the pressure at a point whose angular distance from $A$ is $\theta$ immediately drops to $\rho ga\bracket{\sin \theta - \dfrac{2\theta}{\pi}}$ above atomospheric pressure. Prove further that when the liquid remaining in the tube subtends an angle $\beta$ at the centre, $\dfrac{d^2 \beta}{dt^2} = -\dfrac{2g}{a \beta} \sin^2 \bracket{\frac{\beta}{2}}$
+	</div>
+	<div class="answer">
+		<p>Since $\dfrac{d\vec{q}}{dt} = F - \frac{1}{\rho} \grad p$, the equation of motion of the element $PP'$ along the arc in the direction of $s$ increasing is 
+			$$\frac{du}{dt} = g \cos \theta - \frac{1}{\rho} \partialwrt[p]{s}$$
+			$$\frac{du}{dt} = \partialwrt[u]{t} \partialwrt[t]{t} + \partialwrt[u]{s} \partialwrt[s]{t} = \partialwrt[u]{t} + \partialwrt[u]{s} u = \partialwrt[u]{t} + \partialwrt{s}\bracket{\frac{1}{2} u^2}$$
+			$$\cos \theta = \frac{dy}{ds}$$		
+			$$\partialwrt[u]{t} + \partialwrt{s}\bracket{\frac{1}{2} u^2}= g \frac{dy}{ds} - \frac{1}{\rho} \partialwrt[p]{s} \tag{1}$$
+			Integrating w.r.t. $s$,
+			$$ s\partialwrt[u]{t} + \bracket{\frac{1}{2} u^2}= gy - \frac{p}{\rho} + f(t) \tag{2}$$
+		</p>
+		<p>If $t=0$, then $u=0$. <br>
+			When $t=0$ at $A$, we have $s=0, u=0, y=0, p=\Pi$. Hence Eq(2) gives
+			$$0 = -\frac{\Pi}{\rho} + f(0) \tag{3}$$
+			When $t=0$ at $B$, we have $s=\dfrac{1}{2}\pi a, u=0, y=a, p = \Pi$. Hence Eq(2) gives 
+			$$\frac{1}{2} \pi a \partialwrt[u]{t} = ga - \frac{\Pi}{\rho} +f(0) \tag{4}$$
+			Equation (4) - (3) imples that
+			$$\begin{align*}
+			\frac{1}{2} \pi a \bracket{\partialwrt[u]{t}}_{t=0} &= ga \\
+			\bracket{\partialwrt[u]{t}}_{t=0} &= \frac{2g}{\pi} \\
+			\mbox{Hence } \bracket{\frac{du}{dt}}_{t=0} &= \bracket{\partialwrt[u]{t} + \partialwrt[u]{s} \partialwrt[s]{t}}_{t=0} \\
+			&= \bracket{\partialwrt[u]{t} + u \partialwrt[u]{s}}_{t=0}\\
+			&= \frac{2g}{\pi} (\because u=0 \text{ at } t=0)
+			\end{align*}$$
+
+			When $t=0$ at a point whose angular distance from $A$ is $\theta$, we have $s=a \theta, u=0, y=a \sin \theta, \dpartialwrt[u]{t} = \dfrac{2g}{\pi}$. Hence Eq(2) gives
+			$$a \theta \frac{2g}{\pi} = ga\sin \theta - \frac{p}{\rho} + f(0)$$
+			Using Eq(3), we get $f(0)=\frac{\Pi}{\rho}$. Hence 
+			$$\begin{align*}
+			ga \frac{2\theta}{\pi} &= ga\sin \theta - \frac{p}{\rho} + \frac{\Pi}{\rho}\\
+			\rho ga \frac{2 \theta}{\pi} &= \rho ga\sin \theta - p + \Pi\\
+			p - \Pi &= \rho ga\sin \theta - \rho ga \frac{2\theta}{\pi}\\
+			&= \rho ga \bracket{\sin \theta - \frac{2\theta}{\pi}}\\
+			\end{align*}$$
+			Hence the pressure immediately drops to $\rho ga \bracket{\sin \theta - \dfrac{2\theta}{\pi}}$.
+		</p>
+		<p>
+			When the liquid remaining in the tube subtends an angle $\beta$ at the centre, at the upper surface, we have $s=a(\dfrac{\pi}{2} - \beta), y = a \cos \beta, p =\Pi$. Hence Eq(2) gives
+			$$ \begin{align*}
+			a(\frac{\pi}{2}-\beta)\partialwrt[u]{t} + \bracket{\frac{1}{2} u^2} &= g a \cos \beta - \frac{\Pi}{\rho} + f(t) \\
+			\frac{1}{2} \pi a \partialwrt[u]{t} - a\beta\partialwrt[u]{t} + \bracket{\frac{1}{2} u^2} &= g a \cos \beta - \frac{\Pi}{\rho} + f(t) \tag{5} \\
+			\end{align*}$$
+			At the same time at $B$, we have $s=\frac{1}{2} \pi a, y= a, p= \Pi$. Hence Eq(2) gives
+			$$ \frac{1}{2}\pi a\partialwrt[u]{t} + \bracket{\frac{1}{2} u^2}= ga - \frac{\Pi}{\rho} + f(t) \tag{6}$$
+			Eq(5)-Eq(6) gives
+			$$\begin{align*}
+			- a \beta \partialwrt[u]{t} &= ga \cos \beta - ga \\
+			\beta \partialwrt[u]{t} &= -g \cos \beta + g = g(1-\cos \beta ) \\
+			\partialwrt[u]{t} &= \frac{g}{\beta} (1-\cos \beta ) \\
+			\mbox{Also } u &= \partialwrt{t} \bracket{\frac{\pi}{2} -\beta}a = -a \frac{d\beta}{dt} \\
+			\partialwrt[u]{t} &= -a \frac{d^2 \beta}{dt^2} \\
+			\therefore \frac{g}{\beta} (1-\cos \beta ) &= -a \frac{d^2 \beta}{dt^2} \\
+			\frac{d^2 \beta}{dt^2} &= -\frac{g}{a\beta} (1-\cos \beta ) \\
+			\frac{d^2 \beta}{dt^2} &= -\frac{2g}{a\beta} \sin^2 \bracket{\frac{\beta}{2}} 
+			\end{align*}$$
+		</p>
+	</div>
+</div>

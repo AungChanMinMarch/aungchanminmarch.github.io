@@ -64,10 +64,15 @@ body{
 	transform-origin: top left;
 }
 .h1{
-	font-size: 1.2em;
+	font-size: 1.4em;
 	letter-spacing: 1px;
-	padding: 0px 10px;
+/*	padding: 0px 10px;*/
+	text-decoration: underline;
 }
 p{
 	margin: 0.5em 0;
+}
+img{
+	height: 180px;
+	float: right;
 }
