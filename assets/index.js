@@ -40,7 +40,8 @@ window.onload = function() {
     const params = new URLSearchParams(window.location.search);
     const fileName = params.get("file") ?? "/home.html";
     const root = document.getElementById("root");
-    if(!fileName.endsWith('pdf') && !fileName.endsWith('pdf/') && !fileName.endsWith('pdf/index.html') && !fileName.endsWith('pdf.html')){
+    if(!params.has('pdf')){
+        console.log('no pdf')
         const width = window.innerWidth;
         root.style.setProperty('--width', '780px')
         root.style.setProperty('--scale', width/780)
