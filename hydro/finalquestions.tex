@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{microtype} % Requires for wrap, aligned both
+\usepackage{blindtext} % Requires for Lorem (random text)
+\usepackage{enumerate}
+\usepackage{pifont}
+\usepackage[fleqn]{amsmath} %for \text{}...
+% \usepackage{enumitem}
+
+\usepackage{biblatex} %Imports biblatex package
+\addbibresource{references.bib} %Import the bibliography file
+
+\usepackage{color} %to style text color
+\usepackage{amsthm} %for proof, theorem,..
+\usepackage{amssymb} % for because, therefore...
+
+\usepackage{geometry}% to change padding
+\geometry{left=1.5in, right=1in, top=1.25in, bottom=1in}
+% \usepackage[top=2cm, bottom=2cm, left=4cm, right=2cm]{geometry}
+% \pagestyle{myheadings}
+
+\usepackage{setspace} %to change line height
+\setstretch{1.5}
+
+\usepackage{nicefrac}
+\begin{document}
+
+		\def\curl#1{\text{curl }#1}
+		\def\bracket#1{\left({#1}\right)}
+		\def\sbracket#1{\left[{#1}\right]} %square bracket
+		\def\cbracket#1{\left\{{#1}\right\}} %curly bracket
+
+		\def\Lim_#1{{\lim\limits_{#1}}}
+		\def\limit{{\lim\limits_{n \to \infty}}}
+
+		\def\dsum{{\displaystyle \sum}}
+		\def\Sum_#1^#2{{\sum\limits_{#1}^#2}}
+		\def\summ{\sum\limits_{n=0}^{\infty}}
+		
+		\def\R{{\mathbb R}}
+		\def\fQ{{\mathcal{Q}}}
+		\def\fR{{\mathscr{R}}}
+		\def\ep{\varepsilon}
+		\def\d{\displaystyle}
+		\def\grad{\nabla}
+		\def\q{q}
+
+		\def\mod#1{\left | {#1} \right |}
+		\def\abs#1{\left | {#1} \right |}
+
+		\def\crossProduct#1{\left\|\begin{array}{ccc} #1 \end{array}\right\|}
+
+		\newcommand{\partialwrt}[2][]{\frac{\partial {#1}}{\partial {#2}}}
+		\newcommand{\dpartialwrt}[2][]{\dfrac{\partial {#1}}{\partial {#2}}}
+
+Test whether the motion specified by 
+	$$q = \dfrac{k^2(x \hat{j} - y \hat{i})}{x^2 + y^2} \ (k= \text{constant})$$
+is a possible motion for an incompressible fluid.If so, determine the equations of the streamlines. Also test whether the motion is of the potential kind and if so determine the velocity potential. (13Marks)
+
+Test whether the motion specified by 
+	$q = [-wy, wx, 0]$ ($w=$constant)$
+is a possible motion for an incompressible fluid.If so, determine the equations of the streamlines. Also test whether the motion is of the potential kind and if so determine the velocity potential.
+
+Liquid flows through a pipe whose surface is the surface of revolution of the curve $y=a+\dfrac{kx^2}{a}$ about the $x$ x-axis ($-a \leq x \leq a$). If the liquid enters at the end $x=-a$ of the pipe with velocity $V$, show that the time taken by a liquid particle to traverse the entire length of the pipe from $x=-a$ to $x=+a$ is 
+$$ \cbracket{\dfrac{2a}{V(1+k)^2}} \bracket{1+\dfrac{2}{3}k+\dfrac{1}{5}k^2}$$
+
+A small uniform tube is bent into the form of a circle whose plane is vertical; equal volumes of two fluids whose densities are $\rho, \sigma$ fill half the tube. Show that the radius passing through the common surface makes with the vertical an angle $\theta$ given by $\tan \theta=\dfrac{\rho - \sigma}{\rho + \sigma}$
+
+Three liquids, whose densities are in A.P., fill a semi- circular tube whose bounding diameter is horizontal. Prove that the depth of one of the common surfaces is double that of the other.
+\end{document}

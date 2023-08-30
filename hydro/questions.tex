@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{microtype} % Requires for wrap, aligned both
+\usepackage{blindtext} % Requires for Lorem (random text)
+\usepackage{enumerate}
+\usepackage{pifont}
+\usepackage[fleqn]{amsmath} %for \text{}...
+% \usepackage{enumitem}
+
+\usepackage{biblatex} %Imports biblatex package
+\addbibresource{references.bib} %Import the bibliography file
+
+\usepackage{color} %to style text color
+\usepackage{amsthm} %for proof, theorem,..
+\usepackage{amssymb} % for because, therefore...
+
+\usepackage{geometry}% to change padding
+\geometry{left=1.5in, right=1in, top=1.25in, bottom=1in}
+% \usepackage[top=2cm, bottom=2cm, left=4cm, right=2cm]{geometry}
+% \pagestyle{myheadings}
+
+\usepackage{setspace} %to change line height
+\setstretch{1.5}
+
+\usepackage{nicefrac}
+\begin{document}
+
+		\def\curl#1{\text{curl }#1}
+		\def\bracket#1{\left({#1}\right)}
+		\def\sbracket#1{\left[{#1}\right]} %square bracket
+		\def\cbracket#1{\left\{{#1}\right\}} %curly bracket
+
+		\def\Lim_#1{{\lim\limits_{#1}}}
+		\def\limit{{\lim\limits_{n \to \infty}}}
+
+		\def\dsum{{\displaystyle \sum}}
+		\def\Sum_#1^#2{{\sum\limits_{#1}^#2}}
+		\def\summ{\sum\limits_{n=0}^{\infty}}
+		
+		\def\R{{\mathbb R}}
+		\def\fQ{{\mathcal{Q}}}
+		\def\fR{{\mathscr{R}}}
+		\def\ep{\varepsilon}
+		\def\d{\displaystyle}
+		\def\grad{\nabla}
+		\def\q{q}
+
+		\def\mod#1{\left | {#1} \right |}
+		\def\abs#1{\left | {#1} \right |}
+
+		\def\crossProduct#1{\left\|\begin{array}{ccc} #1 \end{array}\right\|}
+
+		\newcommand{\partialwrt}[2][]{\frac{\partial {#1}}{\partial {#2}}}
+		\newcommand{\dpartialwrt}[2][]{\dfrac{\partial {#1}}{\partial {#2}}}
+At the point in an incompressible fluid having spherical polar coordinates $(r, \theta, \psi)$, the velocity components are $[ 2Mr^{-3}\cos \theta, Mr^{-3} \sin \theta, 0 ]$, where $M$ is a constant. Show that the velocity is of the potential kind. Find the velocity potential and the equations of the streamlines.
+
+Test whether the motion specified by 
+	$$q = \dfrac{k^2(x \hat{j} - y \hat{i})}{x^2 + y^2} \ (k= \text{constant})$$
+is a possible motion for an incompressible fluid.If so, determine the equations of the streamlines. Also test whether the motion is of the potential kind and if so determine the velocity potential.
+EXAMPLE 1 (page 79)
+
+Test whether the motion specified by 
+	$q = [-wy, wx, 0]$ ($w=$constant)$
+is a possible motion for an incompressible fluid.If so, determine the equations of the streamlines. Also test whether the motion is of the potential kind and if so determine the velocity potential.
+Example 2 (page 81)
+
+For a fluid moving in a fine tube of variable section $A$, prove from first principles that the equation of continuity is 
+	$$A \partialwrt[\rho]{t} + \partialwrt{s}(A \rho v) = 0$$
+where $v$ is the speed at a point $P$ of the fluid and $s$ the length of the tube up to $P$. What does this become for steady incompressible flow?
+
+Liquid flows through a pipe whose surface is the surface of revolution of the curve $y=a+\dfrac{kx^2}{a}$ about the $x$ x-axis ($-a \leq x \leq a$). If the liquid enters at the end $x=-a$ of the pipe with velocity $V$, show that the time taken by a liquid particle to traverse the entire length of the pipe from $x=-a$ to $x=+a$ is 
+$$ \cbracket{\dfrac{2a}{V(1+k)^2}} \bracket{1+\dfrac{2}{3}k+\dfrac{1}{5}k^2}$$
+
+Show that the acceleration of a fluid is equal to $$f=\dfrac{d \q}{dt} = \dpartialwrt[\q]{t} + (\q . \grad)\q = \dpartialwrt[\q]{t} + \grad \bracket{\frac{1}{2} q^2} - q \times (\grad \times q)$$
+
+Derive Euler's Equation of Motion: $\frac{d\q}{dt} &= F - \frac{1}{\rho} \grad p$.
+
+Derive the Bernoulli's equation in its most general form. What does this becomes for steady motion and for homogeneous and and incompressible fluid?
+
+
+$AB$ is a tube of small uniform bore forming a quadrantal arc of a circle of radius $a$ and centre $O$, $OA$ being horizontal and $OB$ vertical with $B$  below $O$. The tube is full of liquid of density $\rho$, the end $B$ being closed. If $B$ is suddenly opened, show that initially $\dfrac{du}{dt} = \dfrac{2g}{\pi}$, where $u=u(t)$ is the velocity, and that the pressure at a point whose angular distance from $A$ is $\theta$ immediately drops to $\rho ga\bracket{\sin \theta - \dfrac{2\theta}{\pi}}$ above atomospheric pressure. Prove further that when the liquid remaining in the tube subtends an angle $\beta$ at the centre, $\dfrac{d^2 \beta}{dt^2} = -\dfrac{2g}{a \beta} \sin^2 \bracket{\frac{\beta}{2}}$
+
+
+A small uniform tube is bent into the form of a circle whose plane is vertical; equal volumes of two fluids whose densities are $\rho, \sigma$ fill half the tube. Show that the radius passing through the common surface makes with the vertical an angle $\theta$ given by $\tan \theta=\dfrac{\rho - \sigma}{\rho + \sigma}$
+
+Three liquids, whose densities are in A.P., fill a semi- circular tube whose bounding diameter is horizontal. Prove that the depth of one of the common surfaces is double that of the other.
+
+A closed tube in the form of an equilateral triangle contains equal volumes of three liquids which do not mix and is placed with its lowest side horizontal. Prove that if the densities of the liquids are in A.P., their surfaces of separation will be at points of trisection of the sides of the triangle.
+
+A tube in the form of a parabola held with its vertex downwards and axis vertical, is filled with different liquids of densities $\delta$ and $\delta'$. If the distances of the free surface of the liquids from the focus be $r$ and $r'$ respectively, show that the distance of their common surface from the focus is
+$$\frac{r \delta -r' \delta'}{\delta - \delta'}
+
+A circular tube centre $O$ is filled with three fluids of densities $\rho_1, \rho_2, \rho_3$ (in descending order of magnitude) and placed in a vertical plane. If $2\alpha, 2\beta, 2\gamma$ be the angles subtended at the centres by the fluids and $P$ be the point on the circumference midway between the ends of the lightest fluid, then angle $\theta$ which $OP$ makes with the vertical is given by
+$$\frac{\rho_2 - \rho_3}{\rho_1 - \rho_3} = \frac{\sin \alpha}{\sin (\alpha + \theta)} \frac{\sin (\beta - \theta)}{\sin \beta}$$
+
+\end{document}

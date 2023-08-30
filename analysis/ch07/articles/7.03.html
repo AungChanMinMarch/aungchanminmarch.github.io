@@ -1,6 +1,6 @@
 <div class="example">
 	<div class="question">
-		Let $f_n: \R \to \R$ be defined by $f_n(x) =\frac{x^2}{(1+x^2)^n}, (n=1,2,3,...)$
+		Let $f_n: \R \to \R$ be defined by $f_n(x) =\dfrac{x^2}{(1+x^2)^n}, (n=1,2,3,...)$
 		<ol>
 			<li>Does $\{f_n\}$ converge pointwise?</li>
 			<li>Are the functions $f_n$ and the limit function $f$ continuous?</li>
@@ -11,22 +11,22 @@
 		<ol>
 			<li>
 				<div data-math="table" data-cols="rcl">
-					\text{For } x \neq 0, & \Lim_{n \to \infty} f_n(x) &= \limit \frac{x^2}{(1+x^2)^n} = 0 \\
+					\text{For } x \neq 0, & \Lim_{n \to \infty} f_n(x) &= \limit \dfrac{x^2}{(1+x^2)^n} = 0 \\
 					\text{For } x = 0, & \Lim_{n \to \infty} f_n(0) &= \limit 0 = 0
 				</div>
-				<p class="center">Since $\{f_n(x)\}$ converges every $x\in \R$, $\{f_n\}$ converges pointwise.</p>
+				<p>Since $\{f_n(x)\}$ converges every $x\in \R$, $\{f_n\}$ converges pointwise.</p>
 			</li>
 			<li>
-				<p class="center">Each $f_n$ is continuous since it is rational function.</p>
-				<p class="center">Since the limit function $f(x)=\limit f_n(x)=0$ for all $x \in \R$, it is continuous.</p>
+				<p>Each $f_n$ is continuous since it is rational function.</p>
+				<p>Since the limit function $f(x)=\limit f_n(x)=0$ for all $x \in \R$, it is continuous.</p>
 			</li>
 			<li>
 				<div data-math="table" data-cols="crl">
-					\text{For } x \neq 0,& \summ f_n(x) &=\summ \frac{x^2}{(1+x^2)^n} \\
-					&&=x^2 \summ \frac{1}{(1+x^2)^n}\\
-					&&=x^2 (1+\frac{1}{1+x^2} + \frac{1}{(1+x^2)^2} + \frac{1}{(1+x^2)^3}+...)\\
-					&&=x^2 \frac{1}{1-\frac{1}{1+x^2}}\\
-					&&=x^2 \frac{1+x^2}{1+x^2-1}\\
+					\text{For } x \neq 0,& \summ f_n(x) &=\summ \dfrac{x^2}{(1+x^2)^n} \\
+					&&=x^2 \summ \dfrac{1}{(1+x^2)^n}\\
+					&&=x^2 (1+\dfrac{1}{1+x^2} + \dfrac{1}{(1+x^2)^2} + \dfrac{1}{(1+x^2)^3}+...)\\
+					&&=x^2 \dfrac{1}{1-\dfrac{1}{1+x^2}}\\
+					&&=x^2 \dfrac{1+x^2}{1+x^2-1}\\
 					&&=1+x^2 \\
 					\text{For } x = 0,& f_n(0) &= 0 \\
 					& \summ f_n(0) &= 0
