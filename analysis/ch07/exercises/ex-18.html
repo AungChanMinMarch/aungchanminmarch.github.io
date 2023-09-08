@@ -1,0 +1,35 @@
+<div class="exercise">
+	<div class="question">Let $\{f_n\}$ be a uniformly bounded sequence of functions which are Riemann-integrable on $[a,b]$, and put $$F_n(x) = \int_a^x f_n(t) dt (a \leq x \leq b)$$
+	Prove that there exists a subsequence $\{F_{n_k}\}$ which converges uniformly on $[a,b]$.</div>
+	<div class="answer">
+		<p>Since $\{f_n\}$ is a uniformly bounded sequence of functions, there is a number $M$ such that $\abs{f_n(x)} < M$ for all $n$ and $x\in [a,b]$.
+			$$\begin{align*}
+			\abs{F_n(x)} &= \abs{\int_a^x f_n(t) dt}\\
+			&\leq \int_a^x \abs{f_n(t)} dt \\
+			&< \int_a^x M dt \\
+			&= M (x-a) \\
+			&\leq M(b-a)\\
+			\therefore \abs{F_n(x)} &< M(b-a) \mbox{ for all $n$ and $x$}
+			\end{align*}$$
+		Hence $\{F_n\}$ is uniformly bounded.</p>
+
+		<p>
+			Given $\ep > 0$, let $\delta = \dfrac{\ep}{M}$. <br>
+			Then $x,y \in [a,b], x < y$ and $\abs{y-x} < \delta$ implies that
+			$$\begin{align*}
+			\abs{F_n(y) - F_n(x)} &= \abs{\int_a^y f_n(t) dt - \int_a^x f_n(t) dt}\\
+			&= \abs{\int_a^x f_n(t) dt + \int_x^y f_n(t) dt - \int_a^x f_n(t) dt}\\
+			&= \abs{\int_x^y f_n(t) dt}\\
+			&\leq \int_x^y \abs{f_n(t)} dt\\
+			&< \int_x^y M dt\\
+			&= M(y-x) \\
+			&< M\delta \\
+			&= \ep \\
+			\therefore \abs{F_n(y) - F_n(x)} < \ep
+			\end{align*}$$
+			Hence $\{F_n\}$ is equicontinuous.
+		</p>
+
+		<p>Hence by <a href="" data-math="anchor">7.25</a>, there exists a subsequence $\{F_{n_k}\}$ which converges uniformly on $[a,b]$.</p>
+	</div>
+</div>
