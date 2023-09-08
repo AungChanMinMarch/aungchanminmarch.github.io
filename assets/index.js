@@ -50,8 +50,6 @@ window.onload = function() {
     fetchHTML(fileName, root).then(function(res){
         loadMathModules();
         loadMathJax();
-    }).catch(function(err){
-        root.innerHTML = `<h1>Sorry Something went wrong</h1><p> message ${err}</p>`
     })
 };
 
@@ -88,6 +86,7 @@ async function fetchHTML(fileName, parentDiv) {
             })
             .catch((err)=>{
                 log(err);
+                parentDiv.innerHTML = `<div class='err'><h1>Sorry Something went wrong</h1><p> message ${err}</p><p>Sorry! I am too busy to fix errors and add more data!!!</p></div>`
                 reject(err);
             });
     });
