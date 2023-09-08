@@ -1,1 +1,42 @@
-<div data-input="busy"></div>
+<div class="theorem">
+	<div class="statement">
+		<p>Suppose $K$is compact, and 
+			<ol>
+				<li>$\{f_n\}$ is a sequence of continuous functions on $K$,</li>
+				<li>$\{f_n\}$ converges  pointwise to a continuous function $f$ on $K$.</li>
+				<li>$f_n(x) \geq f_{n+1}(x)$ for all $x \in K, n=1,2,3, \dots$</li>
+			</ol>
+			Then  $f_n \to f$ uniformly on $K$.
+		</p>
+	</div>
+	<div class="proof">
+		<p>Put $g_n = f_n -f$ and $\ep >0$.</p>
+		<p>Let $K_n = \{x \in K \mid g_n(x) \geq \ep \}$</p>
+		<p>Since $f_n$ and $f$ are continuous on $K$, $g_n$ is continuous on $K$.</p>
+		<p>Hence by theorem 4.8, $K_n$ is closed. Hence by theorem 2.35, $K_n$ is compact.</p>
+		$$\begin{align*}
+		\mbox{Since } f_n(x) &\geq f_{n+1}(x) \mbox{for all } x \in K, n=1,2,3, \dots \\
+		f_n(x) -f(x) &\geq f_{n+1}(x) -f(x) \mbox{ for all } x \in K, n=1,2,3, \dots,\\
+		g_n(x) &\geq g_{n+1}(x) \mbox{for all }x \in K, n=1,2,3, \dots,\\
+		\mbox{If } x &\in K_{n+1},\\
+		g_{n+1}(x) &\geq \ep \\
+		g_n(x) \geq g_{n+1}(x) &\geq \ep \\
+		g_n(x) &\geq \ep\\
+		x &\in K_n \\
+		K_{n+1} &\subset K_n
+		\end{align*}$$
+		$$\begin{align*}
+		\limit g_n(x) &= \limit (f_n-f)(x) \\
+		&= \limit (f_n(x) - f(x))\\
+		&= \limit f_n(x)- \limit f(x) \\
+		&= f(x) - f(x) \\
+		&= 0 \\
+		\therefore g_n &\to 0 \mbox{ pointwise. }
+		\end{align*}$$
+		<p>Fix $x \in K$. Since $g_n(x) \to 0$, $x \notin K_n$ if $n \to \infty$. Thus $x \notin \cap K_n$ and $\cap K_n$ is empty.</p>
+		<p><a href="" data-math="anchor">2.36</a>, there exists integer $N$ such that $K_N$ is empty.</p>
+		<p>Hence there exists integer $N$ such that $x \in K$ implies that $g_N(x) < \ep$</p>
+		<p>Hence there exists integer $N$ such that $x \in K$ implies that $\abs{f_N(x) - f(x)} < \ep$</p>
+		<p>$f_n \to f$ uniformly.</p>
+	</div>
+</div>

@@ -1,18 +1,20 @@
 <div class="theorem">
 	<div class="statement">If $\{f_n\}$ is a sequence of continuous functions on $E$, and if $f_n \to f$ uniformly on $E$, then $f$ is continuous on $E$.</div>
 	<div class="proof">
+		<p>Let $\ep > 0$ and $x_0 \in E$.</p>
 		<p>Since each $f_n$ is continuous on $E$, it is continuous at $x_0$ in $E$.</p>
 		<p>Then there exists $\delta > 0$ such that</p>
 		$$x \in E, \abs{x-x_0} < \delta \mbox{ implies that } \abs{f_n(x) - f_n(x_0)} < \frac{\ep}{3}$$
 		<p>Since $f_n \to f$ uniformly on $E$, there exists an integer $N$ such that</p>
 		$$x \in E, n \geq N \mbox{ implies that } \abs{f(x) - f_n(x)} < \frac{\ep}{3}$$
+		<p>Since $x_0 \in E$, then $n \geq N$ implies that $\abs{f(x_0) - f_n(x_0)} < \frac{\ep}{3}$</p>
 		<p>Thus $x \in E, \abs{x-x_0} < \delta$ implies that</p>
 		$$\begin{align*}
 		\abs{f(x) - f(x_0)} &= \abs{f(x) - f_n(x) + f_n(x) - f_n(x_0) + f_n(x_0) - f(x_0)}, \mbox{where $n\geq N$}\\
 		&\leq \abs{f(x) - f_n(x)} + \abs{f_n(x) - f_n(x_0)} + \abs{f_n(x_0) - f(x_0)}\\
 		&< \frac{\ep}{3} + \frac{\ep}{3} + \frac{\ep}{3} = \ep
 		\end{align*}$$
-		<p>Since $x \in E, \abs{x-x_0} < \delta$ implies that $\abs{f(x)-f(x_0)} < \ep$, $f$ is continuous at every $x_0$ in $E$. Since $f$ is continuous on $E$.</p>
+		<p>Since $x \in E$ and $\abs{x-x_0} < \delta$ implies that $\abs{f(x)-f(x_0)} < \ep$, $f$ is continuous at every $x_0$ in $E$. Thus $f$ is continuous on $E$.</p>
 	</div>
 </div>
 

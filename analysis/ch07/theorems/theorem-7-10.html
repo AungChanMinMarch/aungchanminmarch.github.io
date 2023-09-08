@@ -4,16 +4,17 @@
 		<p>Then $\sum f_n$ converges uniformly on $E$ if $\sum M_n$ converges.</p>
 	</div>
 	<div class="proof">
-		<p>Let $\{s_n\}$ be the sequence of the partial sums defined by $\Sum_{i=0}^{n} f_i(x) = s_n(x)$.</p>
+		<p>Let $\{s_n\}$ be the sequence of the partial sums defined by $\Sum_{i=1}^{n} f_i(x) = s_n(x)$.</p>
 		<p>Since $\sum M_n$ converges, by <a href="" data-math="anchor">3.22</a>, for any $\ep > 0 $, there exists integer $N$ such that</p>
-		$$m \geq n \geq N \mbox{ implies that } \abs{\sum_{i=n}^{m} M_i} \leq \ep$$
-		<p>Since $\abs{s_m(x) - s_n(x)} = \abs{\Sum_{i=0}^{m} f_i(x) - \Sum_{i=0}^{n} f_i(x)} = \abs{\Sum_{i=n}^{m} f_i(x)} \leq \Sum_{i=n}^m \abs{f_i(x)}$,</p>
+		$$m \geq n \geq N \mbox{ implies that } \abs{\sum_{i=n}^m M_i} \leq \ep$$
+		$$ \abs{\sum_{i=n+1}^{m} M_i} \leq \abs{\sum_{i=n}^m M_i} \leq \ep$$
+		<p>Since $\abs{s_m(x) - s_n(x)} = \abs{\Sum_{i=1}^{m} f_i(x) - \Sum_{i=1}^{n} f_i(x)} = \abs{\Sum_{i=n+1}^{m} f_i(x)} \leq \Sum_{i=n+1}^m \abs{f_i(x)}$,</p>
 
 		$$\begin{align*}
 		x \in E &\mbox{ implies that }& \abs{f_n(x)} &\leq M_n \\
-		x \in E, m \geq n \geq N &\mbox{ implies that }& \sum_{i=n}^m \abs{f_i(x)} &\leq \sum_{i=n}^m M_i \leq \ep\\
-		x \in E, m \geq n \geq N &\mbox{ implies that }& \sum_{i=n}^m \abs{f_i(x)} &\leq \ep \\
-		\therefore x \in E, m \geq n \geq N &\mbox{ implies that }& \abs{s_m(x) - s_n(x)} &\leq \ep \\
+		x \in E \mbox{ implies that }& \sum_{i=n+1}^m \abs{f_i(x)} &\leq \sum_{i=n+1}^m M_i \leq \sum_{i=n}^m M_i \\
+		x \in E, m \geq n \geq N &\mbox{ implies that }& \sum_{i=n+1}^m \abs{f_i(x)} &\leq \ep \\
+		\therefore x \in E, m, n \geq N &\mbox{ implies that }& \abs{s_m(x) - s_n(x)} &\leq \ep \\
 		\end{align*}$$
 		<p>Hence the sequence $\{s_n\}$ converges uniformly. Since sequence of partial sums converge uniformly, $\sum f_n$ converges uniformly.</p>
 	</div>
