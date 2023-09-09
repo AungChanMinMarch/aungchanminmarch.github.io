@@ -6,21 +6,23 @@
 	<div class="answer center">
 		<p>$$\begin{align*}
 			(1-\sqrt{n}\mod{x})^2 &\geq 0 \\
-			1 - 2n\mod{x} + nx^2 &\geq 0 \\
-			1+ nx^2 &\geq 2n \mod{x}
+			1 - 2\sqrt{n}\mod{x} + nx^2 &\geq 0 \\
+			1+ nx^2 &\geq 2\sqrt{n} \mod{x}
 		\end{align*}$$</p>
 		<p>By Schwarz inequility, 
-		$$\mod{f_n(x)} = \mod{\frac{x}{1+nx^2}} \leq \frac{\mod{x}}{1+nx^2} \leq \frac{\mod{x}}{2\sqrt{n}\mod{x}} = \frac{1}{2\sqrt{n}} \to 0, \text{ for } x\neq 0 \mbox{ as } n \to \infty$$</p>
-		<p><strong>If $x=0$, then $f_n(0) = 0$ for all $n$</strong></p>
+		$$\mod{f_n(x)} = \mod{\frac{x}{1+nx^2}} \leq \frac{\mod{x}}{1+nx^2} \leq \frac{\mod{x}}{2\sqrt{n}\mod{x}} = \frac{1}{2\sqrt{n}} \to 0 \text{ for } x\neq 0 \mbox{ as } n \to \infty$$</p>
+		<p>If $x=0$, then $f_n(0) = 0$ for all $n$</p>
 		<p>Hence $f_n \to 0$ uniformly.</p>
-		<p>Since the limit function if $f(x)=0$ for all $x \in \R$, $f'(x) = 0$ for all $x$</p>
+		<p>Since the limit function is $f(x)=0$ for all $x \in \R$, $f'(x) = 0$ for all $x$</p>
 		<p>$$\begin{align*}
 			f_n'(x) &= \frac{(1+nx^2) - x(2nx)}{(1+nx^2)^2}\\
 			&= \frac{1-nx^2}{1+2nx^2+n^2x^4} \\
 			\limit f_n'(x) &= \limit \frac{1-nx^2}{1+2nx^2+n^2x^4} \\
-			&= \limit \frac{\frac{1}{n^2} - \frac{x^2}{n}}{\frac{1}{n^2} + \frac{2x^2}{n}+ x^4} = 0 \text{ for } x\neq 0
+			&= \limit \frac{\frac{1}{n^2} - \frac{x^2}{n}}{\frac{1}{n^2} + \frac{2x^2}{n}+ x^4}\\
+			&= 0 \text{ for } x\neq 0
 		\end{align*}$$</p>
 		<p>Therefore $f'(x)= \limit f_n'(x)$ if $x\neq 0$.</p>
-		<p>If $x=0$, $f'(0)=1$ and hence $\limit f_n(0) = 1 \neq f'(0)$, which is $0$.</p>
+		<p>If $x=0$, $f_n'(0)=1$ and hence $\limit f_n'(0) = 1$.</p>
+		<p>Since $\limit f_n'(0) = 1$ and $f'(0) = 0$, $\limit f_n'(0) \neq f'(0)$</p>
 	</div>
 </div>
