@@ -1,0 +1,25 @@
+<div class="exercise">
+	<div class="question">
+		If $f$ is continuous on $[0,1]$ and if $\int\limits_{0}^{1} f(x)x^n dx = 0 (n=0,1,2, \dots)$, prove that $f(x)=0$ on $[0,1]$.
+	</div>
+	<div class="answer">
+		<p>Since $f$ is continuous on $[0,1]$, there exists a sequence of polynomials $P_n$ such that $\limit P_n(x) =f(x)$ uniformly on $[0,1]$.</p>
+		<p>Since $[0,1]$ is compact, $f$ and each $P_n$ are bounded. <br> Hence by <a href="/analysis/ch07/exercises/ex-02">exercise no.2</a>, $\limit f(x)P_n(x) =f(x)f(x) =f^2(x)$ uniformly on $[0,1]$ </p>
+		<p>By <a href="" data-math="anchor">7.16</a>, 
+		$$\begin{align*}
+			\int_0^1 \limit f(x)P_n(x) dx = \limit \int_0^1 f(x)P_n(x) dx\\
+			\int_0^1 f^2(x) dx = \limit \int_0^1 f(x)P_n(x) dx\\
+		\end{align*}$$ </p>
+		<p>Let $P_n(x) = a_n x^n + a_{n-1} x^{n-1} + \dots + a_1 x + a_0$.</p>
+		$$\begin{align*}
+		\int_0^1 f(x)P_n(x) dx &= \int_0^1 f(x)(a_n x^n + a_{n-1} x^{n-1} + \dots + a_1 x + a_0) dx \\
+		&= a_n \int_0^1 f(x)x^n dx + a_{n-1} \int_0^1 f(x)x^{n-1}dx + \dots + a_1 \int_0^1 f(x)x dx + a_0\int_0^1 f(x)x^0 dx \\
+		&= 0 \\
+		\therefore \int_0^1 f^2(x) dx &= \limit \int_0^1 f(x)P_n(x) dx \\
+		&= \limit 0 = 0\\
+		f^2(x) &= 0 (x\in [0,1])\\
+		f(x) &= 0 (x\in [0,1])
+		\end{align*}$$
+
+	</div>
+</div>
