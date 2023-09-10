@@ -4,10 +4,9 @@
 		<p>Then $f_n \to f$ uniformly on $E$ if and only if $M_n \to 0$ as $n\to \infty$</p>
 	</div>
 	<div class="proof">
-		Suppose $f_n \to f$ uniformly on $E$.
-		<p>Let $\varepsilon > 0$.</p>
+		<p>Suppose $f_n \to f$ uniformly on $E$.</p>
 		$$\begin{align*}
-		\mbox{Then there is an integer }  &N  \mbox{ such that }\\
+		\mbox{Then for every $\ep > 0$, there is an integer }  &N  \mbox{ such that }\\
 			n \geq N, x \in E &\mbox{ implies } \abs{f_n(x) - f(x)} \leq \ep\\
 			n \geq N &\mbox{ implies } \sup\limits_{x\in E} \abs{f_n(x) - f(x)} \leq \ep\\
 			n \geq N &\mbox{ implies } M_n \leq \ep \\
@@ -21,7 +20,7 @@
 		%\mbox{Then for every } \varepsilon > 0, \mbox{there exists an integer } &N \mbox{ such that }\\
 		n &\geq N &&\mbox{ implies that }& \abs{M_n - 0} &\leq \varepsilon \\
 		n &\geq N& &\mbox{ implies that }& M_n &\leq \varepsilon \\
-		n &\geq N& &\mbox{ implies that }& \sup_{x\in E} \abs{f_n(x) - f(x)} &\leq \varepsilon  (\forall x \in E) \\
+		n &\geq N& &\mbox{ implies that }& \sup_{x\in E} \abs{f_n(x) - f(x)} &\leq \varepsilon \\
 		%n \geq N,& x \in E& &\mbox{ implies that }& \sup_{x\in E} \abs{f_n(x) - f(x)} &\leq \varepsilon \\
 		n \geq N,& x\in E& &\mbox{ implies that }&  \abs{f_n(x) - f(x)} &\leq \varepsilon \\
 		\end{align*}$$
