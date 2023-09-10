@@ -1,0 +1,14 @@
+<div class="theorem">
+	<div class="statement">If $\{f_n\}$ is a pointwise bounded sequence of complex functions on a countable set $E$, then $\{f_n\}$ has a subsequence $\{f_{n_k}\}$ such that $\{f_{n_k}(x)\}$ converges for every $x \in E$.</div>
+	<div class="proof">		<p>Let $\{x_i\}, i=1,2,3, \dots$ be the points of $E$, arranged in a sequence.</p>
+		<p>Since $\{f_n(x_1)\}$ is bounded, there exists a subsequence $\{f\lowsup_{1,k} \}$ such that $\{f\lowsup_{1,k}(x_1)\}$ converges as $k \to \infty$.</p>
+		<p>Since $\{f\lowsup_{1,k}(x_2)\}$ is bounded, there exists a subsequence $\{f\lowsup_{2,k} \}$ such that $\{f\lowsup_{2,k}(x_2)\}$ converges as $k \to \infty$.</p>
+		<p>Since $\{f\lowsup_{2,k}\}$ is a subsequence of $\{f\lowsup_{1,k}\}$, $\{f\lowsup_{2,k}(x_1)\}$ is a subsequence of $\{f\lowsup_{1,k}(x_1)\}$. <br>
+		Hence $\{f\lowsup_{2,k}(x_1)\}$ also converges.</p>
+		<p>In general, $\{f\lowsup_{m,k}\}$ is a sequence of functions such that $\{f\lowsup_{m,k}(x_j)\}$ converges as $k \to \infty$ for $j \leq m$.</p>
+		<p>Since $\{f\lowsup_{m,k}(x_{m+1})\}$ is bounded, we can construct a sequence $\{ f\lowsup_{m+1,k} \}$ such that $\{ f\lowsup_{m+1,k} \}$ is a subsequence of $\{ f\lowsup_{m,k} \}$ and $ \{ f\lowsup_{m+1,k}(x_{m+1}) \}$ converges as $k \to \infty$. <br>
+		Hence $\{f\lowsup_{m+1,k}(x_{j})\}$ converges as $k \to \infty$ for $j \leq m+1$</p>
+
+		<p>Finally, pick the sequence $\{f\lowsup_{k,k}\}$. This is a subsequence of $\{f_n\}$ and $\{f\lowsup_{k,k}(x_i)\}$ converges as $k \to \infty$ for every $x_i \in E$</p>
+	</div>
+</div>
