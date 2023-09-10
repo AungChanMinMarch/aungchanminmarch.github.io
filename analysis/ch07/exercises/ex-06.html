@@ -10,7 +10,7 @@
 			\text{and } c_{2m-1} &= (-1)^{2m-1} \frac{x^2+2m-1}{(2m-1)^2}, m=1,2,3,\cdots \\
 		\end{align*}$$</p>
 
-		<p>Then $c_{2m} > 0$ and $c_{2m-1} < 0$ <strong>ask</strong></p>
+		<p>Then $c_{2m} > 0$ and $c_{2m-1} < 0$.</p>
 		<p>Since $\frac{x^2}{n^2} \geq \frac{x^2}{(n+1)^2}$ and $\frac{1}{n} > \frac{1}{n+1}$, <br>
 			$\mod{c_1} \geq \mod{c_2} \geq \dots$
 		</p>
@@ -18,9 +18,9 @@
 		<p>Thus by <a href="" data-math="anchor">3.43</a>, the series converges for all $x$.</p>
 
 		<p>The partial sums are $$f_m(x) = \sum_{n=1}^{m} (-1)^n \bracket{\frac{x^2}{n^2}+ \frac{1}{n}} = x^2 \sum_{n=1}^{m} \frac{(-1)^n}{n^2} + \sum_{n=1}^{m} \frac{(-1)^n}{n} = x^2 A_m +B_m \to Ax^2+B$$ </p>
-		<p>Let $\varepsilon > 0$. We choose $N$ such that $n \geq N$ implies $\mod{A-A_m} < \varepsilon$ and $\mod{B-B_m} < \varepsilon$ </p>
+		<p>Let $\varepsilon > 0$. We choose $N$ such that $n \geq N$ implies $\mod{A_m-A} < \varepsilon$ and $\mod{B_m-B} < \varepsilon$ </p>
 		<p>Let $[a,b]$ be a bounded interval and let $c=\max(\abs{a}, \abs{b})$</p>
-		<p>Then $n \geq N$ and $x \in [a,b]$ implies $\mod{f(x)-f_n(x)} < c^2 \varepsilon+ \varepsilon$</p>
+		<p>Then $n \geq N$ and $x \in [a,b]$ implies $\mod{f_n(x)-f(x)} < \ep c^2 + \varepsilon$</p>
 		<p>Hence $\{f_n\}$ converges uniformly to $f$ on $[a,b]$</p>
 
 		<p>But it does not coverge absolutely for any $x$ since $\summ \abs{c_n} = \summ \bracket{\frac{x^2}{n^2} + \frac{1}{n}} \geq \summ \frac{1}{n}$, which diverges.</p>
