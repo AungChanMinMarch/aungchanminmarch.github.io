@@ -6,8 +6,8 @@
 		<p>Then there exists $\delta > 0$ such that</p>
 		$$x \in E, \abs{x-x_0} < \delta \mbox{ implies that } \abs{f_n(x) - f_n(x_0)} < \frac{\ep}{3}$$
 		<p>Since $f_n \to f$ uniformly on $E$, there exists an integer $N$ such that</p>
-		$$x \in E, n \geq N \mbox{ implies that } \abs{f(x) - f_n(x)} < \frac{\ep}{3}$$
-		<p>Since $x_0 \in E$, then $n \geq N$ implies that $\abs{f(x_0) - f_n(x_0)} < \frac{\ep}{3}$</p>
+		$$x \in E, n \geq N \mbox{ implies that } \abs{f_n(x) - f(x)} < \frac{\ep}{3}$$
+		<p>Since $x_0 \in E$, then $n \geq N$ implies that $\abs{f_n(x_0) - f(x_0)} < \frac{\ep}{3}$</p>
 		<p>Thus $x \in E, \abs{x-x_0} < \delta$ implies that</p>
 		$$\begin{align*}
 		\abs{f(x) - f(x_0)} &= \abs{f(x) - f_n(x) + f_n(x) - f_n(x_0) + f_n(x_0) - f(x_0)}, \mbox{where $n\geq N$}\\
