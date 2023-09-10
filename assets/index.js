@@ -57,7 +57,7 @@ async function fetchHTML(fileName, parentDiv) {
     if (fileName.endsWith("/")) fileName += "index.html";
     else if(!fileName.endsWith(".html")) fileName += ".html";
     return new Promise((resolve, reject) => {
-        fetch(fileName)
+        fetch(fileName,  { cache: "no-store"})
             .then(function(response) {
                 if (!response.ok) {
                     if (response.status === 404) {
