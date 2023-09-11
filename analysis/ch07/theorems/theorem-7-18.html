@@ -7,13 +7,15 @@
 		\phi(y) &= \phi(y-2) \\
 		&= \begin{cases}
 			y-2 &\mbox{ if $0 \leq y-2 \leq 1$} \\
-			-y+2 &\mbox{ if $-1 \leq y-2 < 1$} \\
+			-y+2 &\mbox{ if $-1 \leq y-2 < 0$} \\
 		\end{cases} \\
 		\phi(x) &= \begin{cases}
 			x-2 &\mbox{ if $2 \leq x \leq 3$} \\
 			-x+2 &\mbox{ if $1 \leq x < 2$} \\
 		\end{cases}
 		\end{align*}$$
+
+		$$\mbox{For all $s$ and $t$, } \abs{\phi(s)-\phi(t)} = \abs{\abs{s} - \abs{t}} \leq \abs{s-t} \tag{1}$$
 
 		<p>Let $f_n: \R \to \R$ be defined by $f_n(x) = \bracket{\frac{3}{4}}^n \phi(4^n x)$, where $n=1,2,3,\dots$.</p>
 
@@ -32,26 +34,20 @@
 		&= \abs{\frac{\sum\limits_{n=0}^{\infty} \bracket{\frac{3}{4}}^n \phi(4^n (x+\delta_m)) - \sum\limits_{n=0}^{\infty} \bracket{\frac{3}{4}}^n \phi(4^n x)}{\delta_m}} \\
 		&= \abs{\sum\limits_{n=0}^{\infty} \bracket{\frac{3}{4}}^n \frac{\phi(4^n x+ 4^n\delta_m) - \phi(4^n x)}{\delta_m}} \\
 		\mbox{Let } \gamma_n &= \frac{\phi(4^n x+ 4^n\delta_m) - \phi(4^n x)}{\delta_m}\\
-		\mbox{Then } \abs{\frac{f(x+\delta_m)- f(x)}{\delta_m}} &= \abs{\sum\limits_{n=0}^{\infty} \bracket{\frac{3}{4}}^n \gamma_n} \tag{1}
+		\mbox{Then } \abs{\frac{f(x+\delta_m)- f(x)}{\delta_m}} &= \abs{\sum\limits_{n=0}^{\infty} \bracket{\frac{3}{4}}^n \gamma_n} \tag{2}
 		\end{align*}$$
 
 		$$\begin{align*}
 		\mbox{If } n &> m,\\
 		n-m &> 0\\
+		\mbox{Since } \delta_m &= \pm \frac{1}{2} 4^{m}\\
 		4^n \delta_m &= \pm \frac{1}{2} 4^{n-m} \mbox{ is an even integer, say $2N$.} \\
 		\mbox{Since } \phi(x+2) &= \phi(x),\\
 		\phi(4^n x+ 4^n \delta_m) &= \phi(4^n x+ 2N) = \phi(4^n x) \\
-		\gamma_n &= 0 \mbox{ if $n>m$}\\
-		\end{align*}$$
-
-		$$\begin{align*}
-		\mbox{If } n &< m,\\
-		\abs{\gamma_n}& = \abs{\frac{\phi(4^n x+ 4^n\delta_m) - \phi(4^n x)}{\delta_m}} \\
-		& = \abs{\frac{\abs{4^n x+ 4^n\delta_m} - \abs{4^n x}}{\delta_m}} \\
-		&\leq \frac{\abs{4^n x+ 4^n\delta_m - 4^n x}}{\abs{\delta_m}} \\
-		&= \frac{\abs{4^n\delta_m}}{\abs{\delta_m}} \\
-		&= 4^n \\
-		\abs{\gamma_n} &\leq 4^n \mbox{ if $n < m$}
+		\gamma_n &= \frac{\phi(4^n x+ 4^n\delta_m) - \phi(4^n x)}{\delta_m}\\
+		&= \frac{\phi(4^n x) - \phi(4^n x)}{\delta_m}\\
+		&=0
+		\therefore \gamma_n &= 0 \mbox{ if $n>m$}\\
 		\end{align*}$$
 
 		$$\begin{align*}	
@@ -59,8 +55,19 @@
 		\abs{\gamma_m} &= \frac{\abs{4^m \delta_m}}{\abs{\delta_m}} = 4^m
 		\end{align*}$$
 
+		$$\begin{align*}
+		\mbox{If } n &< m,\\
+		\abs{\gamma_n}& = \abs{\frac{\phi(4^n x+ 4^n\delta_m) - \phi(4^n x)}{\delta_m}} \\
+		&= \frac{\abs{\phi(4^n x+ 4^n\delta_m) - \phi(4^n x)}}{\abs{\delta_m}} \\
+		&\leq \frac{\abs{4^n x+ 4^n\delta_m - 4^n x}}{\abs{\delta_m}} \mbox{ (by (1))} \\
+		&= \frac{\abs{4^n\delta_m}}{\abs{\delta_m}} \\
+		&= 4^n \\
+		\therefore \abs{\gamma_n} &\leq 4^n \mbox{ if $n < m$}
+		\end{align*}$$
+
+
 		$$\begin{align*}	
-		\mbox{Now (1) gives} \abs{\frac{f(x+\delta_m)- f(x)}{\delta_m}} &= \abs{\sum\limits_{n=0}^{\infty} \bracket{\frac{3}{4}}^n \gamma_n} \\
+		\mbox{Now (2) gives} \abs{\frac{f(x+\delta_m)- f(x)}{\delta_m}} &= \abs{\sum\limits_{n=0}^{\infty} \bracket{\frac{3}{4}}^n \gamma_n} \\
 		&= \abs{
 			\sum\limits_{n=0}^{m-1} \bracket{\frac{3}{4}}^n \gamma_n +
 			\bracket{\frac{3}{4}}^m \gamma_m +
