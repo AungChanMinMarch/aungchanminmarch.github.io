@@ -48,14 +48,14 @@
 			&\text{For } x=0, & f_n(0) &= 0 \\
 			&\text{For } 0 < x < 1, & \Lim_{n\to \infty}f_n(x) &= \Lim_{n\to \infty} n^2 x^n \\
 			&&&= \Lim_{n \to \infty} \frac{n^2}{x^{-n}} \bracket{\text{indeterminate form} \frac{\infty}{\infty}} \\
-			&&&= \Lim_{n \to \infty} \frac{2n}{-x^{-n}} \bracket{\text{indeterminate form} \frac{\infty}{\infty}} \\
-			&&&= \Lim_{n \to \infty} \frac{2}{x^{-n}} \\
-			&&&= \Lim_{n \to \infty} 2x^n \\
+			&&&= \Lim_{n \to \infty} \frac{2n}{-\ln{x} x^{-n}} \bracket{\text{indeterminate form} \frac{\infty}{\infty}} \\
+			&&&= \Lim_{n \to \infty} \frac{2}{(\ln{x})^2 x^{-n}} \\
+			&&&= \Lim_{n \to \infty} \frac{2x^n}{(\ln{x})^2} \\
 			&&&= 0 \ (\because 0 < x < 1)\\
 			&\text{For } x=1, & f_n(1) &= n^2 \\
 			&& \Lim_{n\to \infty} f_n(1) &= \Lim_{n \to \infty} n^2 \to \infty
 			\end{align*}$$
 		</div>
-		<p class="center">Therefore $\{f_n\}$ does not pointwise converge</p>
+		<p class="center">Therefore the sequence $\{f_n(1)\}$ does not converges and hence $\{f_n\}$ does not pointwise converge</p>
 	</div>
 </div>
