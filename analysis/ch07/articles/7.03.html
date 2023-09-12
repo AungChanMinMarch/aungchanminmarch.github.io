@@ -10,15 +10,17 @@
 	<div class="answer">
 		<ol>
 			<li>
-				<div data-math="table" data-cols="rcl">
+				<div data-math="table" data-cols="rrl">
 					\text{For } x \neq 0, & \Lim_{n \to \infty} f_n(x) &= \limit \dfrac{x^2}{(1+x^2)^n} = 0 \\
-					\text{For } x = 0, & \Lim_{n \to \infty} f_n(0) &= \limit 0 = 0
+					\text{For } x = 0, & f_n(0) &= 0 \mbox{ for all }n\\
+					& \Lim_{n \to \infty} f_n(0) &= \limit 0 = 0\\
+					\mbox{Hence for all } x \in \R, & \Lim_{n \to \infty} f_n(x) &= 0
 				</div>
 				<p>Since $\{f_n(x)\}$ converges every $x\in \R$, $\{f_n\}$ converges pointwise.</p>
 			</li>
 			<li>
 				<p>Each $f_n$ is continuous since it is rational function.</p>
-				<p>Since the limit function $f(x)=\limit f_n(x)=0$ for all $x \in \R$, it is continuous.</p>
+				<p>Since the limit function $f(x)=\limit f_n(x)=0$ for all $x \in \R$, it is a constant function. Hence it is continuous.</p>
 			</li>
 			<li>
 				<div data-math="table" data-cols="crl">
@@ -36,6 +38,7 @@
 					1+x^2 & \mbox{ if $x\neq 0$}
 				\end{cases}$
 				</p>
+				<h1 class="err">Draw figure</h1>
 				<p class="center">The sum of the series is not continuous at $x=0$.</p>
 			</li>
 		</ol>
