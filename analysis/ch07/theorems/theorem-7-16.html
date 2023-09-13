@@ -51,3 +51,20 @@
 		</div>
 	</div>
 </div>
+
+<div class="theorem">
+	<h2>Corollary</h2>
+	<div class="statement">
+		If $f_n \in \riemannR(\alpha)$ on $[a,b]$ and if $f(x)=\sum\limits_{n=1}^{\infty} f_n(x)$ ($a\leq x \leq b$), the series converging uniformly on $[a,b]$, then 
+			$$\int_a^b f d\alpha = \sum_{n=1}^{\infty} \int_a^b f_n d\alpha$$
+	</div>
+	<div class="proof">
+		<p>Since $f(x)=\sum\limits_{i=1}^{\infty} f_i(x)$ converges uniformly on $[a,b]$, the sequence of partial sums $\{s_n\}$ defined by $s_n(x) = \sum\limits_{i=1}^n f_i(x)$ converges uniformly to $f$ on $[a,b]$.</p>
+		$$\begin{align*}
+		\int_a^b f d\alpha &= \limit \int_a^b s_n d\alpha \\
+		&= \limit \int_a^b \sum\limits_{i=1}^n f_i d\alpha \\
+		&= \limit \sum\limits_{i=1}^n \int_a^b f_i d\alpha \ (\because f_n \in \riemannR(\alpha)) \\
+		&= \sum\limits_{i=1}^{\infty} \int_a^b f_i d\alpha \\
+		\end{align*}$$
+	</div>
+</div>

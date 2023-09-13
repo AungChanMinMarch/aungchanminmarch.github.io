@@ -1,28 +1,28 @@
 <div class="exercise">
 	<div class="question">Prove that the series 
-		$$\sum_{n=1}^{\infty} (-1)^n \frac{x^2+n}{n^2}$$
+		$$\sum_{n=1}^{\infty} (-1)^n \dfrac{x^2+n}{n^2}$$
 		converges uniformly in every bounded interval, but does not converge absolutely for any value of $x$.
 	</div>
 	<div class="answer center">
 		<p>$$\begin{align*}
-			\text{Let } c_n &= (-1)^n \frac{x^2+n}{n^2} = (-1)^n \bracket{\frac{x^2}{n^2}+ \frac{1}{n}} \\
-			\text{Then } c_{2m} &= (-1)^{2m} \frac{x^2+2m}{(2m)^2} \\
-			\text{and } c_{2m-1} &= (-1)^{2m-1} \frac{x^2+2m-1}{(2m-1)^2}, m=1,2,3,\cdots \\
+			\text{Let } c_n &= (-1)^n \dfrac{x^2+n}{n^2} = (-1)^n \bracket{\dfrac{x^2}{n^2}+ \dfrac{1}{n}} \\
+			\text{Then } c_{2m} &= (-1)^{2m} \dfrac{x^2+2m}{(2m)^2} \\
+			\text{and } c_{2m-1} &= (-1)^{2m-1} \dfrac{x^2+2m-1}{(2m-1)^2}, m=1,2,3,\cdots \\
 		\end{align*}$$</p>
 
 		<p>Then $c_{2m} > 0$ and $c_{2m-1} < 0$.</p>
-		<p>Since $\frac{x^2}{n^2} \geq \frac{x^2}{(n+1)^2}$ and $\frac{1}{n} > \frac{1}{n+1}$, <br>
+		<p>Since $\dfrac{x^2}{n^2} \geq \dfrac{x^2}{(n+1)^2}$ and $\dfrac{1}{n} > \dfrac{1}{n+1}$, <br>
 			$\mod{c_1} \geq \mod{c_2} \geq \dots$
 		</p>
-		<p>$$\limit c_n = \limit (-1)^n \bracket{\frac{x^2}{n^2}+ \frac{1}{n}} = 0$$</p>
+		<p>$$\limit c_n = \limit (-1)^n \bracket{\dfrac{x^2}{n^2}+ \dfrac{1}{n}} = 0$$</p>
 		<p>Thus by <a href="" data-math="anchor">3.43</a>, the series converges for all $x$.</p>
 
-		<p>The partial sums are $$f_m(x) = \sum_{n=1}^{m} (-1)^n \bracket{\frac{x^2}{n^2}+ \frac{1}{n}} = x^2 \sum_{n=1}^{m} \frac{(-1)^n}{n^2} + \sum_{n=1}^{m} \frac{(-1)^n}{n} = x^2 A_m +B_m \to Ax^2+B$$ </p>
+		<p>The partial sums are $$f_m(x) = \sum_{n=1}^{m} (-1)^n \bracket{\dfrac{x^2}{n^2}+ \dfrac{1}{n}} = x^2 \sum_{n=1}^{m} \dfrac{(-1)^n}{n^2} + \sum_{n=1}^{m} \dfrac{(-1)^n}{n} = x^2 A_m +B_m \to Ax^2+B$$ </p>
 		<p>Let $\varepsilon > 0$. There exists an integer $N$ such that $m \geq N$ implies $\mod{A_m-A} < \varepsilon$ and $\mod{B_m-B} < \varepsilon$ </p>
 		<p>Let $[a,b]$ be a bounded interval and let $c=\max(\abs{a}, \abs{b})$</p>
 		<p>Then $n \geq N$ and $x \in [a,b]$ implies $\mod{f_n(x)-f(x)} < \ep c^2 + \varepsilon$</p>
 		<p>Hence $\{f_n\}$ converges uniformly to $f$ on $[a,b]$</p>
 
-		<p>But it does not coverge absolutely for any $x$ since $\summ \abs{c_n} = \summ \bracket{\frac{x^2}{n^2} + \frac{1}{n}} \geq \summ \frac{1}{n}$, which diverges.</p>
+		<p>But it does not coverge absolutely for any $x$ since $\summ \abs{c_n} = \summ \bracket{\dfrac{x^2}{n^2} + \dfrac{1}{n}} \geq \summ \dfrac{1}{n}$, which diverges.</p>
 	</div>
 </div>

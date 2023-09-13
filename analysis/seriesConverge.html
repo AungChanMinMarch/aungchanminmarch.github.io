@@ -12,7 +12,7 @@
 	<div class="question" data-math="analysis/seriesConvergeQ1">\frac{1}{2^n}</div>
 	<div class="answer">
 		<p>The partial sums are $s_N = \sum\limits_{n=1}^{N} \frac{1}{2^n} = \frac{\frac{1}{2}(1-(\frac{1}{2})^N)}{1-\frac{1}{2}} = 1 - (\frac{1}{2})^N$</p>
-		$$\Lim_{N \to \infty} s_N = \Lim_{N \to \infty} (1-(\frac{1}{2})^N) =1$$
+		$$\Lim_{N \to \infty} s_N = \Lim_{N \to \infty} \bracket{1-(\frac{1}{2})^N} =1$$
 		<p class="center">The series converges and its sum is $1$.</p>
 	</div>
 </div>
@@ -21,7 +21,7 @@
 	<div class="question" data-math="analysis/seriesConvergeQ1">2^n</div>
 	<div class="answer">
 		<p>The partial sums are $s_N = \sum\limits_{n=1}^{N} 2^N = \frac{2(2^N-1)}{2-1} = 2(2^N-1)$</p>
-		$$\Lim_{N \to \infty} s_N = \Lim_{N \to \infty} (2(2^N-1)) = 2((\Lim_{N \to \infty}2^N)-1) = \infty$$
+		$$\Lim_{N \to \infty} s_N = \Lim_{N \to \infty} (2(2^N-1)) = 2((\Lim_{N \to \infty}2^N)-1) \to \infty$$
 		<p class="center">The series does not approach specific number. Thus the series diverges</p>
 	</div>
 </div>

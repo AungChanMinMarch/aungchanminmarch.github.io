@@ -46,7 +46,7 @@
 		\phi(4^n x+ 4^n \delta_m) &= \phi(4^n x+ 2N) = \phi(4^n x) \\
 		\gamma_n &= \frac{\phi(4^n x+ 4^n\delta_m) - \phi(4^n x)}{\delta_m}\\
 		&= \frac{\phi(4^n x) - \phi(4^n x)}{\delta_m}\\
-		&=0
+		&=0\\
 		\therefore \gamma_n &= 0 \mbox{ if $n>m$}\\
 		\end{align*}$$
 
@@ -74,9 +74,17 @@
 			\sum\limits_{n=m+1}^{\infty} \bracket{\frac{3}{4}}^n \gamma_n
 		}\\
 		&= \abs{
+			\sum\limits_{n=0}^{m-1} \bracket{\frac{3}{4}}^n \gamma_n +
+			\bracket{\frac{3}{4}}^m \gamma_m
+		} \\
+		&= \abs{
 			\bracket{\frac{3}{4}}^m \gamma_m +
 			\sum\limits_{n=0}^{m-1} \bracket{\frac{3}{4}}^n \gamma_n
 		} \\
+		&\geq 
+			\abs{\bracket{\frac{3}{4}}^m \gamma_m} -
+			\abs{\sum\limits_{n=0}^{m-1} \bracket{\frac{3}{4}}^n \gamma_n}
+		\\
 		&\geq \bracket{\frac{3}{4}}^m \abs{\gamma_m} -
 			\sum\limits_{n=0}^{m-1} \bracket{\frac{3}{4}}^n \abs{\gamma_n}\\
 		&\geq \bracket{\frac{3}{4}}^m 4^m -
