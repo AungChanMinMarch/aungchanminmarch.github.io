@@ -7,10 +7,13 @@
 	</div>
 	<div class="answer">
 		<img src="assets/ex5.jpeg">
-		<p>Let $S$ be the focus and $ZZ'$ be the directrix of the parabola. Let $2x$ be the distance of directrix from the focus. Let $M$ be the lowest point of the parabola. Then $MS=x$</p>
+		<p>Let $S$ be the focus and $ZZ'$ be the directrix of the parabola. </p>
+		<p>Let $2x$ be the distance of directrix from the focus. Then $SS' = 2x$</p>
+		<p>Let $M$ be the lowest point of the parabola. Then $SM=S'M=x$</p>
 		<p>Let $C$ be the common surface. Let $A$ and $B$ be the free surfaces. $SA=r$ and $SB=r'$</p>
-		<p>Let $\angle ASM = \alpha$, $\angle BSM = \beta$ and $\angle CSM = \theta$.</p>
-		$$\begin{align*}
+		<p>Let $AC$ and $BMC$ contain the liquid of density $\delta$ and $\delta'$ respectively.</p>
+		<!-- <p>Let $\angle ASM = \alpha$, $\angle BSM = \beta$ and $\angle CSM = \theta$.</p> -->
+		<!-- $$\begin{align*}
 			2x + r\cos(180 - \alpha) &= r \\
 			2x - r\cos \alpha &= r \\
 			2x - r &= r\cos \alpha \\
@@ -20,19 +23,44 @@
 
 			2x - r' \cos \beta &= r' \\
 			2x - r' &= r'\cos \beta \\
+		\end{align*}$$ -->
+
+		$$\begin{align*}
+			SA &= S'A' \\
+			SA &= SS' + SA' \\
+			r &= 2x + SA' \\
+			SA' &= r - 2x \\
+		\end{align*}$$
+
+		$$\begin{align*}
+			SB &= S'B'\\
+			SB &= SS' + SB'\\
+			r' &= 2x + SB'\\
+			SB' &= r' -2x \\
+		\end{align*}$$
+
+		$$\begin{align*}
+			SC &= S'C' \\
+			SC &= SS' - SC'\\
+			SC &= 2x - SC'\\
+			SC' &= 2x - SC
 		\end{align*}$$
 		<p>The pressures must be the same on the two sides of $M$.</p>
 		$$\begin{align*}
 		\delta'g MB' &= \delta' g MC' + \delta g C'A' \\
 		\delta' MB' &= \delta' MC' + \delta MA' \\
-		\delta' (x-r' \cos \beta) &= \delta' (x-SC \cos \theta) + \delta (SC \cos \theta + r\cos (180 - \alpha)) \\
-		\delta' (x-r' \cos \beta) &= \delta' (x-SC \cos \theta) + \delta (2x -SC - r\cos (\alpha)) \\
-		\delta' (x-(2x-r')) &= \delta' (x-(2x-SC)) + \delta (2x -SC - (2x-r)) \\
-		\delta' (-x+r') &= \delta' (-x + SC) + \delta ( -SC +r) \\
-		-\delta'x+ \delta' r' &= -\delta' x + \delta SC - \delta SC + \delta r \\
-		\delta' r' &= \delta' SC - \delta SC + \delta r \\
-		\delta ' r' - \delta r &= (\delta' - \delta )SC\\
-		SC &= \frac{\delta ' r' - \delta r }{\delta' - \delta} \\
+		\delta' (SM + SB') &= \delta' (SM - SC') + \delta (SC'+SA') \\
+		\delta' (x + r' - 2x) &= \delta' (x - 2x + SC) + \delta (2x-SC+r-2x) \\
+		\delta' (r'- x) &= \delta' (-x + SC) + \delta (r-SC) \\
+		r'\delta'- x\delta' &= -x\delta' + SC \delta' + r\delta -SC\delta \\
+		r'\delta'- r\delta &=SC (\delta'- \delta) \\
+		%\delta' (x-r' \cos \beta) &= \delta' (x-SC \cos \theta) + \delta (2%x -SC - r\cos (\alpha)) \\
+		%\delta' (x-(2x-r')) &= \delta' (x-(2x-SC)) + \delta (2x -SC - (2x-r)) \\
+		%\delta' (-x+r') &= \delta' (-x + SC) + \delta ( -SC +r) \\
+		%-\delta'x+ \delta' r' &= -\delta' x + \delta SC - \delta SC + \delta r \\
+		%\delta' r' &= \delta' SC - \delta SC + \delta r \\
+		%\delta ' r' - \delta r &= (\delta' - \delta )SC\\
+		SC &= \frac{r'\delta' - r\delta }{\delta' - \delta} \\
 		SC &= \frac{r\delta - r\delta'}{\delta - \delta'} \\
 		\end{align*}$$
 	</div>
