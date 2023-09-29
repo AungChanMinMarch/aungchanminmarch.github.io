@@ -1,0 +1,18 @@
+{
+  "name": "myweb",
+  "version": "1.0.0",
+  "description": "Welcome to [acmlearnlounge](/404)! My aim is to share my knowledge and make math awesome and understandable. I believe that anyone can grasp the magic of math. My goal is to break down complex concepts into bite-sized lessons that even your grandma could understand.",
+  "main": "reveal.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
