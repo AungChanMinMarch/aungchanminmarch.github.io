@@ -11,7 +11,7 @@ window.MathJax = {
 
 function loadMathJax() {
   var script = document.createElement('script');
-  script.src = '/mathjax/es5/tex-chtml-full.js';
+  script.src = '/mathjax/es5/tex-svg-full.js';
   script.async = true;
   document.head.appendChild(script);
 };
