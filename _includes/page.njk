@@ -1,65 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Math Uni</title>
-	<link rel="stylesheet" type="text/css" href="assets/pdf.css">
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script> -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    <!-- <link rel="stylesheet" type="text/css" href="assets/pdf.css"> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
     <!-- <script src="https://unpkg.com/konva@9/konva.min.js"></script> -->
-	<!-- <script defer src="https://unpkg.com/function-plot/dist/function-plot.js"></script> -->
-	 <!-- <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script> -->
+    <!-- <script defer src="https://unpkg.com/function-plot/dist/function-plot.js"></script> -->
+    <!-- <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script> -->
 </head>
 <body class=".center-box">
-	<div style="display: none;">
-	\(
-		\def\curl#1{\text{curl }#1}
-		\def\bracket#1{\left({#1}\right)}
-		\def\sbracket#1{\left[{#1}\right]} %square bracket
-		\def\cbracket#1{\left\{{#1}\right\}} %curly bracket
+    <div style="display: none;">
+    {% raw %}\(
+        \def\curl#1{\text{curl }#1}
+        \def\bracket#1{\left({#1}\right)}
+        \def\sbracket#1{\left[{#1}\right]} %square bracket
+        \def\cbracket#1{\left\{{#1}\right\}} %curly bracket
 
-		\def\Lim_#1{{\lim\limits_{#1}}}
-		\def\limit{{\lim\limits_{n \to \infty}}}
+        \def\Lim_#1{{\lim\limits_{#1}}}
+        \def\limit{{\lim\limits_{n \to \infty}}}
 
-		\def\dsum{{\displaystyle \sum}}
-		\def\Sum_#1^#2{{\sum\limits_{#1}^#2}}
-		\def\summ{\sum\limits_{n=0}^{\infty}}
-		
-		\def\R{{\mathbb R}}
-		\def\N{{\mathbb N}}
-		\def\fQ{{\mathcal{Q}}}
-		\def\riemannR{{\mathscr{R}}}
-		\def\ep{\varepsilon}
-		\def\d{\displaystyle}
-		\def\grad{\nabla}
-		\def\q{q}
+        \def\dsum{{\displaystyle \sum}}
+        \def\Sum_#1^#2{{\sum\limits_{#1}^#2}}
+        \def\summ{\sum\limits_{n=0}^{\infty}}
+        
+        \def\R{{\mathbb R}}
+        \def\N{{\mathbb N}}
+        \def\fQ{{\mathcal{Q}}}
+        \def\riemannR{{\mathscr{R}}}
+        \def\ep{\varepsilon}
+        \def\d{\displaystyle}
+        \def\grad{\nabla}
+        \def\q{q}
 
-		\def\mod#1{\left | {#1} \right |}
-		\def\abs#1{\left | {#1} \right |}
+        \def\mod#1{\left | {#1} \right |}
+        \def\abs#1{\left | {#1} \right |}
 
-		\def\crossProduct#1{\left\|\begin{array}{ccc} #1 \end{array}\right\|}
+        \def\crossProduct#1{\left\|\begin{array}{ccc} #1 \end{array}\right\|}
 
-		\newcommand{\partialwrt}[2][]{\frac{\partial {#1}}{\partial {#2}}}
-		\newcommand{\dpartialwrt}[2][]{\dfrac{\partial {#1}}{\partial {#2}}}
+        \newcommand{\partialwrt}[2][]{\frac{\partial {#1}}{\partial {#2}}}
+        \newcommand{\dpartialwrt}[2][]{\dfrac{\partial {#1}}{\partial {#2}}}
 
-\def\upint{\mkern3mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu\int}
-\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
-\def\lowsup_#1{_{{\lower{0.3em}{#1}}}}
-	\)
-	</div>
-	<!-- <nav id="nav"></nav> -->
-	<div id="root" class="pdf" data-state="loading"></div>
-	<script type="text/javascript" src="mathModules/analysis/pointwiseConvergeQ1.js"></script>
-	<script type="text/javascript" src="mathModules/analysis/seriesConvergeQ1.js"></script>
-	<script type="text/javascript" src="mathModules/table.js"></script>
-	<script type="text/javascript" src="mathModules/anchor.js"></script>
-	<script type="text/javascript" src="mathModules/plot.js"></script>
-	<!-- <script type="text/javascript" src="mathModules/konva.js"></script> -->
-	<!-- <script type="text/javascript" src="mathModules/plotly.js"></script> -->
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> -->
+        \def\upint{\mkern3mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu\int}
+        \def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+        \def\lowsup_#1{_{{\lower{0.3em}{#1}}}}
+    \){% endraw %}
+    </div>
+
+  <!-- <nav id="nav"></nav> -->
+  <div id="root" class="pdf" data-state="loading">
+    {{ content | safe }}
+  </div>
+  <!-- <script type="text/javascript" src="mathModules/analysis/pointwiseConvergeQ1.js"></script> -->
+  <!-- <script type="text/javascript" src="mathModules/analysis/seriesConvergeQ1.js"></script> -->
+  <!-- <script type="text/javascript" src="mathModules/table.js"></script> -->
+  <!-- <script type="text/javascript" src="mathModules/anchor.js"></script> -->
+  <!-- <script type="text/javascript" src="mathModules/plot.js"></script> -->
+  <!-- <script type="text/javascript" src="mathModules/konva.js"></script> -->
+  <!-- <script type="text/javascript" src="mathModules/plotly.js"></script> -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-	<script type="text/javascript" src="assets/index.js"></script>
-	<script type="text/javascript" src="assets/anime.js"></script>
+  <!-- <script type="text/javascript" src="assets/index.js"></script> -->
+  <!-- <script type="text/javascript" src="assets/anime.js"></script> -->
+  <script type="text/javascript">
+    const log = console.log;
+window.MathJax = {
+    loader: {load: ['[tex]/newcommand']},
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  },
+  svg: {
+    fontCache: 'global'
+  }
+};
+
+function loadMathJax() {
+  var script = document.createElement('script');
+  script.src = "https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js";
+  script.async = true;
+  document.head.appendChild(script);
+};
+window.onload = function(){
+  loadMathJax();
+}
+  </script>
 </body>
 </html>
