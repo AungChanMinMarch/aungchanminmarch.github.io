@@ -7,12 +7,19 @@
     "test": "test"
   },
   "scripts": {
-    "start": "npx @11ty/eleventy --serve"
+    "start": "npm run eleventy:watch & npm run webpack:watch",
+    "eleventy:watch": "npx @11ty/eleventy --serve --watch",
+    "webpack:watch": "webpack --config webpack.config.js --mode development --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "octokit": "^3.1.1"
   }
 }

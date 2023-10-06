@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ title }}</title>
-    <link rel="stylesheet" type="text/css" href="/assets/pdf.css">
+    <link id="style" rel="stylesheet" type="text/css" href="/assets/style.css">
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
     <!-- <script src="https://unpkg.com/konva@9/konva.min.js"></script> -->
     <!-- <script defer src="https://unpkg.com/function-plot/dist/function-plot.js"></script> -->
     <!-- <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script> -->
 </head>
-<body class=".center-box">
+<body>
     <div style="display: none;">
     {% raw %}\(
         \def\curl#1{\text{curl }#1}
@@ -49,42 +49,42 @@
     \){% endraw %}
     </div>
 
-  <!-- <nav id="nav"></nav> -->
-  <div id="root" class="pdf" data-state="loading">
-    {{ content | safe }}
-  </div>
-  <!-- <script type="text/javascript" src="mathModules/analysis/pointwiseConvergeQ1.js"></script> -->
-  <!-- <script type="text/javascript" src="mathModules/analysis/seriesConvergeQ1.js"></script> -->
-  <!-- <script type="text/javascript" src="mathModules/table.js"></script> -->
-  <!-- <script type="text/javascript" src="mathModules/anchor.js"></script> -->
-  <!-- <script type="text/javascript" src="mathModules/plot.js"></script> -->
-  <!-- <script type="text/javascript" src="mathModules/konva.js"></script> -->
-  <!-- <script type="text/javascript" src="mathModules/plotly.js"></script> -->
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <!-- <script type="text/javascript" src="assets/index.js"></script> -->
-  <!-- <script type="text/javascript" src="assets/anime.js"></script> -->
-  <script type="text/javascript">
-    const log = console.log;
-window.MathJax = {
-    loader: {load: ['[tex]/newcommand']},
-  tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
-  },
-  svg: {
-    fontCache: 'global'
-  }
-};
-
-function loadMathJax() {
-  var script = document.createElement('script');
-  script.src = "https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js";
-  script.async = true;
-  document.head.appendChild(script);
-};
-window.onload = function(){
-  loadMathJax();
-}
-  </script>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        {% for folder in page.url.split('/') %}
+          {% if folder %}
+            <li><a href="{{ '/' + folder }}">{{ folder }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <ul>
+        <li><button><a href="?download=true">Download</a></button></li>
+        <li><button class="show_history_btn">History</button></li>
+      </ul>
+    </nav>
+    <main data-state="loading">
+        {{ content | safe }}
+    </main>
+    <aside id="history">
+      <section class="history_overlay"></section>
+      <section class="history_container">
+        <div class="history_toolbar">
+          <button class="hide_history_btn">Close</button>
+        </div>
+        <div class="history_body"></div>
+      </section>
+    </aside>
+    <!-- <script type="text/javascript" src="mathModules/analysis/pointwiseConvergeQ1.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/analysis/seriesConvergeQ1.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/table.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/anchor.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/plot.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/konva.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/plotly.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+    <script type="text/javascript" src="/assets/index.js"></script>
+    <!-- <script type="text/javascript" src="assets/anime.js"></script> -->
 </body>
 </html>

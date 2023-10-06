@@ -1,0 +1,214 @@
+*{
+	box-sizing: border-box;
+}
+body, html{
+	background:#fff;
+	color: #000;
+	font-size: 16px;
+	font-family: serif;
+	margin: 0;
+	padding: 0;
+}
+nav{
+	background-color: #222;
+	color: #fff;
+	font-size: 1.2em;
+	font-weight: 700;
+	padding: 10px 0px;
+	display: flex;
+	justify-content: space-between;
+}
+nav > ul {
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+}
+
+nav a, nav button{
+	text-decoration: none;
+	color: inherit;
+	background-color: inherit;
+	padding: 5px 5px 5px 5px;
+	margin: 0px 10px;
+	border-left: 1px solid;
+}
+nav a:hover{
+	background: #000;
+	color: blue;
+}
+#history{
+	display: none;
+}
+body.show_history #history{
+	display: block;
+}
+.history_container{
+	--max-history-container-height: 90vh;
+	--history-toolbar-height: 30px;
+	background-color: #555;
+	color: #eee;
+	width: 90vw;
+	min-height: 70vh;
+	max-height: var(--max-history-container-height);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 5px;
+}
+.history_overlay{
+	width: 100vw;
+	height: 100vh;
+	opacity: 90%;
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.history_body a{
+/*	text-decoration: none;*/
+	color: inherit;
+}
+.history_body{
+	height: calc(var(--max-history-container-height) - var(--history-toolbar-height));
+	overflow-y: scroll;
+	margin: 0;
+}
+.history_body > .loading{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 100%;
+	text-align: center;
+	font-size: 3em;
+}
+.history_body > div {
+	width: 90%;
+	margin: 20px auto;
+	border: 1px solid;
+	box-shadow: 0px 0px 10px;
+	border-radius: 5px;
+	padding: 20px;
+}
+.edit_history_title {
+	margin: 0 0 10px 0;
+	font-size: 2em;
+}
+.edit_history_info {
+	margin: 5px 10px;
+	font-size: 0.9em;
+}
+.history_toolbar{
+	width: 100%;
+	height: var(--history-toolbar-height);
+	padding: 15px;
+	margin-bottom: 5px;
+}
+.hide_history_btn{
+	float: right;
+}
+.center{
+	text-align: center;
+}
+.right{
+	text-align: right;
+}
+
+[data-math="plot"]{
+	margin: auto;
+	background: #fff;
+}
+.center-box{
+	display: flex;
+	justify-content: center;
+}
+
+.definition{
+	margin: 15px 20px;
+	padding: 8px 15px;
+	border: 2px solid black;
+	border-radius: 5px;
+}
+.table{
+	display: table;
+	margin: auto;
+}
+.tr{
+	display: table-row;
+}
+.tr>div{
+	display: table-cell;
+	padding: 5px 5px;
+}
+
+.example, .theorem{
+	padding: 10px;
+	border-bottom: 2px solid;
+}
+.question, .statement{
+	border: 1px dotted #aaa;
+	padding: 10px 20px;
+/*	color: #ee7700;*/
+/*	box-shadow: 0px 3px 5px #fff;*/
+}
+.theorem div, .example div, .exercise div{
+	margin: 20px 0;
+}
+.answer, .proof{
+	padding: 10px 40px;
+}
+#root.pdf{
+	--width: 780px;
+	--scale: 1;
+	width: var(--width);
+	transform: scale(var(--scale));
+	transform-origin: top left;
+}
+.h1{
+	font-size: 1.4em;
+	letter-spacing: 1px;
+/*	padding: 0px 10px;*/
+	text-decoration: underline;
+}
+p{
+	margin: 0.5em 0;
+}
+img{
+	height: 180px;
+	float: right;
+}
+.err{
+	background-color: #fff;
+	color: red;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	margin: 10px 20px;
+	padding: 10px 20px;
+}
+
+::-webkit-scrollbar {
+  width: 10px; /* Adjust the width as needed */
+}
+
+/* Styling the scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Change the color of the thumb */
+  border-radius: 5px; /* Add rounded corners to the thumb */
+}
+
+/* Styling the scrollbar track on hover */
+::-webkit-scrollbar-track:hover {
+  background: #ddd; /* Change the background color on hover */
+}
+
+/* Styling the scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Change the thumb color on hover */
+}
+
+/* Styling the scrollbar corner (between the vertical and horizontal scrollbar) */
+::-webkit-scrollbar-corner {
+  background: #ccc; /* Change the corner's color */
+}
