@@ -36,12 +36,6 @@ jobs:
       - name: Build Site
         run: npm run build # Replace with your build command
 
-      - name: Create artifact
-        run: tar -czvf pages.tar.gz dist
-
-      - name: Moving artifact
-        run: mkdir _site & mv pages.tar.gz ./_site/pages.tar.gz
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
       # - name: Deploy to GitHub Pages
