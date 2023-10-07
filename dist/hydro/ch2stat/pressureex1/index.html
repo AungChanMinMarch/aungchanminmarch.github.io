@@ -1,0 +1,53 @@
+<div class="example">
+	<div class="question">
+		<div class="h1">Solved Examples. Ex. 1 Page-14</div>
+		<p>A small uniform tube is bent into the form of a circle whose plane is vertical; equal volumes of two fluids whose densities are $\rho, \sigma$ fill half the tube. Show that the radius passing through the common surface makes with the vertical an angle $\theta$ given by $\tan \theta=\dfrac{\rho - \sigma}{\rho + \sigma}$.</p>
+		<!-- <p>(Agra 1955; Lucknow 1926; Bombay 1940; Rajputana 1949)</p> -->
+
+ 
+It is given that the volume of the liquta in AB-vol. in BO. the circumference
+</div>
+	<div class="answer">
+		<img src="assets/ex1.jpeg">
+		<p>Let $B$ be common surface</p>
+		<p>Let $AB$ and $BMC$ contain the liquid of density $\sigma$ and $\rho$ respectively.</p>
+		<p>Let $M$ be the lowest point of the tube. </p>
+		<p>Let $\angle BOM =\theta$.</p>
+		<div data-math="table" data-cols="rl"> 
+			\mbox{Since the volumes are equal, Volume in } AB &= \mbox{Volume in } BC\\
+			\mbox{arc } AB &= \mbox{arc } BC
+		</div>
+		<p>Since two fluids fill half the tube, $\angle AOB = \dfrac{\pi}{2}$ and $\angle BOC = \dfrac{\pi}{2}$. <br>
+		Hence $\angle MOC = \dfrac{\pi}{2} - \theta$</p>
+		<p>Let $a$ be the radius of the circular tube.</p>
+		<p>Since the pressure must be the same on both sides of $M$,</p>
+		<div data-math="table" data-cols="rl">
+			\sigma g A'B' + \rho g B'M &= \rho g C'M\\
+			\sigma (a \sin \theta + a \cos \theta) + \rho (a - a \cos \theta) &= \rho (a -a \sin \theta) \\
+			\sigma (\sin \theta + \cos \theta) + \rho (1 - \cos \theta) &= \rho (1 - \sin \theta) \\
+			\sigma \sin \theta + \sigma \cos \theta + \rho - \rho \cos \theta &= \rho - \rho \sin \theta \\
+			\sigma \sin \theta + \sigma \cos \theta - \rho \cos \theta &= - \rho \sin \theta \\
+			\sigma \tan \theta + \sigma  - \rho &= - \rho \tan \theta \\
+			(\sigma + \rho) \tan \theta &= \rho - \sigma \\
+			\tan \theta &= \dfrac{\rho - \sigma}{\sigma + \rho}
+		</div>
+		<!-- <div data-math="plot">
+			<div data-math="plot"
+				data-disable-zoom="true"
+				data-data="
+					[{
+					    x: 'cos(t)',
+					    y: 'sin(t)',
+					    fnType: 'parametric',
+					    graphType: 'polyline'
+					},{
+						fn: 'x*x + y*y - 1.5',
+						fnType: 'implicit'
+					}]"
+				>
+				</div> 
+		</div> -->
+		<!-- <div id="container" data-math="konva">
+		</div> -->
+	</div>
+</div>

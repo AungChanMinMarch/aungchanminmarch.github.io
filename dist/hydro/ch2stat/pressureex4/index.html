@@ -1,0 +1,35 @@
+<div class="example">
+	<div class="question">
+		<div class="h1">Ex 4 Page 16</div>
+		<p>A fine tube bent in the form of ellipse is held with its plane vertical and is filled with $n$ liquids whose densities are $\rho_1, \dots, \rho_n$ taken in order round the elliptic tube. If $r_1, \dots, r_n$ be the distances of the points of separation from either focus, prove that	
+		$$r_1(\rho_1-\rho_2) + r_2 (\rho_2 - \rho_3) + \dots + r_n(\rho_n - \rho_1) = 0$$</p>
+	</div>
+	<div class="answer">
+		<img src="assets/ex4.jpeg">
+		<p>Let $S$ be the focus and $ZZ'$ be the directrix of the elliptic tube. </p>
+		<p>Let $P_1, P_2, \dots, P_n$ be the common surfaces. </p>
+		<p>Then we get $SP_1 = r_1$, $SP_2 =r_2, \dots, SP_n = r_n$.</p>
+		<p>Let $z_1, z_2, \dots, z_n$ be the depths of $P_1, P_2, \dots, P_n$ from the directrix respectively.</p>
+		<p>Then $\dfrac{z_1}{r_1} = \dfrac{z_2}{r_2} = \cdots = \dfrac{z_n}{r_n} = \text{constant}$ </p>
+		<p>Let $k$ be that constant.</p>
+		<p>Then $z_1 = kr_1$, $z_2 = kr_2$, ..., $z_n = kr_n$ </p>
+
+		<p>Let $p_1, p_2, \dots p_n$ be pressure at $P_1, P_2, \dots, P_n$ respectively. </p>
+		<p>The pressure at $P_1$ is $p_1 = \rho_1 g (z_1 -z_0)$.</p>
+		<p>The pressure at $P_2$ is $p_2 = \rho_1 g (z_1 -z_0) + \rho_2 g (z_2 -z_1)$.</p>
+		$$\begin{align*}
+			\mbox{Hence } p_2 - p_1 &= \rho_2 g (z_2 -z_1) \\
+			\mbox{Similarly } p_3 - p_2 &= \rho_3 g (z_3 -z_2) \\
+			\cdots & \cdots \\
+			p_n - p_{n-1} &= \rho_n g (z_n -z_{n-1}) \\
+			p_1 - p_{n} &= \rho_1 g (z_1 -z_n) \\
+			\mbox{Adding, } 0 &= g\sbracket{
+				\rho_2 (z_2 -z_1) + \rho_3 (z_3 -z_2) + \dots + \rho_n(z_n -z_{n-1}) + \rho_1 g (z_1 -z_n)
+			} \\
+			0 &= \rho_2 (z_2 -z_1) + \rho_3 (z_3 -z_2) + \dots + \rho_n(z_n -z_{n-1}) + \rho_1 g (z_1 -z_n) \\
+			0 &= \rho_2 (kr_2 -kr_1) + \rho_3 (kr_3 - kr_2) + \dots + \rho_n(kr_n - kr_{n-1}) + \rho_1 g (kr_1 - kr_n) \\
+			0 &= \rho_2 (r_2 -r_1) + \rho_3 (r_3 - r_2) + \dots + \rho_n(r_n - r_{n-1}) + \rho_1 g (r_1 - r_n) \\
+			0 &= r_1(\rho_1-\rho_2) + r_2 (\rho_2 - \rho_3) + \dots + r_n(\rho_n - \rho_1)
+		\end{align*}$$
+	</div>
+</div>

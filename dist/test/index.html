@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Commit History Viewer</title>
+    <!-- CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/diff2html/bundles/css/diff2html.min.css" />
+
+<!-- Javascripts -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/diff2html/bundles/js/diff2html-ui.min.js"></script>
+</head>
+<body>
+    <h1>GitHub Commit History Viewer</h1>
+
+    <!-- Replace these with your GitHub repository and file path -->
+    <input type="text" id="owner" placeholder="GitHub Owner/Organization">
+    <input type="text" id="repo" placeholder="GitHub Repository">
+    <input type="text" id="filePath" placeholder="File Path in Repository">
+
+    <button id='fetchBtn'>Fetch Commit History</button>
+
+    <div id="commitHistory"></div>
+
+    <script src="/assets/test.js"></script>
+</body>
+</html>

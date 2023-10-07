@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Eleventy v2.0.1">
+    <title></title>
+    <link id="style" rel="stylesheet" type="text/css" href="/assets/style.css">
+    
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <!-- <script src="https://unpkg.com/konva@9/konva.min.js"></script> -->
+    <!-- <script defer src="https://unpkg.com/function-plot/dist/function-plot.js"></script> -->
+    <!-- <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script> -->
+</head>
+<body>
+    <div style="display: none;">
+    \(
+        \def\curl#1{\text{curl }#1}
+        \def\bracket#1{\left({#1}\right)}
+        \def\sbracket#1{\left[{#1}\right]} %square bracket
+        \def\cbracket#1{\left\{{#1}\right\}} %curly bracket
+
+        \def\Lim_#1{{\lim\limits_{#1}}}
+        \def\limit{{\lim\limits_{n \to \infty}}}
+
+        \def\dsum{{\displaystyle \sum}}
+        \def\Sum_#1^#2{{\sum\limits_{#1}^#2}}
+        \def\summ{\sum\limits_{n=0}^{\infty}}
+        
+        \def\R{{\mathbb R}}
+        \def\N{{\mathbb N}}
+        \def\fQ{{\mathcal{Q}}}
+        \def\riemannR{{\mathscr{R}}}
+        \def\ep{\varepsilon}
+        \def\d{\displaystyle}
+        \def\grad{\nabla}
+        \def\q{q}
+
+        \def\mod#1{\left | {#1} \right |}
+        \def\abs#1{\left | {#1} \right |}
+
+        \def\crossProduct#1{\left\|\begin{array}{ccc} #1 \end{array}\right\|}
+
+        \newcommand{\partialwrt}[2][]{\frac{\partial {#1}}{\partial {#2}}}
+        \newcommand{\dpartialwrt}[2][]{\dfrac{\partial {#1}}{\partial {#2}}}
+
+        \def\upint{\mkern3mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu\int}
+        \def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+        \def\lowsup_#1{_{{\lower{0.3em}{#1}}}}
+    \)
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        
+          
+        
+          
+            <li><a href="/analysis">analysis</a></li>
+          
+        
+          
+            <li><a href="/ch07">ch07</a></li>
+          
+        
+          
+            <li><a href="/articles">articles</a></li>
+          
+        
+          
+            <li><a href="/7.03.html">7.03.html</a></li>
+          
+        
+      </ul>
+      <ul>
+        <li><button><a href="?download=true">Download</a></button></li>
+        <li><button class="show_history_btn">History</button></li>
+      </ul>
+    </nav>
+    <main data-state="loading">
+        <div class="example">
+	<div class="question">
+		Let $f_n: \R \to \R$ be defined by $f_n(x) =\dfrac{x^2}{(1+x^2)^n}, (n=1,2,3,...)$
+		<ol>
+			<li>Does $\{f_n\}$ converge pointwise?</li>
+			<li>Are the functions $f_n$ and the limit function $f$ continuous?</li>
+			<li>Is the sum of the series $\Sum_{n=0}^{\infty}f_n$ continouos?</li>
+		</ol>
+	</div>
+	<div class="answer">
+		<ol>
+			<li>
+				<div data-math="table" data-cols="rrl">
+					\text{For } x \neq 0, & \Lim_{n \to \infty} f_n(x) &= \limit \dfrac{x^2}{(1+x^2)^n} = 0 \\
+					\text{For } x = 0, & f_n(0) &= 0 \mbox{ for all }n\\
+					& \Lim_{n \to \infty} f_n(0) &= \limit 0 = 0\\
+					\mbox{Hence for all } x \in \R, & \Lim_{n \to \infty} f_n(x) &= 0
+				</div>
+				<p>Since $\{f_n(x)\}$ converges every $x\in \R$, $\{f_n\}$ converges pointwise.</p>
+			</li>
+			<li>
+				<p>Each $f_n$ is continuous since it is rational function.</p>
+				<p>Since the limit function $f(x)=\limit f_n(x)=0$ for all $x \in \R$, it is a constant function. Hence it is continuous.</p>
+			</li>
+			<li>
+				<div data-math="table" data-cols="crl">
+					\text{For } x \neq 0,& \summ f_n(x) &=\summ \dfrac{x^2}{(1+x^2)^n} \\
+					&&=x^2 \summ \dfrac{1}{(1+x^2)^n}\\
+					&&=x^2 (1+\dfrac{1}{1+x^2} + \dfrac{1}{(1+x^2)^2} + \dfrac{1}{(1+x^2)^3}+...)\\
+					&&=x^2 \dfrac{1}{1-\dfrac{1}{1+x^2}}\\
+					&&=x^2 \dfrac{1+x^2}{1+x^2-1}\\
+					&&=1+x^2 \\
+					\text{For } x = 0,& f_n(0) &= 0 \\
+					& \summ f_n(0) &= 0
+				</div>
+				<p class="center">Define $f(x)=\Sum_{n=0}^{\infty} f_n(x)$ by $f(x)= \begin{cases}
+					0 & \mbox{ if $x=0$}\\
+					1+x^2 & \mbox{ if $x\neq 0$}
+				\end{cases}$
+				</p>
+				<h1 class="err">Draw figure</h1>
+				<p class="center">The sum of the series is not continuous at $x=0$.</p>
+			</li>
+		</ol>
+	</div>
+</div>
+    </main>
+    <aside id="history">
+      <section class="history_overlay"></section>
+      <section class="history_container">
+        <div class="history_toolbar">
+          <button class="hide_history_btn">Close</button>
+        </div>
+        <div class="history_body"></div>
+      </section>
+    </aside>
+    <!-- <script type="text/javascript" src="mathModules/analysis/pointwiseConvergeQ1.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/analysis/seriesConvergeQ1.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/table.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/anchor.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/plot.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/konva.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/plotly.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+    <script type="text/javascript" src="/assets/index.js"></script>
+    <!-- <script type="text/javascript" src="assets/anime.js"></script> -->
+</body>
+</html>

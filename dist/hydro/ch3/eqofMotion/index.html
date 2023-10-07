@@ -1,0 +1,41 @@
+<div class="theorem">
+	<div class="statement">
+		<p class="h1">Euler's Equations of Motion (Page 96)</p>
+	</div>
+	<div class="proof">
+		<p>
+		At time $t$, suppose $\Delta S$ is the closed surface of a particle of a moving fluid. <br>
+		Take the particle to be of fixed mass $\rho \Delta v$, where $\rho$ is the density and $\Delta v$ is the volume. <br>
+		$\Delta S$ and $\Delta v$ are made vanishingly small.
+		</p> 
+		<p>
+		Suppose that $\delta v$ is a volume element of $\Delta v$. <br>
+		The mass of the volume element $\delta v$ is $\rho \delta v$. <br>
+		Let $F$ be the body force per unit mass at any volume element $\delta v$. <br>
+		The body force on the element $\delta v$ is $F \rho \delta v$. <br>
+		The total body force is $\int_{\Delta v} F \rho dv$.
+		</p>
+		Suppose that $\delta S$ is a surface element of $\Delta S$. <br> 
+		Let $\hat{n}$ be the unit normal vector to $\Delta S$, drawn outwards from the particle. <br>
+		Let $p$ denote the fulid pressure at $\delta S$. <br>
+		The force due to the fluid outside the particle is $-p \delta S \hat{n}= - \hat{n} p \delta S$ <br>
+		Hence the total surface force is $-\int_{\Delta S} \hat{n} p dS = - \int_{\Delta v}  \grad p dv$ </p>
+		<p>
+		The net force is $\int_{\Delta v} F \rho dv - \int_{\Delta v}  \grad p dv = \int_{\Delta v} (F \rho - \grad p) dv$ <br>
+		Let $\q$ be the velocity of fluid particle. <br>
+		Since the mass of $\delta v$ is $\rho \delta v$, the mass of the entire fluid is $\int_{\Delta v} \rho dv$. <br>
+		Since this mass is constant, the equation of motion is
+		$$ \begin{align*}
+		 \int_{\Delta v} (F \rho - \grad p) dv &= \frac{d\q}{dt} \int_{\Delta v} \rho dv\\
+		(F \rho - \grad p) \Delta v &= \frac{d\q}{dt} \rho \Delta v \\
+		F \rho - \grad p &= \frac{d\q}{dt} \rho \\
+		\frac{d\q}{dt} &= F - \frac{1}{\rho} \grad p \\
+
+		\mbox{Since } f=\dfrac{d \q}{dt} &= \dpartialwrt[\q]{t} + (\q . \grad)\q = \dpartialwrt[\q]{t} + \grad \bracket{\frac{1}{2} q^2} - q \times (\grad \times q), \\
+
+		\dpartialwrt[\q]{t} + (\q . \grad)\q &= F - \frac{1}{\rho} \grad p \\
+		\dpartialwrt[\q]{t} + \grad \bracket{\frac{1}{2} q^2} - q \times (\grad \times q) &= F - \frac{1}{\rho} \grad p
+		\end{align*}$$
+		 </p>
+	</div>
+</div>

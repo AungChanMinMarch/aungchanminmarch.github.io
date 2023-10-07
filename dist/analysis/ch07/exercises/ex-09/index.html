@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Eleventy v2.0.1">
+    <title></title>
+    <link id="style" rel="stylesheet" type="text/css" href="/assets/style.css">
+    
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <!-- <script src="https://unpkg.com/konva@9/konva.min.js"></script> -->
+    <!-- <script defer src="https://unpkg.com/function-plot/dist/function-plot.js"></script> -->
+    <!-- <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script> -->
+</head>
+<body>
+    <div style="display: none;">
+    \(
+        \def\curl#1{\text{curl }#1}
+        \def\bracket#1{\left({#1}\right)}
+        \def\sbracket#1{\left[{#1}\right]} %square bracket
+        \def\cbracket#1{\left\{{#1}\right\}} %curly bracket
+
+        \def\Lim_#1{{\lim\limits_{#1}}}
+        \def\limit{{\lim\limits_{n \to \infty}}}
+
+        \def\dsum{{\displaystyle \sum}}
+        \def\Sum_#1^#2{{\sum\limits_{#1}^#2}}
+        \def\summ{\sum\limits_{n=0}^{\infty}}
+        
+        \def\R{{\mathbb R}}
+        \def\N{{\mathbb N}}
+        \def\fQ{{\mathcal{Q}}}
+        \def\riemannR{{\mathscr{R}}}
+        \def\ep{\varepsilon}
+        \def\d{\displaystyle}
+        \def\grad{\nabla}
+        \def\q{q}
+
+        \def\mod#1{\left | {#1} \right |}
+        \def\abs#1{\left | {#1} \right |}
+
+        \def\crossProduct#1{\left\|\begin{array}{ccc} #1 \end{array}\right\|}
+
+        \newcommand{\partialwrt}[2][]{\frac{\partial {#1}}{\partial {#2}}}
+        \newcommand{\dpartialwrt}[2][]{\dfrac{\partial {#1}}{\partial {#2}}}
+
+        \def\upint{\mkern3mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu\int}
+        \def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+        \def\lowsup_#1{_{{\lower{0.3em}{#1}}}}
+    \)
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        
+          
+        
+          
+            <li><a href="/analysis">analysis</a></li>
+          
+        
+          
+            <li><a href="/ch07">ch07</a></li>
+          
+        
+          
+            <li><a href="/exercises">exercises</a></li>
+          
+        
+          
+            <li><a href="/ex-09">ex-09</a></li>
+          
+        
+          
+        
+      </ul>
+      <ul>
+        <li><button><a href="?download=true">Download</a></button></li>
+        <li><button class="show_history_btn">History</button></li>
+      </ul>
+    </nav>
+    <main data-state="loading">
+        <div class="exercise">
+	<div class="question">
+		<p>Let $\{f_n\}$ be a sequence of continuous functions which converges uniformly to a function $f$ on a set $E$. Prove that
+			$$\limit f_n(x_n) = f(x)$$
+		for every sequence of points $x_n \in E$ such that $x_n \to x$ and $x\in E$. Is the converse of this true?
+		</p>
+	</div>
+	<div class="answer">
+		<p>Let $\ep >0$</p>
+		<p>Since $\{f_n\}$ converges uniformly to $f$, there is an integer $N_1$ such that <br>
+			$n \geq N$ and $y \in E$ implies that $\abs{f_n(y) - f(y)} < \frac{\ep}{2}$</p>
+		<p>Since $\{f_n\}$ be a sequence of continuous functions which converges uniformly to a function $f$ on a set $E$, by <a data-math="anchor">7.12</a> $f$ is continuous on $E$.</p>
+		<p>Hence there is $\delta >0$ such that <br>
+			$$\abs{x-y} < \delta \text{ implies } \abs{f(x)-f(y)} < \frac{\ep}{2} \tag{1}$$</p>
+		<p>
+		Since $x_n \to x$, there is an interger $N_2$ such that <br>
+			$$n \geq N_2 \text{ implies } x-x_n < \delta \\$$
+			Therefore we get $\abs{f(x) -f(x_n) < \frac{\ep}{2}}$ from (1)
+		</p>
+		<p>Hence if $n \geq \max(N_1, N_2)$,
+			$$\begin{align*}
+			\abs{f_n(x_n) -f(x)} &= \abs{f_n(x_n)-f(x_n) +f(x_n) -f(x)}\\
+			&\leq \abs{f_n(x_n) -f(x_n)} + \abs{f(x_n)-f(x)}\\
+			& < \frac{\ep}{2} + \frac{\ep}{2} = \ep\\
+			\therefore \limit f_n(x_n) &= f(x)
+			\end{align*}$$
+		</p>
+
+		<p>The converse is not true. For example, Let $E=[0,1)$ and $f_n(x) =x^n$.</p>
+		<p>Then the sequence converges to the constant function $f(x)=0$ but not uniformly.</p>
+		<p>If $\{x_n\}$ is a sequence of points of $E$ convergeing to a point $x$ then it is contained in a closed subinterval $[0,a]$ where $a < 1$</p>
+		<p>Since $f_n$ converges uniformly on this subinterval, $f_n(x_n)$ <strong>$\{f_n(x_n)\}$</strong> converges to $f(x)$.</p>
+		<p>Hence the property is insufficient for determining that the convergence is uniform.</p>
+	</div>
+</div>
+    </main>
+    <aside id="history">
+      <section class="history_overlay"></section>
+      <section class="history_container">
+        <div class="history_toolbar">
+          <button class="hide_history_btn">Close</button>
+        </div>
+        <div class="history_body"></div>
+      </section>
+    </aside>
+    <!-- <script type="text/javascript" src="mathModules/analysis/pointwiseConvergeQ1.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/analysis/seriesConvergeQ1.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/table.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/anchor.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/plot.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/konva.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/plotly.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+    <script type="text/javascript" src="/assets/index.js"></script>
+    <!-- <script type="text/javascript" src="assets/anime.js"></script> -->
+</body>
+</html>

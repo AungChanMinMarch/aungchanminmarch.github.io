@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Eleventy v2.0.1">
+    <title></title>
+    <link id="style" rel="stylesheet" type="text/css" href="/assets/style.css">
+    
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <!-- <script src="https://unpkg.com/konva@9/konva.min.js"></script> -->
+    <!-- <script defer src="https://unpkg.com/function-plot/dist/function-plot.js"></script> -->
+    <!-- <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script> -->
+</head>
+<body>
+    <div style="display: none;">
+    \(
+        \def\curl#1{\text{curl }#1}
+        \def\bracket#1{\left({#1}\right)}
+        \def\sbracket#1{\left[{#1}\right]} %square bracket
+        \def\cbracket#1{\left\{{#1}\right\}} %curly bracket
+
+        \def\Lim_#1{{\lim\limits_{#1}}}
+        \def\limit{{\lim\limits_{n \to \infty}}}
+
+        \def\dsum{{\displaystyle \sum}}
+        \def\Sum_#1^#2{{\sum\limits_{#1}^#2}}
+        \def\summ{\sum\limits_{n=0}^{\infty}}
+        
+        \def\R{{\mathbb R}}
+        \def\N{{\mathbb N}}
+        \def\fQ{{\mathcal{Q}}}
+        \def\riemannR{{\mathscr{R}}}
+        \def\ep{\varepsilon}
+        \def\d{\displaystyle}
+        \def\grad{\nabla}
+        \def\q{q}
+
+        \def\mod#1{\left | {#1} \right |}
+        \def\abs#1{\left | {#1} \right |}
+
+        \def\crossProduct#1{\left\|\begin{array}{ccc} #1 \end{array}\right\|}
+
+        \newcommand{\partialwrt}[2][]{\frac{\partial {#1}}{\partial {#2}}}
+        \newcommand{\dpartialwrt}[2][]{\dfrac{\partial {#1}}{\partial {#2}}}
+
+        \def\upint{\mkern3mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu\int}
+        \def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+        \def\lowsup_#1{_{{\lower{0.3em}{#1}}}}
+    \)
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        
+          
+        
+          
+            <li><a href="/analysis">analysis</a></li>
+          
+        
+          
+            <li><a href="/ch07">ch07</a></li>
+          
+        
+          
+            <li><a href="/exercises">exercises</a></li>
+          
+        
+          
+            <li><a href="/ex-22.html">ex-22.html</a></li>
+          
+        
+      </ul>
+      <ul>
+        <li><button><a href="?download=true">Download</a></button></li>
+        <li><button class="show_history_btn">History</button></li>
+      </ul>
+    </nav>
+    <main data-state="loading">
+        <div class="exercise">
+	<div class="question">
+		<p>Assume $f \in \riemannR(\alpha)$ on $[a,b]$, and prove that there are polynomials $P_n$ such that 
+			$$\limit \int_a^b \abs{f-P_n}^2 d\alpha = 0 $$</p>
+	</div>
+	<div class="answer">
+		<p>Let $\ep > 0$.</p>
+		<p>We want to show that for every $\ep >0$ there exists some polynomial $P_n(x)$ such that $\bracket{\int\limits_{a}^{b} \abs{f-P_n}^2 d\alpha}^{\frac{1}{2}} = \|f-P_n\|_2 < \ep$</p>
+		<p>Since $f \in \riemannR(\alpha)$, there is a continuous function $g$ on $[a,b]$ such that $\| f-g \|_2 < \frac{\sqrt{\ep}}{2}$</p>
+		<p>Since $g$ is continuous, by <a href="" data-math="anchor">7.26</a>, there is a polynomial $P_n$ such that $\abs{P_n(x) -g(x)} < \frac{\sqrt{\ep}}{2\sqrt{\alpha(b)-\alpha(a)}}$</p>
+
+		$$\begin{align*}
+		\mbox{Then } \|g-P_n\|_2^2 &= \int_a^b \abs{g(x) -P_n(x)}^2 d\alpha\\
+		%&= \abs{g(x) -P_n(x)}^2 (\alpha(b)-\alpha(a)) \\
+		&< \bracket{\frac{\sqrt{\ep}}{2\sqrt{\alpha(b)-\alpha(a)}}}^2 (\alpha(b)-\alpha(a))\\
+		&= \frac{\ep}{4}\\
+		\mbox{Hence } \|g-P_n\|_2^2 &< \frac{\ep}{4}\\
+		\|g-P_n\|_2 &< \frac{\sqrt{\ep}}{2}
+		\end{align*}$$
+
+		$$\begin{align*}
+		\mbox{Since } f,g,P_n &\in \riemannR(\alpha), \\
+		\|f-P_n\|_2 &\leq \|f-g\|_2 + \|g-P_n\|_2 \\
+		&< \frac{\sqrt{\ep}}{2} + \frac{\sqrt{\ep}}{2} = \sqrt{\ep} \\
+		\|f-P_n\|_2 &< \sqrt{\ep} \\
+		\bracket{\int\limits_{a}^{b} \abs{f-P_n}^2 d\alpha}^{\frac{1}{2}} &< \sqrt{\ep} \\
+		\int\limits_{a}^{b} \abs{f-P_n}^2 d\alpha &< \ep \\
+		\abs{\int\limits_{a}^{b} \abs{f-P_n}^2 d\alpha - 0} &< \ep \\
+		\limit \int\limits_{a}^{b} \abs{f-P_n}^2 d\alpha &= 0\\
+		\end{align*}$$
+
+	</div>
+</div>
+    </main>
+    <aside id="history">
+      <section class="history_overlay"></section>
+      <section class="history_container">
+        <div class="history_toolbar">
+          <button class="hide_history_btn">Close</button>
+        </div>
+        <div class="history_body"></div>
+      </section>
+    </aside>
+    <!-- <script type="text/javascript" src="mathModules/analysis/pointwiseConvergeQ1.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/analysis/seriesConvergeQ1.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/table.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/anchor.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/plot.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/konva.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/plotly.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+    <script type="text/javascript" src="/assets/index.js"></script>
+    <!-- <script type="text/javascript" src="assets/anime.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Eleventy v2.0.1">
+    <title></title>
+    <link id="style" rel="stylesheet" type="text/css" href="/assets/style.css">
+    
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <!-- <script src="https://unpkg.com/konva@9/konva.min.js"></script> -->
+    <!-- <script defer src="https://unpkg.com/function-plot/dist/function-plot.js"></script> -->
+    <!-- <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script> -->
+</head>
+<body>
+    <div style="display: none;">
+    \(
+        \def\curl#1{\text{curl }#1}
+        \def\bracket#1{\left({#1}\right)}
+        \def\sbracket#1{\left[{#1}\right]} %square bracket
+        \def\cbracket#1{\left\{{#1}\right\}} %curly bracket
+
+        \def\Lim_#1{{\lim\limits_{#1}}}
+        \def\limit{{\lim\limits_{n \to \infty}}}
+
+        \def\dsum{{\displaystyle \sum}}
+        \def\Sum_#1^#2{{\sum\limits_{#1}^#2}}
+        \def\summ{\sum\limits_{n=0}^{\infty}}
+        
+        \def\R{{\mathbb R}}
+        \def\N{{\mathbb N}}
+        \def\fQ{{\mathcal{Q}}}
+        \def\riemannR{{\mathscr{R}}}
+        \def\ep{\varepsilon}
+        \def\d{\displaystyle}
+        \def\grad{\nabla}
+        \def\q{q}
+
+        \def\mod#1{\left | {#1} \right |}
+        \def\abs#1{\left | {#1} \right |}
+
+        \def\crossProduct#1{\left\|\begin{array}{ccc} #1 \end{array}\right\|}
+
+        \newcommand{\partialwrt}[2][]{\frac{\partial {#1}}{\partial {#2}}}
+        \newcommand{\dpartialwrt}[2][]{\dfrac{\partial {#1}}{\partial {#2}}}
+
+        \def\upint{\mkern3mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu\int}
+        \def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+        \def\lowsup_#1{_{{\lower{0.3em}{#1}}}}
+    \)
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        
+          
+        
+          
+            <li><a href="/analysis">analysis</a></li>
+          
+        
+          
+            <li><a href="/ch07">ch07</a></li>
+          
+        
+          
+            <li><a href="/articles">articles</a></li>
+          
+        
+          
+            <li><a href="/7.01.html">7.01.html</a></li>
+          
+        
+      </ul>
+      <ul>
+        <li><button><a href="?download=true">Download</a></button></li>
+        <li><button class="show_history_btn">History</button></li>
+      </ul>
+    </nav>
+    <main data-state="loading">
+        <div class="definition">
+	<h2>Pointwise Convergenece</h2>
+	<p>Suppose $\{f_n\}, n=1,2,3...$ is a sequence of functions defined on a set $E$ and suppose that the sequence of numbers $\{f_n(x)\}$ converges for every $x\in E$. We can then define a function $f$ by $$f(x)=\lim_{n \to \infty}f_n(x) \ \ \ (x \in E)$$</p>
+	<p>Then $\{f_n\}$ converges to $f$ <em>pointwise</em> on $E$ and $f$ is called the <em>limit</em> or <em>limit function</em> of $\{f_n\}$</p>
+</div>
+
+<div class="examples">
+	<div class="example">
+		<div class="question" data-math="analysis/pointwiseConvergeQ1">$f_n(x)=nx$ for all $x \ \in \R$</div>
+		<div class="answer">$$\begin{align*} \text{For all } x \ &\in \R \\
+		\lim_{n \to \infty}f_n(x) &= \lim_{n \to \infty} nx \to \infty \end{align*}$$
+	<p class="center">Hence $\{f_n\}$ is not pointwise convergent.</p>
+	</div>
+	</div>
+
+	<div class="example">
+		<div class="question" data-math="analysis/pointwiseConvergeQ1">$f_n(x)=\dfrac{nx+x^2}{n^2}$ for all $x \ \in \R$</div>
+		<div class="answer">
+			$$\begin{align*} 
+			\text{For all } x \ &\in \R \\
+			\lim_{n \to \infty}f_n(x) &= \lim_{n \to \infty} \frac{nx+x^2}{n^2} \\
+			&= \lim_{n \to \infty} \frac{x}{n}+\frac{x^2}{n^2} \\
+			&= 0 + 0 \\\
+			&= 0
+			\end{align*}$$
+			<p class="center">$\{f_n\}$ converges pointwise.</p>
+		</div>
+	</div>
+
+	<div class="example">
+		<div class="question" data-math="analysis/pointwiseConvergeQ1">$f_n(x)=\dfrac{\sin(nx+3)}{\sqrt{n+1}}$ for all $x \in \R$</div>
+		<div class="answer">
+			<p>For every $x \in \R$, we have</p>
+			<div data-math="table" data-cols="rlcll">
+				-1 & \leq & \sin(nx+3) & \leq & 1 \\
+				\frac{-1}{\sqrt{n+1}} & \leq & \frac{\sin(nx+3)}{\sqrt{n+1}} & \leq & \frac{1}{\sqrt{n+1}} \\
+				\Lim_{n \to \infty}\frac{-1}{\sqrt{n+1}} & \leq &\Lim_{n \to \infty} \frac{\sin(nx+3)}{\sqrt{n+1}} & \leq & \Lim_{n \to \infty}\frac{1}{\sqrt{n+1}} \\
+				0 & \leq & \Lim_{n \to \infty} f_n(x) & \leq & 0
+			</div>
+			<p class="center">Since $\Lim_{n\to \infty}f_n(x) = 0$ for all $x$ in $\R$, $\{f_n\}$ converges pointwise.</p>
+		</div>
+	</div>
+
+	<div class="example">
+		<div class="question" data-math="analysis/pointwiseConvergeQ1">$f(x)=n^2x^n$ for $0 \leq x \leq 1$s</div>
+		<div class="answer">
+			$$\begin{align*}
+			&\text{For } x=0, & f_n(0) &= 0 \\
+			&\text{For } 0 < x < 1, & \Lim_{n\to \infty}f_n(x) &= \Lim_{n\to \infty} n^2 x^n \\
+			&&&= \Lim_{n \to \infty} \frac{n^2}{x^{-n}} \bracket{\text{indeterminate form} \frac{\infty}{\infty}} \\
+			&&&= \Lim_{n \to \infty} \frac{2n}{-\ln{x} x^{-n}} \bracket{\text{indeterminate form} \frac{\infty}{\infty}} \\
+			&&&= \Lim_{n \to \infty} \frac{2}{(\ln{x})^2 x^{-n}} \\
+			&&&= \Lim_{n \to \infty} \frac{2x^n}{(\ln{x})^2} \\
+			&&&= 0 \ (\because 0 < x < 1)\\
+			&\text{For } x=1, & f_n(1) &= n^2 \\
+			&& \Lim_{n\to \infty} f_n(1) &= \Lim_{n \to \infty} n^2 \to \infty
+			\end{align*}$$
+		</div>
+		<p class="center">Therefore the sequence $\{f_n(1)\}$ does not converges and hence $\{f_n\}$ does not pointwise converge</p>
+	</div>
+</div>
+    </main>
+    <aside id="history">
+      <section class="history_overlay"></section>
+      <section class="history_container">
+        <div class="history_toolbar">
+          <button class="hide_history_btn">Close</button>
+        </div>
+        <div class="history_body"></div>
+      </section>
+    </aside>
+    <!-- <script type="text/javascript" src="mathModules/analysis/pointwiseConvergeQ1.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/analysis/seriesConvergeQ1.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/table.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/anchor.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/plot.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/konva.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/plotly.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+    <script type="text/javascript" src="/assets/index.js"></script>
+    <!-- <script type="text/javascript" src="assets/anime.js"></script> -->
+</body>
+</html>

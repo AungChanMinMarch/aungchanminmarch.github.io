@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Eleventy v2.0.1">
+    <title></title>
+    <link id="style" rel="stylesheet" type="text/css" href="/assets/style.css">
+    
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <!-- <script src="https://unpkg.com/konva@9/konva.min.js"></script> -->
+    <!-- <script defer src="https://unpkg.com/function-plot/dist/function-plot.js"></script> -->
+    <!-- <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script> -->
+</head>
+<body>
+    <div style="display: none;">
+    \(
+        \def\curl#1{\text{curl }#1}
+        \def\bracket#1{\left({#1}\right)}
+        \def\sbracket#1{\left[{#1}\right]} %square bracket
+        \def\cbracket#1{\left\{{#1}\right\}} %curly bracket
+
+        \def\Lim_#1{{\lim\limits_{#1}}}
+        \def\limit{{\lim\limits_{n \to \infty}}}
+
+        \def\dsum{{\displaystyle \sum}}
+        \def\Sum_#1^#2{{\sum\limits_{#1}^#2}}
+        \def\summ{\sum\limits_{n=0}^{\infty}}
+        
+        \def\R{{\mathbb R}}
+        \def\N{{\mathbb N}}
+        \def\fQ{{\mathcal{Q}}}
+        \def\riemannR{{\mathscr{R}}}
+        \def\ep{\varepsilon}
+        \def\d{\displaystyle}
+        \def\grad{\nabla}
+        \def\q{q}
+
+        \def\mod#1{\left | {#1} \right |}
+        \def\abs#1{\left | {#1} \right |}
+
+        \def\crossProduct#1{\left\|\begin{array}{ccc} #1 \end{array}\right\|}
+
+        \newcommand{\partialwrt}[2][]{\frac{\partial {#1}}{\partial {#2}}}
+        \newcommand{\dpartialwrt}[2][]{\dfrac{\partial {#1}}{\partial {#2}}}
+
+        \def\upint{\mkern3mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu\int}
+        \def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+        \def\lowsup_#1{_{{\lower{0.3em}{#1}}}}
+    \)
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        
+          
+        
+          
+            <li><a href="/analysis">analysis</a></li>
+          
+        
+          
+            <li><a href="/ch07">ch07</a></li>
+          
+        
+          
+            <li><a href="/exercises">exercises</a></li>
+          
+        
+          
+            <li><a href="/ex-18.html">ex-18.html</a></li>
+          
+        
+      </ul>
+      <ul>
+        <li><button><a href="?download=true">Download</a></button></li>
+        <li><button class="show_history_btn">History</button></li>
+      </ul>
+    </nav>
+    <main data-state="loading">
+        <div class="exercise">
+	<div class="question">Let $\{f_n\}$ be a uniformly bounded sequence of functions which are Riemann-integrable on $[a,b]$, and put $$F_n(x) = \int_a^x f_n(t) dt (a \leq x \leq b)$$
+	Prove that there exists a subsequence $\{F_{n_k}\}$ which converges uniformly on $[a,b]$.</div>
+	<div class="answer">
+		<p>Since $\{f_n\}$ is a uniformly bounded sequence of functions, there is a number $M$ such that $\abs{f_n(x)} < M$ for all $n$ and $x\in [a,b]$.
+			$$\begin{align*}
+			\abs{F_n(x)} &= \abs{\int_a^x f_n(t) dt}\\
+			&\leq \int_a^x \abs{f_n(t)} dt \\
+			&< \int_a^x M dt \\
+			&= M (x-a) \\
+			&\leq M(b-a)\\
+			\therefore \abs{F_n(x)} &< M(b-a) \mbox{ for all $n$ and $x$}
+			\end{align*}$$
+		Hence $\{F_n\}$ is uniformly bounded.</p>
+
+		<p>
+			Given $\ep > 0$, let $\delta = \dfrac{\ep}{M}$. <br>
+			Then $x,y \in [a,b], x < y$ and $\abs{y-x} < \delta$ implies that
+			$$\begin{align*}
+			\abs{F_n(y) - F_n(x)} &= \abs{\int_a^y f_n(t) dt - \int_a^x f_n(t) dt}\\
+			&= \abs{\int_a^x f_n(t) dt + \int_x^y f_n(t) dt - \int_a^x f_n(t) dt}\\
+			&= \abs{\int_x^y f_n(t) dt}\\
+			&\leq \int_x^y \abs{f_n(t)} dt\\
+			&< \int_x^y M dt\\
+			&= M(y-x) \\
+			&< M\delta \\
+			&= \ep \\
+			\therefore \abs{F_n(y) - F_n(x)} < \ep
+			\end{align*}$$
+			Hence $\{F_n\}$ is equicontinuous.
+		</p>
+
+		<p>Hence by <a href="" data-math="anchor">7.25</a>, there exists a subsequence $\{F_{n_k}\}$ which converges uniformly on $[a,b]$.</p>
+	</div>
+</div>
+    </main>
+    <aside id="history">
+      <section class="history_overlay"></section>
+      <section class="history_container">
+        <div class="history_toolbar">
+          <button class="hide_history_btn">Close</button>
+        </div>
+        <div class="history_body"></div>
+      </section>
+    </aside>
+    <!-- <script type="text/javascript" src="mathModules/analysis/pointwiseConvergeQ1.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/analysis/seriesConvergeQ1.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/table.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/anchor.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/plot.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/konva.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/plotly.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+    <script type="text/javascript" src="/assets/index.js"></script>
+    <!-- <script type="text/javascript" src="assets/anime.js"></script> -->
+</body>
+</html>

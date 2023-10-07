@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Eleventy v2.0.1">
+    <title></title>
+    <link id="style" rel="stylesheet" type="text/css" href="/assets/style.css">
+    
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <!-- <script src="https://unpkg.com/konva@9/konva.min.js"></script> -->
+    <!-- <script defer src="https://unpkg.com/function-plot/dist/function-plot.js"></script> -->
+    <!-- <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script> -->
+</head>
+<body>
+    <div style="display: none;">
+    \(
+        \def\curl#1{\text{curl }#1}
+        \def\bracket#1{\left({#1}\right)}
+        \def\sbracket#1{\left[{#1}\right]} %square bracket
+        \def\cbracket#1{\left\{{#1}\right\}} %curly bracket
+
+        \def\Lim_#1{{\lim\limits_{#1}}}
+        \def\limit{{\lim\limits_{n \to \infty}}}
+
+        \def\dsum{{\displaystyle \sum}}
+        \def\Sum_#1^#2{{\sum\limits_{#1}^#2}}
+        \def\summ{\sum\limits_{n=0}^{\infty}}
+        
+        \def\R{{\mathbb R}}
+        \def\N{{\mathbb N}}
+        \def\fQ{{\mathcal{Q}}}
+        \def\riemannR{{\mathscr{R}}}
+        \def\ep{\varepsilon}
+        \def\d{\displaystyle}
+        \def\grad{\nabla}
+        \def\q{q}
+
+        \def\mod#1{\left | {#1} \right |}
+        \def\abs#1{\left | {#1} \right |}
+
+        \def\crossProduct#1{\left\|\begin{array}{ccc} #1 \end{array}\right\|}
+
+        \newcommand{\partialwrt}[2][]{\frac{\partial {#1}}{\partial {#2}}}
+        \newcommand{\dpartialwrt}[2][]{\dfrac{\partial {#1}}{\partial {#2}}}
+
+        \def\upint{\mkern3mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu\int}
+        \def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+        \def\lowsup_#1{_{{\lower{0.3em}{#1}}}}
+    \)
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        
+          
+        
+          
+            <li><a href="/analysis">analysis</a></li>
+          
+        
+          
+            <li><a href="/ch07">ch07</a></li>
+          
+        
+          
+            <li><a href="/theorems">theorems</a></li>
+          
+        
+          
+            <li><a href="/theorem-7-25.html">theorem-7-25.html</a></li>
+          
+        
+      </ul>
+      <ul>
+        <li><button><a href="?download=true">Download</a></button></li>
+        <li><button class="show_history_btn">History</button></li>
+      </ul>
+    </nav>
+    <main data-state="loading">
+        <div class="theorem">
+	<div class="statement">
+		If $K$ is compact, if $f_n \in \mathscr{C}(K)$ for $n= 1,2,3, \dots$, and if $\{f_n\}$ is pointwise bounded and equicontinuous on $K$ then
+		<ol>
+			<li>$\{f_n\}$ is uniformly bounded on $K$,</li>
+			<li>$\{f_n\}$ contains a uniformly convergent subsequence.</li>
+		</ol>
+	</div>
+
+	<ol class="proof">
+		<li>
+			<p>Let $\ep > 0$.</p>
+			<p>Since $\{f_n\}$ is equicontinuous on $K$, there is a $\delta > 0$ such that </p>
+			$$d(x,y) < \delta, x,y \in K \mbox{ implies } \mod{f_n(x) - f_n(y)} < \ep \mbox{ for all } n$$
+			<p>Since $K$ is compact, there are finitely many points $p_1, p_2, \dots, p_n$ such that $K \subset N_\delta(p_1) \cup N_\delta(p_2) \cup \dots \cup N_\delta(p_n)$</p>
+			<p>Since $\{f_n\}$ is pointwise bounded on $K$, for each $p_i$, there exists $M_i < \infty$ such that $\mod{f_n(p_i)} < M_i$ for all $n$.</p>
+			<p>Let $M = \max(M_1, M_2, \dots, M_n)$.</p>
+			$$\begin{align*}
+			\mbox{If } x \in K, \\
+			\mbox{there is at lease one $i$ such that }  x \in N_{\delta}(p_i) \\
+			\mbox{Then } d(x,p_i) &< \delta \\
+			\mod{f_n(x) - f_n(p_i)} &< \ep \\
+			\mod{f_n(p_i)} &< M_i < M \\
+			\therefore \mod{f_n(x)} &\leq \mod{f_n(x) - f_n(p_i)} + \mod{f_n(p_i)}\\
+			&< \ep + M
+			\end{align*}$$
+			Therefore $\{f_n\}$ is uniformly bounded on $K$.
+		</li>
+
+		<li>
+			<p>Let $E$ be a countable dense subset of $K$. Then by <a href="" data-math="anchor">7.23</a>, $\{f_n\}$ has a subsequence $\{f_{n_i}\}$ such that $\{f_{n_i}(x)\}$ converges for all $x \in E$.</p>
+			<p>Put $f_{n_i} = g_i$. Then $\{g_i\}$ converges pointwise on $E$. We shall prove $\{g_i\}$ converges uniformly on $K$.</p>
+
+			<p>Since $\{f_n\}$ is equicontinuous on $K$ and $\{g_i\}$ is a subsequence of $\{f_n\}$, there is a $\delta > 0$ such that </p>
+			$$d(x,y) < \delta, x,y \in K \mbox{ implies } \mod{g_i(x) - g_i(y)} < \ep \mbox{ for all } i \tag{1}$$
+
+			<p>Let $V(x, \delta) = \{y \mid y\in E, d(x,y) < \delta\}$</p>
+			<p>Since $E$ is dense in $K$ and $K$ is compact, there are finitely many points $x_1, x_2, \dots, x_n$ in $E$ such that </p>
+			$$K \subset V(x_1, \delta) \cup V(x_2, \delta) \cup \dots \cup V(x_n, \delta) \tag{2}$$
+
+			<p>Since each $\{g_i(x)\}$ converges for every $x \in E$, $\{g_i(x_s)\}$ converges for $1 \leq s \leq n$. Hence there is an integer $N$ such that </p>
+			$$i \geq N, j\geq N, 1 \leq s \leq n \mbox{ implies } \mod{g_i(x_s) - g_j(x_s)} \leq \ep \tag{3}$$
+
+			$$\begin{align*}
+			\mbox{If } x&\in K, \\
+			\mbox{(2) shows that }x &\in V(x_s, \delta) \mbox{ for some }s \\
+			d(x,x_s) &< \delta \\
+			\mbox{Hence (1) gives }\mod{g_i(x) - g_i(x_s)} &< \ep \mbox{ for all } i\\
+			\mbox{If } i \geq N, j\geq N, x&\in K, \\
+			\mod{g_i(x) - g_j(x)} &\leq \mod{g_i(x) - g_i(x_s)} + \mod{g_i(x_s) - g_j(x_s)} + \mod{g_j(x_s) - g_j(x)} \\
+			&\leq \ep + \ep + \ep
+			\end{align*}$$
+			<p>Hence <a href="" data-math="anchor">7.8</a>, $\{g_i\}$ converges uniformly.</p>
+		</li>
+	</ol>
+</div>
+    </main>
+    <aside id="history">
+      <section class="history_overlay"></section>
+      <section class="history_container">
+        <div class="history_toolbar">
+          <button class="hide_history_btn">Close</button>
+        </div>
+        <div class="history_body"></div>
+      </section>
+    </aside>
+    <!-- <script type="text/javascript" src="mathModules/analysis/pointwiseConvergeQ1.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/analysis/seriesConvergeQ1.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/table.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/anchor.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/plot.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/konva.js"></script> -->
+    <!-- <script type="text/javascript" src="mathModules/plotly.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script> -->
+    <script type="text/javascript" src="/assets/index.js"></script>
+    <!-- <script type="text/javascript" src="assets/anime.js"></script> -->
+</body>
+</html>

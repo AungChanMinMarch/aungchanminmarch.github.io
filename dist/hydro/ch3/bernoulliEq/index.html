@@ -1,0 +1,33 @@
+<div class="theorem">
+	<div class="statement">
+		<div class="h1">Bernoulli Equation (page 96)</div>
+		<p>Derive the Bernoulli's equation in its most general form. What does this becomes for steady motion and for homogeneous and and incompressible fluid?</p>
+	</div>
+	<div class="proof">
+		<p>Suppose that the body forces are conservative and that the flow is of the potential kind. Then there exists scalar functions $\Omega, \varphi$ such that
+		$$F= - \grad \Omega, \q = -\grad \varphi$$
+		Also $\curl q = \grad \times q = 0$.
+		</p>
+		<p>Euler equation of motion is $\dfrac{dq}{dt} = F - \dfrac{1}{\rho} \grad p$.</p>
+		<p>Since $\dfrac{dq}{dt} =  \dpartialwrt[q]{t} + \grad \bracket{\frac{1}{2}q^2} - q \times (\grad \times q)$, we have 
+			$$\begin{align*}
+			\dpartialwrt[q]{t} + \grad \bracket{\frac{1}{2}q^2} - q \times (\grad \times q) &= F - \frac{1}{\rho} \grad p \\
+			\therefore \partialwrt{t}(-\grad \varphi) + \grad \bracket{\frac{1}{2}q^2} &= -\grad \Omega - \frac{1}{\rho} \grad p \\
+			-\grad \partialwrt[\varphi]{t} + \grad \bracket{\frac{1}{2}q^2} &= -\grad \Omega - \frac{1}{\rho} \grad p \\
+			\mbox{Scalar multiplying by } dr, \\
+			- dr . \grad \partialwrt[\varphi]{t} + dr . \grad \bracket{\frac{1}{2}q^2} &= - dr.\grad \Omega - \frac{1}{\rho} dr.\grad p \\
+			- d\bracket{\partialwrt[\varphi]{t}} + d\bracket{\frac{1}{2}q^2} &= -d \Omega - \frac{1}{\rho} dp\\
+			d\bracket{\frac{1}{2}q^2} + d \Omega +  \frac{1}{\rho} dp - d\bracket{\partialwrt[\varphi]{t}} &= 0 \\
+			\mbox{Integrating gives } \\
+			\frac{1}{2}q^2 + \Omega +  \int \frac{dp}{\rho} - \partialwrt[\varphi]{t} &= f(t), \mbox{where $f(t)$ is arbitrary function}
+			\end{align*}$$
+			This is Bernoulli's equation in its most general form.
+		</p>
+		<p>For steady motion $\dpartialwrt[\varphi]{t} = 0$ and $f(t)$ is constant so that
+			$$\frac{1}{2}q^2 + \Omega +  \int \frac{dp}{\rho} = \mbox{constant}$$
+		</p>
+		<p>If, further, the fluid is homogeneous and incompressible, $\rho$ is constant. Hence
+			$$\frac{1}{2}q^2 + \Omega + \frac{p}{\rho} = \mbox{constant}$$
+		</p>
+	</div>
+</div>
