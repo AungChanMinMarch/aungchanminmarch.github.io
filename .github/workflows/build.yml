@@ -35,12 +35,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
-          git config --global user.email "your-email@example.com"
-          git config --global user.name "Your Name"
-          git branch -D gh-pages || true
-          git checkout --orphan gh-pages
-          git --work-tree ./dist add --all
-          git --work-tree ./dist commit -m "Deploy to GitHub Pages"
-          git push origin HEAD:gh-pages --force
+          npm install
+          npm run start
         env:
           GH_PAGES_TOKEN: ${{ secrets.GITHUB_TOKEN }}
