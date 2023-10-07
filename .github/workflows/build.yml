@@ -37,7 +37,7 @@ jobs:
         run: npm run build # Replace with your build command
 
       - name: Create artifact
-        run: ls
+        run: mkdir _site
 
       - name: Create artifact 2
         run: tar -czvf _site/pages.tar.gz dist
