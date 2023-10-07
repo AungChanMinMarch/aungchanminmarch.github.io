@@ -21,6 +21,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
@@ -31,6 +35,9 @@ jobs:
 
       - name: Build Site
         run: npm run build # Replace with your build command
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
