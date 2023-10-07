@@ -40,7 +40,7 @@ jobs:
         run: ls
 
       - name: Create artifact 2
-        run: tar -czvf _site/pages.tar.gz docs
+        run: tar -czvf _site/pages.tar.gz dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
