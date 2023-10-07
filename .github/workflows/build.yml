@@ -40,5 +40,3 @@ jobs:
           git --work-tree ./dist add --all
           git --work-tree ./dist commit -m "Deploy to GitHub Pages"
           git push origin HEAD:gh-pages --force
-        env:
-          GH_PAGES_TOKEN: ${{ secrets.GITHUB_TOKEN }}
