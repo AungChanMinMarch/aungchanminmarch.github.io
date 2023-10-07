@@ -35,6 +35,8 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
+          pwd
+          git init
           git config --global user.email "aungchanminmarch@gmail.com"
           git config --global user.name "AungChanMinMarch"
           git --work-tree ./dist add --all
