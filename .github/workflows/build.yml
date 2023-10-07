@@ -36,8 +36,8 @@ jobs:
       - name: Build Site
         run: npm run build # Replace with your build command
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs
