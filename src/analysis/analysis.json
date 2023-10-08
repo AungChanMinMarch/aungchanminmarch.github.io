@@ -1,3 +1,5 @@
 {
-	"layout": "page.njk"
+	"layout": "page.njk",
+	"tags": "analysis",
+	"permalink": "{{ page.filePathStem }}.html"
 }

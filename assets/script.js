@@ -43,6 +43,7 @@ async function fetchCommits() {
     let filePath = '';
     if(pathName.endsWith('/')) filePath = pathName.slice(0, -1) + '.html';
     else if(pathName.endsWith('index.html')) filePath = pathName.replace('/index', '');
+    else filePath = pathName
 
     try {
         const response = await octokit.request(`GET /repos/${owner}/${repo}/commits?path=${filePath}`, {
