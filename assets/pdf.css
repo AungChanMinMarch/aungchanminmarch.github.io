@@ -1,7 +1,7 @@
 *{
 	box-sizing: border-box;
 }
-body{
+body, html{
 	background:#fff;
 	color: #000;
 	font-size: 16px;
