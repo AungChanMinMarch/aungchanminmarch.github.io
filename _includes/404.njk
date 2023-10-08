@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="{{ eleventy.generator }}">
+    <title>404 Page Not Found</title>
+    <link id="style" rel="stylesheet" type="text/css" href="/assets/style.css">
+    <link id="style" rel="stylesheet" type="text/css" href="/assets/404.css">
+</head>
+<body>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        {% for folder in page.url.split('/') %}
+          {% if folder %}
+            <li><a href="{{ '/' + folder }}">{{ folder }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <ul>
+        <li><button><a href="?download=true">Download</a></button></li>
+        <li><button class="show_history_btn">History</button></li>
+      </ul>
+    </nav>
+    <main data-state="loading">
+        {{ content | safe }}
+    </main>
+    <aside id="history">
+      <section class="history_overlay"></section>
+      <section class="history_container">
+        <div class="history_toolbar">
+          <button class="hide_history_btn">Close</button>
+        </div>
+        <div class="history_body"></div>
+      </section>
+    </aside>
+</body>
+</html>
