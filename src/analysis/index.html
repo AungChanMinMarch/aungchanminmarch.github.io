@@ -1,8 +1,13 @@
 ---
 isAnalysisHome: true
+title: Rudin Analysis
+eleventyNavigation:
+  key: rudinAnalysis
 ---
 <h1>This is analysis home page.</h1>
 {% toc %}
+
+{{ collections.all | eleventyNavigation | eleventyNavigationToHtml }}
 
 <ol>
 	<h3><a href="404.html?file=analysis/ch07/pointwiseConverge">Pointwise Convergence</a></h3>
