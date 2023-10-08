@@ -1,7 +1,7 @@
 import { Octokit, App } from "octokit";
 
 const log = console.log;
-const token = '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';
+const token = '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';
 const owner = "AungChanMinMarch";
 const repo = "aungchanminmarch.github.io";
 
@@ -46,7 +46,7 @@ async function fetchCommits() {
     else filePath = pathName
 
     try {
-        const response = await octokit.request(`GET /repos/${owner}/${repo}/commits?path=${filePath}`, {
+        const response = await octokit.request(`GET /repos/${owner}/${repo}/commits?path=/src/${filePath}`, {
             owner: owner,
             repo: repo,
             headers: {
