@@ -8,9 +8,11 @@
   },
   "scripts": {
     "start": "npm run eleventy:watch & npm run webpack:watch",
-    "build": "npx @11ty/eleventy",
     "eleventy:watch": "npx @11ty/eleventy --serve --watch",
-    "webpack:watch": "webpack --config webpack.config.js --mode development --watch"
+    "webpack:watch": "webpack --config webpack.config.js --mode development --watch",
+    "build": "npm run eleventy:build & npm run webpack:build",
+    "eleventy:build": "npx @11ty/eleventy",
+    "webpack:build": "webpack --config webpack.config.js --mode production"
   },
   "keywords": [],
   "author": "",
