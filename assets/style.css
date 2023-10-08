@@ -9,6 +9,8 @@ body, html{
 	margin: 0;
 	padding: 0;
 }
+
+/*Started Styling Nav*/
 nav{
 	background-color: #222;
 	color: #fff;
@@ -26,18 +28,26 @@ nav > ul {
 	list-style: none;
 }
 
-nav a, nav button{
+nav a {
+	padding: 0px 5px;
+	margin: 5px 10px;
 	text-decoration: none;
+}
+.nav_anchors a{
 	color: inherit;
 	background-color: inherit;
-	padding: 5px 5px 5px 5px;
-	margin: 0px 10px;
 	border-left: 1px solid;
+}
+.nav_tools a{
+	background-color: #eee;
+	color: #222;
 }
 nav a:hover{
 	background: #000;
 	color: blue;
 }
+/*Started Styling Nav*/
+
 #history{
 	display: none;
 }

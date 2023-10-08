@@ -55,7 +55,7 @@
     </div>
 
     <nav>
-      <ul>
+      <ul class="nav_anchors">
         <li><a href="/">Home</a></li>
         {% for folder in page.url.split('/') %}
           {% if folder %}
@@ -63,8 +63,8 @@
           {% endif %}
         {% endfor %}
       </ul>
-      <ul>
-        <li><button><a href="?download=true">Download</a></button></li>
+      <ul class="nav_tools">
+        <li><a href="?download=true">Download</a></li>
         <li><button class="show_history_btn">History</button></li>
       </ul>
     </nav>
