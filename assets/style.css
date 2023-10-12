@@ -8,6 +8,12 @@ body, html{
 	font-family: serif;
 	margin: 0;
 	padding: 0;
+
+	--width: 780px;
+	--scale: 1;
+	width: var(--width);
+	transform: scale(var(--scale));
+	transform-origin: top left;
 }
 
 /*Started Styling Nav*/
@@ -168,13 +174,6 @@ body.show_history #history{
 }
 .answer, .proof{
 	padding: 10px 40px;
-}
-#root.pdf{
-	--width: 780px;
-	--scale: 1;
-	width: var(--width);
-	transform: scale(var(--scale));
-	transform-origin: top left;
 }
 .h1{
 	font-size: 1.4em;
