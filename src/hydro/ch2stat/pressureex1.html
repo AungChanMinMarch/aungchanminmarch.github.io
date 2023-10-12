@@ -1,3 +1,6 @@
+---
+layout: page.njk
+---
 <div class="example">
 	<div class="question">
 		<div class="h1">Solved Examples. Ex. 1 Page-14</div>
@@ -8,7 +11,58 @@
 It is given that the volume of the liquta in AB-vol. in BO. the circumference
 </div>
 	<div class="answer">
-		<img src="assets/ex1.jpeg">
+		<!-- <img src="assets/ex1.jpeg"> -->
+		<div class="canvas"></div>
+		<style type="text/css">#svg{ width:100%; }</style>
+		<div id="svg"></div>
+		<script type="text/javascript">
+function drawSVG(draw, DEFAULT) {
+	const centerX = 600 / 2;
+const centerY = 400  / 2;
+const radius = 150;
+const s1 = 30;
+const circle = draw.circle().radius(radius).cx(centerX).cy(centerY).fill('none');
+circle.drawArc(s1, s1 + 90).stroke({ width: 2, color: '#00FF00' });
+circle.drawArc(s1 + 90, s1 + 180).stroke({ width: 2, color: '#0000FF' });
+circle.drawArc(s1 + 180, s1).stroke({ width: 2, color: '#000000' });
+circle.label("O").font({ size: 24 });
+
+const D = circle.getPointOnArc(270);
+D.labelAbove("D");
+const M = circle.getPointOnArc(90);
+M.labelBottom("M");
+const vertical = draw.line(D.x, D.y, M.x, M.y).stroke(DEFAULT.stroke).dotted();
+
+const A = circle.getPointOnArc(s1);
+A.labelRight("A");
+circle.drawRadiusFromPoint(A);
+
+const Aprime = vertical.getProjectionFromAPoint(A);
+Aprime.labelLeft("A'");
+draw.line(Aprime.x, Aprime.y, A.x, A.y).stroke(DEFAULT.stroke).dotted();
+
+const B = circle.getPointOnArc(s1 + 90);
+B.labelLeft('B');
+circle.drawRadiusFromPoint(B);
+
+const Bprime = vertical.getProjectionFromAPoint(B);
+Bprime.labelRight("B'");
+draw.line(B.x, B.y, Bprime.x, Bprime.y).stroke(DEFAULT.stroke).dotted();
+
+const C = circle.getPointOnArc(s1 + 180);
+C.labelLeft('C');
+circle.drawRadiusFromPoint(C);
+
+const Cprime = vertical.getProjectionFromAPoint(C);
+Cprime.labelRight("C'");
+draw.line(C.x, C.y, Cprime.x, Cprime.y).stroke(DEFAULT.stroke).dotted();
+return {
+	A,B,C,D,M,Aprime, Bprime, Cprime
+}
+		
+}			
+</script>
+
 		<p>Let $B$ be common surface</p>
 		<p>Let $AB$ and $BMC$ contain the liquid of density $\sigma$ and $\rho$ respectively.</p>
 		<p>Let $M$ be the lowest point of the tube. </p>

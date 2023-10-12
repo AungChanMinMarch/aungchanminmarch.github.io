@@ -24,6 +24,9 @@
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {
-    "octokit": "^3.1.1"
+    "@pixi/graphics-extras": "^7.3.1",
+    "@svgdotjs/svg.js": "^3.2.0",
+    "octokit": "^3.1.1",
+    "pixi.js": "^7.3.1"
   }
 }
