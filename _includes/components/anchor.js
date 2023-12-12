@@ -1,10 +1,11 @@
-function analysisAnchor(theorem_number) {
+function analysisAnchor(theorem_number, article_type) {
     const [ch, no] = theorem_number.toString().split(".");
     const chapter = (ch.length == 1) ? "0"+ ch : ch;
     const number = (no.length == 1) ? "0"+ no : no;
 
-    const href = `/analysis/ch${chapter}/theorems/theorem-${ch}-${number}`;
-    return `<a href='${href}'>Theorem ${theorem_number}</a>`
+    const type = article_type ?? 'Theorem';
+    const href = `/analysis/ch${chapter}/theorems/theorem-${ch}-${number}.html`;
+    return `<a href='${href}'>${type} ${theorem_number}</a>`
 }
 
 module.exports = function(...args){
