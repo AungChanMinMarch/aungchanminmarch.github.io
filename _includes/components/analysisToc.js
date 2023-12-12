@@ -29,8 +29,9 @@ module.exports = function(){
 
       return toc;
     }
+    const folderName =  this.page.inputPath.replace("./", "").split('/').slice(0,-1).join("/")
 
-    const srcPath = path.join(__dirname, '../../src/analysis'); // Adjust the path as needed
+    const srcPath = path.join(process.cwd(), folderName); // Adjust the path as needed
     const toc = generateTOC(srcPath);
     return toc;
 }
