@@ -1,0 +1,19 @@
+<div class="theorem">
+	<div class="statement">For every interval $[-a,a]$ there is a sequence of real polynomials $P_n$ such that $P_n(0)=0$ such that 
+		$$\limit P_n(x) =\mod{x}$$
+	uniformly on $[-a,a]$.
+	</div>
+	<div class="proof">
+		<p>By theorem 7.26, since $\mod{x}$ is continuous on $[-a,a]$, there exists a sequence of polynomial $P^{*}_n$ such that $\limit P^{*}_n(x) = \mod{x}$ uniformly on $[a,b]$.</p>
+		<p>$P^{*}_n(x) \to 0$ as $n\to \infty$.</p>
+		<p>Let $P_n(x) = P^{*}_n(x) - P^{*}_n(0)$.</p>
+		<p>Then $P_n(0) = P^{*}_n(0) - P^{*}_n(0) = 0$.</p>
+		$$\begin{align*}
+		\limit P_n(x) &= \limit (P^{*}_n(x) - P^{*}_n(0)) \\
+		&= \limit P^{*}_n(x) - \limit P^{*}_n(0)\\
+		&= \mod{x} - 0 \\
+		&= \mod{x}
+		\end{align*}$$
+		<p>Since $\limit P^{*}_n(x) = \mod{x}$ uniformly on $[a,b]$, $\limit P_n(x) = \mod{x}$ uniformly on $[a,b]$.</p>
+	</div>
+</div>

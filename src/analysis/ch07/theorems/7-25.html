@@ -1,0 +1,56 @@
+<div class="theorem">
+	<div class="statement">
+		If $K$ is compact, if $f_n \in \mathscr{C}(K)$ for $n= 1,2,3, \dots$, and if $\{f_n\}$ is pointwise bounded and equicontinuous on $K$ then
+		<ol>
+			<li>$\{f_n\}$ is uniformly bounded on $K$,</li>
+			<li>$\{f_n\}$ contains a uniformly convergent subsequence.</li>
+		</ol>
+	</div>
+
+	<ol class="proof">
+		<li>
+			<p>Let $\ep > 0$.</p>
+			<p>Since $\{f_n\}$ is equicontinuous on $K$, there is a $\delta > 0$ such that </p>
+			$$d(x,y) < \delta, x,y \in K \mbox{ implies } \mod{f_n(x) - f_n(y)} < \ep \mbox{ for all } n$$
+			<p>Since $K$ is compact, there are finitely many points $p_1, p_2, \dots, p_n$ such that $K \subset N_\delta(p_1) \cup N_\delta(p_2) \cup \dots \cup N_\delta(p_n)$</p>
+			<p>Since $\{f_n\}$ is pointwise bounded on $K$, for each $p_i$, there exists $M_i < \infty$ such that $\mod{f_n(p_i)} < M_i$ for all $n$.</p>
+			<p>Let $M = \max(M_1, M_2, \dots, M_n)$.</p>
+			$$\begin{align*}
+			\mbox{If } x \in K, \\
+			\mbox{there is at lease one $i$ such that }  x \in N_{\delta}(p_i) \\
+			\mbox{Then } d(x,p_i) &< \delta \\
+			\mod{f_n(x) - f_n(p_i)} &< \ep \\
+			\mod{f_n(p_i)} &< M_i < M \\
+			\therefore \mod{f_n(x)} &\leq \mod{f_n(x) - f_n(p_i)} + \mod{f_n(p_i)}\\
+			&< \ep + M
+			\end{align*}$$
+			Therefore $\{f_n\}$ is uniformly bounded on $K$.
+		</li>
+
+		<li>
+			<p>Let $E$ be a countable dense subset of $K$. Then by <a href="" data-math="anchor">7.23</a>, $\{f_n\}$ has a subsequence $\{f_{n_i}\}$ such that $\{f_{n_i}(x)\}$ converges for all $x \in E$.</p>
+			<p>Put $f_{n_i} = g_i$. Then $\{g_i\}$ converges pointwise on $E$. We shall prove $\{g_i\}$ converges uniformly on $K$.</p>
+
+			<p>Since $\{f_n\}$ is equicontinuous on $K$ and $\{g_i\}$ is a subsequence of $\{f_n\}$, there is a $\delta > 0$ such that </p>
+			$$d(x,y) < \delta, x,y \in K \mbox{ implies } \mod{g_i(x) - g_i(y)} < \ep \mbox{ for all } i \tag{1}$$
+
+			<p>Let $V(x, \delta) = \{y \mid y\in E, d(x,y) < \delta\}$</p>
+			<p>Since $E$ is dense in $K$ and $K$ is compact, there are finitely many points $x_1, x_2, \dots, x_n$ in $E$ such that </p>
+			$$K \subset V(x_1, \delta) \cup V(x_2, \delta) \cup \dots \cup V(x_n, \delta) \tag{2}$$
+
+			<p>Since each $\{g_i(x)\}$ converges for every $x \in E$, $\{g_i(x_s)\}$ converges for $1 \leq s \leq n$. Hence there is an integer $N$ such that </p>
+			$$i \geq N, j\geq N, 1 \leq s \leq n \mbox{ implies } \mod{g_i(x_s) - g_j(x_s)} \leq \ep \tag{3}$$
+
+			$$\begin{align*}
+			\mbox{If } x&\in K, \\
+			\mbox{(2) shows that }x &\in V(x_s, \delta) \mbox{ for some }s \\
+			d(x,x_s) &< \delta \\
+			\mbox{Hence (1) gives }\mod{g_i(x) - g_i(x_s)} &< \ep \mbox{ for all } i\\
+			\mbox{If } i \geq N, j\geq N, x&\in K, \\
+			\mod{g_i(x) - g_j(x)} &\leq \mod{g_i(x) - g_i(x_s)} + \mod{g_i(x_s) - g_j(x_s)} + \mod{g_j(x_s) - g_j(x)} \\
+			&\leq \ep + \ep + \ep
+			\end{align*}$$
+			<p>Hence <a href="" data-math="anchor">7.8</a>, $\{g_i\}$ converges uniformly.</p>
+		</li>
+	</ol>
+</div>

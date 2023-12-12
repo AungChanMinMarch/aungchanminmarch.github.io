@@ -1,0 +1,98 @@
+<div class="theorem">
+	<div class="statement">There exists a real continuous function on the real line which is nowhere differentiable.</div>
+	<div class="proof">
+		<p>Define $\phi(x) = \abs{x}$ ($-1 \leq x \leq 1$) and extend the definition of $\phi(x)$ for all real $x$ by defining that</p>
+		$$\begin{align*}
+		\phi(x+2) &= \phi(x) \\
+		\phi(y) &= \phi(y-2) \\
+		&= \begin{cases}
+			y-2 &\mbox{ if $0 \leq y-2 \leq 1$} \\
+			-y+2 &\mbox{ if $-1 \leq y-2 < 0$} \\
+		\end{cases} \\
+		\phi(x) &= \begin{cases}
+			x-2 &\mbox{ if $2 \leq x \leq 3$} \\
+			-x+2 &\mbox{ if $1 \leq x < 2$} \\
+		\end{cases}
+		\end{align*}$$
+
+		$$\mbox{For all $s$ and $t$, } \abs{\phi(s)-\phi(t)} = \abs{\abs{s} - \abs{t}} \leq \abs{s-t} \tag{1}$$
+
+		<p>Let $f_n: \R \to \R$ be defined by $f_n(x) = \bracket{\frac{3}{4}}^n \phi(4^n x)$, where $n=1,2,3,\dots$.</p>
+
+		<p>Since $0\leq \phi(x) \leq 1$ for all $x$, $\abs{f_n(x)} = \abs{\bracket{\frac{3}{4}}^n \phi(4^n x)} \leq \bracket{\frac{3}{4}}^n$ for all $x$ and $n=1,2,3,\dots$.</p>
+		<p>Since $\frac{3}{4} < 1$, by <a href="" data-math="anchor">3.26</a> $\sum\limits_{n=0}^{\infty} \bracket{\frac{3}{4}}^n = \frac{1}{1-\frac{3}{4}} = 4$ converges.</p>
+		<p>Since $\abs{f_n(x)} \leq \bracket{\frac{3}{4}}^n$ and $\sum \bracket{\frac{3}{4}}^n$ converges, by <a href="" data-math="anchor">7.10</a>, $\sum f_n$ converges uniformly.</p>
+		<p>Let $f(x)= \sum f_n(x) = \sum\limits_{n=0}^{\infty} \bracket{\frac{3}{4}}^n \phi(4^n x)$.</p>
+		<p>Then by the definition of series convergence, the sequence of partial sums converges uniformly to $f$.</p>
+		<p>Since the linear combination of continuous functions is continuous, each partial sum is continuous.</p>
+		<p>Hence by <a href="" data-math="anchor">7.12</a>, $f$ is continuous. We need to prove $f$ is not differentiable.</p>
+
+		<p>Now fix a real number $x$ and a positive integer $m$. Put $4^m \abs{\delta_m} = \frac{1}{2}$.</p>
+		<p>Then $\abs{\delta_m} = \frac{1}{2} 4^{-m}$ and hence $\delta_m = \pm \frac{1}{2} 4^{-m}$, where the sign is so chosen that there is no integer between $4^m x$ and $4^mx + 4^m \delta_m$.</p>
+		$$\begin{align*}
+		\abs{\frac{f(x+\delta_m)- f(x)}{\delta_m}} 
+		&= \abs{\frac{\sum\limits_{n=0}^{\infty} \bracket{\frac{3}{4}}^n \phi(4^n (x+\delta_m)) - \sum\limits_{n=0}^{\infty} \bracket{\frac{3}{4}}^n \phi(4^n x)}{\delta_m}} \\
+		&= \abs{\sum\limits_{n=0}^{\infty} \bracket{\frac{3}{4}}^n \frac{\phi(4^n x+ 4^n\delta_m) - \phi(4^n x)}{\delta_m}} \\
+		\mbox{Let } \gamma_n &= \frac{\phi(4^n x+ 4^n\delta_m) - \phi(4^n x)}{\delta_m}\\
+		\mbox{Then } \abs{\frac{f(x+\delta_m)- f(x)}{\delta_m}} &= \abs{\sum\limits_{n=0}^{\infty} \bracket{\frac{3}{4}}^n \gamma_n} \tag{2}
+		\end{align*}$$
+
+		$$\begin{align*}
+		\mbox{If } n &> m,\\
+		n-m &> 0\\
+		\mbox{Since } \delta_m &= \pm \frac{1}{2} 4^{m}\\
+		4^n \delta_m &= \pm \frac{1}{2} 4^{n-m} \mbox{ is an even integer, say $2N$.} \\
+		\mbox{Since } \phi(x+2) &= \phi(x),\\
+		\phi(4^n x+ 4^n \delta_m) &= \phi(4^n x+ 2N) = \phi(4^n x) \\
+		\gamma_n &= \frac{\phi(4^n x+ 4^n\delta_m) - \phi(4^n x)}{\delta_m}\\
+		&= \frac{\phi(4^n x) - \phi(4^n x)}{\delta_m}\\
+		&=0\\
+		\therefore \gamma_n &= 0 \mbox{ if $n>m$}\\
+		\end{align*}$$
+
+		$$\begin{align*}	
+		\mbox{If } n &= m,\\
+		\abs{\gamma_m} &= \frac{\abs{4^m \delta_m}}{\abs{\delta_m}} = 4^m
+		\end{align*}$$
+
+		$$\begin{align*}
+		\mbox{If } n &< m,\\
+		\abs{\gamma_n}& = \abs{\frac{\phi(4^n x+ 4^n\delta_m) - \phi(4^n x)}{\delta_m}} \\
+		&= \frac{\abs{\phi(4^n x+ 4^n\delta_m) - \phi(4^n x)}}{\abs{\delta_m}} \\
+		&\leq \frac{\abs{4^n x+ 4^n\delta_m - 4^n x}}{\abs{\delta_m}} \mbox{ (by (1))} \\
+		&= \frac{\abs{4^n\delta_m}}{\abs{\delta_m}} \\
+		&= 4^n \\
+		\therefore \abs{\gamma_n} &\leq 4^n \mbox{ if $n < m$}
+		\end{align*}$$
+
+
+		$$\begin{align*}	
+		\mbox{Now (2) gives} \abs{\frac{f(x+\delta_m)- f(x)}{\delta_m}} &= \abs{\sum\limits_{n=0}^{\infty} \bracket{\frac{3}{4}}^n \gamma_n} \\
+		&= \abs{
+			\sum\limits_{n=0}^{m-1} \bracket{\frac{3}{4}}^n \gamma_n +
+			\bracket{\frac{3}{4}}^m \gamma_m +
+			\sum\limits_{n=m+1}^{\infty} \bracket{\frac{3}{4}}^n \gamma_n
+		}\\
+		&= \abs{
+			\sum\limits_{n=0}^{m-1} \bracket{\frac{3}{4}}^n \gamma_n +
+			\bracket{\frac{3}{4}}^m \gamma_m
+		} \\
+		&= \abs{
+			\bracket{\frac{3}{4}}^m \gamma_m +
+			\sum\limits_{n=0}^{m-1} \bracket{\frac{3}{4}}^n \gamma_n
+		} \\
+		&\geq 
+			\abs{\bracket{\frac{3}{4}}^m \gamma_m} -
+			\abs{\sum\limits_{n=0}^{m-1} \bracket{\frac{3}{4}}^n \gamma_n}
+		\\
+		&\geq \bracket{\frac{3}{4}}^m \abs{\gamma_m} -
+			\sum\limits_{n=0}^{m-1} \bracket{\frac{3}{4}}^n \abs{\gamma_n}\\
+		&\geq \bracket{\frac{3}{4}}^m 4^m -
+			\sum\limits_{n=0}^{m-1} \bracket{\frac{3}{4}}^n 4^n\\
+		&= 3^m - \sum\limits_{n=0}^{m-1} 3^n\\
+		&= 3^m - \frac{3^m - 1}{3-1} \\
+		&= \frac{3^m + 1}{2}
+		\end{align*}$$
+		As $m \to \infty$, $\delta_m \to 0$. But $\frac{3^m + 1}{2}$ diverges and hence by <a href="" data-math="anchor">3.25</a> $\frac{f(x+\delta_m)- f(x)}{\delta_m}$ also diverges. Therefore $f$ is not differentiable at $x$.
+	</div>
+</div>

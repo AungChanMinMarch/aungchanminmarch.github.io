@@ -1,0 +1,37 @@
+<div class="theorem">
+	<div class="statement">
+		<p>Suppose $f_n \to f$ uniformly on a set $E$ in a metric space. Let $x$ be a limit point of $E$, and suppose that $\lim\limits_{t\to x} f_n(t) = A_n$.</p>
+		<p>Then $\{A_n \}$ converges and $\lim\limits_{t \to x} f(t) = \limit A_n$. In other wrods, $\lim\limits_{t \to x} \limit f_n(t) = \limit \lim\limits_{t\to x} f_n(t) $</p>
+	</div>
+	<div class="proof">
+		<p>Let $\ep >0$.</p>
+		<div>
+			<p>
+				Since $f_n \to f$ unifromly, by <a href="" data-math="anchor">7.8</a>, there is an integer N such that
+				$$n\geq N, m \geq N, t \in E \mbox{ implies } \abs{f_n(t) - f_m(t)} \leq \ep$$
+			</p>
+			<p>Letting $t \to x$ in above inequility,</p>
+				$$\begin{align*}
+				\abs{\Lim_{t \to x} f_n(t) - \Lim_{t \to x} f_m(t)} &\leq \ep\\
+				\abs{A_n - A_m} &\leq \ep\\
+				\end{align*}$$
+			<p>Hence $\{ A_n \}$ is a Cauchy sequence. By <a href="" data-math="anchor">3.11</a>, $\{A_n \}$ converges.</p>
+		</div>
+		<div>
+			<p>Let $A_n \to A$.</p>
+			$$\begin{align*}
+			\abs{f(t) -A} &= \abs{f(t) - f_n(t) + f_n(t) - A_n + A_n -A}\\
+			\abs{f(t) -A} &\leq \abs{f_n(t) - f(t)} + \abs{f_n(t) - A_n} + \abs{A_n -A} \tag{1}
+			\end{align*}$$
+			<p>Since $f_n \to f$ uniformly and $A_n \to A$, there is an integer $N$ such that $n\geq N, t \in E$ implies $\abs{f_n(t) -f(t)} \leq \frac{\ep}{3}$ and $\abs{A_n -A} \leq \frac{\ep}{3}$</p>
+			<p>For this $n$, choose a neighborhood $V$ of $x$ such that</p>
+			$$ t \in V \cap E, t \neq x \mbox{ implies } \abs{f_n(t) -A_n} \leq \frac{\ep}{3} $$
+			$$\begin{align*}
+			\mbox{Now (1) gives} \abs{f(t) - A} &\leq \ep \\
+			\Lim_{t \to x} f(t) &= A\\ 
+			\Lim_{t \to x} f(t) &= \limit A_n\\ 
+			\Lim_{t \to x} \limit f_n(t) &= \limit \lim\limits_{t\to x} f_n(t)\\ 
+			\end{align*}$$
+		</div>
+	</div>
+</div>

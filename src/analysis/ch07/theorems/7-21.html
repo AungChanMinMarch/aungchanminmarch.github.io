@@ -1,0 +1,14 @@
+<div class="example">
+	<div class="question">Show that the family of functions $f_n$, where $f_n(x)= \frac{x^2}{x^2+ (1-nx)^2} (0 \leq x \leq 1, n= 1,2,3, \dots$ is not equicontinuous.</div>
+	<div class="answer">
+		<p>Let $\mathscr{F}$ be the family of functions $f_n$, where $f_n(x)= \frac{x^2}{x^2+ (1-nx)^2} (0 \leq x \leq 1, n= 1,2,3, \dots$</p>
+		<!-- <p>Since $0 \leq x \leq 1$, it is sufficient to chose $\delta \leq1$.</p> -->
+		<p>For all $\delta > 0$, there is a function $f_n \in \mathscr{F}$ such that $n > \frac{1}{\delta}$ and hence $\frac{1}{n} < \delta$</p>
+		<p class="center">
+			If $x=\frac{1}{n}$ and $y=0$, <br>
+			then $\abs{x-y} = \abs{\frac{1}{n} -0} = \frac{1}{n} < \delta$ <br>
+			But $\abs{f_n(x)-f_n(y)} = \abs{f_n(\frac{1}{n}) -f_n(0)} = \abs{1-0} = 1$ <br>
+			Thus $\mathscr{F}$ is not equicontinuous.
+		</p>
+	</div>
+</div>
