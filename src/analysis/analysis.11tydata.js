@@ -3,7 +3,8 @@ module.exports = {
     eleventyNavigation: {
       key: data => data.eleventyNavigation.key || data.key || data.fileSlug,
       parent: data => data.eleventyNavigation.parent || data.parent,
-      title: data => data.eleventyNavigation.title || data.title
+      title: data => data.eleventyNavigation.title || data.title,
+      order: data => data.eleventyNavigation.order || data.order
     }
   }
 };
