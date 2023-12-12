@@ -57,12 +57,15 @@
     <nav>
       <ul class="nav_anchors">
         <li><a href="/">Home</a></li>
+        {% set current_url = '' %}
         {% for folder in page.url.split('/') %}
           {% if folder %}
-            <li><a href="{{ '/' + folder }}">{{ folder }}</a></li>
+            {% set current_url = current_url + '/' + folder %}
+            <li><a href="{{ current_url }}">{{ folder | replace('.html', '') }}</a></li>
           {% endif %}
         {% endfor %}
       </ul>
+
       <ul class="nav_tools">
         <li><a href="?download=true">Download</a></li>
         <li><button class="show_history_btn">History</button></li>
@@ -83,7 +86,6 @@
     <!-- <script type="text/javascript" src="mathModules/analysis/pointwiseConvergeQ1.js"></script> -->
     <!-- <script type="text/javascript" src="mathModules/analysis/seriesConvergeQ1.js"></script> -->
     <!-- <script type="text/javascript" src="mathModules/table.js"></script> -->
-    <!-- <script type="text/javascript" src="mathModules/anchor.js"></script> -->
     <!-- <script type="text/javascript" src="mathModules/plot.js"></script> -->
     <!-- <script type="text/javascript" src="mathModules/konva.js"></script> -->
     <!-- <script type="text/javascript" src="mathModules/plotly.js"></script> -->
