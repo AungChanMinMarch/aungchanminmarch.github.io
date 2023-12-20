@@ -1,0 +1,23 @@
+---
+title: Theorem 8.1
+Parent: powerSeries8
+---
+<div class="theorem">
+	<div class="statement">
+		<p>Suppose the series 
+		 $$\summ c_n x^n \tag{3}$$ 
+		converges for $\abs{x} < R$, and define $f(x)=\summ c_n x^n$ ($\abs{x} <  R$).</p>
+		<p> Then (3) converges uniformly on $[-R+\ep, R- \ep ]$, no matter which $\ep > 0$ is chosen. The function $f$ is continuous and differentiable in $(-R,R)$ and $f'(x) = \sum\limits_{n=1}^{\infty} n c_n x^{n-1} (\abs{x} < R)$</p>
+	</div>
+	<div class="proof">
+		<p>Let $\ep > 0$ be given.</p>
+		<p>$$\begin{align}
+			\text{If } \abs{x} &\leq R - \ep \\
+			\abs{x}^n &\leq \abs{R - \ep}^n \\
+			\abs{c_n} \abs{x^n} &\leq \abs{c_n} \abs{R - \ep}^n \\
+			\abs{c_n x^n} &\leq \abs{c_n (R - \ep)^n}
+		\end{align}$$</p>
+		<p>Since $\abs{R- \ep} < R$ and $\summ c_n x^n$ converges for $\abs{x} < R$, $\summ c_n (R - \ep)^n$ converges. </p>
+		<p>Hence, by {% a '7.10' %}, $\summ \abs{c_n x^n}$ converges uniformly on $[-R+\ep, R- \ep ]$ </p>
+	</div>
+</div>
