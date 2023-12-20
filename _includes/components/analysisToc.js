@@ -20,7 +20,11 @@ module.exports = function(){
           toc += generateTOC(itemPath);
           toc += `</details>`;
         } else if (item.endsWith('.html')) {
-          const fileName = item.replace('.html', '').replace('theorem-', 'Theorem ').replace('ex-', 'Exercise ').replace('-', '.');
+          const fileName = item
+            .replace('.html', ' ')
+            .replace('theorem-', 'Theorem ')
+            .replace('ex-', 'Exercise ')
+            .replace('-', '.');
           const anchorLink = '/analysis' + itemPath.split('/src/analysis')[1];
 
           toc += `<a href=${anchorLink}>${fileName}</a>`;
