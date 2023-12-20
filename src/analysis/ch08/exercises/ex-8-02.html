@@ -1,0 +1,49 @@
+---
+title: Exercise No 2
+Parent: powerSeries8
+---
+<div class="exercise">
+	<div class="question">
+		<p>Let $a_{ij}$ be the number in the $i^{th}$ row and $j^{th}$ column of the array</p>
+			$$\begin{array}
+			-1 & 0 & 0 & 0 & \cdots \\
+			\frac{1}{2} & -1 & 0 & 0 & \cdots \\
+			\frac{1}{4} & \frac{1}{2} & -1 & 0 & \cdots \\
+			\frac{1}{8} & \frac{1}{4} & \frac{1}{2} & -1 & \cdots \\
+			\cdots & \cdots & \cdots & \cdots	& \cdots		
+			\end{array}$$
+		<p> so that </p>
+		$$ a_{ij} = \begin{cases}
+		0 &\mbox{(i < j)}\\
+		-1 &\mbox{(i=j)} \\
+		2^{j-i} &\mbox{(i > j)}
+		\end{cases}$$
+		<p>Prove that $\sum\limits_i \sum\limits_j a_{ij} = -2$ and $\sum\limits_{j} \sum\limits_i a_{ij} = 0$</p>
+	</div>
+	<div class="answer">
+		<p>First, fix $i$.</p>
+		$$\begin{align*}
+			\Sum_{j=0}^{\infty} a_{ij} &= \Sum_{j=0}^{i-1} a_{ij} + a_{ii} + \Sum_{j=i+1}^{\infty} a_{ij} \\
+			&= \Sum_{j=0}^{i-1} 2^{j-i} + (-1) + \Sum_{j=i+1}^{\infty} 0 \\
+			&= \frac{2^{-i}(2^i - 1)}{2 - 1} -1 \\
+			&= 1 - 2^{-i} -1\\
+			&= - (\frac{1}{2})^i \\
+			\Sum_{i=0}^{\infty} \Sum_{j=0}^{\infty} a_{ij} &= \Sum_{i=0}^{\infty} -(\frac{1}{2})^i \\
+			&= - \frac{1}{1-\frac{1}{2}} \\
+			&= -2
+		\end{align*}$$
+
+		$$\begin{align*}
+		\end{align*}$$
+
+		<p>Now, fix $j$.</p>
+		$$\begin{align*}
+			\Sum_{i=0}^{\infty} a_{ij} &= \Sum_{i=0}^{j-1} a_{ij} + a_{jj} + \Sum_{i=j+1}^{\infty} a_{ij} \\
+			&= \Sum_{i=0}^{j-1} 0 + (-1) + \Sum_{i=j+1}^{\infty} 2^{j-i} \\
+			&= -1 + \frac{2^{j-(j+1)}}{1-\frac{1}{2}} \\
+			&= -1 + 1 \\
+			&= 0 \\
+			\Sum_{j=0}^{\infty} \Sum_{i=0}^{\infty} a_{ij} &= \Sum_{j=0}^{\infty} 0 = 0
+		\end{align*}$$
+	</div>
+</div>

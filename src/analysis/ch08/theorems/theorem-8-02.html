@@ -1,0 +1,41 @@
+---
+title: Theorem 8.2
+Parent: powerSeries8
+---
+<div class="theorem">
+	<div class="statement">
+		<p>Suppose $\sum c_n$ converges. Put </p>
+		$$f(x) = \Sum_{n=0}^{\infty} c_n x^n (-1 < x < 1)$$
+		<p> Then $\Lim_{x \to 1} f(x) = \summ c_n$</p>
+	</div>
+	<div class="proof">
+		<p>Let $s_n = c_0 + c_1 + \dots + \cdots + c_n$ and $s_{-1} = 0$.</p>
+		<p>Then $c_n = s_n - s_{n-1}$</p>
+		<p>$$\begin{align}
+			\Sum_{n=0}^{m} c_n x^n &= \Sum_{n=0}^{m} (s_n - s_{n-1}) x^n \\
+			&= \Sum_{n=0}^{m} s_n x^n - \Sum_{n=0}^{m} s_{n-1} x^n \\
+			&= \Sum_{n=0}^{m} s_n x^n - x\Sum_{n=1}^{m} s_{n-1} x^{n-1} (\because s_{-1} = 0) \\
+			&= \Sum_{n=0}^{m} s_n x^n - x\Sum_{n=0}^{m-1} s_{n} x^{n} \\
+			&= (1-x)\Sum_{n=0}^{m-1} s_n x^n + s_m x^m \\
+		\end{align}$$</p>
+		<p>For $\abs{x} < 1$, we let $m \to \infty$ and obtain $f(x)=(1-x)\Sum_{n=0}^{\infty} s_n x^n$</p>
+		<p>Also $(1-x)\summ x^n = (1-x) \frac{1}{1-x} = 1$</p>
+		<p>Since $\sum c_n$ converges, $\{s_n \}$ also converges. </p>
+		<p>Suppose $s= \limit s_n$. Let $\ep > 0 $ be given. Then there is an integer $N$ such that $n > N$ implies $\abs{s - s_n} < \frac{\ep}{2}$.</p>
+		$$\begin{align*}
+			\abs{f(x) - s} &= \abs{(1-x)\Sum_{n=0}^{\infty} s_n x^n - s (1-x)\Sum_{n=0}^{\infty} x^n} \\
+			&= \abs{(1-x)\Sum_{n=0}^{\infty} s_n x^n - (1-x)\Sum_{n=0}^{\infty} sx^n} \\
+			&= \abs{(1-x)\Sum_{n=0}^{\infty} (s_n - s) x^n} \\
+			&= \abs{(1-x)\Sum_{n=0}^{N} (s_n - s) x^n + (1-x)\Sum_{n=N+1}^{\infty} (s_n - s) x^n} \\
+			&\leq \abs{(1-x)\Sum_{n=0}^{N} (s_n - s) x^n} + \abs{(1-x)\Sum_{n=N+1}^{\infty} (s_n - s) x^n} \\
+			&\leq \abs{(1-x)\Sum_{n=0}^{N} (s_n - s) x^n} + (1-x)\Sum_{n=N+1}^{\infty} \abs{s_n - s} \abs{x^n} \\
+			&< \abs{(1-x)\Sum_{n=0}^{N} (s_n - s) x^n} + (1-x)\Sum_{n=N+1}^{\infty} \frac{\ep}{2} \abs{x^n} \\
+			&= \abs{(1-x)\Sum_{n=0}^{N} (s_n - s) x^n} + \frac{\ep}{2} (1-x)\Sum_{n=N+1}^{\infty}  \abs{x^n} \\
+			&= \abs{(1-x)\Sum_{n=0}^{N} (s_n - s) x^n} + \frac{\ep}{2} (1-x) \frac{x^{N+1}}{1-x} \\
+			&< \abs{(1-x)\Sum_{n=0}^{N} (s_n - s) x^n} + \frac{\ep}{2} (\because x^{N+1} < 1 \mbox{ for } \abs{x} < 1)\\
+			&\leq \ep \\
+			\therefore \limit f(x) &= s = \summ c_n
+		\end{align*}$$
+
+	</div>
+</div>
