@@ -5,5 +5,14 @@ eleventyNavigation:
   key: rudinAnalysis08
   parent: rudinAnalysis
 ---
+{% assign navPages = collections.all | eleventyNavigation: "rudinAnalysis08" %}
+{{ navPages | eleventyNavigationToHtml }}
+
 <h1>This is analysis Chapter 8 Home Page.</h1>
 {% toc %}
+hiiiii
+
+{{ collections.ch08}}
+
+hellohow to
+{{ collections.rudinAnalysis08 | eleventyNavigation | eleventyNavigationToHtml }}
