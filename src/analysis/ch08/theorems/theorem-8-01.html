@@ -1,6 +1,6 @@
 ---
 title: Theorem 8.1
-Parent: powerSeries8
+parent: powerSeries8
 ---
 <div class="theorem">
 	<div class="statement">
@@ -12,11 +12,18 @@ Parent: powerSeries8
 	<div class="proof">
 		<p>Let $\ep > 0$ be given.</p>
 		<p>$$\begin{align}
-			\text{If } \abs{x} &\leq R - \ep \\
+			\text{If } \abs{x} &\leq R - \ep, \\
 			\abs{x}^n &\leq \abs{R - \ep}^n \\
 			\abs{c_n} \abs{x^n} &\leq \abs{c_n} \abs{R - \ep}^n \\
 			\abs{c_n x^n} &\leq \abs{c_n (R - \ep)^n}
 		\end{align}$$</p>
+
+    $$\begin{align}
+      \limit \sup \abs{c_n(R-\ep)^n}^{\frac{1}{n}} &= \limit \sup ( \abs{c_n}^{\farc{1}{n}} (R-\ep)) \\
+    &= \alpha (R - \ep)\\
+    &= \frac{1}{R} (R-\ep)\\
+    &= 1 - \frac{\ep}{R}
+    \end{align}$$
 		<p>Since $\abs{R- \ep} < R$ and $\summ c_n x^n$ converges for $\abs{x} < R$, $\summ c_n (R - \ep)^n$ converges. </p>
 		<p>Hence, by {% a '7.10' %}, $\summ \abs{c_n x^n}$ converges uniformly on $[-R+\ep, R- \ep ]$ </p>
 	</div>

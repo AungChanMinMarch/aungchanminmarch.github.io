@@ -4,13 +4,16 @@ function analysisAnchor(theorem_number, type='th') {
     const number = (no.length == 1) ? "0"+ no : no;
 
     let folderPrefix = '';
+    let displayNamePrefix = "";
     if (type.indexOf('th') > -1){
-      folderPrefix = 'theorems/theorem-'
+      folderPrefix = 'theorems/theorem-';
+      displayNamePrefix = 'Theorem ';
     } else if (type.indexOf('ex') > -1){
-      folderPrefix = 'exercises/ex-'
+      folderPrefix = 'exercises/ex-';
+      displayNamePrefix = 'Exercise ';
     }
     const href = `/analysis/ch${chapter}/${folderPrefix}${ch}-${number}.html`;
-    return `<a href='${href}'>${type} ${theorem_number}</a>`
+    return `<a href='${href}'>${displayNamePrefix}${theorem_number}</a>`
 }
 
 module.exports = function(...args){
