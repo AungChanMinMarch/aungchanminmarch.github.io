@@ -1,17 +1,34 @@
 ---
 title: Theorem 8.3
 parent: powerSeries8
+order: 3
 ---
 
 <div class="theorem">
   <div class="statement">
     Given a double sequence $\{a_{ij}\}, i=1,2,3,\cdots, j=1,2,3,\dots$ suppose
     that $$\sum\limits_{j=1}^{\infty} \abs{a_ij} = b_i, i=1,2,3,\dots$$ and
-    $\sum b_i$ converges. Then $$\Sum_{i=1}^{\infty} \Sum_{j=1}^{\infty} a_{ij}
-    = \Sum_{j=1}^{\infty} \Sum_{i=1}^{\infty} a_{ij}$$
+    $\sum b_i$ converges. Then 
+		$$\Sum_{i=1}^{\infty} \Sum_{j=1}^{\infty} a_{ij} = \Sum_{j=1}^{\infty} \Sum_{i=1}^{\infty} a_{ij}$$
   </div>
   <div class="proof">
     Let $E=\{x_0, x_1, x_2, \dots \}$ and suppose $x_n \to x_0$ as $n \to
-    \infty$.
+    \infty$. Define
+		$$\begin{align}
+			f_{i} (x_n) &= \sum_{j=1}^{n} a_{ij} \\
+			f_i (x_0) &= \sum_{j=1}^{\infty} a_{ij} \\
+		\end{align}$$
+
+		<p>Then $\abs{f_i(x)} \leq \Sum_{j=1}^{\infty} \abs{a_{ij}} = b_i$. Hence, by {% a '7.10' %}, $\sum\limits_{i=1}^{\infty} f_i(x)$ converges uniformly. </p>
+		<p> Let $g_m(x) = \Sum_{i=1}^{m} f_i (x)$.</p>
+		<p>Since the series $\Sum_{i=1}^{\infty} f_i(x)$ converges uniformly, the sequence of its partial sums $\{ g_m(x) \}$ converges uniformly. Hence by	{% a 7.11 %}, </p>
+		$$\begin{align}
+			\lim_{m \to \infty} \lim_{t \to x} g_m(t) &=\lim_{t \to x} \lim_{m \to \infty} g_m(t) \\
+			\lim_{m \to \infty} \lim_{n \to \infty} g_m(x_n) &=\lim_{n \to \infty} \lim_{m \to \infty} g_m(x_n) \\
+			\lim_{m \to \infty} \lim_{n \to \infty} \Sum_{i=1}^{m} f_i(x_n) &=\lim_{n \to \infty} \lim_{m \to \infty} \Sum_{i=1}^{m} f_i(x_n) \\
+			\lim_{m \to \infty} \lim_{n \to \infty} \Sum_{i=1}^{m} \Sum_{j=1}^{n} a_{ij} &=\lim_{n \to \infty} \lim_{m \to \infty} \Sum_{i=1}^{m} \Sum_{j=1}^{n} a_{ij} \\
+			\lim_{m \to \infty} \Sum_{i=1}^{m} \lim_{n \to \infty} \Sum_{j=1}^{n} a_{ij} &=\lim_{n \to \infty} \Sum_{j=1}^{n} \lim_{m \to \infty} \Sum_{i=1}^{m}  a_{ij} \\
+		\Sum_{i=1}^{\infty} \Sum_{j=1}^{\infty} a_{ij} &= \Sum_{j=1}^{\infty} \Sum_{i=1}^{\infty} a_{ij}
+		\end{align}$$
   </div>
 </div>

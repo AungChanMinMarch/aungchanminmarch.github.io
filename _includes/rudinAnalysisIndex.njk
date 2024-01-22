@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="{{ eleventy.generator }}">
+    <title>{{ title }}</title>
+    <link id="style" rel="stylesheet" type="text/css" href="/assets/style.css">
+</head>
+<body>
+    <nav>
+      <ul class="nav_anchors">
+        <li><a href="/">Home</a></li>
+        {% set current_url = '' %}
+        {% for folder in page.url.split('/') %}
+          {% if folder %}
+            {% set current_url = current_url + '/' + folder %}
+            <li><a href="{{ current_url }}">{{ folder | replace('.html', '') }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+    <main data-state="loading">
+			<h1 class="center">{{title}}</h1>
+			<summary class="theorem">
+				<h3>Table of Content</h3>
+				<details>
+					{{ collections.all | eleventyNavigation(key) | eleventyNavigationToHtml | safe }}
+				</details>
+			</summary>
+			{{ content | safe }}
+    </main>
+</body>
+</html>

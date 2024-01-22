@@ -1,0 +1,50 @@
+---
+title: 'Theorem 8.5'
+parent: powerSeries8
+order: 5
+---
+<div class="theorem">
+	<div class="statement">
+		Suppose the series $\sum a_n x^n$ and $\sum b_n x^n$ converge in the segment $S = (-R, R)$. Let $E$ be the set of all $x \in S$ at which  
+			$$\sum_{n=0}^{\infty} a_n x^n = \sum_{n=0}^{\infty} b_n x^n \tag{20}$$
+		If $E$ has a limit point in $S$, then $a_n=b_n$ for $n = 0, 1, 2,\dots$. Hence (20) holds for all $x \in S$.
+		</div>
+		<div class="proof">
+			Put $c_n = a_n - b_n$ and $f(x) = \summ c_n x^n$.
+			<p>Then $f(x) = 0 $ for all $x \in E$.</p>
+			<p>Let $A$ be the set of all limit points of $E$ in $S$ and let $B$ consist of all other points of $S$.</p>
+
+			<p>
+				First we shall prove $B$ is open.<br />
+				Let $x$ be any point in $B$. <br />
+				Then $x$ is not a limit point of $E$. <br />
+				A point $p$ is a limit point of the set $C$ if every neighborhood of $p$ contains a point $q \neq p$ such that $q \in C$. <br />
+				Hence there is a neighborhood of $x$, say $N$, that does not contain any point of $E$ different from from $x$. i.e. $(N \setminus \{x\}) \cap E =  \emptyset $ <br />
+				If $y \in N$, there is a neighborhood of $y$, say $N_y$ such that $N_y \subset N$ and hence $(N_y  \setminus \{y\}) \cap E = \emptyset$. In other words, $y$ is not a limit point of $E$ and $y \in B$. Thus $N \subset B$. <br />
+				Therefore $x$ is an interior point of $B$. <br />
+				Since every point of $B$ is an interior point of $B$, $B$ is open.
+			</p>
+
+			<p>
+				Now we shall prove $A$ is open. Let $x_0 \in A$. <br />
+				By {% a 8.4 %}, $f(x) = \summ d_n (x-x_0)^n$ for $\abs{x-x_0} < R- \abs{x_0}$) <br />
+				Assume there is at least one $n$ such that $d_n \neq 0$. Let $k$ be the smallest non-negative integer  such that $d_k \neq 0$. <br />
+				$$\begin{align}
+					f(x) &= \summ d_n (x-x_0)^n\\
+					&= \sum_{n=k}^{\infty} d_n (x -x_0)^n \\
+					&= (x-x_0)^k \sum_{n=k}^{\infty} d_n (x-x_0)^{n-k} \\
+					&= (x-x_0)^k \summ d_{n+k} (x-x_0)^n \\
+					&= (x-x_0)^k g(x), \text{ where } g(x) = \summ d_{n+k} (x-x_0)^n
+				\end{align}$$
+			Since $g$ is continuous at $x_0$ and $g(x_0)=d_k \neq 0$, there exist a $\delta > 0$ such that $g(x) \neq 0 $ if $\abs{x - x_0} < \delta$ <br />
+			Since $f(x) = (x-x_0)^k g(x)$, we have $f(x) \neq 0$ if $\abs{x - x_0} < \delta$. <br />
+			This contradicts the fact that $x_0$ is limit point of $E$. Our assumption is wrong. $d_n = 0$ for all $n$. <br />
+			Hence $f(x) = 0$ for $\abs{x- x_0} < R - \abs{x_0}$, i.e. in a neighborhood of $x_0$. This shows that $A$ is open.
+				</p>
+
+				<p>Now we have $A$ and $B$ are disjoint open sets. Hence they are separated. ({% a 2.45 'Definition' %}) <br />
+				Since $S= A \cup B$ and $S$ is connected, one of $A$ and $B$ mush be empty. <br />
+				Since $E$ has a limit point, $A$ is not empty, Hence $B$ is empty and $A = S$ <br />
+				Since $f$ is continuous on $S$, $A \subset E$. Thus $E=S$.
+		</div>
+</div>

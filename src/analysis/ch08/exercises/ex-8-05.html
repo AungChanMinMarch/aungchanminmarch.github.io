@@ -1,0 +1,106 @@
+---
+title: "Exercise number 5(chapter 8)"
+order: 5
+---
+<h1 class="center">Find the following limits</h1>
+<summary class="theorem">
+	<div class="statement">
+		(a) $\lim\limits_{x \to 0} \frac{e - (1+x)^{\frac{1}{x}}}{x}$
+	</div>
+	<details class="proof">
+		$$\begin{align}
+			\lim_{x \to 0} \log (1+x)^{\frac{1}{x}} &= 
+			\lim_{x \to 0}\frac{\log (1+x)}{x} \\
+			&\bracket{\text{Indeterminate Form: } \frac{0}{0}}\\
+			&= \lim_{x \to 0} \frac{1}{1+x} \\
+			&= \frac{1}{1+0} \\
+			&= 1 \\
+
+			\therefore \lim_{x \to 0} (1+x)^{\frac{1}{x}} &=
+			\lim_{x \to 0} e^{\log (1+x)^{\frac{1}{x}}} \\
+			&= e \\
+		\end{align}$$
+
+		\begin{align}
+		&\lim\limits_{x \to 0} \frac{e - (1+x)^{\frac{1}{x}}}{x}\\
+		=&	\lim_{x \to 0} \frac{e - e^{\log (1+x)^{\frac{1}{x}}}}{x} \bracket{\text{indeterminate form: } \frac{0}{0}} \\
+		=& \lim_{x \to 0} -e^{\log (1+x)^{\frac{1}{x}}} \bracket{\frac{1}{x} \frac{1}{1+x} - \frac{1}{x^2} \log (1+x)} \\
+		=& \lim_{x \to 0} -(1+x)^{\frac{1}{x}} \bracket{\frac{x-(1+x)\log(1+x)}{x^2(1+x)}}\\
+		=& -e \bracket{ \lim_{x \to 0} \frac{x - \log(1+x)  - x \log(1+x)}{x^2 + x^3}}\\
+		&\bracket{\text{indeterminate form: } \frac{0}{0}} \\
+
+		=& -e \bracket{ \lim_{x \to 0} \frac{1 - \frac{1}{1+x} - \log(1+x) - \frac{x}{1+x}}{2x + 3x^2}} \\
+
+		=& -e \bracket{ \lim_{x \to 0} \frac{- \log(1+x)}{2x + 3x^2}} \\
+		&\bracket{\text{indeterminate form: } \frac{0}{0}} \\
+
+		=& -e \bracket{ \lim_{x \to 0} \frac{\frac{-1}{1+x}}{2+6x}} \\
+		=& -e \bracket{\frac{-1}{2}} \\
+		= &\frac{e}{2}
+		\end{align}$$
+	</details>
+</summary>
+
+<summary class="theorem">
+	<div class="statement">
+		(b) $\limit \frac{n}{\log n} [n^{\frac{1}{n}} - 1]$
+	</div>
+	<details class="proof">
+		$$\begin{align}
+			\limit n^{\frac{1}{n}} &= \limit e^{\log n^{\frac{1}{n}}} \\
+			&= \limit e^{\frac{\log n}{n}} \bracket{\text{indeterminate form: } \frac{\infty}{\infty}} \\
+			&= \limit e^{\frac{1}{n}} \\
+			&= e^0 \\
+			&= 1
+		\end{align}$$
+
+		Also $\limit \frac{\log n}{n} = \limit \frac{1}{n} = 0$
+		$$\begin{align}
+			\limit \frac{n}{\log n} [n^{\frac{1}{n}} - 1]
+			&= \limit \frac{n^{\frac{1}{n}} - 1}{\frac{\log n}{n}} \\
+			&\indeterminatezero \\
+
+			&= \limit \frac{\frac{d}{dn} e^{\log n^{\frac{1}{n}}}}{\frac{d}{dn} \frac{\log n}{n} } \\
+			&= \limit \frac{n^{\frac{1}{n}} \frac{d}{dn} \dfrac{\log n}{n} }{\frac{d}{dn} \dfrac{\log n}{n} }\\
+
+			&= \limit n^{\frac{1}{n}} \\
+			&= 1
+		\end{align}$$
+
+	</details>
+</summary>
+
+<summary class="theorem">
+	<div class="statement">
+		(c) $\lim\limits_{x \to 0} \dfrac{\tan x -x}{x(1- \cos x)}$
+	</div>
+	<details class="proof">
+		$$\begin{align}
+			&\lim\limits_{x \to 0} \frac{\tan x -x}{x(1- \cos x)} \indeterminatezero \\
+			=& \lim_{x \to 0} \frac{\sec^2 x -1}{1-\cos x + x \sin x} \indeterminatezero \\
+			=& \lim_{x \to 0} \frac{2 \sec^2 x \tan x}{\sin x + x \cos x + \sin x} \\
+			=& \lim_{x \to 0} \frac{2 \sec^2 x \tan x}{2\sin x + x \cos x} \indeterminatezero\\
+
+			=& \lim_{x \to 0} \frac{4 \sec^2 x \tan^2 x + 2 \sec^4 x}{2\cos x - x \sin x + \cos x} \\
+			=& \frac{0 + 2}{2 - 0 + 1} \\
+			=& \frac{2}{3}
+		\end{align}$$
+	</details>
+</summary>
+
+<summary class="theorem">
+	<div class="statement">
+	 (d) $\lim\limits_{x \to 0} \dfrac{x - \sin x}{\tan x - x}$
+	</div>
+	<details class="proof">
+		$$\begin{align}
+	 		&\lim\limits_{x \to 0} \frac{x - \sin x}{\tan x - x} \indeterminatezero\\
+			=& \lim_{x \to 0} \frac{1 - \cos x}{\sec^2 x - 1} \indeterminatezero \\
+
+			=& \lim{x \to 0} \frac{\sin x}{2 \sec^2 x\tan x} \indeterminatezero \\
+			=& \lim_{x \to 0} \frac{\cos x}{4 \sec^2 x \tan^2 x + 2 \sec^4 x} \\
+			=& \frac{1}{0 + 2} \\
+			=& \frac{1}{2}
+		\end{align}$$
+	</details>
+</summary>

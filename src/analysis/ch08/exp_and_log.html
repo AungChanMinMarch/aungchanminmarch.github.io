@@ -1,0 +1,44 @@
+---
+title: "The Exponential and Logarithmic Functions"
+key: theExpAndLogFunctions08
+order: 2
+---
+
+<h1>THE EXPONENTIAL AND LOGARITHMIC FUNCTIONS</h1>
+
+$$\begin{align}
+	\text{We define } E(z) &= \summ \frac{z^n}{n!} \\
+	\text{Then } E(z) &= \frac{z^0}{0!} + \frac{z}{1!} + \frac{z^2}{2!} + \frac{z^3}{3!} + \dots \\
+	&= 1 + z + \frac{z^2}{2!} + \frac{z^3}{3!} + \dots \\
+	\abs{\frac{a_{n+1}}{a_n}} &= \abs{\frac{z^{n+1}}{(n+1)!} \times \frac{n!}{z^n}} \\
+	&= \frac{z}{n+1}
+\end{align}$$
+
+<p>We consider the sequence $\{\frac{\abs{z}}{n+1}\}$, i.e. $\abs{z}, \frac{\abs{z}}{2}, \frac{\abs{z}}{3}, \dots$. The limit of each subsequence of this sequence is $0$. Thus $\limit \sup \abs{\frac{a_{n+1}}{a_n}} = 0$.</p>
+
+<p>That is, $\limit \sup \abs{\dfrac{\frac{z^{n+1}}{(n+1)!}}{\frac{z^n}{n!}}} = 0 <1$. By root test, this series converges. </p>
+{{ collections.all | eleventyNavigation: "theExpAndLogFunctions08" | eleventyNavigationToHtml }}
+<div class="theorem">
+	<div class="statement">
+		Prove $E(x)=e^x$ for all real $x$, where $e$ is the number defined in {% a '3.30' "Definition" %}.(that is  $e=\summ \frac{1}{n!}$)
+	</div>
+</div>
+
+<div class="theorem">
+	<div class="statement">
+		Prove $x^{\alpha} = e^{\alpha \log x}$ for all real $x$, where $e$ is the number defined in {% a '3.30' "Definition" %}.(that is  $e=\summ \frac{1}{n!}$}). Using that, prove also that prove also that $(x^\alpha)' = \alpha x^{\alpha -1}$.
+	</div>
+</div>
+
+<summary class="theorem">
+	<div class="statement">
+		Define $E(z) = \summ \frac{z^n}{n!}$ for every complex number $z$. Prove that $E(\conj{x}) = \conj{E(z)}$.
+	</div>
+	<details class="proof">
+		<p>Let $z = x + iy$. Then $\conj{z} = x - iy$.</p>
+		$$\begin{align}
+			E( \conj{z} ) &= \summ \frac{\conj{z}^n}{n!} \\
+			&= 1 + \conj{z} + \frac{\conj{z}^2}{2!} + \dots \\
+		\end{align}$$
+	</details>
+</summary>

@@ -1,13 +1,13 @@
-function analysisAnchor(theorem_number, type='th') {
+function analysisAnchor(theorem_number, displayName, type='th') {
     const [ch, no] = theorem_number.toString().split(".");
     const chapter = (ch.length == 1) ? "0"+ ch : ch;
     const number = (no.length == 1) ? "0"+ no : no;
 
     let folderPrefix = '';
-    let displayNamePrefix = "";
+    let displayNamePrefix = '';
     if (type.indexOf('th') > -1){
       folderPrefix = 'theorems/theorem-';
-      displayNamePrefix = 'Theorem ';
+      displayNamePrefix = displayName || 'Theorem ';
     } else if (type.indexOf('ex') > -1){
       folderPrefix = 'exercises/ex-';
       displayNamePrefix = 'Exercise ';

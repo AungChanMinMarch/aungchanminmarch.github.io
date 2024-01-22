@@ -1,0 +1,35 @@
+---
+title: "The Trigonometric Functions"
+order: 3
+---
+<h1 class="center">The Trigonometric Functoins</h1>
+
+<p> Let us define 
+$$C(x) = \frac{1}{2} [E(ix)+ E(-ix)]$$
+$$S(x) = \frac{1}{2i} [E(ix) - E(-ix)]$$
+</p>
+
+<summary class="theorem">
+	<div class="statement">
+		Define $C(x) = \frac{1}{2} [E(ix)+ E(-ix)]$ and $S(x) = \frac{1}{2i} [E(ix) - E(-ix)]$. Prove that $C(x)$ and $S(x)$ are real for any real $x$.
+	</div>
+	<details class="proof">
+		$$\begin{align}
+			E(x) &= \summ \frac{x^n}{n!} \\
+			&= 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots \\
+			E(ix) &= 1 + ix + \frac{(ix)^2}{2!} + \frac{(ix)^3}{3!} +  \frac{(ix)^4}{4!} + \frac{(ix)^5}{5!} + \dots \\
+			E(-ix) &= 1 - ix + \frac{(-ix)^2}{2!} + \frac{(-ix)^3}{3!} +  \frac{(-ix)^4}{4!} + \frac{(-ix)^5}{5!} + \dots\\
+			&= 1 - ix + \frac{(ix)^2}{2!} - \frac{(ix)^3}{3!} +  \frac{(ix)^4}{4!} - \frac{(ix)^5}{5!} + \dots\\
+
+			C(x) &= \frac{1}{2} [E(ix) + E(-ix)]\\
+			&= \frac{1}{2}(2 + 2 \frac{(ix)^2}{2!} + 2 \frac{(ix)^4}{4!} + \dots )\\
+			&= 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \dots \\
+
+			S(x) &= \frac{1}{2i} [E(ix) - E(-ix)]\\
+			&= \frac{1}{2i}(2xi + 2 \frac{(ix)^3}{3!} + 2 \frac{(ix)^5}{5!} + \dots )\\
+			&= x + \frac{i^2 x^3}{3!} + \frac{i^4 x^5}{5!} + \dots \\
+			&= x - \frac{x^3}{3!} + \frac{x^5}{5!} - \dots \\
+		\end{align}$$
+		Thus $C(x)$ and $S(x)$ are real for any real $x$.
+	</details>
+</summary>

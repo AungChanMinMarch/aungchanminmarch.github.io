@@ -1,0 +1,175 @@
+---
+title: 'Theorem 8.6'
+parent: theExpAndLogFunctions08
+order: 6
+---
+<p class="center">Let $e^x$ be defined on $R^1$ by $x^x = E(x) \summ \frac{x^n}{n!}$.</p>
+<div class="theorem">
+	<div class="statement">
+ 		(a) $e^x$ is continuous and differentiable for all $x$. <br />
+		(b) $(e^x)' = e^x$
+	</div>
+	<div class="proof">
+		$$\begin{align}
+			\lim\limits_{h \to 0} \frac{E(z+h) -E(z)}{h} &= \lim_{h \to 0} \frac{E(z)E(h) - E(z)}{h} \\
+			&= E(z) \lim_{h \to 0} \frac{E(h) - 1}{h} \\
+			&= E(z) \lim_{h \to 0} \frac{1+ h + \frac{h^2}{2!} + \frac{h^3}{3!} +\dots - 1}{h}\\
+			&= E(z) \lim_{h \to 0} \frac{h + \frac{h^2}{2!} + \frac{h^3}{3!} +\dots}{h}\\
+			&= E(z) \lim_{h \to 0} 1 + \frac{h}{2!} + \frac{h^2}{3!} + \dots\\
+			&= E(z)(1+ 0+ 0 + \dots) \\
+			&= E(z)
+		\end{align}$$
+		<p>Hence $(e^x)'$ exists and equal to $e^x$. Therefore $e$ is differentiable and hence  by {% a 5.2 %}, it is continuous for all $x$.</p>
+	</div>
+</div>
+
+<div class="theorem">
+	<div class="statement">
+		(c) $e^x$ is a strictly increasing function of $x$ and $e^x > 0$ 
+	</div>
+	<div class="proof">
+		<p>Since $e^x = \summ \frac{x^n}{n!}$, $0 < x < y$ implies that $E(x) < E(y)$. Therefore $e^x$ is strictly increasing for all positive $x$. </p>
+		$$\begin{align}
+			E(x) & < E(y) \\
+			\frac{1}{E(x)} & > \frac{1}{E(y)} \\
+			E(-x) & > E(-y)
+		\end{align}$$
+		Hence $e^x$ is a strictly increasing function of $x$.
+		Since $e^x = \summ \frac{x^n}{n!}$, $e^x > 0$ if $x>0$. <br />
+		Since $E(x) E(-x) = E(x+(-x)) = E(0) = 1$, $E(-x) = \frac{1}{E(x)} > 0$ since $E(x) >0$. <br />
+		Therefore $e^x > 0$ for all real $x$.
+	</div>
+</div>
+
+<div class="theorem">
+	<div class="statement">
+		(d) $e^{x+y} = e^x e^y$
+	</div>
+	<div class="proof">
+		<p>By using {% a '3.50' %}, we have
+		$$\begin{align}
+			E(z)E(w) &= \summ \frac{z^n}{n!} \sum_{m=0}^{\infty} \frac{w^m}{m!} \\
+			&= \summ \sum_{k=0}^{n} \frac{z^k}{k!} \frac{w^{n-k}}{(n-k)!} \\
+			&= \summ \sum_{k=0}^{n} \frac{1}{(n-k)!k!} z^k w^{n-k}\\
+			&= \summ \sum_{k=0}^{n}\frac{n!}{n!} \frac{1}{(n-k)!k!} z^k w^{n-k}\\
+			&= \summ \frac{1}{n!} \sum_{k=0}^{n} \frac{n!}{(n-k)!k!} z^k w^{n-k}\\
+			&= \summ \frac{1}{n!} \sum_{k=0}^{n} \binom{n}{k} z^k w^{n-k}\\
+			&= \summ \frac{1}{n!} (z+w)^n \\
+			&= \summ \frac{(z+w)^n}{n!} \\
+			&= E(z+w)\\
+		\therefore e^x e^y &= e^{x+y}
+		\end{align}$$
+
+	</div>
+</div>
+
+<div class="theorem">
+	<div class="statement">
+		(e) $e^x \to + \infty$ as $x \to + \infty$ and $e^x \to 0$ as $ x \to - \infty$
+	</div>
+	<div class="proof">
+		<p> Since $e^x = \summ \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots$, $e^x \to \infty$ as $x \to \infty$ </p>
+		$$\begin{align}
+		e^{x+(-x)} &= e^x e^{-x} \\
+		e^0 &= e^x e^{-x} \\
+		1 &= e^x e^{-x} \\
+		e^{-x} &= \frac{1}{e^x}
+		\end{align}$$
+		Hence $e^{-x} \to 0$ as $x \to \infty$.
+	</div>
+</div>
+
+<div class="theorem">
+	<div class="statement">
+		(f) $\lim\limits_{x \to +\infty} x^n e^{-x} = 0$ for every $n$.
+	</div>
+	<div class="proof">
+		<p> Since $e^x = \summ \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots$, $e^x \to \infty$ as $x \to \infty$ </p>
+		$$\begin{align}
+		e^x > \frac{x^{n+1}}{(n+1)!} \\
+		e^{-x} &< \frac{(n+1)!}{x^{n+1}} \\
+		x^n e^{-x} &< \frac{(n+1)!}{x} \\
+		\end{align}$$
+		<p>Since $\lim\limits_{x \to +\infty} \frac{(n+1)!}{x} = 0$ for every $n$,  $\lim\limits_{x \to +\infty} x^n e^{-x} = 0$ for every $n$.</p>
+	</div>
+</div>
+
+<div class="theorem">
+	<div class="statement">
+		(A), (C) Since $E$ is increasing and differentiable on $R^1$, it has an inverse function $L$ which is also strictly increasing and differentiable and whose domain is $E(R^1)$, that is, the set of all positive numbers. $L$ is defined by
+		$$E(L(y)) = y (y >0)$$
+		or equivalently, by
+		$$L(E(x))= x (x \in R)$$
+	</div>
+</div>
+
+
+<div class="theorem">
+	<div class="statement">
+		(B) $L'(y) = \frac{1}{y}  (y > 0)$
+	</div>
+	<div class="proof">
+		Since $L(E(x)) = x$, differentiating both sides with respect to $x$ gives
+		$$\begin{align}
+			L'(E(x)) E(x) &= 1 \\
+			L'(E(x)) &= \frac{1}{E(x)} \\
+			\text{Set } y &= E(X), \\
+			L'(y) &= \frac{1}{y}
+		\end{align}$$
+
+		$$\begin{align}
+			\text{Since } L(E(x)) &= x,\\
+			\text{taking } x &= 0,\\
+			L(E(0)) &= 0 \\
+			L(1) &= 0
+		\end{align}$$
+
+		Since $L'(y) = \frac{1}{y}$, integrating both sides from $1$ to $t$ gives
+		$$\begin{align}
+			\int_{1}^{t} L'(y) dy &= \int_{1}^{t} \frac{1}{y} dy \\
+			L(t) - L(1) &= \int_{1}^{t} \frac{1}{x} dx \\
+			L(t)  &= \int_{1}^{t} \frac{1}{x} dx \\
+			L(y)  &= \int_{1}^{y} \frac{1}{x} dx \\
+		\end{align}$$
+	</div>
+</div>
+
+<div class="theorem">
+	<div class="statement">
+		(D) $L(uv) = L(u) + L(v)$ for $u >0, v>0$
+	</div>
+	<div class="proof">
+		Let $u=E(x)$ and $v=E(y)$. Then $L(u) = L(E(x)) = x$ and $L(v) = L(E(y)) = y$.
+		$$\begin{align}
+			L(uv) &= L(E(x)E(y)) \\
+			&= L(E(x+y)) \\
+			&= x+y \\
+			&= L(u) + L(v)
+		\end{align}$$
+	</div>
+</div>
+
+<div class="theorem">
+	<div class="statement">
+		(E) $\log x \to +\infty$ as $x \to + \infty$ and $\log x \to - \infty$ as $x \to 0$
+	</div>
+</div>
+
+<div class="theorem">
+	<div class="statement">
+		(F) $\lim\limits_{x \to +\infty} x^{-a} \log x = 0$
+	</div>
+	<div class="proof">
+		For if $0 < \ep < \alpha$ and $x > 1$,
+		$$\begin{align}
+			x^{-\alpha} \log x &= x^{- \alpha} \int_{1}^{x} \frac{1}{t} dt \\
+			&< x^{-\alpha} t^{\ep} \int_{1}^{x} \frac{1}{t} dt \\
+			&= x^{-\alpha} \int_{1}^{x} t^{\ep -1} dt \\
+			&= x^{-\alpha} \sbracket{\frac{t^{\ep}}{\ep}}_{t=1}^{x}\\
+			&= x^{-\alpha} \bracket{\frac{x^{\ep}}{\ep} - \frac{1}{\ep}} \\
+			&< x^{-\alpha} \frac{x^{\ep}}{\ep} = \frac{1}{\ep x^{\alpha-\ep}} \\
+		\end{align}$$
+		Since $\lim\limits_{x \to +\infty} \frac{1}{\ep x^{\alpha - \ep}} = 0 $, <br />
+		$\lim\limits_{x \to +\infty} x^{-a} \log x = 0$.
+	</div>
+</div>
