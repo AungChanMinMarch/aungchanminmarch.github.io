@@ -12,7 +12,7 @@ parent: uniformConvergenceAndContinuity
 		<p>Let $\ep >0$.</p>
 		<div>
 			<p>
-				Since $f_n \to f$ unifromly, by <a href="" data-math="anchor">7.8</a>, there is an integer N such that
+				Since $f_n \to f$ unifromly, by {% a 7.8 %}, there is an integer N such that
 				$$n\geq N, m \geq N, t \in E \mbox{ implies } \abs{f_n(t) - f_m(t)} \leq \ep$$
 			</p>
 			<p>Letting $t \to x$ in above inequility,</p>
@@ -20,13 +20,13 @@ parent: uniformConvergenceAndContinuity
 				\abs{\Lim_{t \to x} f_n(t) - \Lim_{t \to x} f_m(t)} &\leq \ep\\
 				\abs{A_n - A_m} &\leq \ep\\
 				\end{align*}$$
-			<p>Hence $\{ A_n \}$ is a Cauchy sequence. By <a href="" data-math="anchor">3.11</a>, $\{A_n \}$ converges.</p>
+			<p>Hence $\{ A_n \}$ is a Cauchy sequence. By {% a 3.11 %}, $\{A_n \}$ converges.</p>
 		</div>
 		<div>
 			<p>Let $A_n \to A$.</p>
 			$$\begin{align*}
 			\abs{f(t) -A} &= \abs{f(t) - f_n(t) + f_n(t) - A_n + A_n -A}\\
-			\abs{f(t) -A} &\leq \abs{f_n(t) - f(t)} + \abs{f_n(t) - A_n} + \abs{A_n -A} \tag{1}
+			\abs{f(t) -A} &\leq \abs{f_n(t) - f(t)} + \abs{f_n(t) - A_n} + \abs{A_n -A} \quad (1)
 			\end{align*}$$
 			<p>Since $f_n \to f$ uniformly and $A_n \to A$, there is an integer $N$ such that $n\geq N, t \in E$ implies $\abs{f_n(t) -f(t)} \leq \frac{\ep}{3}$ and $\abs{A_n -A} \leq \frac{\ep}{3}$</p>
 			<p>For this $n$, choose a neighborhood $V$ of $x$ such that</p>

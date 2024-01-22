@@ -18,7 +18,7 @@ parent: uniformConvergenceAndContinuity
 		<p>Put $g_n = f_n -f$ and $\ep >0$.</p>
 		<p>Let $K_n = \{x \in K \mid g_n(x) \geq \ep \}$</p>
 		<p>Since $f_n$ and $f$ are continuous on $K$, $g_n$ is continuous on $K$.</p>
-		<p>Hence by <a href="" data-math="anchor">4.8</a>, $K_n$ is closed. Hence by <a href="" data-math="anchor">2.35</a>, $K_n$ is compact.</p>
+		<p>Hence by {% a 4.8 %}, $K_n$ is closed. Hence by {% a 2.35 %}, $K_n$ is compact.</p>
 		$$\begin{align*}
 		\mbox{For all } x \in K, & n=1,2,3, \dots, \\
 		\mbox{Since } f_n(x) &\geq f_{n+1}(x) \\
@@ -41,9 +41,10 @@ parent: uniformConvergenceAndContinuity
 		\therefore g_n &\to 0 \mbox{ pointwise. }
 		\end{align*}$$
 		<p>We have to prove that $g_n \to 0$ uniformly. Fix $x \in K$. Since $g_n(x) \to 0$, $x \notin K_n$ if $n$ is sufficiently large. Thus $x \notin \cap K_n$ and $\cap K_n$ is empty. </p>
-		<p>Hence <a href="" data-math="anchor">2.36</a>, there exists integer $N$ such that $K_N$ is empty.</p>
+		<p>Hence {% a 2.36 %}, there exists integer $N$ such that $K_N$ is empty.</p>
+		<p>Since $K_{n+1} \subset K_n$ and $K_N$ is empty,</p>
 		$$\begin{align*}
-		\mbox{Since $K_{n+1}\subset K_n$ and $K_N$ is empty, } n \geq N &\mbox{ implies }& K_n &= \phi \\
+		n \geq N &\mbox{ implies }& K_n &= \phi \\
 		x \in K, n \geq N &\mbox{ implies }& g_n(x) &< \ep \\
 		\end{align*}$$
 		<p>Therefore there exists integer $N$ such that $x \in K$ and $n \geq N$ implies that $\abs{f_n(x) - f(x)} < \ep$</p>

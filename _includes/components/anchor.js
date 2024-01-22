@@ -10,7 +10,7 @@ function analysisAnchor(theorem_number, displayName, type='th') {
       displayNamePrefix = displayName || 'Theorem ';
     } else if (type.indexOf('ex') > -1){
       folderPrefix = 'exercises/ex-';
-      displayNamePrefix = 'Exercise ';
+      displayNamePrefix = displayName || 'Exercise ';
     }
     const href = `/analysis/ch${chapter}/${folderPrefix}${ch}-${number}.html`;
     return `<a href='${href}'>${displayNamePrefix}${theorem_number}</a>`

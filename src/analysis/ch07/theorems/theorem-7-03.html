@@ -15,12 +15,12 @@ parent: discussionOfMainProblem
 	<div class="answer">
 		<ol>
 			<li>
-				<div data-math="table" data-cols="rrl">
+				$$\begin{array}{rrl}
 					\text{For } x \neq 0, & \Lim_{n \to \infty} f_n(x) &= \limit \dfrac{x^2}{(1+x^2)^n} = 0 \\
 					\text{For } x = 0, & f_n(0) &= 0 \mbox{ for all }n\\
 					& \Lim_{n \to \infty} f_n(0) &= \limit 0 = 0\\
 					\mbox{Hence for all } x \in \R, & \Lim_{n \to \infty} f_n(x) &= 0
-				</div>
+					\end{array}$$
 				<p>Since $\{f_n(x)\}$ converges every $x\in \R$, $\{f_n\}$ converges pointwise.</p>
 			</li>
 			<li>
@@ -28,16 +28,20 @@ parent: discussionOfMainProblem
 				<p>Since the limit function $f(x)=\limit f_n(x)=0$ for all $x \in \R$, it is a constant function. Hence it is continuous.</p>
 			</li>
 			<li>
-				<div data-math="table" data-cols="crl">
-					\text{For } x \neq 0,& \summ f_n(x) &=\summ \dfrac{x^2}{(1+x^2)^n} \\
-					&&=x^2 \summ \dfrac{1}{(1+x^2)^n}\\
-					&&=x^2 (1+\dfrac{1}{1+x^2} + \dfrac{1}{(1+x^2)^2} + \dfrac{1}{(1+x^2)^3}+...)\\
-					&&=x^2 \dfrac{1}{1-\dfrac{1}{1+x^2}}\\
-					&&=x^2 \dfrac{1+x^2}{1+x^2-1}\\
-					&&=1+x^2 \\
-					\text{For } x = 0,& f_n(0) &= 0 \\
-					& \summ f_n(0) &= 0
-				</div>
+			<br/>
+				$$\begin{align}
+					\text{For } x &\neq 0, \\
+
+					\summ f_n(x) &=\summ \dfrac{x^2}{(1+x^2)^n} \\
+					&=x^2 \summ \dfrac{1}{(1+x^2)^n}\\
+					&=x^2 (1+\dfrac{1}{1+x^2} + \dfrac{1}{(1+x^2)^2} + \dfrac{1}{(1+x^2)^3}+...)\\
+					&=x^2 \dfrac{1}{1-\dfrac{1}{1+x^2}}\\
+					&=x^2 \dfrac{1+x^2}{1+x^2-1}\\
+					&=1+x^2 \\
+					\text{For } x &= 0,\\
+					f_n(0) &= 0 \\
+					\summ f_n(0) &= 0
+					\end{align}$$
 				<p class="center">Define $f(x)=\Sum_{n=0}^{\infty} f_n(x)$ by $f(x)= \begin{cases}
 					0 & \mbox{ if $x=0$}\\
 					1+x^2 & \mbox{ if $x\neq 0$}

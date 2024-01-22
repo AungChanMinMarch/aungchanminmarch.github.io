@@ -10,8 +10,8 @@ order: 9
 	</div>
 	<div class="proof">
 		<p>Suppose $f_n \to f$ uniformly on $E$.</p>
+		<p>Then for every $\ep > 0$, there is an integer $N$ such that</p>
 		$$\begin{align*}
-		\mbox{Then for every $\ep > 0$, there is an integer }  &N  \mbox{ such that }\\
 			n \geq N, x \in E &\mbox{ implies } \abs{f_n(x) - f(x)} \leq \ep\\
 			n \geq N &\mbox{ implies } \sup\limits_{x\in E} \abs{f_n(x) - f(x)} \leq \ep\\
 			n \geq N &\mbox{ implies } M_n \leq \ep \\
@@ -22,12 +22,11 @@ order: 9
 		<p>Conversely, suppose $M_n \to 0$ as $n\to \infty$.</p>
 		<p class="center">Then for every $\varepsilon > 0$, there exists an integer $N$ such that</p>
 		$$\begin{align*}
-		%\mbox{Then for every } \varepsilon > 0, \mbox{there exists an integer } &N \mbox{ such that }\\
-		n &\geq N &&\mbox{ implies that }& \abs{M_n - 0} &\leq \varepsilon \\
-		n &\geq N& &\mbox{ implies that }& M_n &\leq \varepsilon \\
-		n &\geq N& &\mbox{ implies that }& \sup_{x\in E} \abs{f_n(x) - f(x)} &\leq \varepsilon \\
-		%n \geq N,& x \in E& &\mbox{ implies that }& \sup_{x\in E} \abs{f_n(x) - f(x)} &\leq \varepsilon \\
-		n \geq N,& x\in E& &\mbox{ implies that }&  \abs{f_n(x) - f(x)} &\leq \varepsilon \\
+		n &\geq N &&\mbox{ implies }& \abs{M_n - 0} &\leq \varepsilon \\
+		n &\geq N& &\mbox{ implies }& M_n &\leq \varepsilon \\
+		n &\geq N& &\mbox{ implies }& \sup_{x\in E} \abs{f_n(x) - f(x)} &\leq \varepsilon \\
+		%n \geq N,& x \in E& &\mbox{ implies }& \sup_{x\in E} \abs{f_n(x) - f(x)} &\leq \varepsilon \\
+		n \geq N,& x\in E& &\mbox{ implies }&  \abs{f_n(x) - f(x)} &\leq \varepsilon \\
 		\end{align*}$$
 		<p>Hence $f_n \to f$ uniformly.</p>
 	</div>

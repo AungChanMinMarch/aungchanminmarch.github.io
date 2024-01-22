@@ -12,18 +12,18 @@ order: 10
 		<p>Let $\{s_n\}$ be the sequence of the partial sums defined by $\Sum_{i=1}^{n} f_i(x) = s_n(x)$.</p>
 
 		$$\begin{align*}
-		n > m &\mbox{ implies } &
+		n > m \mbox{ implies } 
 		\abs{s_n(x) - s_m(x)} &= \abs{\Sum_{i=1}^{n} f_i(x) - \Sum_{i=1}^{m} f_i(x)} \\
-		&&&= \abs{\Sum_{i=m+1}^{n} f_i(x)} \\
-		n > m &\mbox{ implies }& \abs{s_n(x) - s_m(x)} &\leq \Sum_{i=m+1}^n \abs{f_i(x)}\\
-		n > m, x \in E &\mbox{ implies }& \abs{s_n(x) - s_m(x)} &\leq \Sum_{i=m+1}^{n} M_i
+		&= \abs{\Sum_{i=m+1}^{n} f_i(x)} \\
+		&\leq \Sum_{i=m+1}^n \abs{f_i(x)}\\
+		&\leq \Sum_{i=m}^n \abs{f_i(x)}\\
 		\end{align*}$$
+		$$\text{Hence }n > m, x \in E \mbox{ implies } \abs{s_n(x) - s_m(x)} \leq \Sum_{i=m}^{n} M_i$$
 
 		<p>Since $\sum M_n$ converges, by {% a 3.22 %}, for any $\ep > 0 $, there exists integer $N$ such that</p>
-		$$\begin{align*}
-		n \geq m \geq N \mbox{ implies that } \abs{\sum_{i=m}^n M_i} &\leq \ep\\
-		\abs{s_n(x) - s_m(x)} \leq \Sum_{i=m+1}^{n} M_i \leq \sum_{i=m}^n M_i &\leq \ep
-		\end{align*}$$
+		$$n \geq m \geq N \mbox{ implies that } \abs{\sum_{i=m}^n M_i} \leq \ep $$
+		
+		$$\mbox{Thus } \abs{s_n(x) - s_m(x)} \leq \sum_{i=m}^n M_i \leq \ep$$
 		
 		$$n \geq m \geq N, x \in E \mbox{ implies } \abs{s_n(x) - s_m(x)} \leq \ep $$
 		<p>Hence by {% a '7.8' %} the sequence $\{s_n\}$ converges uniformly. Since sequence of partial sums converge uniformly, $\sum f_n$ converges uniformly.</p>

@@ -11,21 +11,27 @@ order: 8
 		<p>Suppose $\{f_n\}$ converges uniformly on $E$.</p>
 		<p>Let $\ep > 0$ and $f$ be the limit function. </p>
 		<p class="center">Then there exists an integer $N$ such that $n\geq N, x \in E$ implies $\abs{f_n(x)-f(x)} \leq \frac{\varepsilon}{2}$ <br>
-			$$\abs{f_n(x)-f_m(x)} = \abs{f_n(x)-f(x)+f(x)-f_m(x)} \leq \abs{f_n(x)-f(x)} + \abs{f_m(x)-f(x)} $$
-			$$\begin{align*}
+			$$\begin{align}
+			\abs{f_n(x)-f_m(x)} &= \abs{f_n(x)-f(x)+f(x)-f_m(x)}\\
+			&\leq \abs{f_n(x)-f(x)} + \abs{f_m(x)-f(x)} \end{align}$$
+			$$\begin{align}
 			n\geq N, x \in E \ \text{ implies } \abs{f_n(x)-f(x)} &\leq \frac{\ep}{2}\\
 			m\geq N, x \in E \ \text{ implies } \abs{f_m(x)-f(x)} &\leq \frac{\ep}{2}\\
-			\mbox{Hence } n\geq N, m \geq N, x \in E \ \text{ implies } \abs{f_n(x)-f_m(x)}
+			\end{align}$$
+
+			$$\begin{align}
+			\mbox{Hence } n\geq N, m &\geq N, x \in E \ \text{ implies } \\
+			\abs{f_n(x)-f_m(x)}
 			&\leq \abs{f_n(x)-f(x)} + \abs{f_m(x)-f(x)}\\
 			&\leq \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
-			\end{align*}$$
+			\end{align}$$
 		</p>
 		<p>Therefore there exists an integer $N$ such that $n\geq N, m \geq N, x \in E$ implies $\abs{f_n(x)-f_m(x)} \leq \varepsilon$</p>
 
 		<p>Now suppose that for every $\varepsilon > 0$, there exists an integer $N$ such that 
 		$$m \geq N, n\geq N, x \in E \mbox{ implies } \mod{f_n(x)-f_m(x)} \leq \varepsilon \tag{1}$$
 		</p>
-		<p>Then, by <a data-math="anchor">3.11</a>, for every $x$, the sequence $\{f_n(x)\}$ converges to the limit, say $f(x)$. Thus $f_n \to f$ pointwise. We need to prove $f_n \to f$ uniformly.</p>
+		<p>Then, by {% a 3.11 %}, for every $x$, the sequence $\{f_n(x)\}$ converges to the limit, say $f(x)$. Thus $f_n \to f$ pointwise. We need to prove $f_n \to f$ uniformly.</p>
 		<p>Let $\varepsilon > 0$ be given. Choose an integer $N$ such that (1) holds.</p>
 		<p>As $m \to \infty$, $f_m(x) \to f(x)$</p>
 		<p>Hence fixing $n$ and letting $m \to \infty$ in (1) gives $n\geq N, x \in E$ implies $\mod{f_n(x)-f(x)} \leq \varepsilon$</p>
