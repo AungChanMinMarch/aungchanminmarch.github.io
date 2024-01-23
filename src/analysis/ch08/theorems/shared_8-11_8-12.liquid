@@ -1,0 +1,60 @@
+		---
+		permalink: false
+		---
+		<p>Let $\int$ denote the integral over $[a, b]$. Let $\sum$ denote the sum from $1$ to $n$.</p>
+		<div class="small">
+		$$\begin{align}
+			\int \abs{f-s_n}^2 
+			&= \int (f-s_n) \conj{(f-s_n)}\\
+			&= \int (f-s_n)(\conj{f} - \conj{s_n}) \\
+			&= \int \abs{f}^2 - \int f \conj{s_n} - \int \conj{f} s_n + \int \abs{s_n}^2 \tag{a}
+		\end{align}$$
+		</div>
+		<p>Now we need to find $\int f \conj{s_n} dx$, $\int \conj{f} s_n dx$ and $\int \abs{s_n}^2 dx$. </p>
+
+		$$\begin{align}
+			\int f \conj{s_n}
+			=& \int f \conj{\sum c_m \phi_m}  \\
+			=& \int f \bracket{\conj{c_1} \conj{\phi_1} + \dots + \conj{c_n} \conj{\phi_n}} \\
+			=& \int f \conj{c_1} \conj{\phi_m} + \dots + \int f \conj{c_n} \conj{\phi_n} \\
+			=& \conj{c_1} \int f \conj{\phi_m} + \dots + \conj{c_n} \int f \conj{\phi_n} \\
+			=& \conj{c_1} c_1 + \cdots + \conj{c_n} c_n \\
+			=& \abs{c_1}^2 + \cdots + \abs{c_n}^2\\
+			=& \sum \abs{c_m}^2
+		\end{align}$$
+
+	$$\begin{align}
+		\int \conj{f} s_n 
+		=& \int \conj{f} \sum c_m \phi_m  \\
+		=& \int \conj{f} \bracket{c_1 \phi_1 + \cdots + c_n \phi_n} dx \\
+		=& \int \bracket{c_1 \conj{f} \phi_1 + \cdots + c_n \conj{f} \phi_n} \\
+		=& \int c_1 \conj{f} \phi_1 + \cdots + \int c_n \conj{f} \phi_n  \\
+		=& c_1 \int \conj{f} \phi_1  + \cdots + c_n \int \conj{f} \phi_n  \\
+		=& c_1 \conj{c_1} + \cdots + c_n \conj{c_n} \\
+		=& \abs{c_1}^2 + \cdots + \abs{c_n}^2 \\
+		=& \sum \abs{c_m}^2
+	\end{align}$$
+	
+	<p class="small">
+	$$\begin{align}
+		\int \abs{s_n}^2
+		&= \int s_n \conj{s_n} dx \\
+		&= \int \sum c_m \phi_m \sum \conj{c_m} \conj{\phi_m} \\
+		&= \int \bracket{c_1 \phi_1 + \cdots + c_n \phi_n} \bracket{\conj{c_1} \conj{\phi_1} + \dots + \conj{c_n} \conj{\phi_n}} \\
+		\text{Since } \{\phi_n\} &\text{ is orthonormal, we have } \\
+		\int \phi_m \phi_n dx &= \begin{cases}
+			0 &\mbox{ if } m \neq n \\
+			1 &\mbox{ if } m=n
+		\end{cases}\\
+		\therefore \int \abs{s_n}^2 dx &= c_1 \conj{c_1} + c_2 \conj{c_2} + \cdots + c_n \conj{c_n} = \sum \abs{c_m}^2
+	\end{align}$$
+	</p>
+
+	Hence From (a), we get
+	$$\begin{align} 
+		\int \abs{f-s_n}^2 
+		&= \int \abs{f}^2  - \int f \conj{s_n} - \int \conj{f} s_n + \int \abs{s_n}^2  \\
+		&= \int \abs{f}^2 - \sum \abs{c_m}^2 - \sum \abs{c_m}^2 + \sum \abs{c_m}^2 \\
+		&= \int \abs{f}^2 - \sum \abs{c_m}^2
+		\end{align}$$
+		

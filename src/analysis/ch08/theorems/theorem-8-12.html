@@ -1,0 +1,36 @@
+---
+title: "Theorem 8.12"
+order: 12
+parent: fourierSeries08
+---
+<div class="theorem">
+	<p class="statement">
+		If $\{\phi_n\}$ is orthonormal on $[a, b]$, and if $f(x) \sim \sum\limits_{n=1}^{\infty} c_n \phi_n(x)$, then 
+		$$ \sum\limits_{n=1}^{\infty} \abs{c_n}^2 \leq \int\limits_a^b \abs{f(x)}^2 dx \tag{73}$$
+In particular, 
+		$$\limit c_n =0 \tag{74}$$
+	</p>
+	<div class="proof">
+		<summary class=""> 
+			<p>Let $s_n = \sum\limits_{m=1}^{n} c_m \phi_m(x) dx$. </p>
+
+			<p>Then, in {% a 7.11 %}, we have seen
+			$$\int\limits_a^b \abs{f(x) -s_n(x)} dx = \int\limits_{a}^{b} \abs{f(x)}^2 dx - \sum\limits_{m=1}^{n} \abs{c_m}^2$$
+			<details class="border">
+		{% include "./shared_8-11_8-12.liquid" %}
+			</details>
+
+
+			$$\begin{align}
+			\int\limits_a^b \abs{f(x) -s_n(x)} dx &\geq 0 \\
+			\int\limits_{a}^{b} \abs{f(x)}^2 dx - \sum\limits_{m=1}^{n} \abs{c_m}^2 &\geq 0 \\
+			\int\limits_{a}^{b} \abs{f(x)}^2 dx &\geq \sum\limits_{m=1}^{n} \abs{c_m}^2 \\
+			\end{align}$$
+			<p>Letting $n \to \infty$, we get </p>
+		$$ \sum\limits_{n=1}^{\infty} \abs{c_n}^2 \leq \int\limits_a^b \abs{f(x)}^2 dx$$
+
+			<p>By {% a 3.23 %}, we get</p>
+		$$\limit c_n =0$$
+		</summary>
+	</div>
+</div>
