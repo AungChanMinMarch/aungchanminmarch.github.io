@@ -24,7 +24,7 @@
 			<h1 class="center">{{title}}</h1>
 			<summary class="theorem">
 				<h3>Table of Content</h3>
-				<details>
+				<details open>
 					{{ collections.all | eleventyNavigation(key) | eleventyNavigationToHtml | safe }}
 				</details>
 			</summary>
