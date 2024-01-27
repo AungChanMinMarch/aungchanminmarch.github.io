@@ -1,0 +1,97 @@
+---
+title: "ex no 9 (chapter 8)"
+order: 8
+---
+<summary class="theorem">
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+	<p class="statement">
+		Put $s_N = 1 + \frac{1}{2} + \cdots+ \dots + \frac{1}{N}$. Prove that 
+			$$\lim_{N \to \infty}  (s_N - \log N)$$ 
+exists. {The limit, often denoted by $\gamma$, is called Euler's constant. Its numerical value is $0.5772...$. It is not known whether $\gamma$ is rational or not.)
+	</p>
+	<details class="proof">
+<div id="closed">
+</div>
+<script>
+window.plot = {
+	target: '#closed',
+  xAxis: { domain: [0, 4] },
+  data: [
+		{
+			graphType: 'text',
+      location: [1, 0],
+      text: 'n',
+		attr: {
+        'text-anchor': 'end',
+				'fill': 'black',
+				'font-size': 24
+      }
+		}, {
+			graphType: 'text',
+      location: [2, 0],
+      text: 'n+1',
+		attr: {
+				'fill': 'black',
+				'font-size': 24
+      }
+		}, {
+			graphType: 'text',
+      location: [2, 0.5],
+      text: '1/(n+1)',
+		attr: {
+        'text-anchor': 'middle',
+				'fill': 'black',
+				'font-size': 20
+      }
+		}, {
+			fn: '1/x',
+			color: 'black'
+		}, {
+      fn: '1/x',
+      range: [1, 2],
+			color: 'grey',
+      closed: true
+    }, {
+			points: [
+				[1, 0],
+				[2, 0],
+				[2, 0.5],
+				[1, 0.5],
+				[1, 0]
+			],
+			fnType: 'points',
+			color: 'blue',
+			closed: true,
+			graphType: 'polyline'
+		}, 
+  ],
+}
+</script>
+	<p>Since the minimum value of $\dfrac{1}{x}$ on the interval $[n, n+1]$ is $\dfrac{1}{n+1}$, we have for $n=1,2, \cdots$ </p>
+	\begin{align}
+		\frac{1}{n+1} \times (n+1 - n) &\leq \int_{n}^{n+1} \frac{1}{x} dx \\
+		\frac{1}{n+1} &\leq \sbracket{\ln x}_{n}^{n+1} \\
+		\frac{1}{n+1} &\leq \ln (n+1) - \ln n\\
+	\end{align}
+
+	<p>Hence we get</p>
+	\begin{align}
+		\frac{1}{2} &\leq \log 2 - \ln 1 = \ln 2\\
+		\frac{1}{3} &\leq \ln 3 - \ln 2\\
+		\frac{1}{4} &\leq \ln 4 - \ln 3\\
+		\frac{1}{5} &\leq \ln 5 - \ln 4\\
+		\cdots\\
+		\frac{1}{N-1} &\leq \ln (N-1) - \ln (N-2)\\
+		\frac{1}{N} &\leq \ln N - \ln (N-1)
+	\end{align}
+
+	<p>Adding them gives</p>
+	\begin{align}
+		\frac{1}{2} + \cdots + \frac{1}{N} &\leq \ln N \\
+		1 +\frac{1}{2} + \cdots + \frac{1}{N} &\leq 1 + \ln N \\
+		s_N &\leq 1 + \ln N\\
+		s_N - \ln N &\leq 1
+	\end{align}
+	</details>
+</summary>
