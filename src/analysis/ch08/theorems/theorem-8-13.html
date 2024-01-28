@@ -1,0 +1,165 @@
+---
+title: "8.13: Trigonometric series"
+order: 13
+parent: fourierSeries08
+---
+
+<p>
+	The Fourier series of $f$ is 
+	$$\sum_{n=-N}^{N} c_n e^{inx} \ (x \in\R)$$
+	and coefficients ar given by 
+	$$c_m = \frac{1}{2 \pi} \int\limits_{-\pi}^{\pi} f(x) e^{-imx} dx$$
+	The Nth partial sum of the Fourier series of $f$ is 
+	$$s_N(x) = s_N(f;x) = \sum_{n=-N}^{N} c_b e^{inx}$$
+</p>
+
+<div class="definition">
+	<h2>Dirichlet kernel</h2>
+	
+	$$D_N(x) = \sum\limits_{n=-N}^{N} e^{inx} = \frac{\sin (N+\frac{1}{2})x}{\sin(\frac{x}{2})}$$
+</div>
+
+<summary class="theorem">
+	<p class="statement">
+		Prove $D_N(x) = \sum\limits_{n=-N}^{N} e^{inx} = \dfrac{\sin (N+\frac{1}{2})x}{\sin(\frac{x}{2})}$
+	</p>
+	<details class="proof">
+		$$\begin{align}
+			\sum\limits_{n=-N}^{N} e^{inx} 
+				=&e^{i(-N)x} + e^{i(-N+1)x} + \cdots + e^{i(-1)x} + 1\\
+				&+ e^{ix} + e^{i2x} + \cdots + e^{iNx} \\
+
+			(e^{ix} - 1) \sum\limits_{n=-N}^{N} e^{inx}
+			=&
+			(e^{i(-N+1)x} + e^{i(-N+2)x} + \dots + 1\\
+			&+ e^{ix} + e^{i2x} + \cdots + e^{i(N+1)x}) \\
+			&-(e^{i(-N)x} + e^{i(-N+1)x} + \cdots  + 1\\
+			&	+ e^{ix} + e^{i2x} + \cdots + e^{iNx}) \\
+
+			=& e^{i(N+1)x} - e^{i(-N)x}\\
+
+			e^{-\frac{ix}{2}}(e^{ix} - 1) \sum\limits_{n=-N}^{N} e^{inx}
+			=& e^{-\frac{ix}{2}} ( e^{i(N+1)x} - e^{i(-N)x} )\\
+			
+			(e^{i\frac{x}{2}} - e^{-i\frac{x}{2}}) \sum\limits_{n=-N}^{N} e^{inx}
+			=& ( e^{i(N + \frac{1}{2})x} - e^{-i(N+ \frac{1}{2})x} )\\
+			
+			\dfrac{(e^{i\frac{x}{2}} - e^{-i\frac{x}{2}})}{2i} \sum\limits_{n=-N}^{N} e^{inx}
+			=& \dfrac{( e^{i(N + \frac{1}{2})x} - e^{-i(N+ \frac{1}{2})x} )}{2i}\\
+
+			\sin (\frac{x}{2}) \sum\limits_{n=-N}^{N} e^{inx} 
+			=& \sin (N + \frac{1}{2})x \\
+
+			D_N(x) = \sum\limits_{n=-N}^{N} e^{inx} &= \frac{\sin (N+\frac{1}{2})x}{\sin(\frac{x}{2})}
+		\end{align}$$
+	</details>
+</summary>
+
+
+<summary class="theorem">
+	<p class="statement">
+		Prove that $D_N$ is $2\pi$ periodic, even and continuous function that satisfies			$$\frac{1}{2\pi} \int\limits_{-\pi}^{\pi} D_N(x) dx = 1$$
+	</p>
+	<details class="proof">
+		$$\begin{align}
+			D_N(x+2\pi) &= \sum\limits_{n=-N}^{N} e^{in(x+2\pi)} \\
+			&= \sum\limits_{n=-N}^{N} e^{inx} e^{i2n\pi}\\
+			&= \sum\limits_{n=-N}^{N} e^{inx} (e^{i2\pi})^n\\
+			&= \sum\limits_{n=-N}^{N} e^{inx} 1^n\\
+			&= \sum\limits_{n=-N}^{N} e^{inx}\\
+			&= D_N(x)
+		\end{align}$$
+		<p>Hence $D_N$ is $2\pi$ periodic.</p>
+		<hr />
+
+		$$\begin{align}
+			D_N(-x) &= \sum\limits_{n=-N}^{N} e^{in(-x)} \\
+			&= e^{i(-N)(-x)} + e^{i(-N+1)(-x)} + \cdots + e^{iN(-x)} \\
+			&= e^{iNx} + e^{i(N-1)x} + \cdots + e^{i(-N)x} \\
+			&= e^{i(-N)x} + \cdots + e^{i(N-1)x} + e^{iNx} \\
+			&= \sum\limits_{n=-N}^{N} e^{inx} \\
+			&= D_N(x)
+		\end{align}
+		<p>Hence $D_N$ is even.</p>
+		<hr />
+
+		<p>Clearly, $D_N$ is continuous. </p>
+		<hr />
+
+		$$\begin{align}
+		\int\limits_{-\pi}^{\pi} D_N(x) dx
+		=& \int\limits_{-\pi}^{\pi} (\sum_{n=-N}^{N} e^{inx}) dx \\
+		=& \sum_{n=-N}^{N} (\int\limits_{-\pi}^{\pi} e^{inx} dx) \\
+
+		=& \int_{-\pi}^{\pi} e^{-iNx} dx + \cdots + \int_{-\pi}^{\pi} e^{-ix}dx + \int_{-\pi}^{\pi} 1 dx \\
+		& +\int_{-\pi}^{\pi} e^{ix} dx + \cdots + \int_{-\pi}^{\pi} e^{iNx} dx\\
+
+		=& \sbracket{\frac{e^{-iNx}}{-iN}}_{x=-\pi}^{\pi} + \cdots + \sbracket{\frac{e^{-ix}}{-i}}_{-\pi}^{\pi} + [x]_{-\pi}^{\pi} \\
+		&+ \sbracket{\frac{e^{ix}}{i}}_{-\pi}^{\pi} + \cdots + \sbracket{\frac{e^{iNx}}{iN}}_{-\pi}^{\pi}\\
+
+
+		=& \small{\bracket{-\frac{e^{-iN\pi}}{iN} + \frac{e^{iN\pi}}{iN}} + \cdots + \bracket{-\frac{e^{-i\pi}}{i} + \frac{e^{i\pi}}{i}} + 2\pi}\\
+		&\small{
+			+ \bracket{\frac{e^{i\pi}}{i} - \frac{e^{-i\pi}}{i}} + \cdots + \bracket{\frac{e^{iN\pi}}{iN} - \frac{e^{-iN\pi}}{iN}}
+		}\\
+		=& 2\pi \\
+		\end{align}$$
+		$$\therefore \frac{1}{2\pi} \int\limits_{-\pi}^{\pi} D_N(x) dx = 1$$
+	</details>
+</summary>
+
+<summary class="theorem">
+	<p class="statement">
+		If $f$ is integrable on $[-\pi, \pi]$ and $2\pi$ periodic function, then prove
+		$$\int_{-\pi}^{\pi} f(t) dt = \int_{a-\pi}^{a+\pi} f(t) dt$$
+	</p>
+	<details class="proof">
+		<p>Let $H(a) = \int\limits_{a}^{a+2\pi} f(t) dt$ for $a \in \R$.</p>
+		<p>To prove $\int\limits_{-\pi}^{\pi} f(t) dt = \int\limits_{a-\pi}^{a+\pi} f(t) dt$, we need to prove $H'$ is a constant. </p>
+		\begin{align}
+			H(a) =& \int_{a}^{a+2\pi} f(t) dt \\
+			&\text{By Fundamental Theorem of Calculus, }\\
+			H'(a) =& f(a+2\pi) - f(a) \\
+			&\text{Since $f$ is $2\pi$ periodic},\\
+			H'(a) =& 0
+		\end{align}
+		<p>Thus $H$ is a constant function. Let $H(a) = C$ for all $a \in \R$.</p>
+		\begin{align}
+		H(-\pi) &= \int_{-\pi}^{\pi} f(t) dt  = C\\
+		H(a-\pi) &= \int_{a-\pi}^{a+\pi} f(t) dt  = C\\
+		\therefore \int_{-\pi}^{\pi} f(t) dt &= \int_{a-\pi}^{a+\pi} f(t) dt
+		\end{align}
+	</details>
+</summary>
+
+<summary class="theorem">
+	<p class="statement">
+		Show that 
+			$$s_N(f;x) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x-t) D_N(t) dt,$$
+		where $f$ is $2\pi$ periodic function and $D_N$ is Dirichlet function.
+	</p>
+	<details class="proof">
+		\begin{align}
+			s_N(f;x) &= \sum_{n=-N}^{N} c_n e^{inx} \\
+			&= \sum_{n=-N}^{N} \bracket{ \frac{1}{2\pi} \int_{-\pi}^{\pi} f(t) e^{-int} dt} e^{inx}\\
+			&= \frac{1}{2\pi} \sum_{n=-N}^{N} \bracket{\int_{-\pi}^{\pi} f(t) e^{in(x-t)} dt}\\
+			&= \frac{1}{2\pi} \int_{-\pi}^{\pi} \bracket{ \sum_{n=-N}^{N} f(t) e^{in(x-t)} }dt\\
+			&= \frac{1}{2\pi} \int_{-\pi}^{\pi} f(t) \sum_{n=-N}^{N} e^{in(x-t)} dt\\
+			&= \frac{1}{2\pi} \int_{-\pi}^{\pi} f(t) D_N(x-t) dt
+		\end{align}
+
+		<p>Let $u= x-t$. Then $du = - dt$$</p>
+		<p>When $t = -\pi$, $u=x +\pi$<p />
+		<p>When $t = \pi$, $u=x -\pi$<p />
+		
+		\begin{align}
+			s_N(f;x) &= \sum_{n=-N}^{N} c_n e^{inx} \\
+			&= \frac{1}{2\pi} \int_{-\pi}^{\pi} f(t) D_N(x-t) dt\\
+			&= \frac{1}{2\pi} \int_{x+\pi}^{x-\pi} f(x-u) D_N(u) (-du) \\
+			&= \frac{1}{2\pi} \int_{x-\pi}^{x+\pi} f(x-u) D_N(u) du \\
+			&= \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x-u) D_N(u) du \\
+			&\bracket{\text{Since $fD_N$ is $2\pi$ periodic}}\\
+			\therefore s_N(f;x) &= \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x-t) D_N(t) dt \\
+		\end{align}
+	</details>
+</summary>
