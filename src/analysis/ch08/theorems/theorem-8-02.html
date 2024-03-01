@@ -10,7 +10,7 @@ order: 2
 		<p> Then $\Lim_{x \to 1} f(x) = \summ c_n$</p>
 	</div>
 	<div class="proof">
-		<p>Let $s = \summ c_n$, $s_n = c_0 + c_1 + \dots + \cdots + c_n$ and $s_{-1} = 0$.</p>
+		<p>Let $s = \summ c_n$, $s_n = c_0 + c_1 + \dots + c_n$ and $s_{-1} = 0$.</p>
 		<p>Then $c_n = s_n - s_{n-1}$ and $\limit s_n = \limit \sum\limits_{n=0}^{n} c_n = s$. </p>
 		<p>$$\begin{align}
 			\Sum_{n=0}^{m} c_n x^n
@@ -32,11 +32,7 @@ order: 2
 			&\begin{array}{ll}
 			\leq & \abs{(1-x)\Sum_{n=0}^{N} (s_n - s) x^n}\\
 			&+ \abs{(1-x)\Sum_{n=N+1}^{\infty} (s_n - s) x^n}
-			\end{array} \\
-			&\begin{array}{ll}
-			\leq & (1-x) \Sum_{n=0}^{N} \abs{s_n -s} x^n \\
-			&+ (1-x) \Sum_{n=N+1}^{\infty} \abs{s_n - s} x^n \qquad{(a)}
-			\end{array}
+			\end{array} \tag{a}
 		\end{align*}$$
 		<p>We choose $M > 0$ such that $M > \abs{s_n - s}$ for $n=0,1,2,3, \dots N$ and $M > \frac{\ep}{2^{N+1}}$.</p>
 		$$\begin{align}
@@ -49,7 +45,7 @@ order: 2
 		\end{align}$$
 	
 		<summary>
-			$1 - x^n < (1-x)^n$
+			We have $1 - x^n < (1-x)^n$ for $x$ > 0 and positive integer $n$.
 			<details>
 			</details>
 		</summary>
@@ -73,12 +69,12 @@ order: 2
 
 		$$\begin{align}
 			\abs{(1-x)\Sum_{n=N+1}^{\infty} (s_n - s) x^n} &\leq
-			(1-x)\Sum_{n=N+1}^{\infty} \abs{s_n - s} \abs{x^n} \\
-			&< (1-x)\Sum_{n=N+1}^{\infty} \frac{\ep}{2} \abs{x^n} \nonumber \\
-			&= (1-x) \frac{\ep}{2} \Sum_{n=N+1}^{\infty} \abs{x^n} \\
+			(1-x)\Sum_{n=N+1}^{\infty} \abs{s_n - s} x^n \\
+			&< (1-x)\Sum_{n=N+1}^{\infty} \frac{\ep}{2} x^n \\
+			&= (1-x) \frac{\ep}{2} \Sum_{n=N+1}^{\infty} x^n \\
 			&= (1-x) \frac{\ep}{2} \frac{x^{N+1}}{1-x} \\
 			&= \frac{\ep}{2} x^{N+1} \\
-			&< \frac{\ep}{2} \qquad{(c)}\\
+			&< \frac{\ep}{2} \qquad{(c)}
 		\end{align}$$
 		because $x^{N+1} < 1$ for $ -1 < x < 1$.
 
@@ -105,7 +101,7 @@ order: 2
 		$$\begin{align}
 			f(x)g(x) &= (\sum a_n x^n) (\sum b_n x^n) \\
 			&= (a_0 + a_1 x + a_2 x^2 + \dots ) (b_0 + b_1 x + b_2 x^2 + \dots) \\
-			&= a_0 b_0 + (a_0 b_1 +a_1 b_0)x + (a_0 b_2 + a_1 b_1 + a_2 b_0) x^2 + \dots \\
+			&= \small{a_0 b_0 + (a_0 b_1 +a_1 b_0)x + (a_0 b_2 + a_1 b_1 + a_2 b_0) x^2 + \dots} \\
 			&= c_0 + c_1 x + c_2 x^2 + \dots \\
 			&= h(x)
 		\end{align}$$

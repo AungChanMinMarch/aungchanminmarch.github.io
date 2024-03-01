@@ -19,7 +19,7 @@ $$S(x) = \frac{1}{2i} [E(ix) - E(-ix)]$$
 			E(x) &= \summ \frac{x^n}{n!} \\
 			&= 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots \\
 			E(ix) &= 1 + ix + \frac{(ix)^2}{2!} + \frac{(ix)^3}{3!} +  \frac{(ix)^4}{4!} + \frac{(ix)^5}{5!} + \dots \\
-			E(-ix) &= 1 - ix + \frac{(-ix)^2}{2!} + \frac{(-ix)^3}{3!} +  \frac{(-ix)^4}{4!} + \frac{(-ix)^5}{5!} + \dots\\
+			E(-ix) &= \small{1 - ix + \frac{(-ix)^2}{2!} + \frac{(-ix)^3}{3!} +  \frac{(-ix)^4}{4!} + \frac{(-ix)^5}{5!} + \dots}\\
 			&= 1 - ix + \frac{(ix)^2}{2!} - \frac{(ix)^3}{3!} +  \frac{(ix)^4}{4!} - \frac{(ix)^5}{5!} + \dots\\
 
 			C(x) &= \frac{1}{2} [E(ix) + E(-ix)]\\
@@ -32,5 +32,54 @@ $$S(x) = \frac{1}{2i} [E(ix) - E(-ix)]$$
 			&= x - \frac{x^3}{3!} + \frac{x^5}{5!} - \dots \\
 		\end{align}$$
 		Thus $C(x)$ and $S(x)$ are real for any real $x$.
+	</details>
+</summary>
+
+<summary class="theorem">
+	<p class="statement">Prove $C(0) = 1$ and $S(0)= 0$ </p>
+	<details class="proof">
+		\begin{align}
+			E(x) &= \sum\limits_{n=0}^{\infty} \frac{x^n}{n!} \\
+			&= 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots \\
+			E(0) &= 1 
+		\end{align}
+
+		\begin{align}
+			C(x) &= \frac{1}{2} [E(ix) + E(-ix)] \\
+			C(0) &= \frac{1}{2} [E(i0) + E(-i0)] \\
+			&= \frac{1}{2} [E(0) + E(0)] \\
+			&= \frac{1}{2} (1+1) \\
+			&= 1
+		\end{align}
+
+		\begin{align}
+			S(x) &= \frac{1}{2i} [E(ix) - E(-ix)] \\
+			S(0) &= \frac{1}{2i} [E(i0) - E(-i0)] \\
+			&= \frac{1}{2i} [E(0) - E(0)] \\
+			&= \frac{1}{2i} (1-1) \\
+			&= 0
+		\end{align}
+	</details>
+</summary>
+
+<summary class="theorem">
+	<p class="statement">
+		Prove that $S'(x) = C(x)$ and $C'(x) = -S(x)$.
+	</p>
+	<details class="proof">
+		\begin{align}
+			S(x) &= \frac{1}{2i} [E(ix) - E(-ix)] \\
+			S'(x) &= \frac{1}{2i}[iE(ix) - (-i)E(-ix)] \\
+			&= \frac{1}{2i}i[E(ix) + E(-ix)]\\
+			&= \frac{1}{2} [E(ix) + E(-ix)] \\
+			&= C(x)
+		\end{align}
+		\begin{align}
+			C(x) &= \frac{1}{2} [E(ix) + E(-ix)] \\
+			C'(x) &= \frac{1}{2}[iE(ix) + (-i)E(-ix)] \\
+			&= \frac{1}{2}i[E(ix) - E(-ix)]\\
+			&= \frac{-1}{2i} [E(ix) - E(-ix)] \\
+			&= -S(x)
+		\end{align}
 	</details>
 </summary>

@@ -12,22 +12,31 @@ order: 3
 		$$\Sum_{i=1}^{\infty} \Sum_{j=1}^{\infty} a_{ij} = \Sum_{j=1}^{\infty} \Sum_{i=1}^{\infty} a_{ij}$$
   </div>
   <div class="proof">
-    Let $E=\{x_0, x_1, x_2, \dots \}$ and suppose $x_n \to x_0$ as $n \to
-    \infty$. Define
+    Consider a countable set $E=\{x_0, x_1, x_2, \dots \}$. Let $x_0$ be limit point of $E$. Then $x_n \to x_0$ as $n \to \infty$. Define
 		$$\begin{align}
-			f_{i} (x_n) &= \sum_{j=1}^{n} a_{ij} \\
-			f_i (x_0) &= \sum_{j=1}^{\infty} a_{ij} \\
+			f_{i} (x_n) &= \sum_{j=1}^{n} a_{ij} \quad{i,n = 1,2,3,\cdots} \\
+			\text{Then } f_i (x_0) &= \sum_{j=1}^{\infty} a_{ij} \qquad{i=1,2,3,\cdots}
 		\end{align}$$
 
-		<p>Then $\abs{f_i(x)} \leq \Sum_{j=1}^{\infty} \abs{a_{ij}} = b_i$. Hence, by {% a '7.10' %}, $\sum\limits_{i=1}^{\infty} f_i(x)$ converges uniformly. </p>
-		<p> Let $g_m(x) = \Sum_{i=1}^{m} f_i (x)$.</p>
-		<p>Since the series $\Sum_{i=1}^{\infty} f_i(x)$ converges uniformly, the sequence of its partial sums $\{ g_m(x) \}$ converges uniformly. Hence by	{% a 7.11 %}, </p>
+		\begin{align}
+			\abs{f_i(x_n)} &= \abs{\sum_{i=1}^{n} a_{ij}} \\
+			&\leq \sum_{i=1}^{n} \abs{a_{ij}} \\
+			&\leq \sum_{i=1}^{\infty} \abs{a_{ij}} \\
+			&= b_i\\
+			\abs{f_i(x_0)} &= \abs{\sum_{i=1}^{\infty} a_{ij}} \\
+			&\leq \sum_{i=1}^{\infty} \abs{a_{ij}} \\
+			&= b_i
+		\end{align}
+		<p>Hence $\abs{f_i(x)} \leq b_i$ for any $x \in E$. Hence, by {% a '7.10' %}, $\sum\limits_{i=1}^{\infty} f_i(x)$ converges uniformly on $E$. </p>
+		<p> Let $g_m(x) = \Sum_{i=1}^{m} f_i (x)$ for $x \in E$.</p>
+		<p> Then $\lim\limits_{m \to \infty} g_m(x) = \Sum_{i=1}^{\infty} f_i (x)$ for $x \in E$.</p>
+		<p>Since the series $\Sum_{i=1}^{\infty} f_i(x)$ converges uniformly, the sequence of its partial sums $\{ g_m(x) \}$ converges uniformly on $E$. Also $x_0$ is a limit point of $E$. Hence by	{% a 7.11 %}, </p>
 		$$\begin{align}
-			\lim_{m \to \infty} \lim_{t \to x} g_m(t) &=\lim_{t \to x} \lim_{m \to \infty} g_m(t) \\
+			\lim_{m \to \infty} \lim_{t \to x_0} g_m(t) &=\lim_{t \to x_0} \lim_{m \to \infty} g_m(t) \\
 			\lim_{m \to \infty} \lim_{n \to \infty} g_m(x_n) &=\lim_{n \to \infty} \lim_{m \to \infty} g_m(x_n) \\
-			\lim_{m \to \infty} \lim_{n \to \infty} \Sum_{i=1}^{m} f_i(x_n) &=\lim_{n \to \infty} \lim_{m \to \infty} \Sum_{i=1}^{m} f_i(x_n) \\
-			\lim_{m \to \infty} \lim_{n \to \infty} \Sum_{i=1}^{m} \Sum_{j=1}^{n} a_{ij} &=\lim_{n \to \infty} \lim_{m \to \infty} \Sum_{i=1}^{m} \Sum_{j=1}^{n} a_{ij} \\
-			\lim_{m \to \infty} \Sum_{i=1}^{m} \lim_{n \to \infty} \Sum_{j=1}^{n} a_{ij} &=\lim_{n \to \infty} \Sum_{j=1}^{n} \lim_{m \to \infty} \Sum_{i=1}^{m}  a_{ij} \\
+			\lim_{m \to \infty} g_m(x_0) &=\lim_{n \to \infty} \Sum_{i=1}^{\infty} f_i(x_n) \\
+			\Sum_{i=1}^{\infty} f_i(x_0) &=\lim_{n \to \infty} \Sum_{i=1}^{\infty} \Sum_{j=1}^{n} a_{ij} \\
+			\sum\limits_{i=1}^{\infty} \sum\limits_{j=1}^{\infty} a_{ij} &=\lim_{n \to \infty} \Sum_{j=1}^{n} \Sum_{i=1}^{\infty}  a_{ij} \\
 		\Sum_{i=1}^{\infty} \Sum_{j=1}^{\infty} a_{ij} &= \Sum_{j=1}^{\infty} \Sum_{i=1}^{\infty} a_{ij}
 		\end{align}$$
   </div>

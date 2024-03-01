@@ -9,8 +9,8 @@ order: 4
 		$$f(x) = \summ c_n x^n,$$
 	the series converging in $\abs{x} < R$. If $-R < a < R$, then $f$ can be expanded in a power series about the point $x = a$ which converges in $\abs{x - a} < R - \abs{a}$, and
 		$$f(x) = \summ \frac{f^{(n)}(a)}{n!} (x - a)^n (\abs{x-a} < R - \abs{a}).$$
-	</div>
 	<p>This is an extension of Theorem 5.15 and is also known as Taylor's theorem. </p>
+	</div>
 	<div class="proof">
 		$$\begin{align}
 			f(x) &= \summ c_n x^n \\
@@ -51,10 +51,12 @@ order: 4
 			&= \sum_{m=0}^{\infty} \sbracket{ \sum_{n=m} ^{\infty} \binom{n}{m} c_n a^{n-m} }(x-a)^m
 		\end{align}$$
 
-		<p>This is the desired expansion about the point $x=a$.</p>
+		<p>This is the desired expansion about the point $x=a$. Now we shall prove its validity. By {% a 8.3 %},</p>
 
 		$$\begin{align}
-		&\sum_{n=0}^{\infty} \sum_{m=0}^{n} \abs{c_n \binom{n}{m} a^{n-m} (x-a)^{m}}\\
+		& \sum_{m=0}^{\infty} \sbracket{ \sum_{n=m} ^{\infty} \binom{n}{m} c_n a^{n-m} }(x-a)^m\\
+		=& \sum_{m=0}^{\infty} \sum_{n=m}^{\infty} \binom{n}{m} c_n a^{n-m}(x-a)^m\\
+		=& \sum_{n=0}^{\infty} \sum_{m=0}^{n} \abs{c_n \binom{n}{m} a^{n-m} (x-a)^{m}}\\
 		=&\sum_{n=0}^{\infty} \sum_{m=0}^{n} \abs{c_n} \binom{n}{m} \abs{a^{n-m}} \abs{(x-a)^{m}} \\
 		=&\sum_{n=0}^{\infty} \abs{c_n} \sum_{m=0}^{n} \binom{n}{m} \abs{a}^{n-m} \abs{x-a}^m \\
 		=&\sum_{n=0}^{\infty} \abs{c_n} \bracket{\abs{a} + \abs{x-a}}^n
