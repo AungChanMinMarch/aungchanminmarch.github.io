@@ -1,0 +1,63 @@
+---
+title: "Theorem 8.8"
+parent: algebricCompletenessOfComplexField08
+order: 8
+---
+<div class="theorem">
+	<div class="statement">
+		Suppose $a_0, \dots, a_n$ are complex numbers. $n\geq 1$, $a_n \neq 0$
+			$$P(z) = \sum_{k=0}^n a_k z^k$$
+		Then $P(z) = 0$ for some complex number $z$.
+	</div>
+	<div class="proof">
+		<p>Without loss of generality, assume $a_n = 1$. </p>
+		<p>Put $\mu = \inf \abs{P(z)}$, where $z$ is a complex number.</p>
+
+		$$\begin{align}
+			&\text{If } \abs{z} = R, \text{ then} \\
+			&\abs{P(z)}\\
+			=& \abs{z^n + a_{n-1} z^{n-1} + a_{n-2} z^{n-2} + \dots + a_1 z + a_0} \\
+			\geq &\abs{z^n} - \bracket{\abs{ a_{n-1} z^{n-1} + a_{n-2} z^{n-2} + \dots + a_1 z + a_0 }}\\
+			\geq &\abs{z^n} - \bracket{ \abs{ a_{n-1} z^{n-1}} + \abs{a_{n-2} z^{n-2}} + \dots + \abs{a_1 z} + a_0}\\
+			= &R^n - ( \abs{ a_{n-1}} R^{n-1} + \abs{a_{n-2}} R^{n-2} + \dots + \abs{a_1} R + a_0)\\
+			=& R^n \bracket{1 - \abs{ a_{n-1}} R^{-1} - \abs{a_{n-2}} R^{-2} + \dots + a_0R^{-n}}
+		\end{align}$$
+		The right side of this equation tends to $\infty$ as $R \to \infty$,
+		<p>Hence there exists $R_0$ such that $\abs{P(z)} > \mu$ if $\abs{z} > R_0$. Since $\abs{P}$ is continuous on the closed disc with center at $0$ and radius $R_0$, {% a 4.16 %} shows that $\abs{P(z_0)} = \mu$ for some $z_0$. </p>
+
+
+		<p>Suppose $\mu \neq 0$ and put $Q(z) = \frac{P(z+z_0)}{P(z_0)}$</p>
+		<p>Then $Q(0) = \frac{P(0+z_0)}{P(z_0)} = 1$ and $\abs{Q(z)} = \abs{\frac{P(z+z_0)}{P(z_0)}} \geq 1$ for all $z$. </p>
+		<p>Hence $Q$ is a nonconstant polynomial. There exists a smallest integer $k$, $1 \leq k \leq n$ such that 
+		$Q(z) = 1 + b_k z^k + \dots + b_n z^n$, where $b_k \neq 0$.</p>
+		<p>Since $-\frac{\abs{b_k}}{b_k}$ is a complex number and $\abs{-\frac{\abs{b_k}}{b_k}} = 1$, by {% a '8.7' %} (d), there is a real $\theta$ such that $e^{ik \theta} = - \dfrac{\abs{b_k}}{b_k}$. <br />
+		Hence $b_k e^{ik \theta} = - \abs{b_k}$. </p>
+		<p>For $0 < r < \frac{1}{\sqrt[k]{\abs{b_k}}}$, we have $r > 0$ and $r^k \abs{b_k} < 1$</p>
+		$$\abs{1+b_k r^k e^{ik \theta} } = \abs{1 - r^k \abs{b_k}} = 1 - r^k \abs{b_k}$$
+
+		$$\begin{align}
+			&\abs{Q(re^{i \theta})} \\
+			=& \abs{1 + b_k (r e^{i \theta})^k + b_{k+1} (r e^{i \theta})^{k+1} + \dots + b_n (r e^{i \theta})^n} \\
+			=&\abs{1 + b_k r^k e^{ik \theta} + b_{k+1} r^{k+1} e^{i(k+1) \theta} + \dots + b_n r^n e^{in \theta}} \\
+			\leq&\abs{1 + b_k r^k e^{ik \theta}} +\abs{b_{k+1} r^{k+1} e^{i(k+1) \theta}} + \dots + \abs{b_n r^n e^{in \theta}} \\
+			= & 1 - r^k \abs{b_k} + \abs{b_{k+1}} r^{k+1} + \dots + \abs{b_n} r^n \\
+			= & 1 - r^k \bracket{ \abs{b_k} - \abs{b_{k+1}} r - \dots - \abs{b_n} r^{n-k}}
+		\end{align}$$
+
+		<p> If $r$ is sufficient small, $\abs{b_{k+1}} r + \dots + \abs{b_n} r^{n-k}$ will be less than $\abs{b_k}$. </p>
+		$$\begin{align}
+			\abs{b_{k+1}} r + \dots + \abs{b_n} r^{n-k} & < \abs{b_k} \\
+			- \abs{b_{k+1}} r - \dots - \abs{b_n} r^{n-k} & >  -\abs{b_k} \\
+			\abs{b_k} - \abs{b_{k+1}} r - \dots - \abs{b_n} r^{n-k} & >  0\\
+			r^k (\abs{b_k} - \abs{b_{k+1}} r - \dots - \abs{b_n} r^{n-k}) & >  0\\
+			- r^k (\abs{b_k} - \abs{b_{k+1}} r - \dots - \abs{b_n} r^{n-k}) & < 0\\
+			1 - r^k (\abs{b_k} - \abs{b_{k+1}} r - \dots - \abs{b_n} r^{n-k}) & < 1\\
+			\abs{Q(z)} & < 1
+		\end{align}$$
+
+		<p>This contradicts that $Q(z) \geq 1$ for all $z$.</p>
+		<p>Thus $\mu = 0$ and $P(z_0) = 0$</p>
+
+	</div>
+
+</div>

@@ -1,9 +1,12 @@
 ---
-isAnalysisHome: true
 title: 'Chapter 8 : Some Special Functions'
 eleventyNavigation:
   key: rudinAnalysis08
   parent: rudinAnalysis
+	order: 8
+	children: 
+		- rudinAnalysis08ex
 ---
 <h1>This is analysis Chapter 8 Home Page.</h1>
-{% toc %}
+{% assign navPages = collections.all | eleventyNavigation: "rudinAnalysis08" %}
+{{ navPages | eleventyNavigationToHtml }}

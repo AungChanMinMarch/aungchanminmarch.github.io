@@ -26,6 +26,7 @@
   "dependencies": {
     "@pixi/graphics-extras": "^7.3.1",
     "@svgdotjs/svg.js": "^3.2.0",
+    "function-plot": "^1.24.0",
     "octokit": "^3.1.1",
     "pixi.js": "^7.3.1"
   }

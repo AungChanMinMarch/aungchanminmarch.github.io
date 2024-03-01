@@ -4,6 +4,7 @@ module.exports = {
   entry: {
     index: './assets/script.js',
     svgjs: './assets/svgjs.js',
+    functionplot: './assets/functionplot.js',
   },
   output: {
     filename: '[name].js',

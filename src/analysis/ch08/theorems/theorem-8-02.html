@@ -1,6 +1,7 @@
 ---
 title: Theorem 8.2
-Parent: powerSeries8
+parent: powerSeries08
+order: 2
 ---
 <div class="theorem">
 	<div class="statement">
@@ -9,33 +10,109 @@ Parent: powerSeries8
 		<p> Then $\Lim_{x \to 1} f(x) = \summ c_n$</p>
 	</div>
 	<div class="proof">
-		<p>Let $s_n = c_0 + c_1 + \dots + \cdots + c_n$ and $s_{-1} = 0$.</p>
-		<p>Then $c_n = s_n - s_{n-1}$</p>
+		<p>Let $s = \summ c_n$, $s_n = c_0 + c_1 + \dots + c_n$ and $s_{-1} = 0$.</p>
+		<p>Then $c_n = s_n - s_{n-1}$ and $\limit s_n = \limit \sum\limits_{n=0}^{n} c_n = s$. </p>
 		<p>$$\begin{align}
-			\Sum_{n=0}^{m} c_n x^n &= \Sum_{n=0}^{m} (s_n - s_{n-1}) x^n \\
+			\Sum_{n=0}^{m} c_n x^n
+			&= \Sum_{n=0}^{m} (s_n - s_{n-1}) x^n \\
 			&= \Sum_{n=0}^{m} s_n x^n - \Sum_{n=0}^{m} s_{n-1} x^n \\
-			&= \Sum_{n=0}^{m} s_n x^n - x\Sum_{n=1}^{m} s_{n-1} x^{n-1} (\because s_{-1} = 0) \\
+			&= \Sum_{n=0}^{m} s_n x^n - \Sum_{n=1}^{m} s_{n-1} x^{n} (\because s_{-1} = 0) \\
+			&= \Sum_{n=0}^{m} s_n x^n - x\Sum_{n=1}^{m} s_{n-1} x^{n-1} \\
 			&= \Sum_{n=0}^{m} s_n x^n - x\Sum_{n=0}^{m-1} s_{n} x^{n} \\
 			&= (1-x)\Sum_{n=0}^{m-1} s_n x^n + s_m x^m \\
 		\end{align}$$</p>
 		<p>For $\abs{x} < 1$, we let $m \to \infty$ and obtain $f(x)=(1-x)\Sum_{n=0}^{\infty} s_n x^n$</p>
 		<p>Also $(1-x)\summ x^n = (1-x) \frac{1}{1-x} = 1$</p>
+<<<<<<< HEAD
 		<p>Let $ s = \summ c_n$. Since $\{s_n\}$ is the sequence of partial sums, we have $ s= \summ c_n = \limit s_n$. </p>
 		<p> Let $\ep > 0 $ be given. Then there is an integer $N$ such that $n > N$ implies $\abs{s - s_n} < \frac{\ep}{2}$.</p>
+=======
+		<p>Let $\ep > 0 $ be given. Since $s= \limit s_n$, there is an integer $N$ such that $n > N$ implies $\abs{s - s_n} < \frac{\ep}{2}$.</p>
+>>>>>>> 01e9a20a10ae86f5009563c71f8697be83e11a1f
 		$$\begin{align*}
 			\abs{f(x) - s} &= \abs{(1-x)\Sum_{n=0}^{\infty} s_n x^n - s (1-x)\Sum_{n=0}^{\infty} x^n} \\
 			&= \abs{(1-x)\Sum_{n=0}^{\infty} s_n x^n - (1-x)\Sum_{n=0}^{\infty} sx^n} \\
 			&= \abs{(1-x)\Sum_{n=0}^{\infty} (s_n - s) x^n} \\
-			&= \abs{(1-x)\Sum_{n=0}^{N} (s_n - s) x^n + (1-x)\Sum_{n=N+1}^{\infty} (s_n - s) x^n} \\
-			&\leq \abs{(1-x)\Sum_{n=0}^{N} (s_n - s) x^n} + \abs{(1-x)\Sum_{n=N+1}^{\infty} (s_n - s) x^n} \\
-			&\leq \abs{(1-x)\Sum_{n=0}^{N} (s_n - s) x^n} + (1-x)\Sum_{n=N+1}^{\infty} \abs{s_n - s} \abs{x^n} \\
-			&< \abs{(1-x)\Sum_{n=0}^{N} (s_n - s) x^n} + (1-x)\Sum_{n=N+1}^{\infty} \frac{\ep}{2} \abs{x^n} \\
-			&= \abs{(1-x)\Sum_{n=0}^{N} (s_n - s) x^n} + \frac{\ep}{2} (1-x)\Sum_{n=N+1}^{\infty}  \abs{x^n} \\
-			&= \abs{(1-x)\Sum_{n=0}^{N} (s_n - s) x^n} + \frac{\ep}{2} (1-x) \frac{x^{N+1}}{1-x} \\
-			&< \abs{(1-x)\Sum_{n=0}^{N} (s_n - s) x^n} + \frac{\ep}{2} (\because x^{N+1} < 1 \mbox{ for } \abs{x} < 1)\\
-			&\leq \ep \\
-			\therefore \limit f(x) &= s = \summ c_n
-		\end{align*}$$
 
+			&\begin{array}{ll}
+			\leq & \abs{(1-x)\Sum_{n=0}^{N} (s_n - s) x^n}\\
+			&+ \abs{(1-x)\Sum_{n=N+1}^{\infty} (s_n - s) x^n}
+			\end{array} \tag{a}
+		\end{align*}$$
+		<p>We choose $M > 0$ such that $M > \abs{s_n - s}$ for $n=0,1,2,3, \dots N$ and $M > \frac{\ep}{2^{N+1}}$.</p>
+		$$\begin{align}
+			M & > \frac{\ep}{2^{N+1}} > 0 \\
+			2^N M & > \frac{\ep}{2} > 0 \\
+			2^N & > \frac{\ep}{2M} > 0 \\
+			2 & > \sqrt[N]{\frac{\ep}{2M}} > 0 \\
+			-2 & < -\sqrt[N]{\frac{\ep}{2M}} < 0 \\
+			-1 & < 1 -\sqrt[N]{\frac{\ep}{2M}} < 1 \\
+		\end{align}$$
+	
+		<summary>
+			We have $1 - x^n < (1-x)^n$ for $x$ > 0 and positive integer $n$.
+			<details>
+			</details>
+		</summary>
+		$$\begin{align}
+			\text{If } 1 - \sqrt[N]{\frac{\ep}{2M}} &< x < 1, \\
+			\bracket{1 - \sqrt[N]{\frac{\ep}{2M}}}^N &< x^N \\
+			1 - \frac{\ep}{2M} < \bracket{1 - \sqrt[N]{\frac{\ep}{2M}}}^N &< x^N \\
+			1 - \frac{\ep}{2M} &< x^N \\
+			1 - x^N &< \frac{\ep}{2M} \\
+			M(1 - x^N) &< \frac{\ep}{2} \\
+		\end{align}$$
+
+		$$\begin{align}
+			\abs{(1-x) \Sum_{n=0}^{N} (s_n-s) x^n}
+			&< \abs{(1-x) \Sum_{n=0}^{N} M x^n}\\
+			&= \abs{(1-x) M \Sum_{n=0}^{N} x^n}\\
+			&= \abs{(1-x) M \frac{1(1-x^N)}{1-x}}\\
+			&= \abs{M(1-x^N)}\\
+			&< \frac{\ep}{2} \qquad{(b)}
+		\end{align}$$
+
+		$$\begin{align}
+			\abs{(1-x)\Sum_{n=N+1}^{\infty} (s_n - s) x^n} &\leq
+			(1-x)\Sum_{n=N+1}^{\infty} \abs{s_n - s} x^n \\
+			&< (1-x)\Sum_{n=N+1}^{\infty} \frac{\ep}{2} x^n \\
+			&= (1-x) \frac{\ep}{2} \Sum_{n=N+1}^{\infty} x^n \\
+			&= (1-x) \frac{\ep}{2} \frac{x^{N+1}}{1-x} \\
+			&= \frac{\ep}{2} x^{N+1} \\
+			&< \frac{\ep}{2} \qquad{(c)}
+		\end{align}$$
+		because $x^{N+1} < 1$ for $ -1 < x < 1$.
+
+		<p>From (a), (b) and (c), we get $\abs{f(x) -s} < \ep$ if $x > 1- \sqrt[N]{\frac{\ep}{2M}}$. The proof is completed.</p>
 	</div>
+</div>
+
+<div class="theorem">
+	<h2>Application of Theorem 8.2: Proving {% a 3.51 %}</h2>
+	<div class="statement">
+		If the series $\sum a_n, \sum b_n, \sum c_n$ converge to $A$, $B$, $C$, and $c_n = a_0 b_n + ... + a_n b_0$, then $C = AB$.
+	</div>
+	<div class="proof">
+		<p>Let $f(x) =\sum a_n x^n$, $g(x) = \sum b_n x^n$ and $h(x) = \sum c_n x^n$ for $-1 < x < 1$.</p>
+		<p>For $\abs{x} < 1$, we consider $f(x)$.</p>
+		$$\begin{align}
+			\limit \sup \sqrt[n]{\abs{a_n x^n}} 
+			&= \limit \sup \sqrt[n]{\abs{a_n}} \abs{x} \\
+			&= \abs{x} \limit \sup \sqrt[n]{\abs{a_n}} \\
+			&< 1 (\because \abs{x} < 1 \text{ and } \{a_n\} \text{ converges.})
+		\end{align}$$
+		<p>Thus the series converges absolutely. Similarly, the remaining series converge absolutely.</p>
+	</div>
+		$$\begin{align}
+			f(x)g(x) &= (\sum a_n x^n) (\sum b_n x^n) \\
+			&= (a_0 + a_1 x + a_2 x^2 + \dots ) (b_0 + b_1 x + b_2 x^2 + \dots) \\
+			&= \small{a_0 b_0 + (a_0 b_1 +a_1 b_0)x + (a_0 b_2 + a_1 b_1 + a_2 b_0) x^2 + \dots} \\
+			&= c_0 + c_1 x + c_2 x^2 + \dots \\
+			&= h(x)
+		\end{align}$$
+		<p>By Theorem 8.2, $f(x) \to A, g(x) \to B, h(x) \to C$ as $ x \to 1$. </p>
+		$$\begin{align}
+			\therefore \lim_{x \to 1} f(x)g(x) &= \lim_{x \to 1} h(x) \\
+			AB &= C
+		\end{align}$$
 </div>

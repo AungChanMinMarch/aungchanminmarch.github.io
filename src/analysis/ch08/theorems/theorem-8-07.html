@@ -1,0 +1,75 @@
+---
+title: "Theorem: 8.7"
+parent: trigoFunc08
+order: 7
+---
+<div class="theorem">
+	<p class="statement">
+		(a) The function $E$ is periodic, with period $2\pi i$.
+	</p>
+	<div class="proof">
+		<p>First we shall prove there is positive numbers $x$ such that $C(x) = 0$ by using contradiction method. Assume there is no $x > 0$ such that $C(x) = 0$. Then $C(x) \neq 0$ for all $x > 0$. </p>
+		<p> Since $C(0) =1$, $C(x) > 0$  for all $x >0 $. </p>
+
+		<p>Since $S'(x) = C(x) > 0$ for all $x > 0$, $S$ is strictly increasing for $x > 0$. </p>
+		<p>Since $S(0) = 0$, $S(x) > 0 $ for all $x > 0$. </p>
+
+		\begin{align}
+			S(x) (y-x) &< \int_{x}^{y} S(t) dt \\
+			&= [-C(t)]_{x}^{y} \\
+			&= -C(y) + C(x) \\
+			&\leq \abs{-C(y) + C(x)} \\
+			&\leq \abs{C(y)} + \abs{C(x)} \\
+			&= \sqrt{C^2(y)} + \sqrt{C^2(x)} \\
+			&\leq \sqrt{C^2(y) + S^(y)} + \sqrt{C^2(x) + S^2(x)} \\
+			&= \abs{E(iy)} + \abs{E(ix)} \\
+			&= 1 + 1 = 2\\
+			S(x) &< \frac{2}{y-x}
+		\end{align}
+
+		<p>Thus $S(x) < \frac{2}{y-x} \to 0$ if $y$ is large enough. This contradicts that $S(x) > 0$ for all $x > 0$. Our assumption is wrong. There are positive numbers $x$ such that $C(x) = 0$
+		</p>
+
+		<p>Let $x_0$ be the smallest positive number such that $C(x_0) = 0$ and define the number $\pi = 2x_0$.</p>
+		\begin{align}
+			C(\frac{\pi}{2}) &= C(x_0) = 0 \\
+			E\bracket{ i\frac{\pi}{2} } &= C(\frac{\pi}{2}) + i S(\frac{\pi}{2}) \\
+			E \bracket{ i\frac{\pi}{2} } &= i S(\frac{\pi}{2}) \\
+			\abs{E(i\frac{\pi}{2})} &= \sqrt{C^(\frac{\pi}{2}) + S^2(\frac{\pi}{2})} \\
+			1 &= \sqrt{S^2(\frac{\pi}{2})}\\ 
+			1 &= S^2(\frac{\pi}{2})\\ 
+			S(\frac{\pi}{2}) &= \pm 1
+		\end{align}
+		<p>Since $S'(x) = C(x) > 0$ in $(0, x_0)$, $S$ is increasing in $(0, x_0)$. Thus $S(x_0) = S(\frac{\pi}{2}) = -1$ is impossible and $S(x_0) = i$
+			\begin{align}
+				E(i\frac{\pi}{2}) &= i S(\frac{\pi}{2}) = i \\
+				E(i\pi) &= E\bracket{ \frac{i\pi}{2} + \frac{i\pi}{2} } = E\bracket{i\frac{\pi}{2}} E\bracket{i\frac{\pi}{2}}= (i)(i) = -1 \\
+				E(2\pi i) &= E(\pi i + \pi) i = E(\pi i)E(\pi i) = (-1)(-1) = 1 \\
+			\end{align}
+				$$E(x+ 2\pi i) = E(x) E(2 \pi i) = E(x)$$
+				<p>Thus $E$ is periodic function with period $2 \pi i$</p>
+	</div>
+</div>
+
+<summary class="theorem">
+	<p class="statement"> The functions $C$ and $S$ are periodic with period $2 \pi$. </p>
+	<details="proof">
+		\begin{align}
+			C(z) &= \frac{1}{2} [E(iz) + E(-iz)] \\
+			C(z + 2\pi i) &= \frac{1}{2} [E(iz + 2\pi i) + E(-iz + 2 \pi i)] \\
+			&= \frac{1}{2} [E(iz) + E(-iz)] \\
+			&= C(z)
+		\end{align}
+		<p>Thus $C$ is periodic with period $2\pi$. </p>
+
+		\begin{align}
+			S(z) &= \frac{1}{2i} [E(iz) - E(-iz)] \\
+			S(z + 2\pi i) &= \frac{1}{2i} [E(iz + 2\pi i) - E(-iz + 2 \pi i)] \\
+			&= \frac{1}{2i} [E(iz) - E(-iz)] \\
+			&= S(z)
+		\end{align}
+		<p>Thus $S$ is periodic with period $2\pi$. </p>
+	</details>
+</summary>
+
+

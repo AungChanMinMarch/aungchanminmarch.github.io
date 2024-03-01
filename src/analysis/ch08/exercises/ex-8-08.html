@@ -1,0 +1,27 @@
+---
+title: "Exercise no. 8(Chapter 8)"
+order: 8
+---
+<div class="theorem">
+	<div class="statement">
+		For $n=0,1,2, \dots,$ and $x$ real, prove that
+			$$ \abs{\sin nx} \leq n \abs{\sin x}$$
+		Note that this inequility may be false for other values of $x$. For instance, $\abs{\sin \frac{1}{2}\pi} > \frac{1}{2}\abs{\sin x}$
+	</div>
+	<div class="proof">
+		<p>We shall prove $\abs{\sin nx} \leq n \abs{\sin x}$ for $n=0,1,2,\dots$ by induction.</p>
+		<p>It is obvious that the statement is true for $n=0$ and $n=1$. </p>
+		<p>Suppose that the statement is true for $n=k$, i.e. $\abs{\sin kx} \leq k \abs{\sin x}$. </p>
+		$$\begin{align}
+			\abs{\sin ((k+1)x)} &= \abs{ \sin (kx + x) } \\
+			&= \abs{\sin kx \cos x + \cos kx \sin x} \\
+			&\leq \abs{\sin kx \cos x} + \abs{\cos kx \sin x} \\
+			&= \abs{\sin kx} \abs{\cos x} + \abs{\cos kx} \abs{\sin x} \\
+			&\leq \abs{\sin kx} + \abs{\sin x} \\
+			&\leq k \abs{\sin x} + \abs{\sin x} \\
+			&= (k+1) \abs{\sin x}\\
+			\therefore \abs{\sin (k+1)x} &\leq (k+1) \abs{\sin x}\\
+		\end{align}$$
+		<p>The statement is true for $n=k+1$. Hence by mathematical induction, the statement is true for $n=0,1,2, \dots$.
+	</div>
+</div>

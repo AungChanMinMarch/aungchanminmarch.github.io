@@ -1,14 +1,18 @@
-<div class="problem">
-	<div class="question">Suppose $f$ is a real continuous function on $R^1, f_n(t)=f(nt)$ for $n=1,2,3,...$, and $\{f_n\}$ is equicontinuous on $[0.1]$. What conclusion can you draw about $f$?</div>
-	<div class="answer">
+---
+title: "ex no. 15(chapter 7)"
+order: 15
+---
+<div class="theorem">
+	<div class="statement">Suppose $f$ is a real continuous function on $R^1, f_n(t)=f(nt)$ for $n=1,2,3,...$, and $\{f_n\}$ is equicontinuous on $[0.1]$. What conclusion can you draw about $f$?</div>
+	<div class="proof">
 		<p>We can conclude that the function $f$ must be constant on $[0, \infty)$</p>
 		<p>Let $\ep > 0$.</p>
-		<p>Since $\{f_n\}$ is equicontinuous on $[0,1]$, there exists $\delta >0$ such that 
+		<p>Since $\{f_n\}$ is equicontinuous on $[0,1]$, there exists $\delta >0$ such that </p>
 			$$ n \in \N, 0 \leq, z,w \leq 1 , \mod{z-w} < \delta \text{ implies } 
-			\mod{f_n(z) - f_n(w)} < \ep $$</p>
+			\mod{f_n(z) - f_n(w)} < \ep $$
 		<p>For all $x,y \in [0, \infty)$, if $N$ is large enough, $\dfrac{x}{N}, \dfrac{y}{N} \in [0,1]$ and $\mod{\dfrac{x}{N}-\dfrac{y}{N}} < \delta$. Hence we have </p>
+			$$0 \leq, \dfrac{x}{N},\dfrac{y}{N} \leq 1 , \mod{\dfrac{x}{N}-\dfrac{y}{N}} < \delta \text{ implies }$$
 		$$ \begin{align*}
-			0 \leq, \dfrac{x}{N},\dfrac{y}{N} \leq 1 , \mod{\dfrac{x}{N}-\dfrac{y}{N}} < \delta \text{ implies } 
 			\mod{f_N(\dfrac{x}{N})-f_N(\dfrac{y}{N})} &< \ep \\
 			\mod{f(N\dfrac{x}{N})-f(N\dfrac{y}{N})} &< \ep \\
 			\mod{f(x)-f(y)} &< \ep \\

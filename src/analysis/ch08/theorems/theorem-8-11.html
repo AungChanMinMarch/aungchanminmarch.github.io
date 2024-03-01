@@ -1,0 +1,74 @@
+---
+title: "Theorem 8.11"
+order: 11
+parent: fourierSeries08
+---
+<div class="theorem">
+	<p class="statement">
+		Let $\{\phi_n\}$ be orthonormal on $[a, b]$. Let
+			$$s_n(x) = \sum_{m=1}^{n} c_m\phi_m(x) \tag{68}$$
+		be the nth partial sum of the Fourier series of $f$, and suppose 
+			$$t_n(x) = \sum_{m=1}^{n} \gamma_m \phi(x) \tag{69}$$
+		Then 
+			$$\int\limits_{a}^{b} \abs{f-s_n}^2 dx \leq \int\limits_{a}^{b} \abs{f-t_n}^2 dx \tag{70}$$
+		and equality holds if and only if 
+			$$\gamma_m = c_m (m=1,2,3,\cdots, n) \tag{71}$$
+	</p>
+	<div class="proof">
+		{% include "./shared_8-11_8-12.liquid" %}
+		
+		<p> Now we shall do the same process for $\int \abs{f-t_n}^2 dx$</p>
+		$$\begin{align}
+			\int \abs{f-t_n}^2 
+			&= \int (f-t_n) \conj{(f-t_n)} \\
+			&= \int (f- t_n)(\conj{f} - \conj{t_n}) \\
+			&= \int \abs{f}^2 - \int f \conj{t_n} - \int \conj{f} t_n + \int \abs{t_n}^2 \tag{b}
+		\end{align}$$
+		<p>Now we need to find $\int f \conj{t_n}$, $\int \conj{f} t_n$ and $\int \abs{t_n}^2$. </p>
+
+		$$\begin{align}
+			\int f \conj{t_n}
+			=& \int f \conj{\sum \gamma_m \phi_m} \\
+			=& \int f \bracket{\conj{\gamma_1} \conj{\phi_1} + \dots + \conj{\gamma_n} \conj{\phi_n}} \\
+			=& \int f \conj{\gamma_1} \conj{\phi_m} + \dots + \int f \conj{\gamma_n} \conj{\phi_n} \\
+			=& \conj{\gamma_1} \int f \conj{\phi_m}  + \dots + \conj{\gamma_n} \int f \conj{\phi_n} \\
+			=& \conj{\gamma_1} c_1 + \cdots + \conj{\gamma_n} c_n \\
+			=& \sum \conj{\gamma_m} c_m
+		\end{align}$$
+
+	$$\begin{align}
+		\int \conj{f} t_n 
+		=& \int \conj{f} \sum \gamma_m \phi_m  \\
+		=& \int \conj{f} \bracket{\gamma_1 \phi_1 + \cdots + \gamma_n \phi_n} \\
+		=& \int \gamma_1 \conj{f} \phi_1 dx + \cdots + \int \gamma_n \conj{f} \phi_n \\
+		=& \gamma_1 \int \conj{f} \phi_1 + \cdots + \gamma_n \int \conj{f} \phi_n \\
+		=& \gamma_1 \conj{c_1} + \cdots + \gamma_n \conj{c_n} \\
+		=& \sum \gamma_m \conj{c_m}
+	\end{align}$$
+	
+	$$\begin{align}
+		\int \abs{t_n}^2 
+		&= \int t_n \conj{t_n} \\
+		&= \int \sum \gamma_m \phi_m \sum \conj{\gamma_m} \conj{\phi_m} \\
+		&= \int \bracket{\gamma_1 \phi_1 + \cdots + \gamma_n \phi_n} \bracket{\conj{\gamma_1} \conj{\phi_1} + \dots + \conj{\gamma_n} \conj{\phi_n}} \\
+		&= \gamma_1 \conj{\gamma_1} + \cdots + \gamma_n \conj{\gamma_n} \\
+		&= \sum \abs{\gamma_m}^2
+	\end{align}$$
+
+	Hence From(b), we get
+	$$\begin{align} 
+		\int \abs{f-t_n}^2
+		&= \int \abs{f}^2 - \int f \conj{\gamma_n} - \int \conj{f} \gamma_n + \int \abs{\gamma_n}^2 \\
+
+		&= \int \abs{f}^2 - \sum \conj{\gamma_m} c_m - \sum \gamma_m \conj{c_m} + \sum \abs{\gamma_m}^2 \\
+		&= \begin{array}{l}
+		\int \abs{f}^2 - \sum \abs{c_m}^2 + \\
+		\sum \abs{c_m}^2 - \sum \conj{\gamma_m} c_m - \sum \gamma_m \conj{c_m} + \sum \abs{\gamma_m}^2 \\
+		\end{array} \\
+		%&= \int \abs{f}^2 - \sum \abs{c_m}^2 + \sum \bracket{c_m(\conj{c_m} - \conj{\gamma_m}) - \gamma_m(\conj{c_m} - \conj{\gamma_m}} \\
+		&= \int \abs{f}^2 - \sum \abs{c_m}^2 + \sum (c_m - \gamma)(\conj{c_m} - \conj{\gamma_m}) \\
+		&= \int \abs{f}^2 - \sum \abs{c_m}^2 + \sum \abs{c_m - \gamma_m}^2
+	\end{align}$$
+$$\therefore \sum \abs{c_m - \gamma_m}^2 = \int \abs{f-t_n}^2 dx - \int \abs{f-s_n}^2 dx$$
+	</div>
+</div>

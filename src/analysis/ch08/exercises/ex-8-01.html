@@ -1,0 +1,49 @@
+---
+title: "Chapter 8:Exercise number 1"
+order: 1
+---
+<div class="theorem">
+	<div class="statement">
+		Define 
+			$$f(x) = \begin{cases}
+				e^{-\frac{1}{x^2}} &(x \neq 0)\\
+				0 &(x =0)
+			\end{cases}$$
+		Prove that $f$ has derivative of all orders at $x=0$, and that $f^{(n)}(0) = 0$ for $n=1,2,3,\dots$.
+	</div>
+	<div class="proof">
+		<p>Let $y=\frac{1}{x}$. Then $f(x) = e^{-y^2}$ for $x \neq 0$. Let $g(y) = e^{-y^2}$. Then </p>
+		$$\begin{align}
+			g'(y) &= -2ye^{-y^2} \\
+			g''(y) &= -2e^{-y^2} + 4y^2 e^{-y^2} \\
+			&= (4y^2 - 2) e^{-y^2} \\
+			\vdots \\
+			g^{(n)}(y) &= P_n(y)e^{-y^2},\\
+			&\text{ where } P_n(y) \text{ is some $n$-order polynomial of $y$, }\\
+			&\text{for }n=1,2,3,\dots
+		\end{align}$$
+
+		<p>Now we shall prove that $f^{(n)}(0)=0$ using induction. For $n=1$, </p>
+		$$\begin{align}
+			f^{(1)}(0) &= \lim_{h \to 0} \frac{f(h) - f(0)}{h} \\
+			&= \lim_{h \to 0} \frac{e^{-\frac{1}{h^2}} - 0}{h} \\
+			&= \lim_{h \to 0} \frac{\frac{1}{h}}{e^{\frac{1}{h^2}}} \\
+			&\text{letting } t=\frac{1}{h}\\
+			&= \lim_{t \to \infty} \frac{t}{e^{t^2}} \bracket{\text{indeterminate form: } \frac{\infty}{\infty}} \\
+			&= \lim_{t \to \infty} \frac{1}{2te^{t^2}} \\
+			&= 0
+		\end{align}$$
+
+
+		<p>Suppose $f^{(k)}(0) = 0$.</p>
+		$$\begin{align}
+			f^{(k+1)} &= \lim_{h \to 0} \frac{f^{(k)}(h) - f^{(k)}(0)}{h} \\
+			&= \lim_{y \to \infty} y g^{(k)}(y) \\
+			&= \lim_{y \to \infty} y e^{-y^2} P_k(y) \\
+			&= \lim_{y \to \infty} y e^{-y^2} \lim_{y \to \infty} P_k(y) \\
+			&= 0
+		\end{align}$$
+
+		Therefore $f^{(n)}(0) = 0$ for all $n=1,2,3, \dots$.
+	</div>
+</div>

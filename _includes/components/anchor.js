@@ -1,12 +1,19 @@
-function analysisAnchor(theorem_number, article_type, isExercise) {
+function analysisAnchor(theorem_number, displayName, type='th') {
     const [ch, no] = theorem_number.toString().split(".");
     const chapter = (ch.length == 1) ? "0"+ ch : ch;
     const number = (no.length == 1) ? "0"+ no : no;
 
-    const type = article_type ?? 'Theorem';
-    const folder = isExercise ? isExercise : 'theorems'
-    const href = `/analysis/ch${chapter}/${folder}/${ch}-${number}.html`;
-    return `<a href='${href}'>${type} ${theorem_number}</a>`
+    let folderPrefix = '';
+    let displayNamePrefix = '';
+    if (type.indexOf('th') > -1){
+      folderPrefix = 'theorems/theorem-';
+      displayNamePrefix = displayName || 'Theorem ';
+    } else if (type.indexOf('ex') > -1){
+      folderPrefix = 'exercises/ex-';
+      displayNamePrefix = displayName || 'Exercise ';
+    }
+    const href = `/analysis/ch${chapter}/${folderPrefix}${ch}-${number}.html`;
+    return `<a href='${href}'>${displayNamePrefix}${theorem_number}</a>`
 }
 
 module.exports = function(...args){

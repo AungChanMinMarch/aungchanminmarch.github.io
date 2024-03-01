@@ -1,0 +1,68 @@
+---
+title: "Exercise number: 4"
+tags: expAndLogFunction
+order: 4
+---
+<h1 class="center">Prove the following limit relations</h1>
+<summary class="theorem">
+	<div xlass="statement">
+		(a) Prove $\lim\limits_{x \to 0} \frac{b^x -1}{x} = \log b$ where $b > 0$.
+	</div>
+	<details class="proof">
+			$$\lim\limits_{x \to 0} \frac{b^x -1}{x} (\text{indeterminate form: } \frac{0}{0}) $$
+		$$\begin{align}
+			\lim\limits_{x \to 0} \frac{b^x -1}{x} &= \lim_{x \to 0} b^x \log b \\
+			&= b^0 \log b\\
+			&= \log b
+		\end{align}$$
+	</details>
+</summary>
+
+<summary class="theorem">
+	<div xlass="statement">
+		(b) Prove $\lim\limits_{x \to 0} \frac{\log (1+x)}{x} = 1$.
+	</div>
+	<details class="proof">
+			$$\lim\limits_{x \to 0} \frac{\log(1+x)}{x} (\text{indeterminate form: } \frac{0}{0})$$
+		$$\begin{align}
+			\lim\limits_{x \to 0} \frac{\log(1+x)}{x} &= \lim_{x \to 0} \frac{1}{1+x} \\
+			&= \frac{1}{1+0}\\
+			&= 1
+		\end{align}$$
+	</details>
+</summary>
+
+<summary class="theorem">
+	<div xlass="statement">
+		(c) Prove $\lim\limits_{x \to 0} (1+x)^{\frac{1}{x}} = e$.
+	</div>
+	<details class="proof">
+		$$\begin{align}
+			\lim\limits_{x \to 0} (1+x)^{\frac{1}{x}} &= \lim_{x \to 0} e^{\log (1+x)^{\frac{1}{x}}} \\
+			&= e^{\lim_{x \to 0} \frac{\log (1+x)}{x}} \bracket{\text{indeterminate form: } \frac{0}{0}}\\
+			&= e^{\lim_{x \to 0} \frac{1}{1+x}} \\
+			&= e^{\frac{1}{1+0}} \\
+			&= e
+		\end{align}$$
+	</details>
+</summary>
+
+<summary class="theorem">
+	<div xlass="statement">
+		(d) Prove $\lim\limits_{n \to \infty} \bracket{1+\frac{x}{n}}^n = e^x$.
+	</div>
+	<details class="proof">
+		$$\begin{align}
+			\lim\limits_{n \to \infty} \log \bracket{1+\frac{x}{n}}^n &= \limit n \log \bracket{1+\frac{x}{n}}\\
+			&= \limit \frac{\log \bracket{1+\frac{x}{n}}}{\frac{1}{n}} \\
+			&\bracket{\text{indeterminate form: } \frac{0}{0}}\\
+			&= \limit \frac{\frac{1}{1+\frac{x}{n}} (-\frac{x}{n^2})}{-\frac{1}{n^2}} \\
+			&= \limit x \frac{1}{1 + \frac{x}{n}} \\
+			&= x \frac{1}{1+0} \\
+			&= x\\
+		\therefore \limit \bracket{1+\frac{x}{n}}^n &= \limit e^{\log \bracket{1+\frac{x}{n}}^n} \\
+		&= e^{\lim\limits_{n \to \infty} \log \bracket{1+\frac{x}{n}}^n}\\
+			&= e^x
+		\end{align}$$
+	</details>
+</summary>

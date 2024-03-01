@@ -1,0 +1,86 @@
+---
+title: 'Theorem 8.4'
+parent: 'powerSeries08'
+order: 4
+---
+<div class="theorem">
+	<div class="statement">
+	Suppose
+		$$f(x) = \summ c_n x^n,$$
+	the series converging in $\abs{x} < R$. If $-R < a < R$, then $f$ can be expanded in a power series about the point $x = a$ which converges in $\abs{x - a} < R - \abs{a}$, and
+		$$f(x) = \summ \frac{f^{(n)}(a)}{n!} (x - a)^n (\abs{x-a} < R - \abs{a}).$$
+	<p>This is an extension of Theorem 5.15 and is also known as Taylor's theorem. </p>
+	</div>
+	<div class="proof">
+		$$\begin{align}
+			f(x) &= \summ c_n x^n \\
+			&= \summ c_n [(x-a) + a]^n \\
+			&= \summ c_n \sum_{m=0}^{n} \binom{n}{m} a^{n-m} (x-a)^m\\
+
+			& \begin{array}{rl}
+					=\summ c_n \{ \binom{n}{0} a^n (x-a)^0 +& \binom{n}{1} a^{n-1}(x-a) + \\
+					\binom{n}{2} a^{n-2} (x-a)^2 + & \dots \}
+				\end{array} \\
+
+			&\begin{array}{ll}
+				=& \binom{0}{0} c_0 a^0 (x-a)^0 + \\
+				
+				& \binom{1}{0} c_1 a^1 (x-a)^0 + \binom{1}{1} c_1 a^0 (x-a) +\\
+			
+				& \binom{2}{0} c_2 a^2 (x-a)^0 + \binom{2}{1} c_2 a(x-a) + \\
+				& \binom{2}{2} c_2 a^0 (x-a)^2 + \\
+			
+				&\binom{3}{0} c_3 a^3 (x-a)^0 + \binom{3}{1} c_3 a^2 (x-a)^1 +\\
+				&\binom{3}{2} c_3 a^1 (x-a)^2 + \binom{3}{3} c_3 a^0 (x-a)^3 + \dots
+			\end{array} \\
+
+			&\begin{array}{ll}
+				=&\bracket{ \binom{0}{0} c_0 a^0 + \binom{1}{0} c_1 a^1 + \binom{2}{0} c_2 a^2 + \dots } (x-a)^0 +\\
+				&\bracket{ \binom{1}{1} c_1 a^0 + \binom{2}{1} c_2 a^1 + \binom{3}{1} c_2 a^2 + \dots } (x-a)^1 + \\
+				&\bracket{ \binom{2}{2} c_3 a^0 + \binom{3}{2} c_3 a^1 + \binom{4}{2} c_3 a^2 + \dots } (x-a)^2 + \\
+				&+\dots
+			\end{array} \\
+
+			&\begin{array}{ll}
+				=& \bracket{\sum_{n=0}^{\infty} \binom{n}{0} c_n a^n} (x-a)^0 + \\
+				& \bracket{\sum_{n=1}^{\infty} \binom{n}{1} c_n a^{n-1}} (x-a)^1 + \\
+				& \bracket{\sum_{n=2}^{\infty} \binom{n}{2} c_n a^{n-2}} (x-a)^2 +\\
+				& \dots
+			\end{array} \\
+
+			&= \sum_{m=0}^{\infty} \sbracket{ \sum_{n=m} ^{\infty} \binom{n}{m} c_n a^{n-m} }(x-a)^m
+		\end{align}$$
+
+		<p>This is the desired expansion about the point $x=a$. Now we shall prove its validity. By {% a 8.3 %},</p>
+
+		$$\begin{align}
+		& \sum_{m=0}^{\infty} \sbracket{ \sum_{n=m} ^{\infty} \binom{n}{m} c_n a^{n-m} }(x-a)^m\\
+		=& \sum_{m=0}^{\infty} \sum_{n=m}^{\infty} \binom{n}{m} c_n a^{n-m}(x-a)^m\\
+		=& \sum_{n=0}^{\infty} \sum_{m=0}^{n} \abs{c_n \binom{n}{m} a^{n-m} (x-a)^{m}}\\
+		=&\sum_{n=0}^{\infty} \sum_{m=0}^{n} \abs{c_n} \binom{n}{m} \abs{a^{n-m}} \abs{(x-a)^{m}} \\
+		=&\sum_{n=0}^{\infty} \abs{c_n} \sum_{m=0}^{n} \binom{n}{m} \abs{a}^{n-m} \abs{x-a}^m \\
+		=&\sum_{n=0}^{\infty} \abs{c_n} \bracket{\abs{a} + \abs{x-a}}^n
+		\end{align}$$
+		<p>converges if $\abs{x-a} < R - \abs{a}$. Thus we have </p>
+		$$\begin{align}
+			&\sum_{n=0}^{\infty} \sum_{m=0}^{n} c_n \binom{n}{m} a^{n-m} (x-a)^{m}\\
+			=& \sum_{m=0}^{\infty} \sbracket{ \sum_{n=m} ^{\infty} \binom{n}{m} c_n a^{n-m} }(x-a)^m \\
+			=& f(x)
+		\end{align}$$
+		<p>converges if $\abs{x-a} < R - \abs{a}$. </p>
+
+	<p>By Corollary of {% a 8.1 %}, we have</p>
+	\begin{align}
+      f^{(m)}(a) &= \sum\limits_{n=m}^{\infty} n(n-1) \cdots (n-m+1) c_n a^{n-m} \\
+      &= \sum\limits_{n=m}^{\infty} n(n-1) \cdots (n-m+1) \frac{(n-m)!}{(n-m)!} c_n a^{n-m} \\
+      &= \sum\limits_{n=m}^{\infty} \frac{n!}{(n-m)!} c_n a^{n-m} \\
+			\frac{f^{(m)}(a)}{m!} &=  \sum\limits_{n=m}^{\infty} \frac{n!}{(n-m)! m!} c_n a^{n-m} \\
+			&= \sum\limits_{n=m}^{\infty} \binom{n}{m} c_n a^{n-m} \\
+			&\text{For } \abs{x-a} < R- \abs{a}, \\
+			f(x) &= 
+				 \sum_{m=0}^{\infty} \sbracket{ \sum_{n=m} ^{\infty} \binom{n}{m} c_n a^{n-m} }(x-a)^m \\
+				 &= \sum_{m=0}^{\infty} \sbracket{\frac{f^{(m)}(a)}{m!}}(x-a)^m \\
+				 &= \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n \\
+	\end{align}
+	</div>
+</div>

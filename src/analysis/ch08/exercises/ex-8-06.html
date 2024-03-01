@@ -1,0 +1,46 @@
+---
+title: Exercise No. 6 (chapter 8)
+order: 6
+---
+<summary class="theorem">
+	<div class="statement">
+		6(a). Suppose $f(x)f(y) = f(x+y)$ for all real $x$ and $y$.
+		Assuming that $f$ is differentiable and not zero, prove that $f(x)=e^{cx}$, where $c$ is a constant.
+	</div>
+	<details class="proof">
+		$$f(x) = f(x+0) = f(x) f(0)$$
+		Since $f$ is not zero, we get $1 = f(0)$.
+
+		$$\begin{align}
+			f'(x) &= \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \\
+			&= \lim_{h \to 0} \frac{f(x)f(h) -f(x)}{h}\\
+			&= \lim_{h \to 0} \frac{f(x)(f(h) - 1)}{h}\\
+			&= f(x) \lim_{h \to 0} \frac{f(h) - 1}{h}\\
+			&= f(x) \lim_{h \to 0} \frac{f(h + 0) - f(0)}{h}\\
+			&= f(x) f'(0) \\
+		\end{align}$$
+
+		<p>Let $c = f'(0)$. Then $f'(x) = cf(x)$</p>
+		<p>Let $g(x)=e^{cx}$ for real $x$. Then $g'(x) = c e^{cx} =c g(x)$</p>
+
+		$$\begin{align}
+		\frac{d}{dx} \dfrac{f(x)}{g(x)} &= \frac{g(x) f'(x) - f(x) g'(x)}{g^2(x)} \\
+		&= \frac{g(x)cf(x) - f(x)c g(x)}{g^2(x)} \\
+		&= 0 \\
+		\dfrac{f(x)}{g(x)} &= K, \text{ where  $K$ is arbitrary constant.}
+		\end{align}$$
+
+		<p>Since $f(0)= 1$ and $g(0) = e^0 = 1$, $K = \frac{f(0)}{g(0)} = 1$</p>
+
+		<p>Hence $f(x) = g(x) = e^{cx}$, where $c$ is a constant.</p>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<div class="statement">
+		6(b). Suppose $f(x)f(y) = f(x+y)$ for all real $x$ and $y$.
+		Assuming that $f$ is continuous, prove that $f(x)=e^{cx}$, where $c$ is a constant.
+	</div>
+	<details class="proof">
+	</details>
+</summary>

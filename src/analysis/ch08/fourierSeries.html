@@ -1,0 +1,129 @@
+---
+title: "Fourier Series"
+key: fourierSeries08
+order: 5
+---
+<summary class="theorem">
+	<p class="statement">
+		If a trigonometric polynomial is a finite sum of the form
+			$$f(x) = a_0 + \sum\limits_{n=1}^{N} (a_n \cos nx + b_n \sin nx)$$
+		where $x$ is real and $a_0, a_1, \dots, a_n, b_1, \cdots, b_n$ are complex numbers, then prove $f(x)$ can also be written in the form
+			$$f(x) = \sum\limits_{n=-N}^{N} c_n e^{inx} \text{, ($x$ real) }$$
+	</p>
+	<details class="proof">
+		$$\begin{align}
+			f(x) &= a_0 + \sum\limits_{n=1}^{N} (a_n \cos nx + b_n \sin nx)\\
+			&= a_0 + \sum\limits_{n=1}^{N} \bracket{a_n \frac{e^{inx} + e^{-inx}}{2} + b_n \frac{e^{inx} - e^{-inx}}{2i}}\\
+			&= a_0 + \sum\limits_{n=1}^{N} \bracket{
+			\bracket{\frac{a_n}{2} + \frac{b_n}{2i}} e^{inx} + \bracket{\frac{a_n}{2} - \frac{b_n}{2i}}e^{-inx}
+			}\\
+			&= a_0 + 
+				\sum\limits_{n=1}^{N} \bracket{\frac{a_n}{2} + \frac{b_n}{2i}} e^{inx} +
+				\sum\limits_{n=1}^{N}\bracket{\frac{a_n}{2} - \frac{b_n}{2i}}e^{-inx}\\
+				&\text{Put } c_0 = a_0\\
+				&\text{And let }c_n = \frac{a_n}{2} + \frac{b_n}{2i}\\
+				&\text{ and }	c_{-n} = \frac{a_n}{2} - \frac{b_n}{2i} \text{ for } n > 0.\\
+				\therefore f(x) &= c_0 + \sum\limits_{n=1}^{N} c_n e^{inx} + \sum\limits_{n=1}^{N} c_{-n}e^{i(-n)x}\\
+				&= c_0 + \sum\limits_{n=1}^{N} c_n e^{inx} + \sum\limits_{n=-N}^{-1} c_n e^{inx}\\ 
+				&= \sum\limits_{n=-N}^{N} c_n e^{inx}
+		\end{align}$$
+	</details>
+</summary>
+
+<p>Every trigonometric polynomial is periodic with period $2 \pi$ because
+$$\begin{align}
+	f(x + 2 \pi) &= \sum\limits_{n=-N}^{N} c_n e^{in(x+2 \pi)} \\
+	&= \sum\limits_{n=-N}^{N} c_n e^{inx} e^{2 \pi in} \\
+	&= \sum\limits_{n=-N}^{N} c_n e^{inx} (e^{2 \pi i})^n \\
+	&= \sum\limits_{n=-N}^{N} c_n e^{inx} (1)^n \\
+	&= \sum\limits_{n=-N}^{N} c_n e^{inx} \\
+	&= f(x)
+\end{align}$$
+</p>
+
+<p>
+	If $n$ is a nonzero integer, $e^{inx}$ is the derivative of $\frac{e^{inx}}{in}$ which also has period $2 \pi$ because
+	$$\frac{e^{in(x+ 2\pi)}}{in} = \frac{e^{inx} e^{2\pi in}}{in} = \frac{e^{inx} (e^{2\pi i})^n}{in} =\frac{e^{inx}}{in}$$
+	If $n=0$, then $e^{inx} = 1$. Thus
+	$$\frac{1}{2\pi} \int_{-\pi}^{\pi} e^{inx} dx = \frac{1}{2\pi} \int_{-\pi}^{\pi} 1 dx = \frac{1}{2\pi} [x]_{-\pi}^{\pi} = \frac{1}{2\pi} (2\pi) = 1$$
+	If $n \in \Z \setminus \{0\}$, then
+		$$\begin{align}
+			\frac{1}{2\pi} \int_{-\pi}^{\pi} e^{inx} dx 
+			&= \frac{1}{2\pi} \sbracket{\frac{e^{inx}}{in}}_{-\pi}^{\pi}\\
+			&= \frac{1}{2\pi} \bracket{\frac{e^{in\pi}}{in} - \frac{e^{-in\pi}}{in}}\\
+			&= \frac{1}{2\pi in} \bracket{(e^{i \pi})^n - (e^{-i \pi})^n} \\
+			&= \frac{1}{2\pi in} \bracket{(-1)^n - (-1)^n} \\
+			&= 0
+		\end{align}$$
+
+		$$\text{Hence } \frac{1}{2\pi} \int\limits_{-\pi}^{\pi} e^{inx} dx = \begin{cases}
+			1 &\mbox{ (if $n=0$) }\\
+			0 &\mbox{ (if $n=\pm 1, \pm 2, \dots$) }
+		\end{cases}\tag{68}$$
+</p>
+
+<summary class="theorem">
+	<p class="statement">
+		If $f(x) = \sum\limits_{n=-N}^{N} c_n e^{inx}$, then show that
+			$$c_m = \frac{1}{2\pi} \int\limits_{-\pi}^{\pi} f(x) e^{-imx} dx$$
+		for $\abs{m} \leq N$. Also show that if $\abs{m} > N$, then the above integral is zero.
+	</p>
+	<details class="proof">
+		$$\begin{align}
+			\frac{1}{2\pi} \int\limits_{-\pi}^{\pi} f(x) e^{-imx} dx
+			&= \frac{1}{2\pi} \int\limits_{-\pi}^{\pi} \bracket{\sum_{n=-N}^{N} c_n e^{inx}} e^{-imx} dx \\
+			&= \frac{1}{2\pi} \int\limits_{-\pi}^{\pi} \bracket{\sum_{n=-N}^{N} c_n e^{i(n-m)x}} dx \\
+			&= \frac{1}{2\pi} \sum_{n=-N}^{N} \bracket{\int\limits_{-\pi}^{\pi} c_n  e^{i(n-m)x} dx} \\
+			&= \sum_{n=-N}^{N} \bracket{c_n \frac{1}{2\pi} \int\limits_{-\pi}^{\pi} e^{i(n-m)x} dx} \\
+			\text{Since } \frac{1}{2\pi} \int\limits_{-\pi}^{\pi} e^{inx} dx 
+			&= \begin{cases}
+			1 &\mbox{ (if $n=0$) }\\
+			0 &\mbox{ (if $n=\pm 1, \pm 2, \dots$) }
+		\end{cases},\\
+			\frac{1}{2\pi} \int\limits_{-\pi}^{\pi} e^{i(n-m)x} dx 
+			&= \begin{cases}
+				1 &\text{ if } n=m \\
+				0 &\text{ if } n \neq m \\
+			\end{cases}\\
+
+			\frac{1}{2\pi} \int\limits_{-\pi}^{\pi} f(x) e^{-imx} dx
+			&= \sum_{n=-N}^{N} \bracket{c_n \frac{1}{2\pi} \int\limits_{-\pi}^{\pi} e^{i(n-m)x} dx} \\
+			&= \begin{cases}
+				c_m &\text{ if } \abs{m} \leq N \\
+				0 &\text{ if } \abs{m} > N
+			\end{cases}
+		\end{align}$$
+	</details>
+</summary>
+
+<summary class="theorem">
+	<p class="statement">
+		Prove that $f(x) = \sum\limits_{n=-N}^{N} c_n e^{inx}$ ($x$ is real) is real if and only if $c_{-N} = \conj{c_N}$.
+	</p>
+	<details class="proof">
+		$$\begin{align}
+			f(x) &= \sum_{n=-N}^{N} c_n e^{inx}\\
+			&= \sum_{n=-N}^{-1} c_n e^{inx} + c_0 + \sum_{n=1}^{N} c_n e^{inx} \\
+			&= \sum_{n=1}^{N} c_{-n} e^{-inx} + c_0 + \sum_{n=1}^{N} c_n e^{inx} \\
+			&= c_0 + \sum_{n=1}^{N} (c_{-n} e^{-inx} + c_n e^{inx})
+		\end{align}$$
+
+		$$\begin{align}
+		 c_{-N} &= \conj{c_N} \text{ if and only if} \\
+		 f(x) &= c_0 + \sum_{n=1}^{N} (c_{-n} e^{-inx} + c_n e^{inx})\\
+			&= c_0 + \sum_{n=1}^{N} (\conj{c_n} e^{-inx} + c_n e^{inx})\\
+			&= c_0 + \sum_{n=1}^{N} (\conj{c_n e^{inx}} + c_n e^{inx})\\
+			&= c_0 + \sum_{n=1}^{N} 2 \mathfrak{Re}(c_ne^{inx)}\\
+			f(x) &\text{ is real}
+		\end{align}$$
+	</details>
+</summary>
+
+<div class="definition">
+	<h2>Fourier coefficients and Fourier series</h2>
+	<p>If $f$ is an integrable function on $[-\pi, \pi]$, the numbers $c_m$ defined by
+			$$c_m = \frac{1}{2\pi} \int\limits_{-\pi}^{\pi} f(x) e^{-imx} dx$$
+	for all integers $m$ are called the <strong>Fourier coefficients</strong> of $f$ and the series
+		$$\sum\limits_{-\infty}^{\infty} c_n e^{inx} \text{ ($x$ real); }$$
+		formed with these coefficients is called the <strong>Fourier series</strong> of $f$
+	</p>

@@ -1,0 +1,130 @@
+---
+title: "Definition 8.10 : Orthogonal and orthonormal"
+parent: fourierSeries08
+order: 10
+---
+<div class="definition">
+	<p>Let $\{ \phi_n \}$ ($n=1,2,3, \dots$) be a sequence of complex functions on $[a,b]$, such that
+		$$\int_a^b \phi_n(x) \conj{\phi_m(x)} dx = 0, \text{ where } n \neq m$$
+	Then $\{ \phi_n \}$ is said to be an <strong>orthogonal</strong> system of functions on $[a,b]$. If, in addition,
+		$$\int_a^b \abs{\phi_n(x)}^2 dx = 1$$
+	for all $n$, then $\{ \phi_n \}$ is said to be <strong>orthonormal</strong>
+	</p>
+</div>
+
+<summary class="theorem">
+	<p class="statement">
+		Prove that the functions $(2 \pi)^{-\frac{1}{2}} e^{inx}$ form an orthonormal system on $[-\pi, \pi]$
+	</p>
+	<details class="proof">
+	For $n \neq m$,
+		$$\begin{align}
+			&\int\limits_{-\pi}^{\pi} (2\pi)^{-\frac{1}{2}} e^{inx} \conj{(2\pi)^{-\frac{1}{2}} e^{imx}} dx \\
+			=& \int\limits_{-\pi}^{\pi} (2\pi)^{-\frac{1}{2}} e^{inx} (2\pi)^{-\frac{1}{2}} e^{-imx} dx \\
+			=& \int\limits_{-\pi}^{\pi} 2\pi e^{i(n-m)x} dx \\
+			=&  \frac{1}{2\pi} \int\limits_{-\pi}^{\pi}  e^{i(n-m)x} dx \\
+			=& 0
+		\end{align}$$
+
+		For any integer $n$, 
+		$$\begin{align}
+			\int_{-\pi}^{\pi} \abs{(2\pi)^{-\frac{1}{2}} e^{inx}}^2 dx
+			&= \int_{-\pi}^{\pi} (2\pi)^{-1} \abs{e^{inx}}^2 dx \\
+			&= \frac{1}{2\pi} \int_{-\pi}^{\pi} (1)^2 dx \\
+			&= \frac{1}{2\pi} (2\pi) \\
+			&= 1
+		\end{align}$$
+		<p>Hence the functions $(2 \pi)^{-\frac{1}{2}} e^{inx}$ form an orthonormal system on $[-\pi, \pi]$</p>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<p class="statement">
+		Prove that the real functions 
+			$$\frac{1}{\sqrt{2\pi}}, \frac{\cos x}{\sqrt{\pi}}, \frac{\sin x}{\sqrt{\pi}}, \frac{\cos 2x}{\sqrt{\pi}}, \frac{\sin 2x}{\sqrt{\pi}},\cdots, $$
+		form an orthonormal system on $[-\pi, \pi]$
+	</p>
+	<details class="proof">
+		$$\begin{align}
+			\text{For any integer } n, \\
+			\int_{-pi}^{\pi} \cos nx dx &= \sbracket{\frac{\sin nx}{n}}_{x=-\pi}^{\pi} \\
+			&= \frac{\sin n\pi}{n} - \frac{\sin (-n\pi)}{n} \\
+			&= 0 - 0 =0 \\
+			\int_{-\pi}^{\pi} \sin nx dx &= \sbracket{-\frac{\cos nx}{n}}_{x=-\pi}^{\pi} \\
+			&= -\frac{\cos n\pi}{n} + \frac{\cos (-n\pi)}{n} \\
+			&= -\frac{\cos n\pi}{n} + \frac{\cos n\pi}{n} \\
+			&= 0
+		\end{align}$$
+		<p>Hence $\int_{-\pi}^{\pi} \cos nx dx =0$ and $\int_{-\pi}^{\pi} \sin nx dx =0$ for any integer $n$.</p>
+
+		$$\begin{align}
+			&\int_{-\pi}^{\pi} \cos nx \cos mx dx \\
+			=& \int_{-\pi}^{\pi} \frac{\cos (nx + mx) + \cos (nx -mx)}{2} dx \\
+			=& \frac{1}{2} \int_{-\pi}^{\pi} \cos (n+m)x + \cos (n-m)x dx \\
+			=& 0
+		\end{align}$$
+
+		$$\begin{align}
+			&\int_{-\pi}^{\pi} \sin nx \sin mx dx \\
+			=& \int_{-\pi}^{\pi} \frac{\cos (nx + mx) - \cos (nx -mx)}{2} dx \\
+			=& \frac{1}{2} \int_{-\pi}^{\pi} \cos (n+m)x - \cos (n-m)x dx \\
+			=& 0
+		\end{align}$$
+
+		$$\begin{align}
+			&\int_{-\pi}^{\pi} \cos nx \sin mx dx \\
+			=& \int_{-\pi}^{\pi} \frac{\sin (nx + mx) - \sin (nx -mx)}{2} dx \\
+			=& \frac{1}{2} \int_{-\pi}^{\pi} \sin (n+m)x - \sin (n-m)x dx \\
+			=& 0
+		\end{align}$$
+		<p>Any two random functions of the given functions are one of the forms: 
+			$\frac{1}{\sqrt{2\pi}} \frac{\cos nx}{\sqrt{\pi}}$ or
+			$\frac{1}{\sqrt{2\pi}} \frac{\sin nx}{\sqrt{\pi}}$ or
+			$\frac{\cos nx}{\sqrt{\pi}} \frac{\sin mx}{\sqrt{\pi}}$.
+			But integrating them from $-\pi$ to $\pi$ is zero. Hence they form orthogonal system.
+		</p>
+
+		$$\begin{align}
+			\int_{-\pi}^{\pi} \abs{\frac{1}{\sqrt{2\pi}}}^2 dx &= \int_{-\pi}^{\pi}\frac{1}{2\pi} dx \\
+			&= \frac{1}{2\pi} [x]_{-\pi}^{\pi} \\
+			&= \frac{1}{2\pi} (2\pi) \\
+			&= 1
+		\end{align}$$
+
+		$$\begin{align}
+		\text{For } n=1,2,3,\cdots,\\
+		\int_{-\pi}^{\pi} \abs{\frac{\cos nx}{\sqrt{\pi}}}^2 dx
+		&= \int_{-\pi}^{\pi} \frac{\cos^2 nx}{\pi} dx \\
+		&= \int_{-\pi}^{\pi} \frac{1+\cos 2nx}{2\pi} dx \\
+		&= \frac{1}{2\pi} \bracket{\int_{-\pi}^{\pi} dx + \int_{-pi}^{\pi} \cos 2nx dx} \\
+		&= \frac{1}{2\pi} \bracket{ [x]_{-\pi}^{\pi} + 0} \\
+		&= \frac{1}{2\pi} (2\pi) \\
+		&= 1
+		\end{align}$$
+		$$\begin{align}
+			\text{For } n=1,2,3,\cdots,\\
+			\int_{-\pi}^{\pi} \abs{\frac{\sin nx}{\sqrt{\pi}}}^2 dx
+			&= \int_{-\pi}^{\pi} \frac{\sin^2 nx}{\pi} dx \\
+			&= \int_{-\pi}^{\pi} \frac{1-\cos 2nx}{2\pi} dx \\
+			&= \frac{1}{2\pi} \bracket{\int_{-\pi}^{\pi} dx - \int_{-pi}^{\pi} \cos 2nx dx} \\
+			&= \frac{1}{2\pi} \bracket{ [x]_{-\pi}^{\pi} - 0} \\
+			&= \frac{1}{2\pi} (2\pi) \\
+			&= 1
+		\end{align}$$
+
+		<p>Hence there functions form orthonormal system on $[-\pi, \pi]$.</p>
+	</details>
+</summary>
+
+<div class="definition">
+	<p>
+	If $\{ \phi_n \}$ is orthonormal on $[a, b]$ and if
+		$$c_n = \int\limits_{a}^{b} f(t) \conj{\phi_n(t)} dt (n = 1, 2, 3, ... ), \tag{66}$$
+	we call $c_n$ the nth Fourier coefficient of $f$ relative to $\{ \phi_n \}$. We write
+		$$ f(x) \sim \sum_{1}^{\infty} c_n \phi_n(x) \tag{67}$$
+	and call this series the Fourier series of $f$ (relative to $\{\phi_n\}$).
+	</p>
+	<p>
+		Note that the symbol $\sim$ used in (67) implies nothing about the convergence of the series; it merely says that the coefficients are given by (66).
+	</p>
+</div>

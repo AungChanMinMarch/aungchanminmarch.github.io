@@ -1,6 +1,7 @@
 ---
 title: Theorem 8.1
-Parent: powerSeries8
+parent: powerSeries08
+order: 1
 ---
 <div class="theorem">
 	<div class="statement">
@@ -12,12 +13,87 @@ Parent: powerSeries8
 	<div class="proof">
 		<p>Let $\ep > 0$ be given.</p>
 		<p>$$\begin{align}
-			\text{If } \abs{x} &\leq R - \ep \\
+			\text{If } x &\in [-R + \ep, R - \ep], \\
+			\abs{x} &\leq R - \ep \\
 			\abs{x}^n &\leq \abs{R - \ep}^n \\
 			\abs{c_n} \abs{x^n} &\leq \abs{c_n} \abs{R - \ep}^n \\
 			\abs{c_n x^n} &\leq \abs{c_n (R - \ep)^n}
 		\end{align}$$</p>
-		<p>Since $\abs{R- \ep} < R$ and $\summ c_n x^n$ converges for $\abs{x} < R$, $\summ c_n (R - \ep)^n$ converges. </p>
-		<p>Hence, by {% a '7.10' %}, $\summ \abs{c_n x^n}$ converges uniformly on $[-R+\ep, R- \ep ]$ </p>
+
+    $$\begin{align}
+      \limit \sup \sqrt[n]{\abs{c_n(R-\ep)^n}} &= \limit \sup ( \abs{c_n}^{\frac{1}{n}} \abs{R-\ep}) \\
+    &= \alpha \abs{R - \ep}\\
+    &= \frac{1}{R} \abs{R-\ep}\\
+    &= \abs{1 - \frac{\ep}{R}} < 1
+    \end{align}$$
+		<p>Therefore $\summ c_n (R - \ep)^n$ converges. </p>
+		<p>Hence, by {% a '7.10' %}, $\summ c_n x^n$ converges uniformly on $[-R+\ep, R- \ep ]$. </p>
 	</div>
+    $$ \begin{align}
+      \limit \sqrt[n]{n} &= \limit e^{\ln{\sqrt[n]{n}}} \\
+      &= \limit e^{\frac{1}{n} \ln{n}} \\
+      &= e^{\limit \frac{\ln n}{n}} \bracket{\text{indeterminate form } \frac{\infty}{\infty}} \\
+      &= e^{\limit \frac{\frac{1}{n}}{1}} \\
+      &= e^{0} \\
+      &= 1
+    \end{align}$$
+
+      $$\limit \sup \sqrt[n]{n \abs{c_n}} = \limit \sup \sqrt[n]{n} \sqrt[n]{\abs{c_n}} = \limit \sup \sqrt[n]{\abs{c_n}}$$
+      <p>Hence the series $\sum c_n x^{n}$ and $\sum nc_n x^{n-1}$ have the same interval of convergence. In other words, the series $\sum\limits_{n=1}^{\infty} nc_nx^{n-1}$ converges for $\abs{x} < R$. So it converges uniformly on $[-R+\ep, R-\ep]$ for every $\ep > 0$.</p>
+    
+      <p>By {% a 7.17 %}, $f'(x) = \sum\limits_{n=1}^{\infty} n c_n x^{n-1}$ for $\abs{x} \leq R - \ep$</p>
+
+      <p>But, for any $\abs{x} \in R$, we can find $\ep > 0$ such that $\abs{x} < R - \ep$. Hence $f'(x) = \sum\limits_{n=1}^{\infty} n c_n x^{n-1}$ for $\abs{x} < R$. </p>
+
+        <p>By {% a 5.2 %} , $f'$ is continuous.</p>
 </div>
+
+  <div class="theorem">
+  	<h1>Corollary</h1>
+    <div class="statement">
+      Under the hypeotheses of Theorem 8.1, $f$ has derivatives of all orders in $(-R,R)$, which are given by 
+      $$f^{(k)}(x) = \sum\limits_{n=k}^{\infty} n(n-1) \cdots (n-k+1) c_n x^{n-k}$$
+      In particular, 
+      $$f^{(k)}(0) = k! c_k (k=0,1,2,\dots).$$
+      (Here $f^{(0)}$ means $f$ and $f^{(k)}$ is the kth derivative of $f$ for $k=1,2,3,\dots$.)
+		</div>
+		<div class="proof">
+			<p>If $f(x) = \summ c_n x^n$ converges for each $x \in (-R, R)$, then by Theorem 8.1, it converges uniformly on $[-R+ \ep, R- \ep]$ for any $\ep > 0$ and $f'(x) = \sum\limits_{n=1}^{\infty} n c_n x^{n-1}$. </p>
+			<p>Since $\limit \sqrt[n]n = 1$, $\limit \sqrt[n]{n\abs{c_n}} = \sqrt[n]{\abs{c_n}}$. Hence $f$ and $f'$ have the same interval of convergence. In other words, $f'(x)$ converges on $[-R+ \ep, R- \ep]$ for any $\ep > 0$ </p>
+			<p>For any $x \in (-R,R)$, we can find $\ep >0$ such that $x \in [-R+\ep, R-\ep]$. Hence $f'(x)$ converges on $(-R,R)$.
+			<p>Similarly, since $f'(x) = \sum nc_n x^{n-1}$ converges for each $x \in (-R, R)$, then by Theorem 8.1, $f''(x) = \sum\limits_{n=2}^{\infty} n(n-1) c_n x^{n-2}$. </p>
+			<p>Therefore $f$ has derivatives of all orders in $(-R, R)$ and given by</p>
+			\begin{align}
+				f'(x) &= \sum\limits_{n=1}^{\infty} n c_n x^{n-1} (x \in (-R, R))\\
+				&= c_1 + 2 c_2 x + 3 c_3 x^2 + 4 c_4 x^3 +  \dots \\
+				f''(x) &= 2c_2 + 3.2 c_3 x + 4.3 c_4 x^2 + 5.4 c_5 x^3 + \dots \\
+				f'''(x) &= 3.2 c_3 + 4.3.2 c_4 x + 5.4.3 c_5 x^2 \\
+				&+ 6.5.4 c_6 x^3 + \dots\\
+				f^{(4)} &= 4.3.2.1 c_4 + 5.2.3.2 c_5 x +6.5.4.3 c_6 x^2\\
+				&+ 7.6.5.4 c_7 x^3 + \dots \\
+			\end{align}
+			<p> Note that
+			$$\begin{align}
+				f'(x) &= \sum\limits_{n=1}^{\infty} n c_n x^{n-1} (x \in (-R, R))\\
+				f''(x) &= 2c_2 + 3.2 c_3 x + 4.3 c_4 x^2 + 5.4 c_5 x^3 + \dots \\
+				f^{(2)} &= \sum\limits_{n=2}^{\infty} n(n-1) c_n x^{n-2} \\
+				f'''(x) &= 3.2 c_3 + 4.3.2 c_4 x + 5.4.3 c_5 x^2\\
+				&+ 6.5.4 c_6 x^3 + \dots\\
+				f^{(3)} &= \sum\limits_{n=3}^{\infty} n(n-1)(n-2) c_n x^{n-3} \\
+				f^{(4)} &= 4.3.2.1 c_4 + 5.2.3.2 c_5 x +6.5.4.3 c_6 x^2\\
+				&+ 7.6.5.4 c_7 x^3 + \dots \\
+				f^{(4)} &= \sum\limits_{n=4}^{\infty} n(n-1)(n-2)(n-3) c_n x^{n-4} \\
+				\text{In genreal, }\\ 
+				f^{(k)} &= \sum\limits_{n=k}^{\infty} n(n-1)\dots(n-k+1) c_n x^{n-k} \\
+			\end{align}$$
+
+			<p>In particular, </p>
+			$$\begin{align}
+				f^{(1)}(0) &= c_1 &&= 1!c_1 \\
+				f^{(2)}(0) &= 2.1 c_2 &&= 2!c_2 \\
+				f^{(3)}(0) &= 3.2.1 c_3 &&= 3!c_3 \\
+				f^{(4)}(0) &= 4.3.2.1 c_4 &&= 4!c_4 \\
+			\end{align}$$
+			<p> In general, $f^{(k)}(0) = k!c_k$</p>
+		</div>
+	</div>

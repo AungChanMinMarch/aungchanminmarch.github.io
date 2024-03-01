@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 reveal.js/
 mathModules/plotly.js
 
@@ -36,3 +37,7 @@ pnpm-debug.log*
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+=======
+node_modules/
+_site/
+>>>>>>> 01e9a20a10ae86f5009563c71f8697be83e11a1f

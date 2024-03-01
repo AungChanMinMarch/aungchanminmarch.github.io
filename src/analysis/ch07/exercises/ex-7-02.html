@@ -1,0 +1,58 @@
+---
+title: "ex no 2 (chapter 7)"
+order: 2
+---
+<summary class="theorem">
+	<p class="statement">
+		If $\{f_n\}$ and $\{g_n\}$ converge uniformly on a set $E$, prove that $\{f_n + g_n\}$ converges uniformly on $E$. 
+	</p>
+	<details class="proof">
+		<p>Let $\ep >0$ be given.</p>
+		<p>Since $\{ f_n \}$ converges uniformly on $E$, by {% a 7.8%}, there exists integer $N_1$ such that</p>
+		$$n,m > N_1, x \in E \text{ implies } \abs{f_n(x) - f_m(x)} < \frac{\ep}{2}$$
+
+		<p>Since $\{ g_n \}$ converges uniformly on $E$, by {% a 7.8%}, there exists integer $N_2$ such that</p>
+		$$n,m > N_2, x \in E \text{ implies } \abs{g_n(x) - g_m(x)} < \frac{\ep}{2}$$
+
+		<p>Let $N = \max \{N_1, N_2 \}$. Then $n, m >N$ and $x \in E$ implies that</p>
+		$$\begin{align}
+			&\abs{(f_n+g_n)(x) - (f_m +g_m)(x)}\\
+			&=\abs{f_n(x) + g_n(x) - f_m(x) -g_m(x)} \\
+			&\leq \abs{f_n(x) - f_m(x)} + \abs{g_n(x) - g_m(x)} \\
+			&< \frac{\ep}{2} + \frac{\ep}{2} \\
+			&= \ep
+		\end{align}$$
+		<p>Hence by {% a 7.8 %}, $\{ f_n + g_n \}$ converges uniformly.</p>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<p class="statement">
+		If $\{f_n\}$ and $\{g_n\}$ converge uniformly on a set $E$ and $\{f_n\}$ and $\{g_n\}$ are sequences of bounded functions, prove that $\{f_ng_n\}$ converges uniformly on $E$.
+	</p>
+	<details class="proof">
+		<p>Since $\{f_n\}$ and $\{g_n\}$ are uniformly convergent sequences of bounded functions, by {% a 7.1 "Exercise No.2 (Chapter 7)" "ex" %}, $\{f_n\}$ and $\{g_n\}$ are uniformly bounded</p>
+		<p>Since $\{f_n\}$ is uniformly bounded, there is a number $M_1 > 0$ such that $\abs{f_n(x)} < M_1$ for all $n$ and $x$</p> 
+		<p>Since $\{g_n\}$ is uniformly bounded, there is a number $M_2 > 0$ such that $\abs{g_n(x)} < M_2$ for all $n$ and $x$</p> 
+		<p>Let $M= \max \{M_1, M_2\}$.</p>
+		<p>Then $\abs{f_n(x)} < M$ and $\abs{g_n(x)} < M$ for all $n$ and $x$.</p>
+		<p>Let $\ep >0$.</p>
+		<p>Since $\{ f_n \}$ converges uniformly on $E$, by {% a 7.8%}, there exists integer $N_1$ such that</p>
+		$$n,m > N_1, x \in E \text{ implies } \abs{f_n(x) - f_m(x)} < \frac{\ep}{2M}$$
+
+		<p>Since $\{ g_n \}$ converges uniformly on $E$, by {% a 7.8%}, there exists integer $N_2$ such that</p>
+		$$n,m > N_2, x \in E \text{ implies } \abs{g_n(x) - g_m(x)} < \frac{\ep}{2M}$$
+
+		<p>Let $N = \max \{N_1, N_2 \}$. Then $n, m >N$ and $x \in E$ implies that</p>
+		$$\begin{align}
+			&\abs{(f_ng_n)(x) - (f_m g_m)(x)}\\
+			&=\abs{f_n(x) g_n(x) - f_m(x) g_m(x)} \\
+			&=\abs{f_n(x) g_n(x) - f_n(x)g_m(x) + f_n(x)g_m(x) - f_m(x) g_m(x)} \\
+			&\leq \abs{f_n(x) g_n(x) - f_n(x)g_m(x)} + \abs{f_n(x)g_m(x) - f_m(x) g_m(x)} \\
+			&= \abs{f_n(x)} \abs{g_n(x) -g_m(x)} + \abs{g_m(x)} \abs{f_n(x) - f_m(x)} \\
+			&< M \frac{\ep}{2M} + M \frac{\ep}{2M} \\
+			&= \ep
+		\end{align}$$
+		<p>Hence by {% a 7.8 %}, $\{ f_n g_n \}$ converges uniformly.</p>
+	</details>
+</summary>

@@ -1,0 +1,23 @@
+---
+title: "Exercise no. 7 (chapter 8)"
+order: 7
+---
+<summary class="theorem">
+	<div class="statement">
+		7. If $0 < x < \frac{\pi}{2}$, prove that $\frac{2}{\pi} < \frac{\sin x}{x} < 1$.
+	</div>
+	<details class="proof">
+		Let $f(x) = \sin x - \frac{2x}{\pi}$ for $0 \leq x \leq \frac{\pi}{2}$.
+		<p>Then $f(0) = \sin 0 - 0 = 0$ and $f(\frac{\pi}{2}) = \sin \frac{\pi}{2} - \frac{2 \frac{\pi}{2}}{\pi} = 1 - 1 = 0$. </p>
+	<p>Also $f'(x) = \cos x - \frac{2}{\pi}$</p>
+	<p>Since $f'(0) = 1 - \frac{2}{\pi} > 0$ and $f'(\frac{\pi}{2}) = - \frac{2}{\pi} < 0$ and $f'$ is continuous, $f'$ has at least one zero on $[0, \frac{\pi}{2}]$. </p>
+	<p>$f''(x) = - \sin x < 0$ on $0 \leq x \leq \frac{\pi}{2}$</p>
+	<p>Since $f'' < 0$ on $[0, \frac{\pi}{2}]$, $f'$ is strictly increasing on $[0, \frac{\pi}{2}]$. Hence $f'$ has exactly one zero on $[0,\frac{\pi}{2}]$ and $f$ has maximum value on that point. </p>
+	<p>Since $f(\frac{\pi}{4}) = \frac{\sqrt{2}}{2} - \frac{1}{2} > 0$, $f > 0$ on $(0, \frac{\pi}{2}$. And Hence $\frac{2}{\pi} < \frac{\sin x}{x}$ if $0 < x < \frac{\pi}{2}$. </p>
+
+	<hr />
+	<p>Now let $g(x) = x - \sin x$ for $x \in [0, \frac{\pi}{2}]$. </p>
+	<p>Then $g'(x) = 1 - \cos x \geq 0$ on $[0, \frac{\pi}{2}]$. Hence $g$ is strictly increasing on $[0, \frac{\pi}{2}]$. </p>
+	<p>Since $g$ is strictly increasing on $(0, \frac{\pi}{2})$ and $g(0) = 0$, $g(x) > 0$ on $(0, \frac{\pi}{2}$. Hence $\frac{\sin x}{x} < 1$ if $0 < x < \frac{\pi}{2}$</p>
+	</details>
+</summary>

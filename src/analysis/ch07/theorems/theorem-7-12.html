@@ -1,3 +1,8 @@
+---
+title: "Theorem 7.12"
+order: 12
+parent: uniformConvergenceAndContinuity
+---
 <div class="theorem">
 	<div class="statement">If $\{f_n\}$ is a sequence of continuous functions on $E$, and if $f_n \to f$ uniformly on $E$, then $f$ is continuous on $E$.</div>
 	<div class="proof">
@@ -10,8 +15,15 @@
 		<p>Since $x_0 \in E$, then $n \geq N$ implies that $\abs{f_n(x_0) - f(x_0)} < \frac{\ep}{3}$</p>
 		<p>Thus $x \in E, \abs{x-x_0} < \delta$ implies that</p>
 		$$\begin{align*}
-		\abs{f(x) - f(x_0)} &= \abs{f(x) - f_n(x) + f_n(x) - f_n(x_0) + f_n(x_0) - f(x_0)}, \mbox{where $n\geq N$}\\
-		&\leq \abs{f(x) - f_n(x)} + \abs{f_n(x) - f_n(x_0)} + \abs{f_n(x_0) - f(x_0)}\\
+		\abs{f(x) - f(x_0)} &= 
+		\begin{array}{l}
+			|f(x) - f_n(x) + f_n(x) - f_n(x_0) +\\
+			f_n(x_0) - f(x_0) |, \mbox{where $n\geq N$}\\
+		\end{array}\\
+		&\leq \begin{array}{l}
+			\abs{f(x) - f_n(x)} + \abs{f_n(x) - f_n(x_0)} +\\
+			\abs{f_n(x_0) - f(x_0)}\\
+		\end{array}\\
 		&< \frac{\ep}{3} + \frac{\ep}{3} + \frac{\ep}{3} = \ep
 		\end{align*}$$
 		<p>Since $x \in E$ and $\abs{x-x_0} < \delta$ implies that $\abs{f(x)-f(x_0)} < \ep$, $f$ is continuous at every $x_0$ in $E$. Thus $f$ is continuous on $E$.</p>
@@ -30,14 +42,18 @@
 			&1 > 1-x^2 > 0\\
 			&0 < 1-x^2 <1 \\
 			& \frac{1}{1-x^2} > 1 \\
-			\limit n^2x(1-x^2)^n
-			&= x\limit \frac{n^2}{(\frac{1}{1-x^2})^n} \bracket{\text{indeterminate form } \frac{\infty}{\infty}}\\
-			&= x\limit \frac{2n}{log(\frac{1}{1-x^2})(\frac{1}{1-x^2})^n} \bracket{\text{indeterminate form } \frac{\infty}{\infty}}\\
-			&= x \limit \frac{2}{\bracket{log(\frac{1}{1-x^2})}^2(\frac{1}{1-x^2})^n}\\
-			&= \frac{2x}{\bracket{log(\frac{1}{1-x^2})}^2}\limit(1-x^2)^n \\
-			&= 0 \ (\because 1-x^2 < 1)\\
-			\therefore \limit f_n(x) &= 0  \forall x \in [0,1]
 		\end{align*}$$
+
+		$$\begin{align*}
+			&\limit n^2x(1-x^2)^n\\
+			=& x\limit \frac{n^2}{(\frac{1}{1-x^2})^n} \bracket{\text{indeterminate form } \frac{\infty}{\infty}}\\
+			=& x\limit \frac{2n}{log(\frac{1}{1-x^2})(\frac{1}{1-x^2})^n} \bracket{\text{indeterminate form } \frac{\infty}{\infty}}\\
+			=& x \limit \frac{2}{\bracket{log(\frac{1}{1-x^2})}^2(\frac{1}{1-x^2})^n}\\
+			=& \frac{2x}{\bracket{log(\frac{1}{1-x^2})}^2}\limit(1-x^2)^n \\
+			=& 0 \ (\because 1-x^2 < 1)\\
+		\end{align*}$$
+		
+		$$ \therefore \limit f_n(x) = 0  \forall x \in [0,1]$$
 		<p>Hence the limit function is $f(x)= \limit f_n(x) = 0$ for every x in $[0,1]$. The limit function $f$ is continuous since it is constant function.</p>
 		<p>Since $\abs{f_n(x) - f(x)} = \abs{n^2x(1-x^2)^n - 0} = n^2x(1-x^2)^n \nrightarrow 0$, $\{ f_n \}$ does not converge uniformly to $f$.</p>
 	</div>

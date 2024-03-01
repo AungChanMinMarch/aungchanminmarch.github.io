@@ -1,16 +1,16 @@
 ---
-title: Exercise No. 22
+title: "Ex No. 22 (chapter7)"
 order: 22
 ---
-<div class="exercise">
-	<div class="question">
+<div class="theorem">
+	<div class="statement">
 		<p>Assume $f \in \riemannR(\alpha)$ on $[a,b]$, and prove that there are polynomials $P_n$ such that 
 			$$\limit \int_a^b \abs{f-P_n}^2 d\alpha = 0 $$</p>
 	</div>
-	<div class="answer">
+	<div class="proof">
 		<p>Let $\ep > 0$.</p>
 		<p>Since $f \in \riemannR(\alpha)$, there is a continuous function $g$ on $[a,b]$ such that $\| f-g \|_2 < \frac{\sqrt{\ep}}{2}$</p>
-		<p>Since $g$ is continuous, by <a href="" data-math="anchor">7.26</a>, there is a polynomial $P_n$ such that $\abs{P_n(x) -g(x)} < \frac{\sqrt{\ep}}{2\sqrt{\alpha(b)-\alpha(a)}}$</p>
+		<p>Since $g$ is continuous, by {% a 7.26 %}, there is a polynomial $P_n$ such that $\abs{P_n(x) -g(x)} < \frac{\sqrt{\ep}}{2\sqrt{\alpha(b)-\alpha(a)}}$</p>
 
 		$$\begin{align*}
 		\mbox{Then } \|g-P_n\|_2^2 &= \int_a^b \abs{g(x) -P_n(x)}^2 d\alpha\\
