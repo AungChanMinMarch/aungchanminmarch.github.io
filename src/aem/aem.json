@@ -1,0 +1,5 @@
+{
+	"layout": "page.njk",
+	"tags": "aem",
+	"permalink": "{{ page.filePathStem }}.html"
+}

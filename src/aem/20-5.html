@@ -1,0 +1,35 @@
+---
+title: Advenced Engineering Mathematics
+eleventyNavigation:
+  key: advencedEngineeringMathematics
+---
+<div>
+  <h2>Fitting A Straight Line</h2>
+  <p>The straight line $y=a+bx$ should be fitted through the given points $(x_1, y_1), \dots, (x_n, y_n)$ so that the sum of the squares of the distances of those points from the straight line is minimum, where the distance is measured in the vertical direction (the y-direction).</p>
+  <p>The point on the line with abscissa $x_j$ has the ordinate $a+bx_j$. Hence its vertical distance from $(x_j, y_j)$ is $\abs{y_j - a - b x_j}$ and therefore the sum of the squares is $q= \Sum_{j=1}^{n} (y_j - a - b x_j)^2$</p>
+  <p>$q$ depends on $a$ and $b$. A necessary condition for $q$ to be minimum is $\partialwrt[q]{a} = 0 $ and $\partialwrt[q]{b} = 0 $</p>
+  $$\begin{align}
+    \partialwrt[q]{a} &= 0 \\
+    \partialwrt{a} \bracket{\Sum_{j=1}^{n} (y_j - a - b x_j)^2} &= 0 \\
+    \Sum_{j=1}^{n} \partialwrt{a} \bracket{(y_j - a - b x_j)^2} &= 0 \\
+    \Sum_{j=1}^{n} -2(y_j - a - b x_j) &= 0 \\
+    -2\Sum_{j=1}^{n} (y_j - a - b x_j) &= 0 \\
+    -\Sum_{j=1}^{n} (y_j - a - b x_j) &= 0 \\
+    -\Sum_{j=1}^{n} y_j + \Sum_{j=1}^{n} a + \Sum_{j=1}^{n} b x_j &= 0 \\
+    -\Sum_{j=1}^{n} y_j + an + b\Sum_{j=1}^{n} x_j &= 0 \\
+    an + b\Sum_{j=1}^{n} x_j &= \Sum_{j=1}^{n} y_j \tag{1}\\
+  \end{align}$$
+  Similarly, we get $$a \sum x_j + b \sum {x_j}^2 = \sum x_j y_j \tag{2}$$
+  Equation (1) and (2) are called the <strong> normal equations </strong>.
+</div>
+
+<div class="example">
+  <div class="question">Fit a straight line to the points 
+    (-1.3, 0.103), (-0.1, 1.099), (0.2, 0.808), (1.3, 1.897)
+    $(-1.3, 0.103), (-0.1, 1.099), (0.2, 0.808), (1.3, 1.897)$
+  </div>
+</div>
+
+<script type="text/javascript">
+  
+</script>

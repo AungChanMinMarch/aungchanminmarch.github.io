@@ -1,0 +1,5 @@
+{
+	"layout": "page.njk",
+	"tags": "abstract algebra",
+	"permalink": "{{ page.filePathStem }}.html"
+}

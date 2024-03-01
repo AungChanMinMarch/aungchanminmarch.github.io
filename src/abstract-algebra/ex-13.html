@@ -1,0 +1,28 @@
+---
+title: Exercise No. 13 Page 83
+parent: hersteinAlgebra
+---
+<div class="problem">
+  <div class="question">
+    If $G$ is a group and $N \triangleleft G$ is such that $a b a^{-1} b^{-1} \in N$ for all $a,b \in G$, prove that $G / N$ is abelian.
+  </div>
+  <div class="answer">
+    $$G / N = \{ Na \mid a \in G \}$$
+    <p>Take any $X,Y \in G/N$. </p>
+    <p>Let $X = Na, Y= Nb$, where $a,b \in G$.</p>
+    $$\begin{align*}
+      \mbox{Since } a b a^{-1} b^{-1} &\in N \\
+      a b a^{-1} b^{-1} &= n_1 \mbox{ for some } n_1 \in N \\
+      (a b a^{-1} b^{-1})b &= n_1 b\\
+      a b a^{-1} &= n_1 b\\
+      (a b a^{-1})a &= n_1 b a\\
+      a b &= n_1 b a\\
+      n_2 (a b) &= (n_2 n_1) b a \mbox{ where } n_2 \in N \\
+      n_2 (a b) &= n_3 b a \mbox{ where } n_2 n_1 = n_3 \in N \\
+      N(ab) &= N(ba)\\
+      NaNb &= Nb Na\\
+      XY &= YX
+    \end{align*}$$
+  <p>Hence $G / N$ is abelian.</p>
+  </div>
+</div>
