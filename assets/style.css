@@ -1,3 +1,7 @@
+a::first-letter{
+	text-transform: capitalize;
+}
+
 *{
 	box-sizing: border-box;
 }
