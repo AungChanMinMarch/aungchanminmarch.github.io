@@ -1,0 +1,30 @@
+---
+title: "ex no. 3(chapter 7)"
+order: 3
+---
+<div class="theorem">
+	<div class="statement">Construct sequence $\{f_n\}, \{g_n\}$ which converges uniformly on some set $E$, but such that $\{f_ng_n\}$ does not converge uniformly on $E$.</div>
+	<div class="proof">
+		<p>Let $f_n(x) = x$ for all $x \in E$ and all $n$.</p>
+		<p>Let $g_n(x) = \frac{1}{n}$ for all $x \in E$ and all $n$.</p>
+		<div>
+			<p>$\limit f_n(x) = \limit x = x$ for all $x \in E$.</p>
+			<p>Hence $f_n \to f$ pointwise, where $f(x) = x, x \in E$.</p>
+			<p>For every $\ep>0$, $\abs{f_n(x) - f(x)} = \abs{x-x} = 0 < \ep$ for all $n$ and all $x \in E$.</p>
+			<p>Hence $f_n \to f$ uniformly.</p>
+		</div>
+		<div>
+			<p>$\limit g_n(x) = \limit \frac{1}{n} = 0$ for all $x \in E$.</p>
+			<p>Hence $g_n \to g$ pointwise, where $g(x) = 0, x \in E$.</p>
+			<p>For every $\ep>0$, $\abs{g_n(x) - g(x)} = \abs{\frac{1}{n}-0} = \frac{1}{n} < \ep$ for all $n > \frac{1}{\ep}$ and all $x \in E$.</p>
+			<p>Hence $g_n \to g$ uniformly.</p>
+		</div>
+		<div>
+			<p>Now $f_ng_n(x) = f_n(x) g_n(x) = x \frac{1}{n} = \frac{x}{n}$</p>
+			<p>$\limit f_ng_n(x) = \limit \frac{x}{n} = 0$ for all $x \in E$.</p>
+			<p>Hence $f_ng_n \to 0$ pointwise.</p>
+			<p>But for all $n$, there exists $x$, namely $x=n$, such that $\abs{f_ng_n(x) - 0} = \abs{f_ng_n(n) - 0} = \abs{\frac{n}{n}} = 1$.</p>
+			<p>Hence $f_ng_n \nrightarrow 0$ uniformly.</p>
+		</div>
+	</div>
+</div>

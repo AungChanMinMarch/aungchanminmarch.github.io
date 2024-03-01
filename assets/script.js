@@ -16,6 +16,8 @@ window.MathJax = {
       ["$", "$"],
       ["\\(", "\\)"],
     ],
+    processEscapes: true,
+    packages: {'[+]': ['amsfonts', 'unicode', 'euler', 'calligra']}
   },
   svg: {
     fontCache: "global",

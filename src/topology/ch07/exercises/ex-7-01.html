@@ -1,0 +1,27 @@
+---
+title: "ex no. 1(chapter7)"
+order: 1
+---
+<div class="theorem">
+	<div class="statement">Prove that every uniformly convergent sequence of bounded functions is uniformly bounded.</div>
+	<div class="proof">
+		<p>Let $\{f_n\}$ be uniformly convergent sequence of bounded functions on $E$.</p>
+		<p>Then each $f_n$ is bounded and hence there exists $M_n$ such that $\abs{f_n(x)} < M_n$ for all $x$ and $n$</p>
+		<p>Since $\{f_n\}$ converges uniformly, there is an integer $N$ such that $n\geq N, m\geq N, x \in E$ implies $\abs{f_n(x) - f_m(x)} \leq 1$</p>
+		$$\begin{align*}
+		n\geq N, x\in E \mbox{ implies }
+		\abs{f_n(x)} &\leq \abs{f_n(x) - f_N(x)} + \abs{f_N(x)} \\
+		&< 1+M_N \mbox{ for } n \geq N, x \in E\\
+		\end{align*}$$
+		$$\mbox{Let } M = 1 + \max\{M_1, \dots, M_N\}$$
+		$$\begin{align*}
+		n\geq N, x\in E \mbox{ implies } \abs{f_n(x)} &< M\\
+
+		n< N, x\in E \mbox{ implies } \abs{f_n(x)} &< M_n \\
+		&\leq \max\{M_1, \dots, M_N\}\\
+		&< M\\
+		\mbox{Therefore } \abs{f_n(x)} &< M \mbox{ for all $n$ and $x$}
+		\end{align*}$$
+		<p>Hence $\{f_n\}$ is uniformly bounded.</p>
+	</div>
+</div>

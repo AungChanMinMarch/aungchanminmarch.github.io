@@ -1,0 +1,291 @@
+---
+title: "Definition: Continuous Function"
+order: 1
+---
+<div class="definition">
+	Let $(X, \topologyTau)$ and $(Y, \topologyTau^*)$ be topological spaces. A function $f$ from $X$ into $Y$ is continuous relative to $\topologyTau$ and $\topologyTau^*$, or $\topologyTau-\topologyTau^*$ continuous, or simply continuous, iff the inverse image $f^{-1}[H]$ of every $\topologyTau^*$-open subset $H$ of $Y$ is a $\topologyTau$-open subset of X, that is, iff 
+	$$H \in \topologyTau^* \text{ implies } f^{-1}[H] \in \topologyTau$$
+</div>
+
+<summary class="theorem">
+	<h4>Eg 1.1</h4>
+	<details>
+	<div class="statement">
+		Consider the following topologies on $X = \{a,b,c,d\}$ and $Y = \{x,y,z, w\}$ respectively: <br />
+		$$\topologyTau = \{X, \emptyset, \{a\}, \{a,b\}, \{a,b,c\} \}$$
+		$$\topologyTau^* = \{ Y, \emptyset, \{x\}, \{y\}, \{x,y\}, \{y,z,w\} \}$$
+		Also consider the functions f:X->Y and g:X—>Y defined by the diagrams below:
+		<img src="/assets/topology/eg-1-1.png">
+		<p>Are $f$ and $g$ continuous?</p>
+	</div>
+	<div class="proof">
+		<p>Since $\topologyTau^* = \{ Y, \emptyset, \{x\}, \{y\}, \{x,y\}, \{y,z,w\} \}$,</p>
+		\begin{align*} 
+			Y &\in \topologyTau^* & &\implies & f^{-1}[Y] = \{a,b,c,d\} = X &\in \topologyTau \\
+			\emptyset &\in \topologyTau^* & &\implies & f^{-1}[\emptyset] = \emptyset &\in \topologyTau \\
+			\{x\} &\in \topologyTau^* & &\implies & f^{-1}[\{x\}] = \emptyset &\in \topologyTau \\
+			\{y\} &\in \topologyTau^* & &\implies & f^{-1}[\{y\}] = \{a\} &\in \topologyTau \\
+			\{x,y\} &\in \topologyTau^* & &\implies & f^{-1}[\{x,y\}] = \{a\} &\in \topologyTau \\
+			\{y,z,w\} &\in \topologyTau^* & &\implies & f^{-1}[\{y,z,w\}] = \{a,b,c,d\} = X &\in \topologyTau \\
+		\end{align*}
+
+		$$ \text{Hence } H \in \topologyTau^* \text{ implies } f^{-1}[H] \in \topologyTau$$
+
+		\begin{align*} 
+			Y &\in \topologyTau^* & &\implies & g^{-1}[Y] = \{a,b,c,d\} = X &\in \topologyTau \\
+			\emptyset &\in \topologyTau^* & &\implies & f^{-1}[\emptyset] = \emptyset &\in \topologyTau \\
+			\{x\} &\in \topologyTau^* & &\implies & f^{-1}[\{x\}] = \{a,b\} &\in \topologyTau \\
+			\{y\} &\in \topologyTau^* & &\implies & f^{-1}[\{y\}] = \emptyset &\in \topologyTau \\
+			\{x,y\} &\in \topologyTau^* & &\implies & f^{-1}[\{x,y\}] = \{a, y\} &\in \topologyTau \\
+			\{y,z,w\} &\in \topologyTau^* & &\implies & f^{-1}[\{y,z,w\}] = \{c,d\} &\notin \topologyTau \\
+		\end{align*}
+
+		<p>Hence the function $g$ is not continuous since $\{y, z, w \} \in \topologyTau^*$  but $g^{-1}[\{y,z,w\}] = \{c,d\} \notin \topologyTau$.</p>
+	</div>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<h3>Eg 1.2 + Ex 2</h3>
+	<details>
+	<div class="statement"> 
+		<ol class="statement">
+			<li>Eg 1.2: Consider any discrete space $(X, \discrete)$ and any topological space $(Y,\topologyTau)$. Then prove that every function $f: X \to Y$ is $\discrete-\topologyTau$ continuous. </li>
+			<li>Ex 2: Prove: Let $f:X \to Y$ be any function. If $(Y, \indiscrete)$ is an indiscrete space, then $f:(X,\topologyTau) \to (Y, \indiscrete)$ is continuous for any $\topologyTau$.</li>
+		</ol>
+	</div>
+	<div class="proof">
+		<ol>
+			<li>
+				<p>Since $(X, \discrete)$ is a discrete space, every subset of $X$ is open.</p> 
+				<p>Hence $f^{-1}[H]$ is open for any open set $H$ of $Y$.</p>
+				<p>$f$ is continuous.</p>
+			</li>
+			<li>
+				<p>Since $(Y, \indiscrete)$ is an indiscrete space, $Y$ and $\emptyset$ are the only open subsets of $Y$.</p> 
+				<p>$f^{-1}[Y] = X$ and $f^{-1}[\emptyset] =  \emptyset$.</p>
+				<p>$X$ and $\emptyset$ belong to any topology $\topologyTau$ on $X$.</p>
+				Hence $f$ is continuous for any $\topologyTau$.
+			</li>
+		</ol>
+	</div>
+</details>
+</summary>
+
+<summary class="theorem">
+	<h4>Proposition 7.1 (Eg 7.3)</h4>
+	<details>
+		<div class="statement">
+			Prove that a function $f: X \to Y$ is continuous iff the inverse of each member of a base $\base$ for $Y$ is an open subset of $X$.
+		</div>
+		<div class="proof">
+			<p>Suppose the inverse of each member of a base $\base$ for $Y$ is an open subset of $X$.</p>
+			Let $H$ be an open subset of $Y$. <br />
+			Since $\base$ is a base for the topology on $Y$, $H$ is a union of members of base $\base$. <br />
+			\begin{align}
+				H&=\cup_{i} B_{i}, \text{ where } B_i \in \base \\
+				f^{-1}[H]
+				&=f^{-1}\left[\cup_{i} B_{i}\right] 
+				=\cup_{i} f^{-1}\left[B_{i}\right]
+			\end{align}
+			Since $f^{-1}[B]$ is an open subset of $X$ for each member $B \in \base$, each $f^{-1}\left[B_{i}\right]$ is open. <br />
+			Hence $f^{-1}[H]$ is the union of open sets and hence $f^{-1}[H]$ is open. Thus $f$ is continuous.
+			<hr />
+			<p>Now suppose $f$ is continuous.</p>
+			<p>Let $\base$ be a base for a topology of $Y$. </p>
+			<p>Then $\base$ is a class of open sets of $Y$. </p>
+			<p>Hence if $B \in \base$, $B$ is an open set of $Y$. Since $f$ is continuous, $f^{-1}[B]$ is open</p>
+			<p>Therefore $f^{-1}[B] is open for every set $B$ in $\base$
+		</div>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<h4>Therorem 7.2 (= Ex no.6)</h4>
+	<details>
+		<div class="statement">
+			Let $\subbase$ be a subbase for a topological space $Y$. Then show that a function $f: X \to Y$ is continuous iff the inverse of each member of $\subbase$ is an open subset of $X$.
+		</div>
+		<div class="proof">
+			<p>Let $\subbase$ be a subbase for a topological space $Y$. </p>
+			<p>Then $\subbase$ is a class of open sets of $Y$, i.e. every set in $\subbase$ is an open set of $Y$. </p>
+			<hr />
+
+			<p>Suppose a function $f: X \to Y$ is continuous. </p>
+			<p>Then the inverse image of every open set of $Y$ is an open set of $X$. </p>
+			<p>Hence the inverse image of every set in $\subbase$ is an open set of $X$ </p>
+			<hr />
+
+			<p>Suppose the inverse of each member of $\subbase$ is an open subset of $X$.</p>
+			<p>Let $H$ be an open set of $Y$. </p>
+			<p>Since $\subbase$ is a subbase for a topological space $Y$, $H = \cup_i \bracket{ S_{i_1} \cap \cdots \cap S{i_{n_i}} }$, where $S_{i_k} \in \subbase$. </p>
+
+			\begin{align}
+				H &= \cup_i \bracket{ S_{i_1} \cap \cdots \cap S_{i_{n_i}} }, \text{ where } S_{i_k} \in \subbase \\
+				f^{-1}[H]
+				&=f^{-1} \left[
+					\cup_i \bracket{ S_{i_1} \cap \cdots \cap S_{i_{n_i}} }
+				\right] \\
+				&= \cup_i \bracket{ f^{-1}[S_{i_1}] \cap \cdots \cap f^{-1}[S_{i_{n_i}}] }
+			\end{align}
+			<p>Since the inverse of each member of $\subbase$ is an open subset of $X$, each $f^{-1}[S_{i_k}]$ is open. </p>
+			<p>Thus $f^{-1}[H]$ is the union of finite intersection of open set and hence $f^{-1}[H]$ is open. </p>
+			<p>Therefore $f$ is continuous.</p>
+		</div>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<h4>Ex no. 1</h4>
+	<details>
+		<div class="statement">Prove: Let $f:X \to Y$ be a constant function, say $f(x)=p \in Y$, for every $x \in X$. Then f is continuous relative to any topology $\topologyTau$ on $X$ and any topology $\topologyTau^*$ on $Y$.
+		</div>
+		<div class="proof">
+			<p>We need to show that the inverse image of any $\topologyTau^*$-open subset of $Y$ is a $\topologyTau$-open subset of $X$. </p>
+			<p>Let $H \in \topologyTau^*$.</p>
+			Since $f(x) = p$ for all $x \in X$, 
+			$$ f^{-1}[H] = \begin{cases}
+				X &\mbox{ if } p \in H \\
+				\emptyset &\mbox{ if } p \notin H
+			\end{cases}$$
+			<p>since $X$ and $\emptyset$ belong to every topology $\topologyTau$ on $X$, $f^{-1}[H]$ is an open subset of $X$.</p>
+			<p>Thus $f$ is continuous</p>
+		</div>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<h4>Eg 1.5</h4>
+	<details class="theorem">
+		<p class="statement">Show that the absolute value function $f$ on $\R$, ie. $f(x) =|x|$ for $x\in \R$, is continuous.</p>
+		<div class="proof">
+			Let $A = (a,b)$.
+
+				$$f^{-1}[A] = \begin{cases}
+				\emptyset &\mbox{ if } a < b \leq 0 \\
+				(-b, b) &\mbox{ if } a < 0, b > 0 \\
+				(-b, -a) \cup (a,b) &\mbox{ if } 0 \leq a < b \\
+				\end{cases}$$
+			<p>In each case, $f^{-1}[A]$ is open. Hence $f$ is continuous.</p>
+		</div>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<h4>Ex no 3</h4>
+	<details class="theorem">
+		<p class="statement">Let $\mathscr{U}$ be the usual topology on the real line $\R$ and let $\topologyTau$ be the upper limit topology on $\R$ which is generated by the open-closed intervals $(a, b]$. Furthermore, let $f: \R \to \R$ be defined by
+			
+		$$f(x) = \begin{cases} 
+			x &\mbox{ if } x \leq 1 \\
+			x+2 &\mbox{ if } x > 1
+		\end{cases}$$
+
+		<ol>
+			<li>Show that $f$ is not $\usual$-$\usual$ continuous.</li>
+			<li>Show that f is $\topologyTau$-$\topologyTau$ continuous.</li>
+		</ol></p>
+		<div class="proof">
+			<ol>
+				<li>$(-1, 2)$ is $\usual$-open set of $\R$ but $f^{-1}[(-1, 2)] = (-1, 1] $ not $\usual$-open set of $\R$. Thus $f$ is not $\usual$-$\usual$ continuous. </li>
+				<li>Since $\topologyTau$ is the upper limit topology on $\R$ which is generated by the open-closed intervals $(a, b]$, $\topologyTau$ is a class of all open-closed intervals $(a,b]$. Let $A = (a,b]$.
+
+					$$f^{-1}[A] = \begin{cases}
+					(a, b] &\mbox{ if } a < b \leq 1 \\
+					(a, 1] &\mbox{ if } a < 1, 1 < b \leq 3 \\
+					(a, b-2] &\mbox{ if } a < 1, b > 3 \\
+					\emptyset &\mbox{ if } 1 \leq a < b \leq 3 \\
+					(1, b-2] &\mbox{ if } 1 \leq a, 3 < b \\
+					(a-2, b-2] &\mbox{ if } 3 \leq a < b \\
+					\end{cases}$$
+				<p>In each case, $f^{-1}[A]$ is a $\topologyTau$-open set. Hence $f$ is $\topologyTau$-$\topologyTau$ continuous.</p>
+				</li>
+			</ol>
+		</div>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<h4>Ex no 4</h4>
+	<details class="theorem">
+		<div class="statement">Suppose a function $f:(X,\Tau_1) \to (Y,\Tau_2)$ is not $\Tau_1$-$\Tau_2$ continuous. Show that if $\Tau_1^*$ is a topology on $X$ coarser than $\Tau_1$, and if $\Tau_2^*$ is a topology on $Y$ finer than $\Tau_2^*$, then $f$ is also not $\Tau_1^*$-$\Tau_2^*$ continuous.
+		</div>
+		<div class="proof">
+			<p>Since a function $f:(X,\Tau_1) \to (Y,\Tau_2)$ is not $\Tau_1$-$\Tau_2$ continuous, there exist a $H \in \Tau_2$ such that $f^{-1}[H] \notin \Tau_1$.</p>
+			<p>Since $\Tau_1^*$ is a topology on $X$ coarser than $\Tau_1$, we have $\Tau_1^* \subset \Tau_1$. </p>
+			$$ \therefore f^{-1}[H] \notin \Tau_1 \text{ implies } f^{-1}[H] \notin \Tau_1^*$$
+
+			<p>Since $\Tau_2^*$ is a topology on $X$ finer than $\Tau_1$, we have $\Tau_2^* \supset \Tau_2$, i.e. $\Tau_2 \subset \Tau_2^*$. </p>
+			$$ \therefore H \in \Tau_2 \text{ implies } H \in \Tau_2^*$$
+			<p>Thus we have $H \in \Tau_2^*$ but $f^{-1}[H] \notin \Tau_1^*$ and hence  $f$ is not $\Tau_1^*$-$\Tau_2^*$ continuous.</p>
+		</div>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<h4>Ex no 5</h4>
+	<details class="theorem">
+		<div class="statement"> 
+			Show that the identity function $i: (X,\Tau) \to (X,\Tau^*)$ is continuous if and only if $\Tau$ is finer than $\Tau^*$
+		</div>
+		<div class="proof">
+			<p>By definition, $i$ is $\Tau$-$\Tau^*$ continuous if and only if
+			</p>
+			$$ H \in \Tau^* \text{ implies } i^{-1}[H] \in \Tau$$
+			<p>Since $i$ is the identity function, $i^{-1}[H] = H$. Thus we get</p>
+			\begin{align} 
+			i \text{ is continuous } &\iff H \in \Tau^* \text{ implies } H \in \Tau \\
+			i \text{ is continuous } &\iff \Tau^* \subset \Tau \\
+			i \text{ is continuous } &\iff \Tau \text{ is finer than} \Tau^*
+			\end{align}
+	</details>
+</summary>
+
+<summary class="theorem">
+	<h4>ex 8</h4>
+	<details class="theorem">
+		<div class="statement">Prove: Let the functions $f: X \to Y$ and $g:Y \to Z$ be continuous. Then the composition function $g \composite f: X \to Z$ is also continuous.</div>
+		<div class="proof">
+			<p>Let $H$ be an open subset of $Z$.</p>
+			<p>Since $g:Y \to Z$ is continuous, $g^{-1}[H]$ is an open subset of $Y$. </p>
+			<p>Since $f:X \to Y$ is continuous, $f^{-1}[g^{-1}[H]]$ is an open subset of $X$. </p>
+			<p>Since $(g \composite f)^{-1}[H] = f^{-1}[g^{-1}[H]]$, $(g \composite f)^{-1}[H]$ is an open subset of $X$. </p>
+			<p>Thus the composition function $g \composite f: X \to Z$ is also continuous</p>
+		</div>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<h4>ex 9</h4>
+	<details class="theorem">
+		<div class="statement">Prove: Let $\{\Tau_i\}$ be a collection of topologies on a set $X$. If a function $f:X \to Y$ is continuous with respect to each $\Tau_i$, then $f$ is continuous with respect to the intersection topology $\Tau = \cap_i \Tau_i$</div>
+		<div class="proof">
+			<p>Let $H$ be an open subset of $Y$.</p>
+			<p>a function $f$ is continuous with respect to each $\Tau_i$, $f^{-1}[H]$ belong to each $\Tau_i$ and hence $f^{-1}[H] \in \cap_i \Tau_i$.</p>
+			<p>Thus $f$ is continuous with respect to $\cap_i \Tau_i$.</p>
+		</div>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<h4>ex 10 = Th 7.3</h4>
+	<details class="theorem">
+		<div class="statement">Prove Theorem 7.3: A function $f:X \to Y$ is continuous if and only if the inverse image of every closed subset of $Y$ is a closed subset of X.</div>
+		<div class="proof">
+			<p>Suppose $f:X \to Y$ is continuous.</p> 
+			<p>Let $F$ a closed subset of $Y$.</p>
+			<p>Then $F^C$ is an open subset of $Y$.</p>
+			<p>Since $f:X \to Y$ is continuous, $f^{-1}[F^C]$ is an open subset of $X$.</p> 
+			<p>Since $f^{-1}[F^C] =(f^{-1}[F])^C$, $(f^{-1}[F])^C$ is an open subset of $X$.</p>
+			<p>Thus $f^{-1}[F]$ is a closed subset of $X$.</p>
+			<hr />
+
+			<p>Suppose the inverse image of every closed subset of $Y$ is a closed subset of X.</p>
+			<p>Let $H$ be an open subset of $Y$.</p>
+			<p>Then $H^C$ is a closed subset of $Y$.</p>
+			<p>Since the inverse image of every closed subset of $Y$ is a closed subset of X, $f^{-1}[H^C]$ is a closed subset of $X$. </p>
+			<p>Since $f^{-1}[H^C] = (f^{-1}[H])^C$, $(f^{-1}[H])^C$ is a closed subset of $X$.</p>
+			<p>Thus $f^{-1}[H]$ is an open subset of $X$ and hence $f$ is continuous.</p>
+		</div>
+	</details>
+</summary>

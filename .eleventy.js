@@ -9,6 +9,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addShortcode("a", anchor);
   eleventyConfig.addShortcode("toc", analysisToc);
   // Return your Object options:
+  eleventyConfig.addPassthroughCopy("assets/topology");
+
   return {
     dir: {
       input: "src",
@@ -17,3 +19,4 @@ module.exports = function(eleventyConfig) {
     }
   }
 };
+

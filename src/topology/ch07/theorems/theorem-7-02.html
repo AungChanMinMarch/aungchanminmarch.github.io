@@ -1,0 +1,21 @@
+---
+title: "7.2: Can limit interchangable?"
+parent: discussionOfMainProblem
+order: 2
+---
+<div class="example">
+	<div class="question">For $m=1,2,3, \dots$ and $n=1,2,3,...$, let $s_{m,n} = \frac{m}{m+n}$.Are $\limit \Lim_{m \to \infty} s_{m,n}$ and $\Lim_{m \to \infty} \limit s_{m,n}$ equal?</div>
+	<div class="answer">
+		$$\begin{align*}
+		\mbox{For every fixed } n , \\
+			\Lim_{m \to \infty} s_{m,n} &= \Lim_{m \to \infty} \frac{m}{m+n} \\
+			&= \Lim_{m \to \infty} \frac{1}{1+\frac{n}{m}} \\
+			&= 1\\
+			\limit \Lim_{m \to \infty} s_{m,n} &= \limit 1 = 1\\
+		\mbox{For every fixed } m , \\
+			\limit s_{m,n} &= \limit \frac{m}{m+n} = 0\\
+			\Lim_{m \to \infty} \limit s_{m,n} &= \Lim_{m \to \infty} 0 = 0
+		\end{align*}$$
+		Hence they are not equal.
+	</div>
+</div>

@@ -1,0 +1,23 @@
+---
+title: "7.5: Is the derivative of limit function equal to the limit function of the derivatives?"
+order: 5
+parent: discussionOfMainProblem
+---
+<div class="example">
+	<div class="question">Give an example that $\{f_n'\}$ does not converge to $f'$. </div>
+	<div class="answer">
+		<p>Let $f(x)=\dfrac{\sin{nx}}{\sqrt{n}}$</p>
+		<p>Then $f'(x)=\dfrac{n\cos{nx}}{\sqrt{n}} = \sqrt{n}\cos{nx}$</p>
+		<p data-math="table" data-cols="rcccl">
+			\text{Since } \ -1 & \leq & \sin{nx} & \leq & 1 \\
+			\dfrac{-1}{\sqrt{n}} & \leq & \dfrac{\sin{nx}}{\sqrt{n}} & \leq & \dfrac{1}{\sqrt{n}} \\
+			\limit\dfrac{-1}{\sqrt{n}} & \leq & \limit\dfrac{\sin{nx}}{\sqrt{n}} & \leq & \limit\dfrac{1}{\sqrt{n}} \\
+			0 & \leq & \limit f_n(x) & \leq &  0
+		</p>
+		<p class="center">Hence $\limit f_n(x) = 0$.</p>
+		<p class="center">Let the limit function be $f(x)=\limit f_n(x) = 0$</p>
+		<p class="center">Then $f'(x)=0$</p>
+		<p class="center">But $\limit f_n'(x) = \limit \sqrt{n}\cos{nx}$ does not exist.</p>
+		<p class="center">Thus $\{f_n'\}$ does not converge to $f'$</p>
+	</div>
+</div>

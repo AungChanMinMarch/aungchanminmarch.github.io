@@ -1,0 +1,124 @@
+---
+title: "Theorem 7.26: THE STONE-WEIERSTRASS THEOREM"
+order: 26
+parent: theStoneWeierstrassTheorem
+---
+<div class="theorem">
+	<div class="statement">If $f$ is a continuous complex function on $[a,b]$, there exists a sequence of polynomials $P_n$ such that $\limit P_n(x) = f(x)$ uniformly on $[a,b]$. If $f$ is real, th $P_n$ may be taken real.</div>
+	<div class="proof">
+		<p>Without loss of generality, we may assume that $[a,b]=[0,1]$. We may also assume that $f(0) = f(1)=0$. For if the theorem is proved for this case, consider 
+		$$g(x)=f(x)-f(0)-x(f(1) - f(0))$$ 
+		for $0 \in [0,1]$. Here $g(0)=g(1)=0$ and $g$ can be obtained as the limit of a uniformly convergent sequece of polynomials, the same is true of $f$ since $f-g$ is a polynomial.</p> 
+		<p>Furthermore, we define $f(x)$ to be zero for $x \notin [0,1]$. Then $f$ is uniformly continuous on the whole line.</p>
+		<p>Put $\fQ_n(x) = c_n(1-x^2)^n$ for $n=1,2,3,\dots$, where $c_n$ is chosen so that $\int_{-1}^{1}\fQ_n(x)dx =1$ for $n=1,2,3, \dots$</p>
+		<p>Set $P_n(x)=\int_{-1}^{1}f(x+t) \mathcal{Q}_n(t) dt$, ($0 \leq \mod{x} \leq 1$) </p>
+		<p>If $0 < x+t < 1$, then $-x < t < 1-x$.</p>
+
+		$$\begin{align*}
+		P_n(x) &= \int_{-1}^{1}f(x+t) \mathcal{Q}_n(t) dt\\
+		&= \int_{-1}^{-x} f(x+t) \mathcal{Q}_n(t) dt + \int_{-x}^{1-x}f(x+t) \mathcal{Q}_n(t) dt + \int_{1-x}^{1}f(x+t) \mathcal{Q}_n(t) dt\\
+		&= \int_{-x}^{1-x}f(x+t) \mathcal{Q}_n(t) dt \mbox{ (because $f(x)$ is zero for $x$ outside $[0,1]$)}\\
+		\end{align*}$$
+
+		$$\begin{align*}
+		\mbox{Let } u &= x+t \\
+		du &= dt \\
+		t&= -x & &\implies& u &= 0\\
+		t&= 1-x & &\implies& u &= 1
+		\end{align*}$$
+
+		$$\begin{align*}
+		P_n(x) &=\int_{-x}^{1-x} f(x+t) \mathcal{Q}_n(t) dt\\
+		&= \int_0^1 f(u) \mathcal{Q}_n(u-x) du\\ 
+		&= \int_{0}^{1} f(t) \mathcal{Q}_n(t-x) dt \\
+		&= \int_{0}^{1} f(t) c_n(1-(t-x)^2)^n dt \\
+		\end{align*}$$
+		<p>Hence, clearly, $P_n(x)$ is polynomial in $x$. $\{P_n \}$ is a sequence of polynomials which are real if $f$ is real.</p>
+
+		<p>Let $h(x) = (1-x^2)^n-1+nx^2$. Then $h(0)=0$ and $h'(x) = n(1-x^2)^{n-1}(-2x)+2nx =2nx(1-(1-x^2)^{n-1})$.
+			<div data-math="table" data-cols="rcccl"> 
+				\text{If } \ 0 &<& x &<& 1 \\
+				0 &<& x^2 &<& 1 \\
+				0 &>& -x^2 &>& -1 \\
+				1 &>& 1-x^2 &>& 0 \\
+				1 &>& (1-x^2)^{n-1} &>& 0 \\
+				-1 &<& -(1-x^2)^{n-1} &<& 0 \\
+				0 &<& 1-(1-x^2)^{n-1} &<& 1 \\
+				0 &<& 2nx(1-(1-x^2)^{n-1}) &<& 2nx
+			</div>
+		Since $h(0)=0$ and $h'(x)$ is positive on $(0,1)$, we get $h(x) \geq 0$ for $x \in [0,1]$.
+		Therefore $(1-x^2)^n-1+nx^2 \geq 0$ and hence $(1-x^2)^n \geq 1-nx^2$.
+		</p>
+		<p>$$\begin{align*}
+			\int_{-1}^{1} (1-x^2)^n dx &= 2 \int_{0}^{1} (1-x^2)^n dx \\
+			&\geq 2 \int_{0}^{\frac{1}{\sqrt{n}}} (1-x^2)^n dx \\
+			&\geq 2 \int_{0}^{\frac{1}{\sqrt{n}}} (1-nx^2) dx\\
+			&= 2 \left[x-\frac{nx^3}{3}\right]_{0}^{\frac{1}{\sqrt{n}}} \\
+			&= 2\left(\frac{1}{\sqrt{n}}-\frac{1}{3\sqrt{n}} \right) \\ 
+			&= \frac{4}{3\sqrt{n}} > \frac{1}{\sqrt{n}} \\
+			\int_{-1}^{1} (1-x^2)^n dx &> \frac{1}{\sqrt{n}} \\
+			\int_{-1}^{1} c_n (1-x^2)^n dx &> \frac{c_n}{\sqrt{n}} \\
+			\int_{-1}^{1} \fQ_n(x) dx &> \frac{c_n}{\sqrt{n}} \\
+			1&> \frac{c_n}{\sqrt{n}}\\
+			c_n &< \sqrt{n} \tag{1}
+		\end{align*}$$</p>
+
+		<div data-math="table" data-cols="rcccr"> 
+			\text{If } \ \delta &\leq& \mod{x} &\leq &1\\
+			\delta^2 &\leq& x^2 & \leq& 1\\
+			-\delta^2 &\geq& -x^2 & \geq& -1\\
+			1-\delta^2 &\geq& 1-x^2 & \geq& 0\\
+			(1-\delta^2)^n &\geq& (1-x^2)^n & \geq& 0\\
+		</div>
+		$$\mbox{Hence } (1-x^2)^n \leq (1-\delta^2)^n \tag{2}$$
+		$$\therefore \mbox{From (1) and (2)} \fQ_n(x) = c_n(1-x^2)^n < \sqrt{n}(1-\delta^2)^n \text{ for } \delta \leq \mod{x} \leq 1 \tag{3}$$
+		$$\therefore \sqrt{n}(1-\delta^2)^n = \sup_{\delta \leq \mod{x} \leq 1} \abs{\fQ_n(x)}$$
+
+	$$\begin{align*}
+	\mbox{For } n=1,2,3,\dots,\\
+	\sqrt{n} &\leq n\\
+	\sqrt{n}(1-\delta^2)^n &\leq n(1-\delta^2)^n \\
+	\lim_{n \to \infty} n(1-\delta^2)^n &= \limit \frac{n}{(\frac{1}{1-\delta^2})^n} \bracket{\mbox{indeterminate form }\frac{\infty}{\infty}}\\
+	&= \limit \frac{1}{\ln(\frac{1}{1-\delta^2}) (\frac{1}{1-\delta^2})^n}\\
+	&= \frac{1}{\ln(\frac{1}{1-\delta^2})} \limit ({1-\delta^2})^n\\
+	&= 0 \mbox{ (because $1-\delta^2 < 1$)}\\
+	\end{align*}$$
+	<p>Since $\sqrt{n}(1-\delta^2)^n \leq n(1-\delta^2)^n$ and $n(1-\delta^2)^n \to 0$ as $n \to \infty$, $\sqrt{n}(1-\delta^2)^n \to  0$ as $n \to \infty$.</p>
+	<p>Since $\sqrt{n}(1-\delta^2)^n = \sup\limits_{\delta \leq \mod{x} \leq 1} \abs{\fQ_n(x)-0}$ and $\sqrt{n}(1-\delta^2)^n \to 0$ as $n\to \infty$, by <a href="" data-math="anchor">7.9</a>, $\fQ_n \to 0$ uniformly in $\delta \leq \mod{x} \leq 1$.</p>
+
+		<p>Since $f$ is uniformly continuous for every $\varepsilon >0$, there exist a $\delta > 0$ such that </p>
+		<p class="center">$\mod{y-x} < \delta$ implies that $\mod{f(y)-f(x)}<\frac{\varepsilon}{2}$</p>
+		<p>Hence if $-\delta < t < \delta$, then $\abs{t} = \abs{(x+t)-x} < \delta$ and hence $\mod{f(x+t)-f(x)}<\frac{\varepsilon}{2}$</p>
+		<p>Let $M= \sup \abs{f(x)}$. Then $\abs{f(x)} \leq M$ for all $x$.</p>
+		$$\begin{align*}
+			\mbox{For } 0 \leq x \leq 1, \\
+			\mod{P_n(x)-f(x)} &= \mod{\int_{-1}^{1} f(x+t)\fQ_n(t)dt -f(x) \int_{-1}^{1}\fQ_n(t)dt}\\
+			&= \mod{\int_{-1}^{1} (f(x+t)-f(x))\fQ_n(t)dt}\\
+			&\leq \int_{-1}^{1} \mod{f(x+t)-f(x)} \fQ_n(t) dt\\
+
+			&= \int_{-1}^{-\delta} \mod{f(x+t)-f(x)} \fQ_n(t) dt 
+			+ \int_{-\delta}^{\delta} \mod{f(x+t)-f(x)} \fQ_n(t) dt \\
+			&+ \int_{\delta}^{1} \mod{f(x+t)-f(x)} \fQ_n(t) dt 
+			\\
+
+			&\leq \int_{-1}^{-\delta} (\mod{f(x+t)}+\abs{f(x)}) \fQ_n(t) dt 
+			+ \int_{-\delta}^{\delta} \frac{\ep}{2} \fQ_n(t) dt \\
+			&+ \int_{\delta}^{1} (\mod{f(x+t)}+\abs{f(x)}) \fQ_n(t) dt \\
+			
+			&\leq \int_{-1}^{-\delta} (M+M) \fQ_n(t) dt 
+			+ \frac{\ep}{2} \int_{-\delta}^{\delta} \fQ_n(t) dt 
+			+ \int_{\delta}^{1} (M+M) \fQ_n(t) dt \\
+
+			&\leq 2M \int_{-1}^{-\delta} \fQ_n(t) dt 
+			+ \frac{\ep}{2} \int_{-1}^{1} \fQ_n(t) dt 
+			+ 2M \int_{\delta}^{1} \fQ_n(t) dt \\
+
+			&= 2M \int_{-1}^{-\delta} \fQ_n(t) dt + \frac{\ep}{2} + 2M \int_{\delta}^{1} \fQ_n(t) dt \\
+
+	&< 2M \int_{-1}^{-\delta} \sqrt{n}(1-\delta^2)^n dt + \frac{\ep}{2} + 2M \int_{\delta}^{1} \sqrt{n}(1-\delta^2)^n dt \mbox{ (because from (3))} \\
+	&= 2M \sqrt{n}(1-\delta^2)^n (-\delta + 1) + \frac{\ep}{2} + 2M \sqrt{n}(1-\delta^2)^n (1- \delta) \\
+	&= 4M \sqrt{n} (1-\delta^2)^n (-\delta + 1) + \frac{\ep}{2} \\
+	&< \ep \mbox{ for all large enough }n
+	\end{align*}$$
+	</div>
+</div>

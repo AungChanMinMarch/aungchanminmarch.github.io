@@ -1,0 +1,38 @@
+---
+title: "ex no. 8(chapter 7)"
+order: 8
+---
+<div class="theorem">
+	<div class="statement">
+		<p>If $$I_n(x) = 
+			\begin{cases} 
+				0 &\mbox{if $x\leq 0$}, \\ 
+				1 &\mbox{ if $x >0$} ,
+			\end{cases}$$</p>
+		<p>if $x_n$ is a sequence of distince points of $(a,b)$ and if $\sum \mod{c_n}$ converges, prove that the series
+			$$f(x) = \summ c_n I(x-x_n) \ (a \leq x \leq b)$$
+		converges uniformly and that $f$ is continuous for every $x \neq x_n$.
+		</p>
+	</div>
+	<div class="proof">
+		<p>Let $f_n(x) = \sum\limits_{k=1}^{n} c_k I(x-x_k), \ (a \leq x \leq b)$ </p>
+		<p>$$\begin{align*}
+			\text{Then if } n > m,\\
+			\mod{f_n(x) - f_m(x)} & = \mod{ \sum_{k=1}^{n} c_k I(x-x_k) - \sum_{k=1}^{m} c_k I(x-x_k)}\\
+			&= \mod{\sum_{k=m+1}^{n} c_k I(x-x_k)}\\
+			&\leq \sum_{k=m+1}^{n} \mod{c_k I(x-x_k)}\\
+			&\leq \sum_{k=m+1}^{n} \mod{c_k}\\
+		\end{align*}$$</p>
+		<p>Since $\sum \mod{c_n}$ converges, by <a data-math="anchor">3.22</a>, for any $\varepsilon >0$ there is an integer $N$ such that for $n,m \geq N$ such that
+			$$\mod{f_n(x) - f_m(x)} \leq \sum_{k=m+1}^{n} \mod{c_k} < \varepsilon $$
+		Hence by <a data-math="anchor">7.8</a>, the series converges uniformly.
+		</p>
+		<p>Let $x \in (a,b)$ such that $x \neq x_n$ for any $n$.</p>
+		<p>Then the partial sum $f_n$ is constant in any neighborhood of $x$ not containing any of $x_1, x_2, \dots, x_n$.<br> Hence by <a data-math="anchor">7.11</a>,</p>
+		<p>$$\begin{align*}
+			\lim_{t \to x} \limit f_n(t) &= \limit \lim_{t \to x} f_n(t) \\
+			\lim_{t \to x} f(t) &= \limit f_n(t) = f(x) 
+		\end{align*}$$</p>
+		<p>Thus $f$ is continuous at $x$</p>
+	</div>
+</div>
