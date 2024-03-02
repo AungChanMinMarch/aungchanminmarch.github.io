@@ -1,0 +1,32 @@
+---
+title: "Ex 14"
+---
+<div class="statement">. Consider the following topology defined on $X = \{a,b,c,d\}$:
+	$$\Tau = \{ X, \emptyset, \{a\}, \{b\}, \{a,b\}, \{b,c,d\} \}$$
+Let the function $f:X \to X$ be defined by the adjoining diagram.
+	<img class="topology" src="/assets/topology/7-ex-14.png">
+	<ol>
+		<li>Show that $f$ is not continuous at $c$.</li>
+		<li>Show that $f$ is continuous at $d$.</li>
+	</ol>
+</div>
+<div class="proof">
+	<ol>
+		<li>
+			<p>$f(c) = b$. The open sets containing $f(c) = b$ are $X$, $\{b\}$, $\{a, b\}$ and $\{b,c,d \}$.</p>
+			<p>$\{b \}$ is an open set containing $f(c)$ but $\inverse{f}{\{ b\}} = \{a, c\}$</p>
+			<p>The open sets containing $c$ are $X$ and $\{b,c,d\}$.</p>
+			<p>Thus there is no open sets containing $c$ which is contained in $\{a,c\}$. </p>
+			<p>Thus $f$ is not continuous at $c$.</p>
+			<hr>
+		</li>
+		<li>
+			<p>$f(d) = c$. The open sets containing $f(d) = c$ are $X$ and $\{b,c,d\}$.</p>
+			\begin{align}
+				\inverse{f}{X} &= \{a,c,d,b\} = X \\
+				\inverse{f}{\{b,c,d\}} &= \{a,c,d,b\} = X \\
+			<p>$\{b,c,d\}$ is an open set containing $d$ and $\{b,c,d\}$ is a superset of $X$. </p>
+			<p>Thus $f$ is continuous at $d$.</p>
+		</li>
+	</ol>
+</div>

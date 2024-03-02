@@ -1,0 +1,18 @@
+---
+title: "ex-18 = proposition 7.6"
+---
+<div class="statement">Prove Proposition 7.6: If a function $f:X \to Y$ is continuous at $p \in X$, then it is sequentially continuous at $p$. </div>
+<div class="proof">
+	<p>Let $N$ be a neighborhoood of $f(p)$. </p>
+	<p>Since $f$ is continuous at $p$, $\inverse{f}{N}$ is a neighborhood of $p$.</p>
+	<p>Let $M = \inverse{f}{N}$</p>
+	<p>Then $M$ is a neighborhood of $p$></p>
+	<p>Hence, if a sequence $\seq{a_n} \to p$, $M$ contains almost all the terms of the sequence $\seq{a_1, a_2, \cdots }</p>
+	\begin{align}
+		a_n &\in M \text{for almost all } n \\
+		f(a_n) &\in f[M] = f[\inverse{f}{N}] = N \text{for almost all } n \\
+		\therefore f(a_n) &\in N \text{for almost all } n 
+	\end{align}
+	<p>Since $N$ is neighborhoood of $f(p)$ and $f(a_n) \in N$ for almost all $n$, $\seq{f(a_n)}$ converges to $f(p).</p>
+	<p>Thus $f$ is sequentially continuous at $p$.</p>
+</div>

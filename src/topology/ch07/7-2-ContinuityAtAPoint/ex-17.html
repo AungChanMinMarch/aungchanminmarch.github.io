@@ -1,0 +1,22 @@
+---
+title: "Ex 17 = Th 7.5"
+---
+<div class="statement">
+	Prove Theorem 7.5: Let $X$ and $Y$ be topological spaces. Then a function $f: X \to Y$ is continuous if and only if it is continuous at every point $p \in X$.
+</div>
+<div class="proof">
+	<p>Suppose $f: X \to Y$ is continuous.</p>
+	<p>Let $p$ be any point of $X$.</p>
+	<p>Let $H$ be an open subset of $Y$ containing $f(p)$.</p>
+	<p>Since $f$ is continuous, $\inverse{f}{H}$ is an open subset of $X$.</p>
+	<p>Since $f(p) \in H$, $p \in \inverse{f}{H}$.</p>
+	<p>Hence $\inverse{f}{H}$ is an open set containing $p$. Thus $f$ is continuous at $p$</p>
+	<hr>
+
+	<p>Now suppose $f$ is continuous at every point $p \in X$.</p>
+	<p>Let $G$ be an open subset of $Y$. We need to prove $\inverse{f}{G}$ is open.</p>
+	<p>Since $f$ is continuous at every point $p \in X$, $f$ is continuous at every point $p \in \inverse{f}{H}$.</p>
+	<p>Thus for every $p \in \inverse{f}{G}$, there exists an open set $G_p \subset X$ such that $p \in G_p \subset \inverse{f}{G}$.</p>
+	<p>Since $\inverse{f}{G} = \cup \{G_p : p \in \inverse{f}{G} \}$, $\inverse{f}{G}$ is union of open subsets of $X$.</p>
+	<p>Thus $\inverse{f}{G}$ is open. $f$ is continuous.</p>
+</div>

@@ -1,0 +1,53 @@
+---
+title: "CONTINUITY AT A POINT"
+key: "7.2ContinuityAtAPoint"
+parent: topology07
+order: 2
+layout: rudinAnalysisIndex.njk
+---
+<div class="definition">
+	<h2>CONTINUITY AT A POINT</h2>
+	<p>
+		A function $f:X \to Y$ is continuous at $p \in X$ iff the inverse image $\inverse{f}{H}$ of every open set $H \subset Y$ containing $f(p)$ is a superset of an open set $G \subset X$ containing $p$ or, equivalently, iff the inverse image of every neighborhood of $f(p)$ is a neighborhood of $p$
+	</p>
+</div>
+
+<div class="definition">
+	<h2>SEQUENTIAL CONTINUITY AT A POINT</h2>
+
+	<p>A function $f:X \to Y$ is sequentially continuous at a point $p \in X$ iff for every sequence $\seq{a_n}$ in $X$ converging to $p$, the sequence $\seq{f(a_n)}$ in $Y$ converges to $f(p)$, i.e.,
+		$$a_n \to p \text{ implies } f(a_n) \to f(p)$$
+	</p>
+</div>
+
+<summary class="theorem">
+	<h4>Ex 13</h4>
+	<details class="theorem">
+		<div class="statement">Under what conditions will a function $f: X \to Y$ not be continuous at a point $p \in X$?</div>
+		<div class="proof">
+			<p>A function $f:X \to Y$ is continuous at $p \in X$ iff, for every open set $H \subset Y$ containing $f(p), $\inverse{f}{H}$ is a superset of an open set containing $p$.</p> 
+
+			<p>Hence $f$ is not continuous at $p \in X$ if there exists at least one open set $H \subset Y$ containing $f(p)$ such that $\inverse{f}{H}$ does not contain an open set containing $p$.</p>
+
+			<p>Equivalently, $f:X \to Y$ is not continuous at $p \in X$ iff there exist a neighborhood $N$ of $f(p)$ such that $\inverse{f}{N}$ is not a neighborhood of $p$.</p>
+		</div>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<h4>Ex 15</h4>
+	<details class="theorem">
+		<div class="statement">
+			Suppose a singleton set $\{p\}$ is an open subset of a topological space $X$. Show that for any topological space $Y$ and any function $f:X \to Y$, $f$ is continuous at $p \in X$.
+		</div>
+		<div class="proof">
+			<p>Let $H$ be an open subset of $Y$ containing $f(p).</p>
+			\begin{align}
+				f(p) &\in H \\
+				p &\in \inverse{f}{H} \\
+				\{p\} &\subset \inverse{f}{H}
+			\end{align}
+			<p>Since $\{p\}$ is an open subset of a topological space $X$ and $\inverse{f}{H}$ is a superset of $\{p\}$, $f$ is continuous at $p$.</p>
+		</div>
+	</details>
+</summary>

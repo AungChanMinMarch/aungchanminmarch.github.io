@@ -1,0 +1,19 @@
+---
+title: "Ex 16"
+---
+<div class="statement">
+	Let $A$ be a subset of a topological space $(X, \Tau)$ such that $p \in A \subset X$, and let $f_A: A \to Y$ denote the restriction of $f:X \to Y$ to $A$. Then if $f$ is $\Tau$-continuous at $p$, <b>prove that</b> $f_A$, will be $\Tau_A$-continuous at $p$, where $\Tau_A$ is the relative topology on $A$.
+</div>
+
+<div class="proof">
+	<p>Let $H$ be an open subset of $Y$ containing $f(p)$.</p>
+	<p>Since $f$ is $\Tau$-continuous at $p$, $\inverse{f}{H}$ is a superset of an $\Tau$-open set containing $p$. That is there exists $G \in \Tau$ such that </p>
+	\begin{align}
+		 p \in G &\subset \inverse{f}{H} \\
+		 G \cap A &\subset \inverse{f}{H} \cap A = \inverse{f_A}{H} \\
+		\therefore G \cap A &\subset \inverse{f_A}{H} 
+	\end{align}
+	<p>Since $p \in A$ and $p \in G$, $p \in G \cap A$. </p>
+	<p>Since $G \in \Tau$, by the definition of relative topology, $G \cap A \in \Tau_A$. </p>
+	<p>$H$ is an open subset of $Y$ containing $f(p)$ and $\inverse{f_A}{H}$ is a superset of $G \cap A$, which is $\Tau_A$-open set containing $p$. Thus $f_A$ is $\Tau_A$-continuous at $p$.</p>
+</div>
