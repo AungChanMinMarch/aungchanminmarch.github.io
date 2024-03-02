@@ -1,0 +1,20 @@
+---
+title: "ex 10 = Th 7.3"
+---
+<div class="statement">Prove Theorem 7.3: A function $f:X \to Y$ is continuous if and only if the inverse image of every closed subset of $Y$ is a closed subset of X.</div>
+<div class="proof">
+	<p>Suppose $f:X \to Y$ is continuous.</p> 
+	<p>Let $F$ a closed subset of $Y$.</p>
+	<p>Then $F^C$ is an open subset of $Y$.</p>
+	<p>Since $f:X \to Y$ is continuous, $f^{-1}[F^C]$ is an open subset of $X$.</p> 
+	<p>Since $f^{-1}[F^C] =(f^{-1}[F])^C$, $(f^{-1}[F])^C$ is an open subset of $X$.</p>
+	<p>Thus $f^{-1}[F]$ is a closed subset of $X$.</p>
+	<hr />
+
+	<p>Suppose the inverse image of every closed subset of $Y$ is a closed subset of X.</p>
+	<p>Let $H$ be an open subset of $Y$.</p>
+	<p>Then $H^C$ is a closed subset of $Y$.</p>
+	<p>Since the inverse image of every closed subset of $Y$ is a closed subset of X, $f^{-1}[H^C]$ is a closed subset of $X$. </p>
+	<p>Since $f^{-1}[H^C] = (f^{-1}[H])^C$, $(f^{-1}[H])^C$ is a closed subset of $X$.</p>
+	<p>Thus $f^{-1}[H]$ is an open subset of $X$ and hence $f$ is continuous.</p>
+</div>

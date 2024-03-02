@@ -1,0 +1,16 @@
+---
+title: ex 1
+---
+<div class="statement">Prove: Let $f:X \to Y$ be a constant function, say $f(x)=p \in Y$, for every $x \in X$. Then f is continuous relative to any topology $\topologyTau$ on $X$ and any topology $\topologyTau^*$ on $Y$.
+</div>
+<div class="proof">
+	<p>We need to show that the inverse image of any $\topologyTau^*$-open subset of $Y$ is a $\topologyTau$-open subset of $X$. </p>
+	<p>Let $H \in \topologyTau^*$.</p>
+	Since $f(x) = p$ for all $x \in X$, 
+	$$ f^{-1}[H] = \begin{cases}
+		X &\mbox{ if } p \in H \\
+		\emptyset &\mbox{ if } p \notin H
+	\end{cases}$$
+	<p>since $X$ and $\emptyset$ belong to every topology $\topologyTau$ on $X$, $f^{-1}[H]$ is an open subset of $X$.</p>
+	<p>Thus $f$ is continuous</p>
+</div>

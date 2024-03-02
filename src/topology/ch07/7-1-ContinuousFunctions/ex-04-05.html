@@ -1,0 +1,38 @@
+---
+layout: "page.njk"
+---
+<summary class="theorem">
+	<h4>Ex no 4</h4>
+	<details class="theorem">
+		<div class="statement">Suppose a function $f:(X,\Tau_1) \to (Y,\Tau_2)$ is not $\Tau_1$-$\Tau_2$ continuous. Show that if $\Tau_1^*$ is a topology on $X$ coarser than $\Tau_1$, and if $\Tau_2^*$ is a topology on $Y$ finer than $\Tau_2^*$, then $f$ is also not $\Tau_1^*$-$\Tau_2^*$ continuous.
+		</div>
+		<div class="proof">
+			<p>Since a function $f:(X,\Tau_1) \to (Y,\Tau_2)$ is not $\Tau_1$-$\Tau_2$ continuous, there exist a $H \in \Tau_2$ such that $f^{-1}[H] \notin \Tau_1$.</p>
+			<p>Since $\Tau_1^*$ is a topology on $X$ coarser than $\Tau_1$, we have $\Tau_1^* \subset \Tau_1$. </p>
+			$$ \therefore f^{-1}[H] \notin \Tau_1 \text{ implies } f^{-1}[H] \notin \Tau_1^*$$
+
+			<p>Since $\Tau_2^*$ is a topology on $X$ finer than $\Tau_1$, we have $\Tau_2^* \supset \Tau_2$, i.e. $\Tau_2 \subset \Tau_2^*$. </p>
+			$$ \therefore H \in \Tau_2 \text{ implies } H \in \Tau_2^*$$
+			<p>Thus we have $H \in \Tau_2^*$ but $f^{-1}[H] \notin \Tau_1^*$ and hence  $f$ is not $\Tau_1^*$-$\Tau_2^*$ continuous.</p>
+		</div>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<h4>Ex no 5</h4>
+	<details class="theorem">
+		<div class="statement"> 
+			Show that the identity function $i: (X,\Tau) \to (X,\Tau^*)$ is continuous if and only if $\Tau$ is finer than $\Tau^*$
+		</div>
+		<div class="proof">
+			<p>By definition, $i$ is $\Tau$-$\Tau^*$ continuous if and only if
+			</p>
+			$$ H \in \Tau^* \text{ implies } i^{-1}[H] \in \Tau$$
+			<p>Since $i$ is the identity function, $i^{-1}[H] = H$. Thus we get</p>
+			\begin{align} 
+			i \text{ is continuous } &\iff H \in \Tau^* \text{ implies } H \in \Tau \\
+			i \text{ is continuous } &\iff \Tau^* \subset \Tau \\
+			i \text{ is continuous } &\iff \Tau \text{ is finer than} \Tau^*
+			\end{align}
+	</details>
+</summary>

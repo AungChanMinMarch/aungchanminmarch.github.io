@@ -1,0 +1,25 @@
+---
+title: "Proposition 7.1 (Eg 7.3)"
+---
+<div class="statement">
+	Prove that a function $f: X \to Y$ is continuous iff the inverse of each member of a base $\base$ for $Y$ is an open subset of $X$.
+</div>
+<div class="proof">
+	<p>Suppose the inverse of each member of a base $\base$ for $Y$ is an open subset of $X$.</p>
+	Let $H$ be an open subset of $Y$. <br />
+	Since $\base$ is a base for the topology on $Y$, $H$ is a union of members of base $\base$. <br />
+	\begin{align}
+		H&=\cup_{i} B_{i}, \text{ where } B_i \in \base \\
+		f^{-1}[H]
+		&=f^{-1}\left[\cup_{i} B_{i}\right] 
+		=\cup_{i} f^{-1}\left[B_{i}\right]
+	\end{align}
+	Since $f^{-1}[B]$ is an open subset of $X$ for each member $B \in \base$, each $f^{-1}\left[B_{i}\right]$ is open. <br />
+	Hence $f^{-1}[H]$ is the union of open sets and hence $f^{-1}[H]$ is open. Thus $f$ is continuous.
+	<hr />
+	<p>Now suppose $f$ is continuous.</p>
+	<p>Let $\base$ be a base for a topology of $Y$. </p>
+	<p>Then $\base$ is a class of open sets of $Y$. </p>
+	<p>Hence if $B \in \base$, $B$ is an open set of $Y$. Since $f$ is continuous, $f^{-1}[B]$ is open</p>
+	<p>Therefore $f^{-1}[B] is open for every set $B$ in $\base$
+</div>

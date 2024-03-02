@@ -1,0 +1,49 @@
+---
+title: "CONTINUOUS FUNCTIONS"
+key: "7.1ContinuousFunctions"
+parent: topology07
+order: 1
+layout: rudinAnalysisIndex.njk
+---
+<div class="definition">
+	<h2>Definition: Continuous Function</h2>
+	Let $(X, \topologyTau)$ and $(Y, \topologyTau^*)$ be topological spaces. A function $f$ from $X$ into $Y$ is continuous relative to $\topologyTau$ and $\topologyTau^*$, or $\topologyTau-\topologyTau^*$ continuous, or simply continuous, iff the inverse image $f^{-1}[H]$ of every $\topologyTau^*$-open subset $H$ of $Y$ is a $\topologyTau$-open subset of X, that is, iff 
+	$$H \in \topologyTau^* \text{ implies } f^{-1}[H] \in \topologyTau$$
+</div>
+<summary class="theorem">
+	<h2>CONTINUOUS FUNCTIONS AND ARBITRARY CLOSENESS</h2>
+	<details class="theorem">
+		Let $X$ be a topological space. A point $p \in X$ is said to be arbitrarily close to a set $A \subset X$ if either 
+			<ol>
+				<li>$p \in A$ or</li>
+				<li>$p$ is an accumulation point of $A$</li>
+			</ol>
+		Thus $p$ is arbitrarily close to $A$ if $p \in A U A’ = \closure{A} = \int{A} \cup \b{A}$
+	</details>
+</summary>
+<summary class="theorem">
+	<h3>Eg 1.2 + Ex 2</h3>
+	<details>
+	<div class="statement"> 
+		<ol class="statement">
+			<li>Eg 1.2: Consider any discrete space $(X, \discrete)$ and any topological space $(Y,\topologyTau)$. Then prove that every function $f: X \to Y$ is $\discrete-\topologyTau$ continuous. </li>
+			<li>Ex 2: Prove: Let $f:X \to Y$ be any function. If $(Y, \indiscrete)$ is an indiscrete space, then $f:(X,\topologyTau) \to (Y, \indiscrete)$ is continuous for any $\topologyTau$.</li>
+		</ol>
+	</div>
+	<div class="proof">
+		<ol>
+			<li>
+				<p>Since $(X, \discrete)$ is a discrete space, every subset of $X$ is open.</p> 
+				<p>Hence $f^{-1}[H]$ is open for any open set $H$ of $Y$.</p>
+				<p>$f$ is continuous.</p>
+			</li>
+			<li>
+				<p>Since $(Y, \indiscrete)$ is an indiscrete space, $Y$ and $\emptyset$ are the only open subsets of $Y$.</p> 
+				<p>$f^{-1}[Y] = X$ and $f^{-1}[\emptyset] =  \emptyset$.</p>
+				<p>$X$ and $\emptyset$ belong to any topology $\topologyTau$ on $X$.</p>
+				Hence $f$ is continuous for any $\topologyTau$.
+			</li>
+		</ol>
+	</div>
+</details>
+</summary>
