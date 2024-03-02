@@ -15,10 +15,11 @@ a::first-letter{
 	box-sizing: border-box;
 }
 
-img{
+img.topology{
 	margin: 0 auto;
   display: block;
   width: 100%;
+  height: auto;
 }
 body, html{
 	background:#fff;

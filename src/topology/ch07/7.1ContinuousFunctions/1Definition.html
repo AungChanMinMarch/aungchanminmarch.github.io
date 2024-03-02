@@ -289,3 +289,74 @@ order: 1
 		</div>
 	</details>
 </summary>
+
+
+<summary class="theorem">
+	<h2>CONTINUOUS FUNCTIONS AND ARBITRARY CLOSENESS</h2>
+	<details class="theorem">
+		Let $X$ be a topological space. A point $p \in X$ is said to be arbitrarily close to a set $A \subset X$ if either 
+			<ol>
+				<li>$p \in A$ or</li>
+				<li>$p$ is an accumulation point of $A$</li>
+			</ol>
+		Thus $p$ is arbitrarily close to $A$ if $p \in A U A’ = \closure{A} = \int{A} \cup \b{A}$
+	</details>
+</summary>
+
+<summary class="theorem">
+	<h4>Th 7.4 =e x 11</h4>
+	<details class="theorem">
+		<div class="statement">Prove Theorem 7.4: A function $f:X \to Y$ is continuous if and only if, for every subset $A \subset X$, $f[\closure{A}] \subset \closure{f[A]}$.</div>
+		<div class="proof">
+			<p>Suppose $f:X \to Y$ is continuous. </p>
+			<p>Let $A$ be any subset of of $X$.</p>
+			\begin{align}
+				\text{We have } f[A] &\subset \closure{f[A]} \\
+				f^{-1}\sbracket{f[A]} &\subset f^{-1}\sbracket{\closure{f[A]}} \\
+				A &\subset f^{-1}\sbracket{\closure{f[A]}} \\
+				\closure{A} &\subset \closure{
+					\inverse{f}{\closure{f[A]}}
+				} \\
+			\end{align}
+			<p>Since $\closure{f[A]}$ is closed, and $f$ is continuous, $\inverse{f}{\closure{f[A]}}$ is closed.</p>
+			\begin{align}
+				\closure{
+					\inverse{f}{\closure{f[A]}}
+				} &= \inverse{f}{\closure{f[A]}} \\
+				\closure{A} &\subset \inverse{f}{\closure{f[A]}}\\
+				f\left[\closure{A}\right] &\subset \closure{f[A]}\\
+			\end{align}
+
+			<hr />
+
+			<p>Now suppose for every subset $A \subset X$, $f[\closure{A}] \subset \closure{f[A]}$</p>
+			<p>Let $F$ be a closed subset of $Y$.</p>
+			<p>Put $\inverse{f}{F} = A$. We need to prove $A$ is closed, i.e. $\closure{A} = A$. </p>
+			<p>Clearly $A$ is a subset of $X$. Since $f[\closure{A}] \subset \closure{f[A]}$ for every subset $A \subset X$,</p>
+				$$f[\closure{A}] \subset \closure{f[A]} = \closure{F} $$
+			<p>Since $F$ is closed, $\closure{F} = F$.</p>
+			\begin{align}
+				f[\closure{A}] &\subset \closure{F} = F \\
+				\inverse{f}{f[\closure{A}]} &\subset \inverse{f}{F} \\
+				\closure{A} &\subset A
+			\end{align}
+
+			<p>By the definition of closure, we have $A \subset \closure{A}$.</p>
+			<p>Thus $A = \closure{A}$ and $A = \inverse{f}{F}$ is closed. Therefore $f$ is continuous.</p>
+		</div>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<h4>ex 12</h4>
+	<details class="theorem">
+		<div class="statement">Prove: Let $f:(X, \Tau) \to (Y,\Tau^*)$ be continuous. Then $f_A:(A, \Tau_A) \to (Y, \Tau^*)$ is continuous, where $A \subset X$ and $f_A$ is the restriction of $f$ to $A$.</div>
+		<div class="proof">
+			<p>Let $H$ be $\Tau^*$-open set of $Y$.</p>
+			<p>Since $f$ is $\Tau$-$\Tau^*$ continuous, $\inverse{f}{H} \in \Tau$</p>
+			<p>By the definition of relative topology, we get $\inverse{f}{H} \cup A \in \Tau_A$</p>
+			<p>Since $\inverse{f_A}{H} = \inverse{f}{H} \cup A$, we have $\inverse{f}{H} \in \Tau_A$.</p>
+			<p>Thus $f_A$ is $\Tau_A$-$\Tau^*$ continuous.</p>
+		</div>
+	</details>
+</summary>

@@ -3,14 +3,14 @@ layout: page.njk
 ---
 {% if content %}
 <main data-state="loading">
-<h1>fawefji</h1>
+	<h1>{{title}}</h1>
+	{{ content | safe }}
 	<summary class="theorem">
 		<h3>Table of Content</h3> 
 		<details>
 			{{ collections.all | eleventyNavigation(key) | eleventyNavigationToHtml | safe }}
 		</details>
 	</summary>
-	{{ content | safe }}
 </main>
 {% else %}
 	<h1 class="center">{{title}}</h1>
