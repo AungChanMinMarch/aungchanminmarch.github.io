@@ -1,0 +1,16 @@
+---
+title: "ex 5"
+---
+<div class="statement"> 
+	Show that the identity function $i: (X,\Tau) \to (X,\Tau^*)$ is continuous if and only if $\Tau$ is finer than $\Tau^*$
+</div>
+<div class="proof">
+	<p>By definition, $i$ is $\Tau$-$\Tau^*$ continuous if and only if
+	</p>
+	$$ H \in \Tau^* \text{ implies } i^{-1}[H] \in \Tau$$
+	<p>Since $i$ is the identity function, $i^{-1}[H] = H$. Thus we get</p>
+	\begin{align} 
+	i \text{ is continuous } &\iff H \in \Tau^* \text{ implies } H \in \Tau \\
+	i \text{ is continuous } &\iff \Tau^* \subset \Tau \\
+	i \text{ is continuous } &\iff \Tau \text{ is finer than} \Tau^*
+	\end{align}

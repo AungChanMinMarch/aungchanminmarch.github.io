@@ -1,0 +1,24 @@
+---
+title: "Ex 24"
+---
+<div class="statement">Let $f:(X, \Tau) \to (Y, \Tau^*)$ be one-one and open, let $A \subset X$, and let $f[A] = B$. Show that the function $f_A:(A, \Tau_A) \to (B, \Tau_B^*)$ is also one-one and open, where $f_A$ denotes the restriction of $f$ to $A$, and $\Tau_A$ and $\Tau_B^*$ are the relative topologies.</div>
+<div class="proof">
+	<p>We want to prove $f_A:A \to B$ is one-one.</p>
+	<p>Suppose $f_A(x_1) = f_A(x_2)$, where $x_1, x_2 \in A$. </p>
+	<p>Since $x_1, x_2 \in A$, by the definition of restriction fuction, $f(x_1) = f_A(x_1)$ and $f(x_2) = f_A(x_2)$. Therefore $f(x_1) = f(x_2)$.</p>
+	<p>Since $f:X \to Y$ is continuous, $f(x_1) = f(x_2)$ implies $x_1 = x_2$</p>
+	<p>Thus $f_A$ is one-one.</p>
+
+	<p>Now we shall prove $f_A:(A, \Tau_A) \to (B, \Tau_B^*)$ is open.</p>
+	<p>Let $G$ be a $\Tau_A$-open set.</p>
+	<p>Then by the definition of relative topology, there exist $H \in \Tau$ such $G = H \cap A$. </p>
+	\begin{align}
+		f_A[G] &= f[G] \\
+		&= f[H \cap A] \\
+		&= f[H] \cap f[A] \\
+		&= f[H] \cap B
+	\end{align}
+	<p>Since $f:(X, \Tau) \to (Y, \Tau^*)$ is open and $H \in \Tau$, $f[H]$ is a $\Tau^*$-open set. That is $f[H] \in \Tau^*$.</p>
+	<p>Therefore $f_A[G] = (f[H] \cap B) \in \Tau_B^*$.</p>
+	<p>Since $G \in \Tau_A$ implies $f_A[G] \in \Tau_B^*$, $f_A$ is $\Tau_A$-$\Tau_B^*$ continuous.</p>
+</div>

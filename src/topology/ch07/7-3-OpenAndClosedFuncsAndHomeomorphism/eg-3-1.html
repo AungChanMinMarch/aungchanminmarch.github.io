@@ -1,0 +1,22 @@
+---
+title: "Eg 3.1"
+---
+<div class="statement">Let $X = (—1,1)$. Show that the function $f:X \to \R$ defined by $f(x) = \tan \frac{1}{2} \pi x$ is homeomorphic.</div>
+<div class="proof">
+	<p>Let $X = (-1, 1)$.</p>
+	<p>Let $f:X \to \R$ be defined by $f(x) = \tan \frac{1}{2} \pi x$</p>
+	<p>Suppose $f(x_1) = f(x_2)$, where $x_1, x_2 \in X$. </p>
+	\begin{align}
+		f(x_1) &= f(x_2)\\
+		\tan \frac{1}{2} \pi x_1 &= \tan \frac{1}{2} \pi x_2\\
+		x_1 &= x_2\\
+	\end{align}
+	Thus $f$ is one-one.
+
+	<p>For any $y \in \R$, there exists $x = \frac{2}{\pi} \tan^{-1} y \in X$ such that $f(x) = \tan (\frac{1}{2} \pi x) = \tan(\frac{1}{2} \pi \frac{2}{\pi} \tan^{-1} y) = \tan(\tan^{-1} y) = y$. </p>
+	<p>Thus $f$ is onto. </p>
+
+	<p>Since $f(x) = \tan \frac{1}{2} \pi x$, it is obvious that $f$ and $f^{-1}$ are continuous. </p>
+
+	<p>Hence the real line $\R$ and the open interval $(—1,1)$ are homeomorphic and $f$ is homeomorphism.</p>
+</div>

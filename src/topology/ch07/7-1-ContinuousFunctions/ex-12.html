@@ -1,11 +1,11 @@
 ---
-title: "ex 12"
+title: "Ex 12"
 ---
 <div class="statement">Prove: Let $f:(X, \Tau) \to (Y,\Tau^*)$ be continuous. Then $f_A:(A, \Tau_A) \to (Y, \Tau^*)$ is continuous, where $A \subset X$ and $f_A$ is the restriction of $f$ to $A$.</div>
 <div class="proof">
 	<p>Let $H$ be $\Tau^*$-open set of $Y$.</p>
 	<p>Since $f$ is $\Tau$-$\Tau^*$ continuous, $\inverse{f}{H} \in \Tau$</p>
-	<p>By the definition of relative topology, we get $\inverse{f}{H} \cup A \in \Tau_A$</p>
-	<p>Since $\inverse{f_A}{H} = \inverse{f}{H} \cup A$, we have $\inverse{f}{H} \in \Tau_A$.</p>
+	<p>By the definition of relative topology, we get $\inverse{f}{H} \cap A \in \Tau_A$</p>
+	<p>Since $\inverse{f_A}{H} = \inverse{f}{H} \cap A$, we have $\inverse{f_A}{H} \in \Tau_A$.</p>
 	<p>Thus $f_A$ is $\Tau_A$-$\Tau^*$ continuous.</p>
 </div>

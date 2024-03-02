@@ -1,0 +1,14 @@
+---
+title: "Ex 4"
+---
+<div class="statement">Suppose a function $f:(X,\Tau_1) \to (Y,\Tau_2)$ is not $\Tau_1$-$\Tau_2$ continuous. Show that if $\Tau_1^*$ is a topology on $X$ coarser than $\Tau_1$, and if $\Tau_2^*$ is a topology on $Y$ finer than $\Tau_2$, then $f$ is also not $\Tau_1^*$-$\Tau_2^*$ continuous.
+</div>
+<div class="proof">
+	<p>Since a function $f:(X,\Tau_1) \to (Y,\Tau_2)$ is not $\Tau_1$-$\Tau_2$ continuous, there exist a $H \in \Tau_2$ such that $f^{-1}[H] \notin \Tau_1$.</p>
+	<p>Since $\Tau_1^*$ is a topology on $X$ coarser than $\Tau_1$, we have $\Tau_1^* \subset \Tau_1$. </p>
+	$$ \therefore f^{-1}[H] \notin \Tau_1 \text{ implies } f^{-1}[H] \notin \Tau_1^*$$
+
+	<p>Since $\Tau_2^*$ is a topology on $X$ finer than $\Tau_2$, we have $\Tau_2^* \supset \Tau_2$, i.e. $\Tau_2 \subset \Tau_2^*$. </p>
+	$$ \therefore H \in \Tau_2 \text{ implies } H \in \Tau_2^*$$
+	<p>Thus we have $H \in \Tau_2^*$ but $f^{-1}[H] \notin \Tau_1^*$ and hence  $f$ is not $\Tau_1^*$-$\Tau_2^*$ continuous.</p>
+</div>

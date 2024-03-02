@@ -1,0 +1,14 @@
+---
+title: "Eg 1.5"
+---
+<p class="statement">Show that the absolute value function $f$ on $\R$, ie. $f(x) =|x|$ for $x\in \R$, is continuous.</p>
+<div class="proof">
+	Let $A = (a,b)$.
+
+		$$f^{-1}[A] = \begin{cases}
+		\emptyset &\mbox{ if } a < b \leq 0 \\
+		(-b, b) &\mbox{ if } a < 0, b > 0 \\
+		(-b, -a) \cup (a,b) &\mbox{ if } 0 \leq a < b \\
+		\end{cases}$$
+	<p>In each case, $f^{-1}[A]$ is open. Hence $f$ is continuous.</p>
+</div>

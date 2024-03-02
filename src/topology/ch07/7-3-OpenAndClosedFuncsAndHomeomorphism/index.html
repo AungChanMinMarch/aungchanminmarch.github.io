@@ -1,0 +1,43 @@
+---
+title: "Open and Closed Functions, Homeomorphism"
+key: "7-3-OpenAndClosedFuncsAndHomeomorphism"
+parent: topology07
+order: 3
+layout: rudinAnalysisIndex.njk
+---
+<div class="definition">
+	<h2>OPEN AND CLOSED FUNCTIONS</h2>
+	<ol>
+		<li>A function $f: X \to Y$ is called an open (or interior) function if the image of every open set is open.</li>
+		<li>A function $g: X \to Y$ is called a closed function if the image of every closed set is closed.</li>
+	</ol>
+</div>
+
+<summary class="theorem">
+	<h4>Eg 2.1</h4>
+	<details class="theorem">
+		<div class="statement">Consider the projection mapping $\pi: \R^2 \to \R$ of the plane $\R^2$ into the x-axis, i.e. $\pi((x,y)) = x$. Show that $\pi$ is open but not closed.</div>
+		<div class="proof">
+			<p>Suppose that $G$ is an open subset of $\R^2$. We need to prove $\pi[G}$ is open.</p>
+			<p>Observe that the projection $\pi[D]$ of any open disc $D \subset \R$ is an open interval.</p>
+			<p>Let $\pi(p) \in \pi[G]$. Then $\pi(p)$ belongs to an open interval contained in $\pi[G]$, i.e. $\pi(p) \in (\pi(p) - \ep, \pi(p) +\ep) \subset \pi[G]$ for some $\ep > 0$. Hence $p$ is an interior point of $\pi[G]$ and $\pi[G]$ is open.</p>
+			<p>$\pi$ is open. </p>
+
+			<p>Let $A = \{(x, y)| xy \geq 1, x>0 \}. </p>
+			<p>Clearly, $A$ is a closed subset of $\R^2$. </p>
+			<p>$\pi[A] = (0, \infinity)$ is not closed. </p>
+			<p>Hence $\pi$ is not closed.</p>
+		</div>
+	</details>
+</summary>
+
+<div class="definition">
+	<h4>Bicontinuous Function</h4>
+	<p>If $f$ is open and continuous, $f$ is called bicontinuous or topological.</p>
+</div>
+
+<div class="definition">
+	<h2>HOMEOMORPHIC SPACES</h2>
+	<p>Two topological spaces $X$ and $Y$ are called homeomorphic or topologically equivalent if there exists a bijective (i.e. one-one, onto) function $f:X \to Y$ such that $f$ and $f^{-1}$ are continuous. The function $f$ is called a homeomorphism.</p>
+	<p>$f: X \to Y$ is a homeomorphism iff $f$ is bicontinuous and bijective.</p>
+</div>

@@ -12,23 +12,23 @@ title: "Eg 1.1"
 <div class="proof">
 	<p>Since $\topologyTau^* = \{ Y, \emptyset, \{x\}, \{y\}, \{x,y\}, \{y,z,w\} \}$,</p>
 	\begin{align*} 
-		Y &\in \topologyTau^* & &\implies & f^{-1}[Y] = \{a,b,c,d\} = X &\in \topologyTau \\
-		\emptyset &\in \topologyTau^* & &\implies & f^{-1}[\emptyset] = \emptyset &\in \topologyTau \\
-		\{x\} &\in \topologyTau^* & &\implies & f^{-1}[\{x\}] = \emptyset &\in \topologyTau \\
-		\{y\} &\in \topologyTau^* & &\implies & f^{-1}[\{y\}] = \{a\} &\in \topologyTau \\
-		\{x,y\} &\in \topologyTau^* & &\implies & f^{-1}[\{x,y\}] = \{a\} &\in \topologyTau \\
-		\{y,z,w\} &\in \topologyTau^* & &\implies & f^{-1}[\{y,z,w\}] = \{a,b,c,d\} = X &\in \topologyTau \\
+		Y &\in \topologyTau^* \implies & f^{-1}[Y] = \{a,b,c,d\} = X &\in \topologyTau \\
+		\emptyset &\in \topologyTau^* \implies & f^{-1}[\emptyset] = \emptyset &\in \topologyTau \\
+		\{x\} &\in \topologyTau^* \implies & f^{-1}[\{x\}] = \emptyset &\in \topologyTau \\
+		\{y\} &\in \topologyTau^* \implies & f^{-1}[\{y\}] = \{a\} &\in \topologyTau \\
+		\{x,y\} &\in \topologyTau^* \implies & f^{-1}[\{x,y\}] = \{a\} &\in \topologyTau \\
+		\{y,z,w\} &\in \topologyTau^* \implies & f^{-1}[\{y,z,w\}] = \{a,b,c,d\} = X &\in \topologyTau \\
 	\end{align*}
 
 	$$ \text{Hence } H \in \topologyTau^* \text{ implies } f^{-1}[H] \in \topologyTau$$
 
 	\begin{align*} 
-		Y &\in \topologyTau^* & &\implies & g^{-1}[Y] = \{a,b,c,d\} = X &\in \topologyTau \\
-		\emptyset &\in \topologyTau^* & &\implies & f^{-1}[\emptyset] = \emptyset &\in \topologyTau \\
-		\{x\} &\in \topologyTau^* & &\implies & f^{-1}[\{x\}] = \{a,b\} &\in \topologyTau \\
-		\{y\} &\in \topologyTau^* & &\implies & f^{-1}[\{y\}] = \emptyset &\in \topologyTau \\
-		\{x,y\} &\in \topologyTau^* & &\implies & f^{-1}[\{x,y\}] = \{a, y\} &\in \topologyTau \\
-		\{y,z,w\} &\in \topologyTau^* & &\implies & f^{-1}[\{y,z,w\}] = \{c,d\} &\notin \topologyTau \\
+		Y &\in \topologyTau^* \implies & g^{-1}[Y] = \{a,b,c,d\} = X &\in \topologyTau \\
+		\emptyset &\in \topologyTau^* \implies & f^{-1}[\emptyset] = \emptyset &\in \topologyTau \\
+		\{x\} &\in \topologyTau^* \implies & f^{-1}[\{x\}] = \{a,b\} &\in \topologyTau \\
+		\{y\} &\in \topologyTau^* \implies & f^{-1}[\{y\}] = \emptyset &\in \topologyTau \\
+		\{x,y\} &\in \topologyTau^* \implies & f^{-1}[\{x,y\}] = \{a, y\} &\in \topologyTau \\
+		\{y,z,w\} &\in \topologyTau^* \implies & f^{-1}[\{y,z,w\}] = \{c,d\} &\notin \topologyTau \\
 	\end{align*}
 
 	<p>Hence the function $g$ is not continuous since $\{y, z, w \} \in \topologyTau^*$  but $g^{-1}[\{y,z,w\}] = \{c,d\} \notin \topologyTau$.</p>

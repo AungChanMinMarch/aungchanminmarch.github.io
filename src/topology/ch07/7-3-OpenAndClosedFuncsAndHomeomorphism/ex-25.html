@@ -1,0 +1,35 @@
+---
+title: "Ex 25"
+---
+<div class="statement">Let $f:(X,\Tau) \to (Y,\Tau^*)$ be a homeomorphism and let $(A, \Tau_A)$ be any subspace of $(X, \Tau)$. Show that $f_A:(A,T_A) \to (B, \Tau_B^*)$ is also a homeomorphism where $f_A$ is the restriction of $f$ to $A$, $f[A] = B$, and $\Tau_B^*$ is the relative topology on B.</div>
+<div class="proof">
+	<p>Let $f:(X,\Tau) \to (Y,\Tau^*)$ be a homeomorphism. </p>
+	<p>Let $(A, \Tau_A)$ be any subspace of $(X, \Tau)$. </p>
+	<p>Since $f$ is one-one and onto, $f_A:A \to B$ is cleary one-one and onto.</p>
+	<p>We need to prove $f_A$ is bicontinuous, i.e. $f_A$ is open and continuous. </p>
+	<p>Let $H \in \Tau_B^*$.</p>
+	<p>Then there exist $G \in \Tau^*$ such that $H=G \cap B$</p>
+	\begin{align}
+		\inverse{f_A}{H} &= \inverse{f}{H} \\
+		&= \inverse{f}{G \cap B} \\
+		&= \inverse{f}{G} \cap \inverse{f}{B} \\
+		&= \inverse{f}{G} \cap A
+	\end{align}
+	<p>Since $f:(X, \Tau) \to (T, \Tau^*)$ is continuous and $G \in \Tau^*$, $\inverse{f}{G} \in \Tau$.</p>
+	<p>Thus $\inverse{f_A}{H} = \inverse{f}{G} \cap A \in \Tau_A$.</p>
+	<p>Since $H \in \Tau_B^*$ implies $\inverse{f_A}{H} \in \Tau_A$, $f_A$ $\Tau_A$-$\Tau_B^*$ continuous. </p>
+	<hr>
+
+	<p>Now we need to prove $f_A:(A,T_A) \to (B, \Tau_B^*)$ is open.</p>
+	<p>Let $G \in \Tau_A$.</p>
+	<p>Then there exist $D \in \Tau$ such that $D \cap A = G$</p>
+	\begin{align}
+		f_A[G] &= f[G] \\
+		&= f[D \cap A] \\
+		&= f[D] \cap f[A] \\
+		&= f[D] \cap B
+	\end{align}
+	<p>Since $f:(X, \Tau) \to (T, \Tau^*)$ is open and $D \in \Tau$, $f[D] \in \Tau^*$.</p>
+	<p>Therefore $f_A[G] = f[D] \cap B \in \Tau_B^*$.</p>
+	<p>Since $G \in \Tau_A$ implies $f_A[G] \in \Tau_B^*$, $f:(A, \Tau_A) \to (B, \Tau_B^*)$ is open. Thus $f_A$ is bicontinuous and hence a homeomorphism</p>
+</div>
