@@ -1,5 +1,5 @@
 ---
-title: "Therorem 7.2 (= Ex no.6)"
+title: "Ex-6 (Theorem 7.2)"
 ---
 <div class="statement">
 	Let $\subbase$ be a subbase for a topological space $Y$. Then show that a function $f: X \to Y$ is continuous iff the inverse of each member of $\subbase$ is an open subset of $X$.
@@ -10,12 +10,12 @@ title: "Therorem 7.2 (= Ex no.6)"
 	<hr />
 
 	<p>Suppose $f$ is continuous. </p>
-	<p>Then the inverse image of every open set of $Y$ is an open set of $X$. </p>
-	<p>Since every set in $\subbase$ is an open set of $Y$, the inverse image of every set in $\subbase$ is an open set of $X$ </p>
+	<p>Then the inverse image of every open set of $Y$ is an open subset of $X$. </p>
+	<p>Since every set in $\subbase$ is an open set of $Y$, the inverse image of every set in $\subbase$ is an open subset of $X$. </p>
 	<hr />
 
 	<p>Suppose the inverse of each member of $\subbase$ is an open subset of $X$.</p>
-	<p>Let $H$ be an open set of $Y$. </p>
+	<p>Let $H$ be an open subset of $Y$. </p>
 	<p>Since $\subbase$ is a subbase for a topological space $Y$, $H = \cup_i \bracket{ S_{i_1} \cap \cdots \cap S_{i_{n_i}} }$, where $S_{i_k} \in \subbase$.</p>
 
 	\begin{align}
@@ -27,6 +27,6 @@ title: "Therorem 7.2 (= Ex no.6)"
 		&= \cup_i \bracket{ f^{-1}[S_{i_1}] \cap \cdots \cap f^{-1}[S_{i_{n_i}}] } , \text{ where } S_{i_k} \in \subbase 
 	\end{align}
 	<p>Since the inverse of each member of $\subbase$ is an open subset of $X$, each $f^{-1}[S_{i_k}]$ is open. </p>
-	<p>Thus $f^{-1}[H]$ is the union of finite intersection of open set and hence $f^{-1}[H]$ is open. </p>
+	<p>Thus $f^{-1}[H]$ is the union of finite intersection of open sets and hence $f^{-1}[H]$ is open. </p>
 	<p>Therefore $f$ is continuous.</p>
 </div>

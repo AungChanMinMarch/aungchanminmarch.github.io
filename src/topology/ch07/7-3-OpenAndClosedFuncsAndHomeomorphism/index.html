@@ -18,14 +18,15 @@ layout: rudinAnalysisIndex.njk
 	<details class="theorem">
 		<div class="statement">Consider the projection mapping $\pi: \R^2 \to \R$ of the plane $\R^2$ into the x-axis, i.e. $\pi((x,y)) = x$. Show that $\pi$ is open but not closed.</div>
 		<div class="proof">
-			<p>Suppose that $G$ is an open subset of $\R^2$. We need to prove $\pi[G}$ is open.</p>
+			<p>Suppose that $G$ is an open subset of $\R^2$. We need to prove $\pi[G]$ is open.</p>
 			<p>Observe that the projection $\pi[D]$ of any open disc $D \subset \R$ is an open interval.</p>
 			<p>Let $\pi(p) \in \pi[G]$. Then $\pi(p)$ belongs to an open interval contained in $\pi[G]$, i.e. $\pi(p) \in (\pi(p) - \ep, \pi(p) +\ep) \subset \pi[G]$ for some $\ep > 0$. Hence $p$ is an interior point of $\pi[G]$ and $\pi[G]$ is open.</p>
 			<p>$\pi$ is open. </p>
+			<hr>
 
-			<p>Let $A = \{(x, y)| xy \geq 1, x>0 \}. </p>
+			<p>Let $A = \{(x, y)| xy \geq 1, x>0 \}$. </p>
 			<p>Clearly, $A$ is a closed subset of $\R^2$. </p>
-			<p>$\pi[A] = (0, \infinity)$ is not closed. </p>
+			<p>$\pi[A] = (0, \infty)$ is not closed. </p>
 			<p>Hence $\pi$ is not closed.</p>
 		</div>
 	</details>
