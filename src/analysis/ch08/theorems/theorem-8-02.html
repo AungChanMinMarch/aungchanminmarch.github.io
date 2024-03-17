@@ -11,24 +11,23 @@ order: 2
 	</div>
 	<div class="proof">
 		<p>Let $s = \summ c_n$, $s_n = c_0 + c_1 + \dots + c_n$ and $s_{-1} = 0$.</p>
-		<p>Then $c_n = s_n - s_{n-1}$ and $\limit s_n = \limit \sum\limits_{n=0}^{n} c_n = s$. </p>
+		<p>Then $c_n = s_n - s_{n-1}$. </p>
 		<p>$$\begin{align}
 			\Sum_{n=0}^{m} c_n x^n
 			&= \Sum_{n=0}^{m} (s_n - s_{n-1}) x^n \\
 			&= \Sum_{n=0}^{m} s_n x^n - \Sum_{n=0}^{m} s_{n-1} x^n \\
 			&= \Sum_{n=0}^{m} s_n x^n - \Sum_{n=1}^{m} s_{n-1} x^{n} (\because s_{-1} = 0) \\
 			&= \Sum_{n=0}^{m} s_n x^n - x\Sum_{n=1}^{m} s_{n-1} x^{n-1} \\
-			&= \Sum_{n=0}^{m} s_n x^n - x\Sum_{n=0}^{m-1} s_{n} x^{n} \\
-			&= (1-x)\Sum_{n=0}^{m-1} s_n x^n + s_m x^m \\
+			&= s_m x^m + \Sum_{n=0}^{m-1} s_n x^n - x\Sum_{n=0}^{m-1} s_{n} x^{n} \\
+			&= s_m x^m + (1-x)\Sum_{n=0}^{m-1} s_n x^n \\
 		\end{align}$$</p>
 		<p>For $\abs{x} < 1$, we let $m \to \infty$ and obtain $f(x)=(1-x)\Sum_{n=0}^{\infty} s_n x^n$</p>
 		<p>Also $(1-x)\summ x^n = (1-x) \frac{1}{1-x} = 1$</p>
-<<<<<<< HEAD
+
 		<p>Let $ s = \summ c_n$. Since $\{s_n\}$ is the sequence of partial sums, we have $ s= \summ c_n = \limit s_n$. </p>
-		<p> Let $\ep > 0 $ be given. Then there is an integer $N$ such that $n > N$ implies $\abs{s - s_n} < \frac{\ep}{2}$.</p>
-=======
+
 		<p>Let $\ep > 0 $ be given. Since $s= \limit s_n$, there is an integer $N$ such that $n > N$ implies $\abs{s - s_n} < \frac{\ep}{2}$.</p>
->>>>>>> 01e9a20a10ae86f5009563c71f8697be83e11a1f
+
 		$$\begin{align*}
 			\abs{f(x) - s} &= \abs{(1-x)\Sum_{n=0}^{\infty} s_n x^n - s (1-x)\Sum_{n=0}^{\infty} x^n} \\
 			&= \abs{(1-x)\Sum_{n=0}^{\infty} s_n x^n - (1-x)\Sum_{n=0}^{\infty} sx^n} \\
@@ -39,36 +38,30 @@ order: 2
 			&+ \abs{(1-x)\Sum_{n=N+1}^{\infty} (s_n - s) x^n}
 			\end{array} \tag{a}
 		\end{align*}$$
-		<p>We choose $M > 0$ such that $M > \abs{s_n - s}$ for $n=0,1,2,3, \dots N$ and $M > \frac{\ep}{2^{N+1}}$.</p>
-		$$\begin{align}
-			M & > \frac{\ep}{2^{N+1}} > 0 \\
-			2^N M & > \frac{\ep}{2} > 0 \\
-			2^N & > \frac{\ep}{2M} > 0 \\
-			2 & > \sqrt[N]{\frac{\ep}{2M}} > 0 \\
-			-2 & < -\sqrt[N]{\frac{\ep}{2M}} < 0 \\
-			-1 & < 1 -\sqrt[N]{\frac{\ep}{2M}} < 1 \\
-		\end{align}$$
+		<p>We choose $M > 0$ such that $M > \abs{s_n - s}$ for $n=0,1,2,3, \dots N$ and $M > \frac{\ep}{2}$.</p>
+		$$\begin{array}{rcl}
+			0 <& \frac{\ep}{2} &< M \\
+			0 <& \frac{\ep}{2M} &< 1 \\
+			0 >& -\frac{\ep}{2M} &> -1 \\
+			1 >& 1-\frac{\ep}{2M} &> 0 \\
+			0 <& 1-\frac{\ep}{2M} &< 1 \\
+			0 <& \sqrt[N+1]{1-\frac{\ep}{2M}} &< 1
+		\end{array}$$
 	
-		<summary>
-			We have $1 - x^n < (1-x)^n$ for $x$ > 0 and positive integer $n$.
-			<details>
-			</details>
-		</summary>
+		<p>We choose $\delta = \sqrt[N+1]{1-\frac{\ep}{2M}}$. For $\delta < x < 1$, </p>
 		$$\begin{align}
-			\text{If } 1 - \sqrt[N]{\frac{\ep}{2M}} &< x < 1, \\
-			\bracket{1 - \sqrt[N]{\frac{\ep}{2M}}}^N &< x^N \\
-			1 - \frac{\ep}{2M} < \bracket{1 - \sqrt[N]{\frac{\ep}{2M}}}^N &< x^N \\
-			1 - \frac{\ep}{2M} &< x^N \\
-			1 - x^N &< \frac{\ep}{2M} \\
-			M(1 - x^N) &< \frac{\ep}{2} \\
+			\sqrt[N+1]{1-\frac{\ep}{2M}} &< x \\
+			1-\frac{\ep}{2M} &< x^{N+1} \\
+			1 - x^{N+1} &< \frac{\ep}{2M} \\
+			M(1 - x^{N+1}) &< \frac{\ep}{2} \\
 		\end{align}$$
 
 		$$\begin{align}
 			\abs{(1-x) \Sum_{n=0}^{N} (s_n-s) x^n}
 			&< \abs{(1-x) \Sum_{n=0}^{N} M x^n}\\
 			&= \abs{(1-x) M \Sum_{n=0}^{N} x^n}\\
-			&= \abs{(1-x) M \frac{1(1-x^N)}{1-x}}\\
-			&= \abs{M(1-x^N)}\\
+			&= \abs{(1-x) M \frac{1(1-x^{N+1})}{1-x}}\\
+			&= \abs{M(1-x^{N+1})}\\
 			&< \frac{\ep}{2} \qquad{(b)}
 		\end{align}$$
 
@@ -83,7 +76,7 @@ order: 2
 		\end{align}$$
 		because $x^{N+1} < 1$ for $ -1 < x < 1$.
 
-		<p>From (a), (b) and (c), we get $\abs{f(x) -s} < \ep$ if $x > 1- \sqrt[N]{\frac{\ep}{2M}}$. The proof is completed.</p>
+		<p>From (a), (b) and (c), we get $\abs{f(x) -s} < \ep$ if $\delta  < x < 1$. The proof is completed.</p>
 	</div>
 </div>
 

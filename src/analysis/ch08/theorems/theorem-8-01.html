@@ -7,7 +7,9 @@ order: 1
 	<div class="statement">
 		<p>Suppose the series 
 		 $$\summ c_n x^n \tag{3}$$ 
-		converges for $\abs{x} < R$, and define $f(x)=\summ c_n x^n$ ($\abs{x} <  R$).</p>
+		converges for $\abs{x} < R$, and define 
+			$$f(x)=\summ c_n x^n \text{ ($\abs{x} <  R$).} \tag{4}$$
+		</p>
 		<p> Then (3) converges uniformly on $[-R+\ep, R- \ep ]$, no matter which $\ep > 0$ is chosen. The function $f$ is continuous and differentiable in $(-R,R)$ and $f'(x) = \sum\limits_{n=1}^{\infty} n c_n x^{n-1} (\abs{x} < R)$</p>
 	</div>
 	<div class="proof">
@@ -15,8 +17,8 @@ order: 1
 		<p>$$\begin{align}
 			\text{If } x &\in [-R + \ep, R - \ep], \\
 			\abs{x} &\leq R - \ep \\
-			\abs{x}^n &\leq \abs{R - \ep}^n \\
-			\abs{c_n} \abs{x^n} &\leq \abs{c_n} \abs{R - \ep}^n \\
+			\abs{x}^n &\leq (R - \ep)^n \\
+			\abs{c_n} \abs{x^n} &\leq \abs{c_n} (R - \ep)^n \\
 			\abs{c_n x^n} &\leq \abs{c_n (R - \ep)^n}
 		\end{align}$$</p>
 
@@ -26,8 +28,8 @@ order: 1
     &= \frac{1}{R} \abs{R-\ep}\\
     &= \abs{1 - \frac{\ep}{R}} < 1
     \end{align}$$
-		<p>Therefore $\summ c_n (R - \ep)^n$ converges. </p>
-		<p>Hence, by {% a '7.10' %}, $\summ c_n x^n$ converges uniformly on $[-R+\ep, R- \ep ]$. </p>
+		<p>Therefore $\summ \abs{c_n (R - \ep)^n}$ converges. </p>
+		<p>Since $\abs{c_n x^n} \leq \abs{c_n (R - \ep)^n}$ for $x \in[-R+\ep, R- \ep ]$, by {% a '7.10' %}, $\summ c_n x^n$ converges uniformly on $[-R+\ep, R- \ep ]$. </p>
 	</div>
     $$ \begin{align}
       \limit \sqrt[n]{n} &= \limit e^{\ln{\sqrt[n]{n}}} \\
@@ -39,13 +41,13 @@ order: 1
     \end{align}$$
 
       $$\limit \sup \sqrt[n]{n \abs{c_n}} = \limit \sup \sqrt[n]{n} \sqrt[n]{\abs{c_n}} = \limit \sup \sqrt[n]{\abs{c_n}}$$
-      <p>Hence the series $\sum c_n x^{n}$ and $\sum nc_n x^{n-1}$ have the same interval of convergence. In other words, the series $\sum\limits_{n=1}^{\infty} nc_nx^{n-1}$ converges for $\abs{x} < R$. So it converges uniformly on $[-R+\ep, R-\ep]$ for every $\ep > 0$.</p>
+      <p>Hence the series $\sum c_n x^{n}$ and $\sum nc_n x^{n-1}$ have the same interval of convergence. In other words, the series $\sum\limits_{n=1}^{\infty} nc_nx^{n-1}$ converges for $\abs{x} < R$ and hence it converges uniformly on $[-R+\ep, R-\ep]$ for every $\ep > 0$.</p>
     
       <p>By {% a 7.17 %}, $f'(x) = \sum\limits_{n=1}^{\infty} n c_n x^{n-1}$ for $\abs{x} \leq R - \ep$</p>
 
       <p>But, for any $\abs{x} \in R$, we can find $\ep > 0$ such that $\abs{x} < R - \ep$. Hence $f'(x) = \sum\limits_{n=1}^{\infty} n c_n x^{n-1}$ for $\abs{x} < R$. </p>
 
-        <p>By {% a 5.2 %} , $f'$ is continuous.</p>
+        <p>By {% a 5.2 %} , $f$ is continuous.</p>
 </div>
 
   <div class="theorem">
@@ -58,10 +60,9 @@ order: 1
       (Here $f^{(0)}$ means $f$ and $f^{(k)}$ is the kth derivative of $f$ for $k=1,2,3,\dots$.)
 		</div>
 		<div class="proof">
-			<p>If $f(x) = \summ c_n x^n$ converges for each $x \in (-R, R)$, then by Theorem 8.1, it converges uniformly on $[-R+ \ep, R- \ep]$ for any $\ep > 0$ and $f'(x) = \sum\limits_{n=1}^{\infty} n c_n x^{n-1}$. </p>
-			<p>Since $\limit \sqrt[n]n = 1$, $\limit \sqrt[n]{n\abs{c_n}} = \sqrt[n]{\abs{c_n}}$. Hence $f$ and $f'$ have the same interval of convergence. In other words, $f'(x)$ converges on $[-R+ \ep, R- \ep]$ for any $\ep > 0$ </p>
-			<p>For any $x \in (-R,R)$, we can find $\ep >0$ such that $x \in [-R+\ep, R-\ep]$. Hence $f'(x)$ converges on $(-R,R)$.
-			<p>Similarly, since $f'(x) = \sum nc_n x^{n-1}$ converges for each $x \in (-R, R)$, then by Theorem 8.1, $f''(x) = \sum\limits_{n=2}^{\infty} n(n-1) c_n x^{n-2}$. </p>
+			<p>If $f(x) = \summ c_n x^n$ converges for each $x \in (-R, R)$, then by Theorem 8.1, $f'(x) = \sum\limits_{n=1}^{\infty} n c_n x^{n-1}$ for $x \in (-R,R)$. </p>
+			<p>Since $\limit \sqrt[n]n = 1$, $\limit \sqrt[n]{n\abs{c_n}} = \sqrt[n]{\abs{c_n}}$. Hence $f$ and $f'$ have the same interval of convergence. In other words, $f'(x)$ converges on $(-R,R)$. </p>
+			<p>Similarly, since $f'(x) = \sum nc_n x^{n-1}$ converges for each $x \in (-R, R)$, then by Theorem 8.1, $f''(x) = \sum\limits_{n=2}^{\infty} n(n-1) c_n x^{n-2}$ and it converges on $(-R,R)$. </p>
 			<p>Therefore $f$ has derivatives of all orders in $(-R, R)$ and given by</p>
 			\begin{align}
 				f'(x) &= \sum\limits_{n=1}^{\infty} n c_n x^{n-1} (x \in (-R, R))\\
@@ -69,22 +70,22 @@ order: 1
 				f''(x) &= 2c_2 + 3.2 c_3 x + 4.3 c_4 x^2 + 5.4 c_5 x^3 + \dots \\
 				f'''(x) &= 3.2 c_3 + 4.3.2 c_4 x + 5.4.3 c_5 x^2 \\
 				&+ 6.5.4 c_6 x^3 + \dots\\
-				f^{(4)} &= 4.3.2.1 c_4 + 5.2.3.2 c_5 x +6.5.4.3 c_6 x^2\\
+				f^{(4)}(x) &= 4.3.2.1 c_4 + 5.2.3.2 c_5 x +6.5.4.3 c_6 x^2\\
 				&+ 7.6.5.4 c_7 x^3 + \dots \\
 			\end{align}
 			<p> Note that
 			$$\begin{align}
 				f'(x) &= \sum\limits_{n=1}^{\infty} n c_n x^{n-1} (x \in (-R, R))\\
 				f''(x) &= 2c_2 + 3.2 c_3 x + 4.3 c_4 x^2 + 5.4 c_5 x^3 + \dots \\
-				f^{(2)} &= \sum\limits_{n=2}^{\infty} n(n-1) c_n x^{n-2} \\
+				f^{(2)}(x) &= \sum\limits_{n=2}^{\infty} n(n-1) c_n x^{n-2} \\
 				f'''(x) &= 3.2 c_3 + 4.3.2 c_4 x + 5.4.3 c_5 x^2\\
 				&+ 6.5.4 c_6 x^3 + \dots\\
-				f^{(3)} &= \sum\limits_{n=3}^{\infty} n(n-1)(n-2) c_n x^{n-3} \\
-				f^{(4)} &= 4.3.2.1 c_4 + 5.2.3.2 c_5 x +6.5.4.3 c_6 x^2\\
+				f^{(3)}(x) &= \sum\limits_{n=3}^{\infty} n(n-1)(n-2) c_n x^{n-3} \\
+				f^{(4)}(x) &= 4.3.2.1 c_4 + 5.2.3.2 c_5 x +6.5.4.3 c_6 x^2\\
 				&+ 7.6.5.4 c_7 x^3 + \dots \\
-				f^{(4)} &= \sum\limits_{n=4}^{\infty} n(n-1)(n-2)(n-3) c_n x^{n-4} \\
+				f^{(4)}(x) &= \sum\limits_{n=4}^{\infty} n(n-1)(n-2)(n-3) c_n x^{n-4} \\
 				\text{In genreal, }\\ 
-				f^{(k)} &= \sum\limits_{n=k}^{\infty} n(n-1)\dots(n-k+1) c_n x^{n-k} \\
+				f^{(k)}(x) &= \sum\limits_{n=k}^{\infty} n(n-1)\dots(n-k+1) c_n x^{n-k} \\
 			\end{align}$$
 
 			<p>In particular, </p>

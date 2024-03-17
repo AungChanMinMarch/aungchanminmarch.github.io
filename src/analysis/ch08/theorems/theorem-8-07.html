@@ -21,7 +21,7 @@ order: 7
 			&\leq \abs{-C(y) + C(x)} \\
 			&\leq \abs{C(y)} + \abs{C(x)} \\
 			&= \sqrt{C^2(y)} + \sqrt{C^2(x)} \\
-			&\leq \sqrt{C^2(y) + S^(y)} + \sqrt{C^2(x) + S^2(x)} \\
+			&\leq \sqrt{C^2(y) + S^2(y)} + \sqrt{C^2(x) + S^2(x)} \\
 			&= \abs{E(iy)} + \abs{E(ix)} \\
 			&= 1 + 1 = 2\\
 			S(x) &< \frac{2}{y-x}
@@ -72,4 +72,59 @@ order: 7
 	</details>
 </summary>
 
+<summary class="theorem">
+	<p class="statement">If $z$ is a complex number with $\abs{z} = 1$, there is a unique $t$ in $[0, 2\pi)$ such that $E(it) =z$. </p>
+	<details class="proof">
+		<p>We need to prove existence and uniqueness of $t$ in $[0, 2\pi)$ such that $E(it) =z$.</p>
+
+		<p>First we shall prove its existence.</p>
+		<p>Put $z= x+ iy$, where $x$ and $y$ are real. Then $\abs{z} = \sqrt{x^2 + y^2}$.</p>
+
+		<p>First suppose $x \geq 0$ and $y>0$.</p> 
+		<p>On $[0, \frac{\pi}{2}]$, $C$ decreases from $1$ to $0$. Hence $C(t) =x$ for some $t \in [0, \frac{\pi}{2}]$. Since $C^2 + S^2 =1$ and $S \geq 0$ on $\frac{\pi}{2}]$, 
+			$$E(it) = C(t) + i S(t) = x + iy = z$$
+		</p>
+		<p>Therefore if $z=x+iy$ is a complex number with $\abs{z} = 1$, $x \geq 0$ and $y \geq 0$, there is a $t$ in $[0, \frac{\pi}{2}]$ such that $E(it) =z$. (a)</p>
+
+		<p>Now suppose $x < 0$ and $y \geq 0$.</p>
+		<p>Then $-iz = -i(x+iy) =y + i(-x)$ </p> 
+		<p>Since $x < 0$, we have $-x > 0$.</p>
+		<p>Hence $-iz=y+i(-x)$ is a complex number with $\abs{-iz} = \abs{z} = 1$, $-x \geq 0$ and $y \geq 0$. By statement (a), there is $t$ in $[0, \frac{\pi}{2}]$ such that $E(it) = -iz$.</p>
+		\begin{align}
+			E(it) &= -iz \\
+			iE(it) &= z \\
+			E(i\frac{\pi}{2})E(it) &= z \\
+			E(i\frac{\pi}{2} + it) &= z \\
+			E\bracket{i(\frac{\pi}{2} + t)} &= z \\
+		\end{align}
+		<p>$t \in [0, \frac{\pi}{2}]$ implies $t + \frac{\pi}{2} \in [\frac{\pi}{2}, \pi]$.</p>
+		<p>Therefore if $z=x+iy$ is a complex number with $\abs{z} = 1$, $x < 0$ and $y \geq 0$, there is $t$ in $[\frac{\pi}{2}, \pi]$ such that $E(it) =z$. (b)</p>
+
+		<p>By statements (a) and (b), we get the following new statements.</p>
+		<p>If $z=x+iy$ is a complex number with $\abs{z} = 1$ and $y \geq 0$, there is $t$ in $[0, \pi]$ such that $E(it) =z$. (c)</p>
+
+		<p>Finally suppose that $y < 0$.</p>
+		<p>Then $-z = -x + i(-y)$ is a $z=x+iy$ is a complex number with $\abs{-z} = \abs{z} = 1$ and $-y \geq 0$. </p>
+		<p>By statement (c), there is $t$ in $[0, \pi)$ such that $E(it) = -z$  </p>
+		\begin{align}
+			E(it) &= -z \\
+			(-1)E(it) &= z \\
+			E(i\pi)E(it) &= z \\
+			E(i \pi + it) &= z \\
+			E\bracket{i(\pi + t)} &= z \\
+		\end{align}
+		<p>$t \in [0, \frac{\pi}{2})$ implies $\pi + t \in [\pi, 2\pi)$.</p>
+		<p>Therefore if $z=x+iy$ is a complex number with $\abs{z} = 1$, $y < 0$, there is $t$ in $[\pi, 2\pi)$ such that $E(it) =z$. (d)</p>
+		<p>By statements (a) and (b), if $z=x+iy$ is a complex number with $\abs{z} = 1$, there is $t$ in $[0, 2\pi)$ such that $E(it) = z$. (c)</p>
+
+		<p>Now we shall prove its uniqueness.</p>
+		<p> If $0 \leq t_1 < f_2 < 2\pi$, then </p>
+		\begin{align}
+			\frac{E(it_1)}{E(it_2)} &= E(it_1 - it_2)\\
+			&= E(i (t_1 -t_2)) \\
+			& \neq 1\\
+			E(it_1) &\neq E(it_2)
+		\end{align}
+	</details>
+</summary>
 
