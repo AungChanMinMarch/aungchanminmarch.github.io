@@ -10,6 +10,11 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addShortcode("toc", analysisToc);
   // Return your Object options:
   eleventyConfig.addPassthroughCopy("assets/topology");
+  eleventyConfig.addPassthroughCopy("assets/img");
+
+  eleventyConfig.addCollection('topology', function(collectionApi) {
+    return collectionApi.getAllSorted().filter(item => item.inputPath.includes('/topology/'));
+  });
 
   return {
     dir: {
