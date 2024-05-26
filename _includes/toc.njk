@@ -1,0 +1,23 @@
+---
+layout: base.njk
+---
+{% if content %}
+<main data-state="loading">
+	<h1>{{title}}</h1>
+	{{ content | safe }}
+	<summary class="theorem">
+		<h3>Table of Content</h3> 
+		<details open>
+		<div class="ul-initial">
+			{{ collections.all | eleventyNavigation(key) | eleventyNavigationToHtml | safe }}
+		</div>
+		</details>
+	</summary>
+</main>
+{% else %}
+	<h1 class="center">{{title}}</h1>
+	<h3>Table of Content</h3>
+	<div class="ul-initial">
+		{{ collections.all | eleventyNavigation(key) | eleventyNavigationToHtml | safe }}
+	</div>
+{% endif %}

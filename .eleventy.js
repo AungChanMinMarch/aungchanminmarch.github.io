@@ -16,6 +16,21 @@ module.exports = function(eleventyConfig) {
     return collectionApi.getAllSorted().filter(item => item.inputPath.includes('/topology/'));
   });
 
+   // Create a collection of unique tags 
+  eleventyConfig.addCollection("tagsList", function(collectionApi) {
+    let tagSet = new Set();
+    collectionApi.getAll().forEach(item => {
+      if ("tags" in item.data) {
+        let tags = item.data.tags;
+        tags = tags.filter(tag => !["all", "nav", "post", "posts"].includes(tag));
+        for (const tag of tags) {
+          tagSet.add(tag);
+        }
+      }
+    });
+    return [...tagSet];
+  });
+
   return {
     dir: {
       input: "src",

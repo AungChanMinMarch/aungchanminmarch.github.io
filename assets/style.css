@@ -21,7 +21,7 @@ img.topology{
   width: 100%;
   height: auto;
 }
-body, html{
+main{
 	background:#fff;
 	color: #000;
 	font-size: 24px;
@@ -36,43 +36,6 @@ body, html{
 	transform-origin: top left;
 }
 
-/*Started Styling Nav*/
-nav{
-	background-color: #222;
-	color: #fff;
-	font-size: 1.2em;
-	font-weight: 700;
-	padding: 10px 0px;
-	display: flex;
-	justify-content: space-between;
-}
-nav > ul {
-	padding: 0;
-	margin: 0;
-	display: flex;
-	flex-wrap: wrap;
-	list-style: none;
-}
-
-nav a {
-	padding: 0px 5px;
-	margin: 5px 10px;
-	text-decoration: none;
-}
-.nav_anchors a{
-	color: inherit;
-	background-color: inherit;
-	border-left: 1px solid;
-}
-.nav_tools a{
-	background-color: #eee;
-	color: #222;
-}
-nav a:hover{
-	background: #000;
-	color: blue;
-}
-/*Started Styling Nav*/
 
 #history{
 	display: none;
@@ -152,15 +115,6 @@ body.show_history #history{
 	text-align: right;
 }
 
-[data-math="plot"]{
-	margin: auto;
-	background: #fff;
-}
-.center-box{
-	display: flex;
-	justify-content: center;
-}
-
 .definition{
 	margin: 15px 20px;
 	padding: 8px 15px;
@@ -202,13 +156,6 @@ body.show_history #history{
 	letter-spacing: 1px;
 /*	padding: 0px 10px;*/
 	text-decoration: underline;
-}
-p{
-	margin: 0.5em 0;
-}
-img{
-	height: 180px;
-	float: right;
 }
 .err{
 	background-color: #fff;

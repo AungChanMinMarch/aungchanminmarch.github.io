@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root
+{
+    --my-light: #efefef;
+    --my-dark: #1F1F1F;
+    --my-base-color: var(--my-light);
+    --my-theme-color: var(--my-dark);
+}
+
+.bg-base
+{
+    background: var(--my-base-color);
+}
+.color-theme
+{
+    color: var(--my-theme-color);
+}
+
+.container{
+	max-width: 1280px;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.ul-initial ul
+{
+    display: block;
+    list-style-type: disc;
+/*    margin-block-start: 1em;*/
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
