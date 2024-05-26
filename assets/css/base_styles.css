@@ -19,6 +19,37 @@
     color: var(--my-theme-color);
 }
 
+/* styles.css */
+
+/* Hide small screen navbar by default */
+.navbar-small {
+    display: none;
+}
+.navbar-large {
+    display: block;
+}
+/* Media query for small screens */
+@media (max-width: 768px) {
+    .navbar-small {
+        display: block;
+    }
+    .navbar-large {
+        display: none;
+    }
+}
+.navbar-small svg
+{
+    height: 1.5rem;
+}
+#side-bar
+{
+    width: 90vw;
+    padding: 50px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+}
+
 .container{
 	max-width: 1280px;
     width: 100%;

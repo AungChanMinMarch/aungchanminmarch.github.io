@@ -9,7 +9,7 @@
 </head>
 <body>
   <div id="root"></div>
-  <header class="w-full">
+  <div class="w-full navbar-large">
       <nav class="flex justify-between p-4 bg-white text-gray-800">
         <a 
           class="flex items-center hover:no-underline p-2" 
@@ -43,9 +43,109 @@
           </div>
         </div>
       </nav>
-    </header>
+    </div>
+
+    <div class="navbar-small">
+      <h1 class="flex justify-between p-4 bg-white text-gray-800">
+        <a 
+          class="flex items-center hover:no-underline p-2" 
+          href="/">
+          <img 
+            class="h-14 mr-2 rounded-full" 
+            src="/assets/img/profile.png" 
+            alt="Profile" />
+          <h1>Aung Chan Min</h1>
+        </a>
+      </h1>
+      <div class="fixed z-50 top-auto bottom-0 w-full md:w-2/3 md:left-1/2 p-4 transition-all duration-500 transform md:-translate-x-1/2 ">
+        <nav class="flex justify-evenly py-3 bg-base rounded-lg overflow-hidden" aria-label="quick access">
+          <a class="relative text-inverted text-center" title="Home" href="/">
+            {% inlineSVG "assets/img/home.svg" %}
+            <span class="text-xs">Home</span>
+          </a>
+          <a class="relative text-inverted text-center" title="About" href="/about">
+            {% inlineSVG "assets/img/about.svg" %}
+            <span class="text-xs">About</span>
+          </a>
+          <a class="relative text-inverted text-center" title="Projects" href="/courses">
+            {% inlineSVG "assets/img/courses.svg" %}
+            <span class="text-xs">Courses</span>
+          </a>
+          <button onclick="open_sidebar()" class="text-inverted text-center" id="navbar-button-menu">
+            {% inlineSVG "assets/img/menu.svg" %}
+            <span class="text-xs">Menu</span>
+          </button>
+        </nav>
+      </div>
+      <nav id="side-bar" class="hidden bg-base" aria-label="primary" style="z-index: 50;">
+        <div class="mb-8">
+          <div class="relative">
+            <button onclick="close_sidebar()" class="flex items-center text-inverted text-center px-1 py-2 my-2" id="menu-close">
+              {% inlineSVG "assets/img/close.svg" %}
+              <span class="text-sm ml-4">Close Menu</span>
+            </button>
+          </div>
+          <a 
+            class="flex items-center hover:no-underline p-2" 
+            href="/">
+            <img 
+              class="h-14 mr-2 rounded-full" 
+              src="/assets/img/profile.png" 
+              alt="Profile" />
+            <h1>Aung Chan Min</h1>
+          </a>
+        </div>
+        <ul class="list-none">
+          <li class="relative">
+            <span class="flex items-center">
+              {% inlineSVG "assets/img/home.svg" %}
+              <a class="block text-inverted font-semibold p-3" href="/">Home</a>
+            </span>
+          </li>
+          <li class="relative">
+            <span class="flex items-center">
+              {% inlineSVG "assets/img/about.svg" %}
+              <a class="block text-inverted font-semibold p-3" href="/about">About</a>
+            </span>
+          </li>
+          <li class="relative">
+            <span class="flex items-center">
+              {% inlineSVG "assets/img/projects.svg" %}
+              <a class="block text-inverted font-semibold p-3" href="/about">Projects</a>
+            </span>
+          </li>
+          <li class="relative">
+            <span class="flex items-center">
+              {% inlineSVG "assets/img/courses.svg" %}
+              <a class="block text-inverted font-semibold p-3" href="/about">Courses</a>
+            </span>
+          </li>
+          <li class="relative">
+            <span class="flex items-center">
+              {% inlineSVG "assets/img/blog.svg" %}
+              <a class="block text-inverted font-semibold p-3" href="/about">Blog</a>
+            </span>
+          </li>
+          <li class="relative">
+            <span class="flex items-center">
+              {% inlineSVG "assets/img/send.svg" %}
+              <a class="block text-inverted font-semibold p-3" href="/about">Contact Now</a>
+            </span>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+
+
     {{ content | safe }}
     <script type="text/javascript">
+      function close_sidebar() {
+        document.getElementById("side-bar").style.display = "none";
+      }
+      function open_sidebar() {
+        document.getElementById("side-bar").style.display = "block";
+      }
       document.getElementById("dark-light-toggler").onclick = function(e)
       {
         const root = document.documentElement;
