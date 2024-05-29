@@ -27,12 +27,12 @@ title: "My Blog"
           class="group hover:no-underline focus:no-underline" 
           href="{{ post.url }}">
           <div 
-            class="w-full h-64 rounded bg-base transform duration-200 group-hover:shadow-lg group-focus:shadow-lg group-hover:-translate-y-1 group-focus:-translate-y-1 " 
+            class="w-full h-64 rounded bg-secondary transform duration-200 group-hover:shadow-lg group-focus:shadow-lg group-hover:-translate-y-1 group-focus:-translate-y-1 " 
             style="display: block; overflow: hidden; position: relative;">
             {% if post.data.img %}
               <img class="w-full h-full object-cover hover:object-contain" src="{{ post.data.img }}" />
             {% else %}
-              <div class="w-full h-full bg-base color-theme flex justify-center items-center">
+              <div class="w-full h-full bg-secondary color-theme flex justify-center items-center">
                 <p class="h-fit text-4xl text-center">
                   {{ post.data.title }}
                 </p>
