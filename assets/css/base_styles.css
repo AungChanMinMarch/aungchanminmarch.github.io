@@ -106,7 +106,7 @@ body
         align-items: center;
     }
 }
-.side-bar svg
+#side-bar svg
 {
     width: 1.5rem;
     height: 1.5rem;
@@ -114,11 +114,29 @@ body
 #side-bar
 {
     width: 90vw;
-    max-width: 760px;
     padding: 50px;
+    height: 100vh;
+    max-width: 760px;
+    position: fixed;
+    top: 0;
+    left: 200vw;
+    z-index: 20;
+}
+#side-bar-overlay
+{
+    width: 100vw;
     height: 100vh;
     position: fixed;
     top: 0;
+    left: 200vw;
+    background: var(--my-secondary-color);
+    opacity: 0.7;
+    z-index: 19;
+}
+#side-bar-container.active #side-bar, 
+#side-bar-container.active #side-bar-overlay
+{
+    left: 0;
 }
 
 .container{
