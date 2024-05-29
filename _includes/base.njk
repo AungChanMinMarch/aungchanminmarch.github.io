@@ -9,7 +9,7 @@
 </head>
 <body>
   <div id="root"></div>
-  <div class="w-full navbar-large">
+  <div class="w-full navbar">
       <nav class="flex justify-between p-4 bg-white text-gray-800">
         <a 
           class="flex items-center hover:no-underline p-2" 
@@ -20,33 +20,44 @@
             alt="Profile" />
           <h1>Aung Chan Min</h1>
         </a>
-        <div class="flex items-center space-x-4">
-          <a class={navBtnTailwind} href="/about">
-            About
-          </a>
-          <a class={navBtnTailwind} href="/projects">
-            Projects
-          </a>
-          <a class={navBtnTailwind} href="/courses">
-            Courses
-          </a>
-          <a class={navBtnTailwind} href="/blog">
-            Blog
-          </a>
-          <button class={navBtnTailwind} id="dark-light-toggler">
-            L/D 
-          </button>
-          <div>
-            <input type="color" id="theme-color-picker" name="head" value="#fff"
-            class="rounded-full" />
-            <!-- <label for="theme-color-picker">Theme Color picker</label> -->
+
+        <div class="tools-bar-container">
+          <div class="tools-bar">
+            <a class="small-only nav-item" title="Home" href="/">
+              {% include "./components/home.svg" %}
+              <span class="text-xs">Home</span>
+            </a>
+            <a class="nav-item" title="About" href="/about">
+              {% include "./components/about.svg" %}
+              <span>About</span>
+            </a>
+            <a class="nav-item large-only" href="/projects">
+              Projects
+            </a>
+            <a class="nav-item large-only" href="/blog">
+              Blog
+            </a>
+            <a class="nav-item" title="Projects" href="/courses">
+              {% include "./components/courses.svg" %}
+              <span>Courses</span>
+            </a>
+            <button onclick="open_sidebar()" class="nav-item" id="navbar-button-menu">
+              {% include "./components/menu.svg" %}
+              <span>Menu</span>
+            </button>
           </div>
         </div>
       </nav>
     </div>
 
-    <div class="navbar-small">
-      <h1 class="flex justify-between p-4 bg-white text-gray-800">
+    <nav id="side-bar" class="side-bar hidden bg-base" aria-label="primary" style="z-index: 50;">
+      <div class="mb-8">
+        <div class="relative">
+          <button onclick="close_sidebar()" class="flex items-center text-inverted text-center px-1 py-2 my-2" id="menu-close">
+            {% include "./components/close.svg" %}
+            <span class="text-sm ml-4">Close Menu</span>
+          </button>
+        </div>
         <a 
           class="flex items-center hover:no-underline p-2" 
           href="/">
@@ -56,85 +67,57 @@
             alt="Profile" />
           <h1>Aung Chan Min</h1>
         </a>
-      </h1>
-      <div class="fixed z-50 top-auto bottom-0 w-full md:w-2/3 md:left-1/2 p-4 transition-all duration-500 transform md:-translate-x-1/2 ">
-        <nav class="flex justify-evenly py-3 bg-base rounded-lg overflow-hidden" aria-label="quick access">
-          <a class="relative text-inverted text-center" title="Home" href="/">
-            {% include "./components/home.svg" %}
-            <span class="text-xs">Home</span>
-          </a>
-          <a class="relative text-inverted text-center" title="About" href="/about">
-            {% include "./components/about.svg" %}
-            <span class="text-xs">About</span>
-          </a>
-          <a class="relative text-inverted text-center" title="Projects" href="/courses">
-            {% include "./components/courses.svg" %}
-            <span class="text-xs">Courses</span>
-          </a>
-          <button onclick="open_sidebar()" class="text-inverted text-center" id="navbar-button-menu">
-            {% include "./components/menu.svg" %}
-            <span class="text-xs">Menu</span>
-          </button>
-        </nav>
       </div>
-      <nav id="side-bar" class="hidden bg-base" aria-label="primary" style="z-index: 50;">
-        <div class="mb-8">
-          <div class="relative">
-            <button onclick="close_sidebar()" class="flex items-center text-inverted text-center px-1 py-2 my-2" id="menu-close">
-              {% include "./components/close.svg" %}
-              <span class="text-sm ml-4">Close Menu</span>
-            </button>
+      <ul class="list-none">
+        <li class="relative">
+          <span class="flex items-center">
+            {% include "./components/home.svg" %}
+            <a class="block text-inverted font-semibold p-3" href="/">Home</a>
+          </span>
+        </li>
+        <li class="relative">
+          <span class="flex items-center">
+            {% include "./components/about.svg" %}
+            <a class="block text-inverted font-semibold p-3" href="/about">About</a>
+          </span>
+        </li>
+        <li class="relative">
+          <span class="flex items-center">
+            {% include "./components/projects.svg" %}
+            <a class="block text-inverted font-semibold p-3" href="/about">Projects</a>
+          </span>
+        </li>
+        <li class="relative">
+          <span class="flex items-center">
+            {% include "./components/courses.svg" %}
+            <a class="block text-inverted font-semibold p-3" href="/about">Courses</a>
+          </span>
+        </li>
+        <li class="relative">
+          <span class="flex items-center">
+            {% include "./components/blog.svg" %}
+            <a class="block text-inverted font-semibold p-3" href="/about">Blog</a>
+          </span>
+        </li>
+        <li class="relative">
+          <span class="flex items-center">
+            {% include "./components/send.svg" %}
+            <a class="block text-inverted font-semibold p-3" href="/about">Contact Now</a>
+          </span>
+        </li>
+        <li>
+          <button class="block text-inverted font-semibold p-3" id="dark-light-toggler">
+            Light Mode / Dark Mode Toggler
+          </button>
+        </li>
+        <li>
+          <div class="block text-inverted font-semibold p-3">
+            <input type="color" id="theme-color-picker" name="head" value="#fff"  />
+            <label for="theme-color-picker">Theme Color picker</label>
           </div>
-          <a 
-            class="flex items-center hover:no-underline p-2" 
-            href="/">
-            <img 
-              class="h-14 mr-2 rounded-full" 
-              src="/assets/img/profile.png" 
-              alt="Profile" />
-            <h1>Aung Chan Min</h1>
-          </a>
-        </div>
-        <ul class="list-none">
-          <li class="relative">
-            <span class="flex items-center">
-              {% include "./components/home.svg" %}
-              <a class="block text-inverted font-semibold p-3" href="/">Home</a>
-            </span>
-          </li>
-          <li class="relative">
-            <span class="flex items-center">
-              {% include "./components/about.svg" %}
-              <a class="block text-inverted font-semibold p-3" href="/about">About</a>
-            </span>
-          </li>
-          <li class="relative">
-            <span class="flex items-center">
-              {% include "./components/projects.svg" %}
-              <a class="block text-inverted font-semibold p-3" href="/about">Projects</a>
-            </span>
-          </li>
-          <li class="relative">
-            <span class="flex items-center">
-              {% include "./components/courses.svg" %}
-              <a class="block text-inverted font-semibold p-3" href="/about">Courses</a>
-            </span>
-          </li>
-          <li class="relative">
-            <span class="flex items-center">
-              {% include "./components/blog.svg" %}
-              <a class="block text-inverted font-semibold p-3" href="/about">Blog</a>
-            </span>
-          </li>
-          <li class="relative">
-            <span class="flex items-center">
-              {% include "./components/send.svg" %}
-              <a class="block text-inverted font-semibold p-3" href="/about">Contact Now</a>
-            </span>
-          </li>
-        </ul>
-      </nav>
-    </div>
+        </li>
+      </ul>
+    </nav>
 
 
 
