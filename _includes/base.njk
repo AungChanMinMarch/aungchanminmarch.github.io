@@ -60,19 +60,19 @@
       <div class="fixed z-50 top-auto bottom-0 w-full md:w-2/3 md:left-1/2 p-4 transition-all duration-500 transform md:-translate-x-1/2 ">
         <nav class="flex justify-evenly py-3 bg-base rounded-lg overflow-hidden" aria-label="quick access">
           <a class="relative text-inverted text-center" title="Home" href="/">
-            {% inlineSVG "assets/img/home.svg" %}
+            {% include "./components/home.svg" %}
             <span class="text-xs">Home</span>
           </a>
           <a class="relative text-inverted text-center" title="About" href="/about">
-            {% inlineSVG "assets/img/about.svg" %}
+            {% include "./components/about.svg" %}
             <span class="text-xs">About</span>
           </a>
           <a class="relative text-inverted text-center" title="Projects" href="/courses">
-            {% inlineSVG "assets/img/courses.svg" %}
+            {% include "./components/courses.svg" %}
             <span class="text-xs">Courses</span>
           </a>
           <button onclick="open_sidebar()" class="text-inverted text-center" id="navbar-button-menu">
-            {% inlineSVG "assets/img/menu.svg" %}
+            {% include "./components/menu.svg" %}
             <span class="text-xs">Menu</span>
           </button>
         </nav>
@@ -81,7 +81,7 @@
         <div class="mb-8">
           <div class="relative">
             <button onclick="close_sidebar()" class="flex items-center text-inverted text-center px-1 py-2 my-2" id="menu-close">
-              {% inlineSVG "assets/img/close.svg" %}
+              {% include "./components/close.svg" %}
               <span class="text-sm ml-4">Close Menu</span>
             </button>
           </div>
@@ -98,37 +98,37 @@
         <ul class="list-none">
           <li class="relative">
             <span class="flex items-center">
-              {% inlineSVG "assets/img/home.svg" %}
+              {% include "./components/home.svg" %}
               <a class="block text-inverted font-semibold p-3" href="/">Home</a>
             </span>
           </li>
           <li class="relative">
             <span class="flex items-center">
-              {% inlineSVG "assets/img/about.svg" %}
+              {% include "./components/about.svg" %}
               <a class="block text-inverted font-semibold p-3" href="/about">About</a>
             </span>
           </li>
           <li class="relative">
             <span class="flex items-center">
-              {% inlineSVG "assets/img/projects.svg" %}
+              {% include "./components/projects.svg" %}
               <a class="block text-inverted font-semibold p-3" href="/about">Projects</a>
             </span>
           </li>
           <li class="relative">
             <span class="flex items-center">
-              {% inlineSVG "assets/img/courses.svg" %}
+              {% include "./components/courses.svg" %}
               <a class="block text-inverted font-semibold p-3" href="/about">Courses</a>
             </span>
           </li>
           <li class="relative">
             <span class="flex items-center">
-              {% inlineSVG "assets/img/blog.svg" %}
+              {% include "./components/blog.svg" %}
               <a class="block text-inverted font-semibold p-3" href="/about">Blog</a>
             </span>
           </li>
           <li class="relative">
             <span class="flex items-center">
-              {% inlineSVG "assets/img/send.svg" %}
+              {% include "./components/send.svg" %}
               <a class="block text-inverted font-semibold p-3" href="/about">Contact Now</a>
             </span>
           </li>
