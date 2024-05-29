@@ -10,20 +10,47 @@ layout: rudinAnalysisIndex.njk
 	Let $(X, \topologyTau)$ and $(Y, \TauStar)$ be topological spaces. A function $f$ from $X$ into $Y$ is continuous relative to $\topologyTau$ and $\TauStar$, or $\topologyTau$-$\TauStar$ continuous, or simply continuous, iff the inverse image $f^{-1}[H]$ of every $\TauStar$-open subset $H$ of $Y$ is a $\topologyTau$-open subset of X, that is, iff 
 	$$H \in \TauStar \text{ implies } f^{-1}[H] \in \topologyTau$$
 </div>
+
 <summary class="theorem">
-	<h2>CONTINUOUS FUNCTIONS AND ARBITRARY CLOSENESS</h2>
-	<details class="theorem">
-		Let $X$ be a topological space. A point $p \in X$ is said to be arbitrarily close to a set $A \subset X$ if either 
-			<ol>
-				<li>$p \in A$ or</li>
-				<li>$p$ is an accumulation point of $A$</li>
-			</ol>
-		Thus $p$ is arbitrarily close to $A$ if $p \in A \cup A’ = \closure{A} = \int{A} \cup \b{A}$
+	<h3>Eg 1.1</h3>
+	<div class="statement">
+		Consider the following topologies on $X = \{a,b,c,d\}$ and $Y = \{x,y,z, w\}$ respectively: <br />
+		$$\topologyTau = \{X, \emptyset, \{a\}, \{a,b\}, \{a,b,c\} \}$$
+		$$\topologyTau^* = \{ Y, \emptyset, \{x\}, \{y\}, \{x,y\}, \{y,z,w\} \}$$
+		Also consider the functions f:X->Y and g:X—>Y defined by the diagrams below:
+		<img src="/assets/topology/eg-1-1.png">
+		<p>Are $f$ and $g$ continuous?</p>
+	</div>
+	<details class="proof">
+		<p>Since $\topologyTau^* = \{ Y, \emptyset, \{x\}, \{y\}, \{x,y\}, \{y,z,w\} \}$,</p>
+		\begin{align*} 
+			Y &\in \topologyTau^* \implies & f^{-1}[Y] = \{a,b,c,d\} = X &\in \topologyTau \\
+			\emptyset &\in \topologyTau^* \implies & f^{-1}[\emptyset] = \emptyset &\in \topologyTau \\
+			\{x\} &\in \topologyTau^* \implies & f^{-1}[\{x\}] = \emptyset &\in \topologyTau \\
+			\{y\} &\in \topologyTau^* \implies & f^{-1}[\{y\}] = \{a\} &\in \topologyTau \\
+			\{x,y\} &\in \topologyTau^* \implies & f^{-1}[\{x,y\}] = \{a\} &\in \topologyTau \\
+			\{y,z,w\} &\in \topologyTau^* \implies & f^{-1}[\{y,z,w\}] = \{a,b,c,d\} = X &\in \topologyTau \\
+		\end{align*}
+
+		$$ \text{Hence } H \in \topologyTau^* \text{ implies } f^{-1}[H] \in \topologyTau$$
+		<p>Therefore $f$ is continuous.	</p>
+
+		\begin{align*} 
+			Y &\in \topologyTau^* \implies & g^{-1}[Y] = \{a,b,c,d\} = X &\in \topologyTau \\
+			\emptyset &\in \topologyTau^* \implies & f^{-1}[\emptyset] = \emptyset &\in \topologyTau \\
+			\{x\} &\in \topologyTau^* \implies & f^{-1}[\{x\}] = \{a,b\} &\in \topologyTau \\
+			\{y\} &\in \topologyTau^* \implies & f^{-1}[\{y\}] = \emptyset &\in \topologyTau \\
+			\{x,y\} &\in \topologyTau^* \implies & f^{-1}[\{x,y\}] = \{a, b\} &\in \topologyTau \\
+			\{y,z,w\} &\in \topologyTau^* \implies & f^{-1}[\{y,z,w\}] = \{c,d\} &\notin \topologyTau \\
+		\end{align*}
+
+		<p>Hence the function $g$ is not continuous since $\{y, z, w \} \in \topologyTau^*$  but $g^{-1}[\{y,z,w\}] = \{c,d\} \notin \topologyTau$.</p>
 	</details>
 </summary>
+
 <summary class="theorem">
 	<h3>Eg 1.2 + Ex 2</h3>
-	<details>
+	<details close>
 	<div class="statement"> 
 		<ol class="statement">
 			<li>Eg 1.2: Consider any discrete space $(X, \discrete)$ and any topological space $(Y,\topologyTau)$. Then prove that every function $f: X \to Y$ is $\discrete$-$\topologyTau$ continuous. </li>
@@ -47,4 +74,43 @@ layout: rudinAnalysisIndex.njk
 		</ol>
 	</div>
 </details>
+</summary>
+
+<summary class="theorem">
+	<h3>Proposition 7.1(Eg 1.3)</h3>
+	<div class="statement">
+		A function $f: X \to Y$ is continuous iff the inverse of each member of a base $\base$ for $Y$ is an open subset of $X$.
+	</div>
+	<details class="proof">
+		<p>Suppose $f$ is continuous.</p>
+		<p>Let $\base$ be a base for a topology $\TauStar$ on $Y$. </p>
+		<p>Then $\base$ is a class of open sets of $Y$, i.e. $\base \subset \TauStar$ </p>
+		<p>Hence if $B \in \base$, $B$ is an open set of $Y$. Since $f$ is continuous, $f^{-1}[B]$ is open.</p>
+		<p>Therefore $f^{-1}[B]$ is open for every set $B$ in $\base$.</p>
+
+		<hr />
+		<p>Now suppose the inverse of each member of a base $\base$ for $Y$ is an open subset of $X$.</p>
+		Let $H$ be an open subset of $Y$. <br />
+		Since $\base$ is a base for the topology on $Y$, $H$ is the union of members of base $\base$. <br />
+		\begin{align}
+			H&=\cup_{i} B_{i}, \text{ where } B_i \in \base \\
+			f^{-1}[H]
+			&=f^{-1}\left[\cup_{i} B_{i}\right] 
+			=\cup_{i} f^{-1}\left[B_{i}\right]
+		\end{align}
+		Since $f^{-1}[B]$ is an open subset of $X$ for each member $B \in \base$, each $f^{-1}\left[B_{i}\right]$ is open. <br />
+		Hence $f^{-1}[H]$ is the union of open sets and hence $f^{-1}[H]$ is open. Thus $f$ is continuous.
+	</details>
+</summary>
+
+<summary class="theorem">
+	<h2>CONTINUOUS FUNCTIONS AND ARBITRARY CLOSENESS</h2>
+	<details class="theorem">
+		Let $X$ be a topological space. A point $p \in X$ is said to be arbitrarily close to a set $A \subset X$ if either 
+			<ol>
+				<li>$p \in A$ or</li>
+				<li>$p$ is an accumulation point of $A$</li>
+			</ol>
+		Thus $p$ is arbitrarily close to $A$ if $p \in A \cup A’ = \closure{A} = \interior{A} \cup \b{A}$
+	</details>
 </summary>
