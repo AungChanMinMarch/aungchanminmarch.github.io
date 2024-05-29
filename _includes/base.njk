@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title }}</title>
   <link href="https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/assets/css/base_styles.css">
 </head>
 <body>
-  <div id="root"></div>
   <div class="w-full navbar">
-      <nav class="flex justify-between p-4 bg-white text-gray-800">
+      <nav class="flex justify-between p-4 bg-primary">
         <a 
-          class="flex items-center hover:no-underline p-2" 
+          class="flex items-center hover:no-underline p-2 color-theme" 
           href="/">
           <img 
             class="h-14 mr-2 rounded-full" 
@@ -50,7 +49,7 @@
       </nav>
     </div>
 
-    <nav id="side-bar" class="side-bar hidden bg-base" aria-label="primary" style="z-index: 50;">
+    <nav id="side-bar" class="side-bar hidden bg-primary color-theme" aria-label="primary" style="z-index: 50;">
       <div class="mb-8">
         <div class="relative">
           <button onclick="close_sidebar()" class="flex items-center text-inverted text-center px-1 py-2 my-2" id="menu-close">
@@ -106,14 +105,18 @@
           </span>
         </li>
         <li>
-          <button class="block text-inverted font-semibold p-3" id="dark-light-toggler">
-            Light Mode / Dark Mode Toggler
+          <button class="flex items-center" id="dark-light-toggler">
+            {% include "./components/switch.svg" %}
+            <span class="block font-semibold p-3">Light Mode / Dark Mode Toggler</span>
           </button>
         </li>
         <li>
-          <div class="block text-inverted font-semibold p-3">
-            <input type="color" id="theme-color-picker" name="head" value="#fff"  />
-            <label for="theme-color-picker">Theme Color picker</label>
+          <div>
+            <input type="color" id="theme-color-picker" class="hidden" name="head" value="#fff"  />
+            <label for="theme-color-picker" class="flex items-center">
+            {% include "./components/colorPicker.svg" %}
+              <span class="block font-semibold p-3">Theme Color picker</span> 
+            </label>
           </div>
         </li>
       </ul>
@@ -132,16 +135,7 @@
       document.getElementById("dark-light-toggler").onclick = function(e)
       {
         const root = document.documentElement;
-        const light = getComputedStyle(root).getPropertyValue('--my-light');
-        const dark = getComputedStyle(root).getPropertyValue('--my-dark');
-        const myBaseColor = getComputedStyle(root).getPropertyValue('--my-base-color');
-        let newColor = light;
-        if(myBaseColor === light){
-          newColor = dark;
-        }
-        root.style.setProperty('--my-base-color', newColor);
-        console.log("change mode")
-        console.log(dark)
+        root.classList.toggle('dark');
       }
 
       document.getElementById("theme-color-picker").onchange = function(e)
