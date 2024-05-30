@@ -37,6 +37,10 @@ module.exports = function(eleventyConfig) {
       input: "src",
       output: "_site",
       includes: '../_includes'
+    },
+    serverOptions: {
+      host: "0.0.0.0", // This binds the server to all interfaces
+      port: 8080 // Default port, you can change this if needed
     }
   }
 };

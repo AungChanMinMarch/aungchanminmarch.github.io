@@ -142,10 +142,10 @@ window.onload = function () {
   //     child.remove();
   //   });
   // } else {
-    const width = window.innerWidth;
+    const scale = document.documentElement.offsetWidth / 780;
     const main = document.querySelector('main');
-    main.style.setProperty("--width", "780px");
-    main.style.setProperty("--scale", width / 780);
+    main.style.width = "780px";
+    main.style.transform = `scale(${scale})`;
   // }
   loadMathJax();
 };
