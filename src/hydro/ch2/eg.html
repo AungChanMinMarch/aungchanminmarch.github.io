@@ -3,10 +3,12 @@
 		<div class="h1">Example (page 74)</div>
 At the point in an incompressible fluid having spherical polar coordinates $(r, \theta, \psi)$, the velocity components are $[ 2Mr^{-3}\cos \theta, Mr^{-3} \sin \theta, 0 ]$, where $M$ is a constant. Show that the velocity is of the potential kind. Find the velocity potential and the equations of the streamlines.</div>
 <div class="answer">
-	<p data-math="table" data-cols="rccccc">
+
+	\begin{array}{rccccc}
 		\text{Taking } ds= & dr \hat{r} &+& r d\theta \hat{\theta} &+& r \sin \theta d\psi \hat{\psi}\\
-		\q= & 2Mr^{-3}\cos \theta \hat{r} &+& Mr^{-2}\sin \theta \hat{\theta} &+& 0 \hat{\psi}\\
-	</p>
+		\q= & 2Mr^{-3}\cos \theta \hat{r} &+& Mr^{-2}\sin \theta \hat{\theta} &+& 0 \hat{\psi}
+	\end{array}
+
 	<p>We obtain</p>
 	$$\begin{align*}
 	\curl \q&= \dfrac{1}{r^2 \sin \theta} 
@@ -16,7 +18,7 @@ At the point in an incompressible fluid having spherical polar coordinates $(r, 
 	2Mr^{-3}\cos \theta & Mr^{-2}\sin \theta & 0
 	\end{vmatrix}\\
 
-	&= \frac{1}{r^2 \sin \theta} \bracket{
+	&= \frac{1}{r^2 \sin \theta} \small\bracket{
 		0 \hat{r} 
 		- 0 \hat{\theta}
 		+ \bracket{\partialwrt{r}(Mr^{-2}\sin \theta) - \partialwrt{\theta}(2Mr^{-3}\cos \theta)}\hat{\psi}
@@ -41,7 +43,8 @@ At the point in an incompressible fluid having spherical polar coordinates $(r, 
 		-\partialwrt[\varphi]{r} &= 2Mr^{-3}\cos \theta \\ 
 		\partial \varphi &= -2Mr^{-3}\cos \theta \partial r \\
 		%\text{Integrating both sides with respect to } r, \\
-		\varphi &= \frac{-2Mr^{-2}\cos \theta}{-2} + f(\theta) \mbox{, where $f(\theta)$ is arbitrary function} \\
+		\varphi &= \frac{-2Mr^{-2}\cos \theta}{-2} + f(\theta), \\
+		&\mbox{ where $f(\theta)$ is arbitrary function} \\
 		\varphi &= Mr^{-2}\cos \theta + f(\theta) \tag{1} \\
 		\partialwrt[\varphi]{\theta} &= - Mr^{-2}\sin \theta + f'(\theta) \\
 		-Mr^{-2}\sin \theta &= - Mr^{-2}\sin \theta + f'(\theta) \\
@@ -51,10 +54,10 @@ At the point in an incompressible fluid having spherical polar coordinates $(r, 
 	<p>Therefore Eq(1) gives $\varphi = Mr^{-2} \cos \theta$</p>
 
 	<p>The equations of the stramlines are given by</p>
-	<p data-math="table" data-cols="ccccc">
+	\begin{array}{ccccc}
 		\dfrac{dr}{2Mr^{-3}\cos \theta} &=& \dfrac{rd\theta}{Mr^{-3}\sin \theta} &=& \dfrac{r \sin \theta d \psi}{0} \\
 		\dfrac{dr}{2 \cos \theta} &=& \dfrac{rd\theta}{\sin \theta} &=& \dfrac{r \sin \theta d \psi}{0} \\
-	</p>
+	\end{array}
 
 	<p>$$\begin{align*}
 		d \psi &= 0 \\

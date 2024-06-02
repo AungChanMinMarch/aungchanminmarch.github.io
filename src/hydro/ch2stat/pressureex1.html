@@ -15,67 +15,74 @@ It is given that the volume of the liquta in AB-vol. in BO. the circumference
 		<div class="canvas"></div>
 		<style type="text/css">#svg{ width:100%; }</style>
 		<div id="svg"></div>
+		<div class="svgjs"></div>
 		<script type="text/javascript">
-function drawSVG(draw, DEFAULT) {
-	const centerX = 600 / 2;
-const centerY = 400  / 2;
-const radius = 150;
-const s1 = 30;
-const circle = draw.circle().radius(radius).cx(centerX).cy(centerY).fill('none');
-circle.drawArc(s1, s1 + 90).stroke({ width: 2, color: '#00FF00' });
-circle.drawArc(s1 + 90, s1 + 180).stroke({ width: 2, color: '#0000FF' });
-circle.drawArc(s1 + 180, s1).stroke({ width: 2, color: '#000000' });
-circle.label("O").font({ size: 24 });
+	if(!window.svgs) window.svgs = [];
+	window.svgs.push({
+		id: "#svg",
+		drawSVG: function (draw, DEFAULT) {
+			const centerX = 600 / 2;
+			const centerY = 400  / 2;
+			const radius = 150;
+			const s1 = 30;
+			const circle = draw.circle().radius(radius).cx(centerX).cy(centerY).fill('none');
 
-const D = circle.getPointOnArc(270);
-D.labelAbove("D");
-const M = circle.getPointOnArc(90);
-M.labelBottom("M");
-const vertical = draw.line(D.x, D.y, M.x, M.y).stroke(DEFAULT.stroke).dotted();
+			circle.drawArc(s1, s1 + 90, '#00FF00')
+			circle.drawArc(s1 + 90, s1 + 180, '#0000FF');
+			circle.drawArc(s1 + 180, s1, '#000000');
+			const O = draw.point(centerX, centerY).label("O", 5, 15);
 
-const A = circle.getPointOnArc(s1);
-A.labelRight("A");
-circle.drawRadiusFromPoint(A);
+			const D = circle.getPointOnArc(270);
+			D.label("D", -10 , 20);
+			const M = circle.getPointOnArc(90);
+			M.label("M");
+			const vertical = draw.line(D.X, D.Y, M.X, M.Y).stroke(DEFAULT.stroke).dotted();
 
-const Aprime = vertical.getProjectionFromAPoint(A);
-Aprime.labelLeft("A'");
-draw.line(Aprime.x, Aprime.y, A.x, A.y).stroke(DEFAULT.stroke).dotted();
+			const A = circle.getPointOnArc(s1);
+			A.label("A");
+			circle.drawRadiusFromPoint(A);
 
-const B = circle.getPointOnArc(s1 + 90);
-B.labelLeft('B');
-circle.drawRadiusFromPoint(B);
+			const Aprime = vertical.getProjectionFromAPoint(A);
+			Aprime.label("A'", -25, 5);
+			draw.line(Aprime.X, Aprime.Y, A.X, A.Y).stroke(DEFAULT.stroke).dotted();
 
-const Bprime = vertical.getProjectionFromAPoint(B);
-Bprime.labelRight("B'");
-draw.line(B.x, B.y, Bprime.x, Bprime.y).stroke(DEFAULT.stroke).dotted();
+			const B = circle.getPointOnArc(s1 + 90);
+			B.label('B', -10, -10);
+			circle.drawRadiusFromPoint(B);
 
-const C = circle.getPointOnArc(s1 + 180);
-C.labelLeft('C');
-circle.drawRadiusFromPoint(C);
+			const Bprime = vertical.getProjectionFromAPoint(B);
+			Bprime.label("B'", 0, 5);
+			draw.line(B.X, B.Y, Bprime.X, Bprime.Y).stroke(DEFAULT.stroke).dotted();
 
-const Cprime = vertical.getProjectionFromAPoint(C);
-Cprime.labelRight("C'");
-draw.line(C.x, C.y, Cprime.x, Cprime.y).stroke(DEFAULT.stroke).dotted();
-return {
-	A,B,C,D,M,Aprime, Bprime, Cprime
-}
-		
-}			
+			const C = circle.getPointOnArc(s1 + 180);
+			C.label('C', -20, 20);
+			circle.drawRadiusFromPoint(C);
+
+			const Cprime = vertical.getProjectionFromAPoint(C);
+			Cprime.label("C'", 0, 10);
+			draw.line(C.X, C.Y, Cprime.X, Cprime.Y).stroke(DEFAULT.stroke).dotted();
+			return {
+				A,B,C,D,M,Aprime, Bprime, Cprime
+			}	
+		}
+	})			
 </script>
+		<script type="text/javascript" src="/assets/svgjs.js"></script>
 
 		<p>Let $B$ be common surface</p>
 		<p>Let $AB$ and $BMC$ contain the liquid of density $\sigma$ and $\rho$ respectively.</p>
 		<p>Let $M$ be the lowest point of the tube. </p>
 		<p>Let $\angle BOM =\theta$.</p>
-		<div data-math="table" data-cols="rl"> 
+		\begin{align}
 			\mbox{Since the volumes are equal, Volume in } AB &= \mbox{Volume in } BC\\
 			\mbox{arc } AB &= \mbox{arc } BC
-		</div>
+		\end{align}
+		
 		<p>Since two fluids fill half the tube, $\angle AOB = \dfrac{\pi}{2}$ and $\angle BOC = \dfrac{\pi}{2}$. <br>
 		Hence $\angle MOC = \dfrac{\pi}{2} - \theta$</p>
 		<p>Let $a$ be the radius of the circular tube.</p>
 		<p>Since the pressure must be the same on both sides of $M$,</p>
-		<div data-math="table" data-cols="rl">
+		\begin{align}
 			\sigma g A'B' + \rho g B'M &= \rho g C'M\\
 			\sigma (a \sin \theta + a \cos \theta) + \rho (a - a \cos \theta) &= \rho (a -a \sin \theta) \\
 			\sigma (\sin \theta + \cos \theta) + \rho (1 - \cos \theta) &= \rho (1 - \sin \theta) \\
@@ -84,7 +91,7 @@ return {
 			\sigma \tan \theta + \sigma  - \rho &= - \rho \tan \theta \\
 			(\sigma + \rho) \tan \theta &= \rho - \sigma \\
 			\tan \theta &= \dfrac{\rho - \sigma}{\sigma + \rho}
-		</div>
+		\end{align}
 		<!-- <div data-math="plot">
 			<div data-math="plot"
 				data-disable-zoom="true"

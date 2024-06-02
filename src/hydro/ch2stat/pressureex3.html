@@ -4,7 +4,59 @@
 		<p>A closed tube in the form of an equilateral triangle contains equal volumes of three liquids which do not mix and is placed with its lowest side horizontal. Prove that if the densities of the liquids are in A.P., their surfaces of separation will be at points of trisection of the sides of the triangle.</p>
 	</div>
 	<div class="answer">
-		<img src="assets/ex3.jpeg">
+		<div id="svg"></div>
+		<script type="text/javascript" src="/assets/svgjs.js"></script>
+<script type="text/javascript">
+if(!window.svgs) window.svgs = []
+window.svgs.push({
+	id: "#svg",
+	width: 600,
+	height: 400,
+	drawSVG: function(draw, DEFAULT){
+		const side = 400;
+		const vertice = {
+			X: 300,
+			Y: 25
+		}
+		const A = draw.point(vertice.X, vertice.Y);
+		A.label("A", -5, -10);
+
+		const height = side * Math.sin(Math.PI / 3);
+		const Aprime = draw.point(A.X, A.Y + height).label("A'", -10, 20);
+		const AAprime = draw.line(A.X, A.Y, Aprime.X, Aprime.Y).stroke(DEFAULT.stroke).dotted();
+
+
+		const B = draw.point(A.X - (side / 2), Aprime.Y );
+		B.label("B", -10, 0);
+		const C = draw.point(A.X + (side / 2), Aprime.Y );
+		C.label("C", 10, 0);
+
+		const BC = draw.line(B.X, B.Y, C.X, C.Y);
+		const D = BC.getPoint(2/3).label("D", 0, 20);
+
+		const AB = draw.line(A.X, A.Y, B.X, B.Y);
+		const E = AB.getPoint(2/3).label("E", -15, 0);
+
+		const AC = draw.line(A.X, A.Y, C.X, C.Y);
+		const F = AC.getPoint(1/3).label("F", 10, 0);
+
+		draw.myLine(A, E, "red");
+		draw.myLine(E, B, "blue");
+		draw.myLine(B, D, "blue");
+		draw.myLine(D, C, "green");
+		draw.myLine(C, F, "green");
+		draw.myLine(F, A, "red");
+
+		const Fprime = AAprime.getProjectionFromAPoint(F);
+		Fprime.label("F'", -20, 0);
+		draw.myLine(F,Fprime).dotted();
+
+		const Eprime = AAprime.getProjectionFromAPoint(E);
+		Eprime.label("E'", 0, 5);
+		draw.myLine(E,Eprime).dotted();
+	}
+})
+</script>
 		<p>Suppose $ABC$ is a triangular tube with each side length $a$.</p>
 		<p>Let $D, E, F$ be common surfaces.</p>
 		<p>Since the three liquids have equal volumes, $AF=BE=CD$. Let $AF=BE=CD=x$ </p>
@@ -15,7 +67,7 @@
 			\mbox{Pressure at $B$} &= \mbox{Pressure at $C$} \\ 
 			(\rho - d)gAE' + (\rho + d)gE'A' &= (\rho - d) gAF' + \rho gF'A' \\
 			(\rho - d)AE' + (\rho + d)E'A' &= (\rho - d) AF' + \rho F'A' \\
-			(\rho - d)(a-x)\sin 60 + (\rho + d)x \sin 60 &= (\rho - d)x \sin 60 + \rho (a-x) \sin 60 \\
+			\small{(\rho - d)(a-x)\sin 60 + (\rho + d)x \sin 60} &= \small{(\rho - d)x \sin 60 + \rho (a-x) \sin 60} \\
 			(\rho - d)(a-x) + (\rho + d)x &= (\rho - d)x + \rho (a-x) \\
 			\rho(a-x) - d(a-x) + (\rho + d)x &= (\rho - d)x + \rho (a-x) \\
 			- d(a-x) + (\rho + d)x &= (\rho - d)x \\

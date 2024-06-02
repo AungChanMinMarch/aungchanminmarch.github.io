@@ -65,3 +65,9 @@ layout: base.njk
     {{ content | safe }}
 </main>
 <script type="text/javascript" src="/assets/index.js"></script>
+
+{% if includes %}
+  {% for jsFileName in includes %}
+    <script type="text/javascript" src="/assets/{{ jsFileName }}.js"></script>
+  {% endfor %}
+{% endif %}

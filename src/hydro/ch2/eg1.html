@@ -20,11 +20,11 @@
 	</p>
 
 	<p>The equations of the streamlines are given by</p>
-		<p data-math="table" data-cols="ccccc">
+		\begin{array}{ccccc}
 			\frac{\d dx}{\d u} &=& \dfrac{dy}{v} &=& \dfrac{dz}{w} \\
 			\frac{\d dx}{\displaystyle \dfrac{-k^2 y}{x^2+y^2}} &=& \dfrac{dy}{\dfrac{k^2 x}{x^2+y^2}} &=& \dfrac{dz}{0} \\
 			\dfrac{dx}{-y} &=& \dfrac{dy}{x} &=& \dfrac{dz}{0} \\
-		</p>
+		\end{array}
 		<p>$$\begin{align*}
 			dz &= 0 \\
 			z &= \text{constant}\\
@@ -47,13 +47,17 @@
 }\\
 
 \\
-	&= \bracket{0-\partialwrt{z}\frac{k^2 x}{x^2+y^2}} \hat{i} 
+	&= \scriptsize{
+		\bracket{0-\partialwrt{z}\frac{k^2 x}{x^2+y^2}} \hat{i} 
 		- \bracket{0-\partialwrt{z}\frac{-k^2 y}{x^2+y^2}} \hat{j}
-		+ \bracket{\partialwrt{x}\frac{k^2 x}{x^2+y^2} + \partialwrt{y}\frac{k^2 y}{x^2+y^2}} \hat{k}\\
-	&= 0 \hat{i} + 0 \hat{j} + \bracket{
-		\frac{(x^2+y^2)k^2 - k^2x(2x)}{(x^2+y^2)^2} + 
-		\frac{(x^2+y^2)k^2 - k^2y(2y)}{(x^2+y^2)^2}
-	}\hat{k}\\
+		+ \bracket{\partialwrt{x}\frac{k^2 x}{x^2+y^2} + \partialwrt{y}\frac{k^2 y}{x^2+y^2}} \hat{k}
+	}\\
+	&= \small{
+		0 \hat{i} + 0 \hat{j} + \bracket{
+			\frac{(x^2+y^2)k^2 - k^2x(2x)}{(x^2+y^2)^2} + 
+			\frac{(x^2+y^2)k^2 - k^2y(2y)}{(x^2+y^2)^2}
+		}\hat{k}\\
+	}
 	&= 0 \hat{i} + 0 \hat{j} + 
 		\frac{2(x^2+y^2)k^2 - 2k^2(x^2+y^2)}{(x^2+y^2)^2} \hat{k}\\
 	&= 0 \hat{i} + 0 \hat{j} + 0 \hat{k}\\

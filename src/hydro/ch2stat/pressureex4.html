@@ -5,7 +5,76 @@
 		$$r_1(\rho_1-\rho_2) + r_2 (\rho_2 - \rho_3) + \dots + r_n(\rho_n - \rho_1) = 0$$</p>
 	</div>
 	<div class="answer">
-		<img src="assets/ex4.jpeg">
+		<div id="svg"></div>
+		<script type="text/javascript" src="/assets/svgjs.js"></script>
+<script type="text/javascript">
+if(!window.svgs) window.svgs = [];
+window.svgs.push({
+	id: "#svg",
+	width: 400,
+	height: 600,
+	drawSVG: function(draw, DEFAULT){
+		const translateX = this.width / 2;
+		const translateY = this.height / 2;
+
+        const a = 100;
+        const b = 150;
+        const c = Math.sqrt(b * b - a * a);
+        // Calculate distance to directrices
+        const d = (b * b) / c;
+        const directrix1 = translateY - d;
+        const directrix2 = translateY + d;
+
+        const getYOnEllipse = (x)=> Math.sqrt(b*b*(1 - (x*x)/(a*a)));
+        const focus1 = draw.point(translateX, translateY - c);
+        focus1.label("F", -10, 0);
+        draw.circle().radius(1).cx(focus1.X).cy(focus1.Y).fill("black");
+        const focus2 = draw.point(translateX, translateY + c);
+        focus2.label("F", -10, 0);
+        draw.circle().radius(1).cx(focus2.X).cy(focus2.Y).fill("black");
+
+        [{
+        	x:0,
+        	y: getYOnEllipse(0),
+        	label: "P0",
+		},{ 
+			x: 20,
+			y: getYOnEllipse(20),
+			label: "P_1"
+		}, {
+			x: 40,
+			y: getYOnEllipse(40)
+		},{
+			x: 65,
+			y: getYOnEllipse(65)
+		},{
+			x: 90,
+			y: getYOnEllipse(90)
+		}].forEach((obj, i)=>{
+        	const pointOnEllipse = draw.point(
+        		translateX + obj.x,
+        		translateY - obj.y
+        	);
+        	const pointOnDirectrix = draw.point(translateX + obj.x, directrix1);
+
+        	pointOnEllipse.label(`P${i}`, -10, 10).font({size: 12, color: `#5${i}${i}`});
+        	const labelR = draw.myLine(focus1, pointOnEllipse, `#5${i}${i}`).dotted("1,1").getPoint(0.5).label(`r${i}`, -10, 0);
+        	labelR.font({size: 10}).move(translateX + obj.x / 2, this.Y);
+        	const labelZ = draw.myLine(pointOnDirectrix, pointOnEllipse, `#5${i}${i}`).getPoint(0.5).label(`z${i}`, -10, 0)
+        	labelZ.font({size: 10});
+
+        });
+
+        const ellipse = draw.ellipse(a * 2, b * 2).move(translateX -a, translateY -b);
+        ellipse.fill('none').stroke({ width: 2, color: '#000' });
+
+        // Draw the directrices
+        draw.line(0, directrix1, 400, directrix1).stroke({ width: 1, color: '#f00' });
+        draw.line(0, directrix2, 400, directrix2).stroke({ width: 1, color: '#f00' });
+    
+	}
+})
+</script>
 		<p>Let $S$ be the focus and $ZZ'$ be the directrix of the elliptic tube. </p>
 		<p>Let $P_1, P_2, \dots, P_n$ be the common surfaces. </p>
 		<p>Then we get $SP_1 = r_1$, $SP_2 =r_2, \dots, SP_n = r_n$.</p>
@@ -19,16 +88,22 @@
 		<p>The pressure at $P_2$ is $p_2 = \rho_1 g (z_1 -z_0) + \rho_2 g (z_2 -z_1)$.</p>
 		$$\begin{align*}
 			\mbox{Hence } p_2 - p_1 &= \rho_2 g (z_2 -z_1) \\
-			\mbox{Similarly } p_3 - p_2 &= \rho_3 g (z_3 -z_2) \\
+			\small\mbox{Similarly } p_3 - p_2 &= \rho_3 g (z_3 -z_2) \\
 			\cdots & \cdots \\
 			p_n - p_{n-1} &= \rho_n g (z_n -z_{n-1}) \\
 			p_1 - p_{n} &= \rho_1 g (z_1 -z_n) \\
-			\mbox{Adding, } 0 &= g\sbracket{
-				\rho_2 (z_2 -z_1) + \rho_3 (z_3 -z_2) + \dots + \rho_n(z_n -z_{n-1}) + \rho_1 g (z_1 -z_n)
-			} \\
-			0 &= \rho_2 (z_2 -z_1) + \rho_3 (z_3 -z_2) + \dots + \rho_n(z_n -z_{n-1}) + \rho_1 g (z_1 -z_n) \\
-			0 &= \rho_2 (kr_2 -kr_1) + \rho_3 (kr_3 - kr_2) + \dots + \rho_n(kr_n - kr_{n-1}) + \rho_1 g (kr_1 - kr_n) \\
-			0 &= \rho_2 (r_2 -r_1) + \rho_3 (r_3 - r_2) + \dots + \rho_n(r_n - r_{n-1}) + \rho_1 g (r_1 - r_n) \\
+			\mbox{Adding, } 0 &= \begin{array}{l} g[
+				\rho_2 (z_2 -z_1) + \rho_3 (z_3 -z_2) + \dots \\ + \rho_n(z_n -z_{n-1}) + \rho_1 (z_1 -z_n) ]
+			\end{array}\\
+			0 &= \begin{array}{l} 
+				\rho_2 (z_2 -z_1) + \rho_3 (z_3 -z_2) + \dots \\
+				+ \rho_n(z_n -z_{n-1}) + \rho_1 (z_1 -z_n)
+			\end{array} \\
+			0 &= \begin{array}{l} 
+				\rho_2 (kr_2 -kr_1) + \rho_3 (kr_3 - kr_2) + \dots \\
+				+ \rho_n(kr_n - kr_{n-1}) + \rho_1 g (kr_1 - kr_n) 
+			\end{array}\\
+			0 &= \small{\rho_2 (r_2 -r_1) + \rho_3 (r_3 - r_2) + \dots + \rho_n(r_n - r_{n-1}) + \rho_1 g (r_1 - r_n)} \\
 			0 &= r_1(\rho_1-\rho_2) + r_2 (\rho_2 - \rho_3) + \dots + r_n(\rho_n - \rho_1)
 		\end{align*}$$
 	</div>

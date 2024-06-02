@@ -5,7 +5,58 @@
 		<p>(M.T. 1861; Calcutta 1916; Patna 1927; Rangoon 1937; Utkal 1948)</p>
 	</div>
 	<div class="answer">
-		<img src="assets/ex2.jpeg">
+<script type="text/javascript" src="/assets/svgjs.js"></script>
+		<div id="svg"></div>
+<script type="text/javascript">
+if(!window.svgs) window.svgs = [];
+window.svgs.push({
+	id: "#svg",
+	width: 600,
+	height: 400,
+	drawSVG: function (draw, DEFAULT) {
+		const centerX = 600 / 2;
+		const centerY = 50;
+		const radius = 250;
+		const circle = draw.circle().radius(radius).cx(centerX).cy(centerY).fill('none');
+
+		const s1 = 180;
+		const s2 = 0;
+
+		const O = draw.point(centerX, centerY).label("O").font({ size: 24 });
+		circle.drawDiameter(0);
+
+		const A = circle.getPointOnArc(270).label("A", 0, 10);
+		const C = circle.getPointOnArc(s2).label("C", 0, -10);
+		const B = circle.getPointOnArc(s1).label("B", 0, -10);
+
+		const OA = circle.drawRadiusFromPoint(A);
+
+		const angleBOQ = 23;
+		circle.drawArc(180, 180 + angleBOQ, "red");
+
+		const Q = circle.getPointOnArc(180 + angleBOQ);
+		Q.label("Q", -10, 10);
+		const Qprime = OA.getProjectionFromAPoint(Q);
+		Qprime.label("Q'");
+
+		const OQprime = Math.sqrt(
+			Math.pow(centerX - Qprime.X, 2) + 
+			Math.pow(centerY - Qprime.Y, 2)
+		);
+		const angleCOP = Math.asin(OQprime * 2 / radius) * 180 / Math.PI;
+		circle.drawArc(180 + angleBOQ, 360 - angleCOP, "blue");
+		circle.drawArc(360 - angleCOP, 360, "green");
+
+		const P = circle.getPointOnArc(360 - angleCOP);
+		P.label("P");
+		const Pprime = OA.getProjectionFromAPoint(P);
+		Pprime.label("P'");
+
+		draw.line(Qprime.X, Qprime.Y, Q.X, Q.Y).stroke(DEFAULT.stroke).dotted();
+		draw.line(Pprime.X, Pprime.Y, P.X, P.Y).stroke(DEFAULT.stroke).dotted();
+	}
+})			
+</script>
 		Let $P$ and $Q$ be the common surfaces of the liquids.
 		<p>Let the densities of liquids be $\rho-d, \rho, \rho+d$.</p>
 		<p>Let $BQ$, $QP$ and $CP$ contain the liquid of density $\rho - d$, $\rho +d$ and $\rho$ respectively.</p>
@@ -15,7 +66,7 @@
 			(\rho - d)gOQ' + (\rho + d)gQ'A &= \rho g OP' + (\rho + d)gP'A \\
 			(\rho - d)OQ' + (\rho + d)Q'A &= \rho OP' + (\rho + d)P'A \\
 			(\rho - d)OQ' + (\rho + d)(OA - OQ') &= \rho OP' + (\rho + d)(OA-OP') \\
-			(\rho - d)OQ' + (\rho + d)OA - (\rho +d) OQ' &= \rho OP' + (\rho + d)OA-(\rho +d)OP' \\
+			\small{(\rho - d)OQ' + (\rho + d)OA - (\rho +d) OQ'} &= \small{\rho OP' + (\rho + d)OA-(\rho +d)OP'} \\
 			(\rho - d)OQ' - (\rho +d) OQ' &= \rho OP' -(\rho +d)OP' \\
 			\rho OQ' - d OQ' - \rho OQ' - d OQ' &= \rho OP' - \rho OP' - dOP' \\
 			-2 d OQ' &= - dOP' \\

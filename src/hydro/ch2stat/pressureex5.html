@@ -1,3 +1,7 @@
+---
+includes:
+	- svgjs
+---
 <div class="example">
 	<div class="question">
 		<div class="h1">Ex5 Page</div>
@@ -6,7 +10,84 @@
 		<!-- <p>(Vikram 1959: Jaipur 1951; Lucknow 1929 Agra 1930; Calcutta 1948; Nagpur 1957; Allahabad 1959; Sangar 1939)</p> -->
 	</div>
 	<div class="answer">
-		<img src="assets/ex5.jpeg">
+		<div id="svg"></div>
+		<script type="text/javascript">
+if(!window.svgs) window.svgs = [];
+window.svgs.push({
+	id: "#svg",
+	width: 600,
+	height: 600,
+	drawSVG: function(draw, DEFAULT){
+
+// Define the range and scale for the plot
+const width = this.width;
+const height = this.height;
+const xRange = 20; // Range for x-axis from -2.5 to 2.5
+const yRange = 20; // Range for y-axis from -2.5 to 2.5
+
+// Function to convert graph coordinates to SVG coordinates
+function toSVGCoords(x, y) {
+    const svgX = (x + xRange / 2) * (width / xRange);
+    const svgY = (yRange / 2 - y) * (height / yRange);
+    return [svgX, svgY];
+}
+
+// Generate points for y = x^2
+const points = [];
+for (let x = -xRange / 2; x <= xRange / 2; x += 0.01) {
+    const y = 0.25 * x * x;
+    points.push(toSVGCoords(x, y));
+}
+
+// Draw the curve
+const pathString = points.map((point, index) => {
+    return (index === 0 ? 'M' : 'L') + point.join(',');
+}).join(' ');
+
+draw.path(pathString).fill('none').stroke({ color: 'red', width: 2 });
+
+// Draw axes
+const [x0, y0] = toSVGCoords(0, 0);
+draw.line(0, y0, width, y0).stroke({ color: 'black', width: 1 }); // x-axis
+const Yaxix = draw.line(x0, 0, x0, height).stroke({ color: 'black', width: 1 }); // y-axis
+
+const [dsx, dsy] = toSVGCoords(-xRange /2, -1);
+const startOfDirectrix = draw.point(dsx, dsy).label("Z", 5);
+const [dex, dey] = toSVGCoords(xRange /2, -1);
+const endOfDirectrix = draw.point(dex, dey).label("Z'", -20, 0);
+const directrix = draw.myLine(startOfDirectrix, endOfDirectrix);
+const [fx, fy] = toSVGCoords(0, 1);
+const focus = draw.point(fx, fy).label("S", -10, 10).font({size: 16});
+
+const [mx, my] = toSVGCoords(0, 0);
+const M = draw.point(mx, my).label("M", -10, 10).font({size: 16});
+const [sx, sy] = toSVGCoords(0, -1);
+const Sprime = draw.point(sx, sy).label("S'", -10, 10).font({size: 16});
+const [Ax,Ay] = toSVGCoords(6, 9); //y = 0.25 x^2
+
+const A = draw.point(Ax, Ay).label("A");
+const Aprime = Yaxix.getProjectionFromAPoint(A).label("A'");
+draw.myLine(A, Aprime).dotted();
+draw.myLine(A, focus).labelAtCenter('r', 0, -10);
+draw.myLine(A, directrix.getProjectionFromAPoint(A)).dotted().labelAtCenter('r', 0, -10);
+
+const [Bx, By] = toSVGCoords(-5, 6.25); //y = 0.25 x^2
+const B = draw.point(Bx, By).label("B");
+const Bprime = Yaxix.getProjectionFromAPoint(B).label("B'");
+draw.myLine(B, Bprime).dotted();
+draw.myLine(B, focus).labelAtCenter("r'", 0, -10)
+draw.myLine(B, directrix.getProjectionFromAPoint(B)).dotted().labelAtCenter("r'", 0, -10);
+
+const [Cx, Cy] = toSVGCoords(4, 4); //y = 0.25 x^2
+const C = draw.point(Cx, Cy).label("C");
+const Cprime = Yaxix.getProjectionFromAPoint(C).label("C'");
+draw.myLine(C, Cprime).dotted();
+draw.myLine(C, focus)
+draw.myLine(C, directrix.getProjectionFromAPoint(C)).dotted();
+	}
+})
+
+		</script>
 		<p>Let $S$ be the focus and $ZZ'$ be the directrix of the parabola. </p>
 		<p>Let $2x$ be the distance of directrix from the focus. Then $SS' = 2x$</p>
 		<p>Let $M$ be the lowest point of the parabola. Then $SM=S'M=x$</p>
