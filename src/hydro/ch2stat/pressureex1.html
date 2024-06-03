@@ -20,10 +20,12 @@ It is given that the volume of the liquta in AB-vol. in BO. the circumference
 	if(!window.svgs) window.svgs = [];
 	window.svgs.push({
 		id: "#svg",
+		width: 600,
+		height: 600,
 		drawSVG: function (draw, DEFAULT) {
-			const centerX = 600 / 2;
-			const centerY = 400  / 2;
-			const radius = 150;
+			const centerX = this.width / 2;
+			const centerY = this.height  / 2;
+			const radius = this.width * 0.4;
 			const s1 = 30;
 			const circle = draw.circle().radius(radius).cx(centerX).cy(centerY).fill('none');
 

@@ -22,8 +22,8 @@ img.topology{
   height: auto;
 }
 main{
-	background:#fff;
-	color: #000;
+	background: var(--primary-color);
+	color: var(--my-current-color);
 	font-size: 24px;
 	font-family: serif;
 	margin: 0;
@@ -167,21 +167,25 @@ body.show_history #history{
 
 /* Styling the scrollbar thumb (the draggable part) */
 ::-webkit-scrollbar-thumb {
-  background: #888; /* Change the color of the thumb */
+  background: var(--my-theme-color); /* Change the color of the thumb */
   border-radius: 5px; /* Add rounded corners to the thumb */
 }
 
 /* Styling the scrollbar track on hover */
 ::-webkit-scrollbar-track:hover {
-  background: #ddd; /* Change the background color on hover */
+  background: var(--my-current-color); /* Change the background color on hover */
 }
 
 /* Styling the scrollbar thumb on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Change the thumb color on hover */
+  background: var(--my-theme-color); /* Change the thumb color on hover */
 }
 
 /* Styling the scrollbar corner (between the vertical and horizontal scrollbar) */
 ::-webkit-scrollbar-corner {
-  background: #ccc; /* Change the corner's color */
+  background: var(--my-current-color); /* Change the corner's color */
+}
+main svg
+{
+	margin: auto;
 }

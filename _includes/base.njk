@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -113,7 +113,7 @@
         </li>
         <li>
           <div>
-            <input type="color" id="theme-color-picker" class="hidden" name="head" value="#fff"  />
+            <input type="color" id="theme-color-picker" class="hidden" name="head"/>
             <label for="theme-color-picker" class="flex items-center">
             {% include "./components/colorPicker.svg" %}
               <span class="block font-semibold p-3">Theme Color picker</span> 
@@ -134,18 +134,37 @@
       function open_sidebar() {
         document.getElementById("side-bar-container").classList.add("active");
       }
+      const themeColor = "#123234";
+      const isDarkMode = "isDarkMode";
       document.getElementById("dark-light-toggler").onclick = function(e)
       {
         const root = document.documentElement;
-        root.classList.toggle('dark');
+        if(root.classList.contains('dark')){
+          root.classList.remove("dark");
+          localStorage.setItem(isDarkMode, false); 
+        }else{
+          root.classList.add("dark");
+          localStorage.setItem(isDarkMode, true); 
+        }
       }
 
       document.getElementById("theme-color-picker").onchange = function(e)
       {
         const selectedColor = e.target.value;
         document.documentElement.style.setProperty('--my-theme-color', selectedColor);
-        console.log(selectedColor)      
+        localStorage.setItem(themeColor, selectedColor);   
       }
+      window.addEventListener("load", ()=>{
+        const isDark = JSON.parse(localStorage.getItem(isDarkMode));
+        const selectedColor = localStorage.getItem(themeColor);
+        if(!!isDark){
+          document.documentElement.classList.add("dark");
+        }else{
+          document.documentElement.classList.remove("dark");
+        }
+        document.documentElement.style.setProperty('--my-theme-color', selectedColor);
+
+      })
     </script>
 </body>
 </html>
