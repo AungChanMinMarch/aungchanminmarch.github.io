@@ -1,0 +1,43 @@
+---
+title: "Lemma 3.1"
+---
+<div class="theorem">
+	<div class="statement">
+		<h1>{{ title }}</h1>
+		If $\phi$ is a solution of the initial value problem 
+		$$y' = f(t,y), \phi (t_0) = y_0$$
+		on an interval $I$, then $\phi$ satisfies 
+		$$y(t) = y_{0} + \int_{t_0}^{t} f(s, y(s)) ds \tag{a}$$ on $I$. Conversely, if $y(t)$ is a solution of $y(t) = y_{0} + \int_{t_0}^{t} f(s, y(s)) ds$ on some interval $J$ containing $t_{0}$ then $y(t)$ satisfies $y' = f(t, y)$ on $J$ and also the initial condition $\phi(t_0) = y_0$.
+	</div>
+	<div class="proof">
+		<p>Suppose $\phi$ is a solution of the problem 
+		$y' = f(t,y)$ on $I$ satisfying the initial condition $\phi (t_0) = y_0$.</p>
+		<p>$\phi' (t) = f(t, \phi(t))$ for any $t \in I$.</p>
+		<p>Integrating from $t_{0}$ to any $t$ on $I$, we obtain 
+			\begin{align}
+			\phi(t) - \phi(t_{0}) &= \int_{t_0}^{t} f(s, \phi(s)) ds \\
+			\phi(t) &= \phi(t_{0}) + \int_{t_0}^{t} f(s, \phi(s)) ds \\
+			\phi(t) &= y_0 + \int_{t_0}^{t} f(s, \phi(s)) ds
+			\end{align}
+		</p>
+		<p>Thus $\phi$ satisfies 
+		$$y(t) = y_{0} + \int_{t_0}^{t} f(s, y(s)) ds$$ on $I$.</p>
+
+		<p>Conversely, suppose $y(t)$ is a <b>continuous</b> solution of $y(t) = y_{0} + \int_{t_0}^{t} f(s, y(s)) ds$ on some interval $J$ containing $t_{0}$.</p>
+		<p>$y(t)$ is differentiable by the continuity of the function $f(s, y(s))$ under the integral.</p>
+		<p>By the fundamental theorem of calculus, </p>
+		\begin{align}
+			y(t) &= y_{0} + \int_{t_0}^{t} f(s, y(s)) ds \\
+			y'(t) &= 0 + f(t, y(t)) \frac{dt}{dt} - f(t_0, y(t_0)) \frac{dt_0}{dt} \\
+			y'(t) &= f(t, y(t))
+		\end{align}
+		<p>Thus $y(t)$ satisfies $y' = f(t, y(t))$. </p>
+		<p>Putting $t= t_0$ in equation A gives</p>
+		\begin{align}
+			y(t) &= y_{0} + \int_{t_0}^{t} f(s, y(s)) ds \\
+			y(t_0) &= y_{0} + \int_{t_0}^{t_0} f(s, y(s)) ds \\
+			y(t_0) &= y_0
+		\end{align}
+		<p>Therefore $y(t)$ satisfies $y' = f(t, y)$ on $J$ and also the initial condition $\phi(t_0) = y_0$.</p>
+	</div>
+</div>
