@@ -24,10 +24,22 @@ window.MathJax = {
   },
 };
 function loadMathJax() {
-  var script = document.createElement("script");
+  const script = document.createElement("script");
   script.src =
     "https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js";
   script.async = true;
+  script.onload = function(){
+    MathJax.startup.getComponents();
+    MathJax.startup.promise.then(()=>{
+      log("MathJax is rendered");
+      let delay = 0.3;
+      document.querySelector('.progress-bar').style.animation = `loaded ${delay}s linear forwards`;
+      window.setTimeout(()=>{
+        log("stop");
+        document.getElementById("loader").style.display = "none";
+      }, delay * 2000);
+    })
+  }
   document.head.appendChild(script);
 }
 
