@@ -12,6 +12,9 @@ module.exports = {
       fontFamily: {
         'clicker': ['Clicker Script', 'cursive'],
       },
+      listStyleType: {
+        lowerAlpha: 'lower-alpha'
+      }
     },
   },
   plugins: [],
