@@ -1,0 +1,16 @@
+<h1>1.36 Definitions</h1> 
+<p class="indent-10">For each positive integer $k$, let $\R^k$ be the set of all ordered k-tuples 
+	$$\vector{x} = (x_1, x_2, \cdots, x_n)$$
+where $x_1,...,x_n$ are real numbers, called the <i>coordinates</i> of $\vector{x}$. The elements of $\R^k$ are called points, or vectors, especially when $k>1$. We shall denote vectors by boldfaced letters. If $\vector{y} = (y_1, ...,y_k)$ and if $\alpha$ is a real number, put
+	\begin{align}
+		\vector{x} + \vector{y} &= (x_1+y_1, ..., x_n + y_n )\\
+		\alpha \vector{x} &= (\alpha x_1, ..., \alpha x_n)
+	\end{align}
+so that $\vector{x} + \vector{y} \in \R$ and $\alpha \vector{x} \in \R$. This defines addition of vectors, as well as multiplication of a vector by a real number (a scalar). These two operations satisfy the commutative, associative, and distributive laws (the proof is trivial, in view of the analogous laws for the real numbers) and make $\R^k$ into a vector space over the real field. The zero element of $\R^k$ (sometimes called the origin or the null vector) is the point $\vector{0}$, all of whose coordinates are $0$. </p>
+
+<p class="indent-10">We also define the so-called "inner product" (or scalar product) of $\vector{x}$ and $\vector{y}$ by
+	$$\vector{x} \scalarProduct \vector{y} = \sum_{i=1}^{k} x_i y_i$$
+and the norm of $\vector{x}$ by 
+	$$ \norm{x} = (\vector{x} \scalarProduct \vector{x})^{\frac{1}{2}}= \bracket{\sum_{1}^{k} x_i^2}^{\frac{1}{2}}$$</p>
+
+<p>The structure now defined (the vector space $\R^k$ with the above inner product and norm) is called euclidean k-space.</p>

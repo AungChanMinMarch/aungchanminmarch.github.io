@@ -1,0 +1,73 @@
+---
+title: "Chapter 9: Functions of Several Variables"
+eleventyNavigation:
+  key: rudinAnalysis09
+  parent: rudinAnalysis
+---
+<h4>Reviewsion</h4>
+<summary>
+  <p>definitions of $\R, \R^k$, vector addtion, scalar multiplication, scalar product and norm</p>
+  <details>
+    <table>
+      <tr>
+        <td>$\R$</td>
+        <td>the set of all real numbers</td>
+      </tr>
+      <tr>
+        <td>$\R^k$</td>
+        <td>the set of all ordered k-tuples $\vector{x} = (x_1, x_2, \cdots, x_n)$, where $x_1,...,x_n$ are real numbers,</td>
+      </tr>
+      <tr>
+        <td>vector addition</td>
+        <td>$\vector{x} + \vector{y} = (x_1+y_1, ..., x_n + y_n )$</td>
+      </tr>
+      <tr>
+        <td>scalar multiplication</td>
+        <td>$\alpha \vector{x} = (\alpha x_1, ..., \alpha x_n)$</td>
+      </tr>
+      <tr>
+        <td>scalar product</td>
+        <td>$\vector{x} \scalarProduct \vector{y} = \sum_{i=1}^{k} x_i y_i$</td>
+      </tr>
+      <tr>
+        <td>Norm</td>
+        <td>$ \norm{x} = (\vector{x} \scalarProduct \vector{x})^{\frac{1}{2}}= \bracket{\sum_{1}^{k} x_i^2}^{\frac{1}{2}}$</td>
+      </tr>
+    </table>
+    <a 
+    class="underline" 
+    href="/analysis/ch01/theorems/theorem-1-36.html">Click here for more details</a>
+  </details>
+</summary>
+
+<summary>
+  <p>Show that $(\R^k, \norm{\cdot})$ is a metric space.</p>
+  <details open>
+    <p>In $\R^k$, $d(x, y) = \norm{x - y} = \bracket{\sum_{i=1}^{k} (x_i - y_i)^2}^{\frac{1}{2}}$</p>
+    <p>(i) Clearly,$ \norm{x - y}^2 = \sum_{i=1}^{k} (x_i - y_i)^2 \geq 0$. 
+      \begin{array}{rrl}
+        \norm{x - y}^2 = 0 
+        \iff & \sum_{i=1}^{k} (x_i - y_i)^2 &= 0 \\
+        \iff & (x_i - y_i)^2 &= 0, 1 \leq i \leq k \\
+        \iff & x_i  &= y_i, 1 \leq i \leq k \\
+        \iff & (x_1, ..., x_k)  &= (y_1, ..., y_k) \\
+        \iff & x &=y
+      \end{array}
+     </p>
+     <p>(ii)
+      \begin{align}
+        \norm{x -y}^2 
+        &= \sum_{i=1}^{k} (x_i - y_i)^2 \\
+        &= \sum_{i=1}^{k} (y_i - x_i)^2 \\
+        &= \norm{y - x}^2 \\
+
+        d(x,y) &= d(y, x)
+      \end{align}
+     </p>
+     <p> By {% a 1.37 %}, 
+      $$\norm{x - y} = \norm{x - z + z -y} \leq \norm{x - z} + \norm{z - y}$$
+      Thus $d(x,y) \leq d(x, z) + d(z, y)$.
+     </p>
+
+  </details>
+</summary>
