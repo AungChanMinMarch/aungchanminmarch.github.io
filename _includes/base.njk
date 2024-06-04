@@ -6,34 +6,8 @@
   <title>{{ title }}</title>
   <link href="https://fonts.googleapis.com/css2?family=Clicker+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/assets/css/base_styles.css">
-  <style type="text/css">
-    .progress-container{
-      width: 90vw;
-      height: 30px;
-      border-radius: 25px;
-    }
-    .progress-bar {
-      height: 30px;
-      width: 0;
-      background-color: var(--my-theme-color);
-      border-radius: 25px;
-      animation: progress 50s linear forwards;
-    }
-    @keyframes progress {
-        0% { width: 0; }
-        100% { width: 90%; }
-    }
-    @keyframes loaded {
-      to { width: 100% }
-    }
-  </style>
 </head>
 <body>
-  <div id="loader" class="min-w-full min-h-full fixed top-0 left-0 bg-primary z-50 flex justify-center items-center">
-    <div class="progress-container bg-secondary">
-      <div class="progress-bar"></div>
-    </div>
-  </div>
   <div class="navbar">
       <nav class="flex justify-between p-4 bg-primary">
         <a 

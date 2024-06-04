@@ -1,10 +1,37 @@
 ---
 layout: base.njk
 ---
+<style type="text/css">
+  .progress-container{
+    width: 90vw;
+    height: 30px;
+    border-radius: 25px;
+  }
+  .progress-bar {
+    height: 30px;
+    width: 0;
+    background-color: var(--my-theme-color);
+    border-radius: 25px;
+    animation: progress 50s linear forwards;
+  }
+  @keyframes progress {
+      0% { width: 0; }
+      100% { width: 90%; }
+  }
+  @keyframes loaded {
+    to { width: 100% }
+  }
+</style>
+<div id="loader" class="min-w-full min-h-full fixed top-0 left-0 bg-primary z-50 flex justify-center items-center">
+  <div class="progress-container bg-secondary">
+    <div class="progress-bar"></div>
+  </div>
+</div>
 <link id="style" rel="stylesheet" type="text/css" href="/assets/style.css">
 <div style="display: none;">
   {% raw %}\(
     \def\curl#1{\text{curl }#1}
+
     \def\bracket#1{\left({#1}\right)}
     \def\sbracket#1{\left[{#1}\right]} %square bracket
     \def\cbracket#1{\left\{{#1}\right\}} %curly bracket
@@ -59,6 +86,11 @@ layout: base.njk
 		\def\indeterminate#1{\left( \text{indeterminate form: } \frac{#1}{#1} \right) }
 		\def\indeterminatezero{\left( \text{indeterminate form: } \frac{0}{0} \right) }
 		\def\indeterminateinf{\left( \text{indeterminate form: } \frac{\infty}{\infty} \right) }
+
+    \def\vector#1{\mathbf{#1}}
+    \def\scalarProduct{\cdot}
+
+    \def\norm#1{\| #1 \|}
 \){% endraw %}
 </div>
 <main data-state="loading">
