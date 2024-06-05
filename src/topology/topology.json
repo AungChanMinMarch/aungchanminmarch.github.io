@@ -1,5 +1,5 @@
 {
-	"layout": "topology.njk",
+	"layout": "page.njk",
 	"tags": "topology",
 	"permalink": "{{ page.filePathStem }}.html"
 }

@@ -1,0 +1,27 @@
+---
+title: "Solved Probles no.1 (Theorem 10.1 proof)"
+---
+<div class="theorem">
+	<h2>Prove Theorem 10.1</h2>
+	<div class="statement">Prove a topological space $X$ is a $T_1$-space if and only if every singleton subset of $X$ is closed.</div>
+	<div class="proof">
+		<p>Suppose $X$ is a $T_1$-space.</p>
+		<p>Let $p \in X$. </p>
+		<p>We need to show that $\{p \}^C$ is open. </p> 
+		<p>Let $x \in \{p\}^{\text{C}}$. Then $x \neq p$.</p>
+		<p>Since $x$ is $T_1$-space, there exists open set $G_x$ such that $x \in G_x, p \notin G_x$.</p>
+		<p>Since $p \notin G_x$, $G_x \subset \{p\}^C$.</p>
+		<p>Hence $x \in G_x \subset \{ p \}^C$ and $G_x$ is open.</p>
+		<p>$\{p\}^C = \cup \{G_x: x \in \{p\}^C \}$.</p>
+		<p>Since union of open sets is open, $\{ p \}^C$ is open.</p>
+		<p>Therefore $\{ p \}$ is closed.</p>
+		<hr class="color-theme">
+
+		<p>Conversely, suppose that every singleton subset of $X$ is closed. </p>
+		<p>Let $a, b \in X$ with $a \neq b$. </p>
+		<p>Since $a \neq b$, $a \in \{b\}^C, b \notin \{b\}^C$.</p>
+		<p>Also, since $a \neq b$, $b \in \{a\}^C, a \notin \{a\}^C$.</p>
+		<p>Since every singleton subset of $X$ is closed, $\{a\}$ and $\{b\}$ are closed. Hence $\{a\}^C$ and $\{b\}^C$ are open. </p>
+		<p>Hence there exist open sets $\{a\}^C$ and $\{b\}^C$ such that $a \in \{b\}^C, b \notin \{b\}^C$ and $b \in \{a\}^C, a \notin \{a\}^C$.Therefoe $X$ is a $T_1$-space.</p>
+</div>
+</div>

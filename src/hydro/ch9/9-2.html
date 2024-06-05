@@ -1,0 +1,49 @@
+---
+title: "9.2. Helmholtz's Vorticity Theorems. Properties of Vortex Tube."
+---
+<h1>{{title}}</h1>
+<div class="theorem">
+	<div class="statement">
+		(1) The product of the cross section and vorticity (or angular velocity) at any point on a vortex filament is constant along the filament and for all time when the body forces are conservative and the pressure is a single-valued function of density only.
+	</div>
+	<div class="proof">
+		<p>Let $\Omega$ be the vorticity vector and let $\omega$ be the angular velocity vector.</p>
+		<p>Then we have $\Omega = \curl \vector{q}$ and $\Omega = 2 \omega$.</p>
+		<p>Let $\delta S_{1}, \delta S_2$ be two sections of a vortex tube and let $n_1, n_2$ be the unit normals to these sections drawn outwards from the fluid between them.</p>
+		<p>Again, suppose $\delta S$ be the curved surface of the vortex tube</p>
+		<p>Let $\Delta S$ be the total surface area of element and $\Delta V$ be the total volume which $\Delta S$ contains.</p>
+		<p>Then $\Delta S = \delta S_1 + \delta S + \delta S_2$.</p>
+		<p>By Gauss divergence theorem, we have 
+		$$\int_{\Delta S} n \cdot \Omega dS = \int_{\Delta V} \grad \cdot \vector{\Omega} dV$$</p>
+		<p>Since $\grad \cdot \Omega = \grad \cdot \curl\vector{q} = 0$, we get 
+		\begin{align}
+			\int_{\Delta V} \grad \cdot \vector{\Omega} dV &= 0 \\
+			\int_{\Delta S} n \cdot \Omega dS &= 0 \\
+			\int_{\delta S_1} n \cdot \Omega dS
+			+ \int_{\delta S} n \cdot \Omega dS 
+			+ \int_{\delta S_2} n \cdot \Omega dS & = 0
+		\end{align}</p>
+		<p>Since $\Omega$ is tangential to the curved surface of the vortex tube, $n \cdot \Omega = 0$ at each point of $\delta S$. Thus $\int_{\delta S} n \cdot \Omega dS  = 0 $</p>
+		\begin{align}
+			\int_{\delta S_1} n \cdot \Omega dS
+			+ \int_{\delta S_2} n \cdot \Omega dS & = 0 \\
+
+			\int_{\delta S_1} n \cdot \Omega dS
+			&= - \int_{\delta S_2} n \cdot \Omega dS \\
+
+			\int_{\delta S_1} \Omega \cdot dS
+			&= \int_{\delta S_2} \Omega \cdot dS \tag{4} \\
+
+			\int_{\delta S_1} 2\omega \cdot dS
+			&= \int_{\delta S_2} 2\omega \cdot dS \tag{5}\\
+		\end{align}
+		<p>To the first order of approximation, (4) and (5) give</p>
+		$$\Omega_1 \delta S_1 = \Omega_2 \delta S_2 \text{ and } 
+		\omega_1 \delta S_1 = \omega_2 \delta S_2$$
+		<p>This shows that $\Omega \delta S$ or $2 \omega \delta S$ is constant over every section $\delta S$ of the vortex tube. </p>
+	</div>
+</div>
+<div class="definition">
+	<p class="indent-10">The product of the cross section and vorticity (or angular velocity) at any point on a vortex filament is constant along the filament. This value is known as the <b>strength of the vortex tube</b>.</p>
+	<p class="indent-10">A vortex tube whose strength is unity is called a <b>unit vortex tube</b>.</p>
+</div>

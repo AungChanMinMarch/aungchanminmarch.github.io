@@ -1,0 +1,34 @@
+---
+title: "9.1B: Vorticity, Vorticity Components (or Components of Spin)"
+---
+<div class="definition">
+	<h2>Definition: Vorticity Vector</h2>
+	<p>If $q$ is the velocity vector of a fluid particle, then the vector quantity $\Omega ( = \curl q)$, is called the <b>vorticity vector</b> or simply the <b>vorticity</b> and is a measure of the angular velocity of an infinitesimal element. </p>
+</div>
+<h3>Vorticity Components</h3>
+<p>Let $\Omega = \Omega_{x} i + \Omega_{y} j + \Omega_{z} k$ so that $(\Omega_{x}, \Omega_{y} , \Omega_z)$ are the vorticity components or the components of the spin. Then, we have</p> 
+\begin{align}
+\Omega &= \curl \vector{q} \\
+&= \grad \times \vector{q} \\
+&= \begin{array}{||ccc||}
+	i & j & k \\
+	\dpartialwrt{x} & \dpartialwrt{y} & \dpartialwrt{z} \\
+	u & v & w
+\end{array} \\
+&= \bracket{\partialwrt[w]{y} - \partialwrt[v]{z} } i 
++ \bracket{\partialwrt[u]{z} - \partialwrt[w]{x} } j
++ \bracket{\partialwrt[v]{x} - \partialwrt[u]{y} } k \\
+\Omega_x &= \bracket{\partialwrt[w]{y} - \partialwrt[v]{z} } \\
+\Omega_y &= \bracket{\partialwrt[u]{z} - \partialwrt[w]{x} } \\
+\Omega_z &=\bracket{\partialwrt[v]{x} - \partialwrt[u]{y} } 
+\end{align}
+
+<p class="indent-10">If $\Omega_{x}, \Omega_{y}, \Omega_{z}$ are all zero, the motion is irrotational and the velocity function $\phi$ exists. If $\Omega_{x}, \Omega_{y}, \Omega_{z}$ are not all zero, the motion is rotational.</p>
+In the case of two-dimensional motion, we know that $\omega = 0$ and $u$ and $v$ are functions of $x$ and $y$ only and hence for two-dimensional case,
+\begin{align}
+	\Omega_x &= 0\\
+	\Omega_y &= 0\\
+	\Omega_z &=\bracket{\partialwrt[v]{x} - \partialwrt[u]{y} } 
+\end{align}
+
+<p class="indent-10">It follows that in owo-dimensional motion there can be at the most only one component of spin and its axis is perpendicolat to the plane of the motion</p>
