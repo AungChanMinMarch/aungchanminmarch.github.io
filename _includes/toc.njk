@@ -1,8 +1,9 @@
 ---
-layout: base.njk
+layout: page.njk
 ---
+<link id="style" rel="stylesheet" type="text/css" href="/assets/style.css">
+<main>
 {% if content %}
-<main data-state="loading">
 	<h1>{{title}}</h1>
 	{{ content | safe }}
 	<summary class="theorem">
@@ -13,7 +14,6 @@ layout: base.njk
 		</div>
 		</details>
 	</summary>
-</main>
 {% else %}
 	<h1 class="center">{{title}}</h1>
 	<h3>Table of Content</h3>
@@ -21,3 +21,4 @@ layout: base.njk
 		{{ collections.all | eleventyNavigation(key) | eleventyNavigationToHtml | safe }}
 	</div>
 {% endif %}
+</main>
