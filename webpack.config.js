@@ -5,6 +5,7 @@ module.exports = {
   entry: {
     index: './assets/script.js',
     svgjs: './assets/svgjs.js',
+    cytoscape: './assets/js/cytoscape.js',
     functionplot: './assets/functionplot.js',
     tailwind: './assets/tailwind.js',
   },
