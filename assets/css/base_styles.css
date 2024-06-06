@@ -43,7 +43,10 @@ body
 {
     color: var(--my-theme-color);
 }
-
+.color-current
+{
+    color: var(--my-current-color);
+}
 /* styles.css */
 
 
