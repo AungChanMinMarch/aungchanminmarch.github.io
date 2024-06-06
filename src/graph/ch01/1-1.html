@@ -1,0 +1,72 @@
+---
+title: "1.1 GRAPHS AND SIMPLE GRAPHS"
+includes: 
+	- cytoscape
+---
+<div class="definition">
+	<p class="indent-10">A <b>graph</b> $G$ is an ordered triple $(V(G), E(G), \psi_G)$ consisting of a nonempty set $V(G)$ of vertices, a set $E(G)$ of edges($E(G)$ must be disjoint from $V(G)$), and an incidence function $\psi_G$ that associates with each edge of $G$ an unordered pair of (not necessarily distinct) vertices of $G$.</p>
+	<p class="indent-10">If $e$ is an edge and $u$ and $u$ are vertices such that $\psi_{G}(e) = uv$ then $e$ is said to join $u$ and $v$; the vertices u and u are called the <b>ends</b> of $e$.
+</p>
+</div>
+
+<div class="theorem">
+	<h6>Example 1</h6>
+</div>
+
+
+\begin{align}
+G &= (V(G), E(G), psi_{G}) \\
+V(G) &= \{v_{1}, v_{2}, v_{3}, v_{4}, v_{5}\}\\
+E(G) &= \{e_{1}, e_{2}, e_{3}, e_{4}, e_{5}, e_{6}, e_{7}, e_{8}\} \\
+\text{ and } \psi_{G} \text{ is defined by }\\
+\psi_{G}(e_{1}) = v_{1}v_{2}, \psi_G (e_2 ) &= v_2 v_3, \psi_G (e_3) = v_3 v_3, \psi_G (e_4 ) = v_3 v_4\\
+\psi_{G}(e_{5}) = v_{2}v_{4}, \psi_{G}(e_{6}) &= v_{4} v_{S}, \psi_{G}(e_{7}) = v_{2} v_{5}, \psi_{G}(e_{8}) = v_{2}v_5
+\end{align}
+<div id="math-text-eg-1"></div>
+<div id="container-eg-1" style="width: 600px; height: 400px;"></div>
+<div id="cy" style="width: 600px; height: 400px;"></div>
+<script type="text/javascript">
+	if(!window.graphs) window.graphs = [];
+	window.graphs.push({
+		math_text_id: "math-text-eg-1",
+		container_id: "container-eg-1",
+		vertices: ["v\u2081", "v\u2082", "v\u2083", "v\u2084", "v\u2085"],
+		edges: [[1,2], [2,3], [3,3], [3,4], [2,4], [4,5], [2,5], [2,5]]
+	})
+	if(!window.cytoscapes) window.cytoscapes = [];
+    window.cytoscapes.push({
+    	container: document.getElementById('cy'),
+    	elements: [
+    		{ data: { id: 'v1', label: "v\u2081"}},
+    		{ data: { id: 'v_2'}},
+    		{ data: { source: "v1", target: "v_2", id: "test"}}
+    	],
+    	style: [
+	        {
+	          selector: 'node',
+	          style: {
+	            'background-color': '#000eee',
+	            'label': 'data(label)'
+	          }
+	        },
+	        {
+	          selector: 'edge',
+	          style: {
+	            'width': 3,
+	            'line-color': '#ff0000'
+	          }
+	        }
+	    ],
+
+      layout: {
+        name: 'grid',
+        rows: 1
+      }
+
+    })
+</script>
+Example 2
+
+H = (V(H), E(H), psi_{N})
+
+where V(H) = \{u, v, w, x, y\} E(H) = \{a, b, c, d, e, f, g, h\} psi_{u}(b) = mu*mu psi_{n}(f) = wx psi_{u}(c) = vw psi_{u}(g) = ux and psi_{H} is defined by psi_{u}(a) = uv phi_{H}(e) = vx psi_{n}(d) = wx psi_{H}(h) = xy
