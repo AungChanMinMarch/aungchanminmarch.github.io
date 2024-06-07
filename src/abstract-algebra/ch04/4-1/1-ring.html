@@ -1,0 +1,116 @@
+---
+title: 'Definitions'
+---
+<div class="definition">
+	<h2>{{title}}</h2>
+	<p>A nonempty set $R$ is said to be a <b>ring</b> if in $R$ there are two
+operations $+$ and $-$ such that:</p>
+	<ol class="list-lowerAlpha mx-10">
+		<li> $a, b \in  R$ implies that $a + b \in  R$.</li>
+		<li>$a+b=b+aforab\in R.$</li>
+		<li>$(a+b)+c=a+(b+c)$ for $a,b,c \in R$.</li>
+		<li>There exists an element $0 \in  R$ such that $a + 0 = a$ for every $a \in  R$.</li>
+		<li>Given $a \in  R$, there exists a $b \in  R$ such that $a + b = 0$. (We shall write $b$ as $-a$)</li>
+		<li>$a,b \in  R$ implies that $a \cdot b \in  R$.</li>
+		<li>$a \cdot (b \cdot c) = (a \cdot b) \cdot c$ for $a, b, c \in R$.</li>
+		<li>$a \cdot (b+c)=a \cdot b + a \cdot c$ and 
+		$(b+c) \cdot a = b \cdot a + c \cdot a$ for $a, b, c \in R$.</li>
+	</ol>
+</div>
+<p>Because of Axiom (g), the associative law of multiplication, the rings we defined are usually called <b>associative rings</b>. <b class="color-theme">Nonassociative rings do exist.</b> Whenever we use the word ring we shall always mean “associative ring.”</p>
+
+<div class="definition">
+	<h3>Ring with unit</h3>
+	<p>If there exists an element $1$ in a ring $R$ such that $a \cdot 1 = 1 \cdot a = a$ for every $a \in R$, then we say that R is a <b>ring with unit.</b></p>
+</div>
+<p>Remember that identity element is also called unit element.</p>
+<p>Observe that $\{ 0 \}$ is a ring but it is not a ring with unit since $ 1 \notin \{ 0\}$.</p>
+
+<div class="definition">
+	<h3>Domain</h3>
+	<p>A commutative ring $R$ is a domain if $a \cdot b = 0$ in $R$ implies that $a = 0$ or $b = 0$.</p>
+</div>
+
+<div class="definition">
+	<h3>Commutative Ring</h3>
+	<p><b>A commutative Ring</b> is a ring that satisfies commutative law of multiplication $a \cdot b = b \cdot a$.</p>
+</div>
+
+<div class="definition">
+	<h3>Integral Domain</h3>
+	<p>A commutative ring R is an <b>integral domain</b> if $a \cdot b = 0$ in $R$ implies that $a = 0$ or $b = 0$.</p>
+</div>
+<p>Some authors write an integral domain contain a unit element.</p>
+
+<div class="definition">
+	<h3>Division ring</h3>
+	<p>A ring $R$ with unit is said to be a <b>division ring</b> if for every $a \neq 0$ in $R$ there is an element $b \in R$ (usually written as $a^{-1}$) such that $a \cdot a^{-1}=a^{-1} \cdot a=1$.</p>
+</div>
+
+<div class="definition">
+	<h3>Field</h3>
+	<p>A ring $R$ is said to be a <b>field</b> if $R$ is a commutative division ring.</p>
+</div>
+
+<div class="definition">	
+	<h1 class="text-center">Summary</h1>
+	<p>Every ring is an abelian group under $+$. That is, every ring satisfies 5 properties: 
+	<ol class="list-disc mx-10">
+		<li><b>closure</b> property,</li>
+		<li><b>associative</b> property,</li>
+		<li><b>commutative</b> property,</li>
+		<li>existence of <b>identity</b> and</li>
+		<li>existence of <b>inverse</b></li>
+	</ol>
+	However a ring does not need to satisfy all 5 of them under multiplication.  The following table indicates which properties under <b>multiplication</b> are required for different types of rings. </p>
+	<table class="table-full-border-cells">
+		<tr>
+			<td></td>
+			<td>Closure</td>
+			<td>Associative</td>
+			<td>Commutative</td>
+			<td>Identity</td>
+			<td>Inverse</td>
+		</tr>
+		<tr>
+			<td>Ring (Associative ring)</td>
+			<td class="bg-theme"></td>
+			<td class="bg-theme"></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Commutative Ring</td>
+			<td class="bg-theme"></td>
+			<td class="bg-theme"></td>
+			<td class="bg-theme"></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Ring with unit</td>
+			<td class="bg-theme"></td>
+			<td class="bg-theme"></td>
+			<td></td>
+			<td class="bg-theme"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Division Ring</td>
+			<td class="bg-theme"></td>
+			<td class="bg-theme"></td>
+			<td></td>
+			<td class="bg-theme"></td>
+			<td class="bg-theme"></td>
+		</tr>
+		<tr>
+			<td>Field</td>
+			<td class="bg-theme"></td>
+			<td class="bg-theme"></td>
+			<td class="bg-theme"></td>
+			<td class="bg-theme"></td>
+			<td class="bg-theme"></td>
+		</tr>
+	</table>
+</div>

@@ -39,6 +39,10 @@ body
 {
     background: var(--my-secondary-color);
 }
+.bg-theme
+{
+    background: var(--my-theme-color);
+}
 .color-theme
 {
     color: var(--my-theme-color);
@@ -180,4 +184,10 @@ main a
     color: var(--my-theme-color);
     cursor: pointer;
     text-decoration: underline;
+}
+.table-full-border-cells,
+.table-full-border-cells tr, 
+.table-full-border-cells td
+{
+    border: 2px solid var(--my-current-color);
 }
