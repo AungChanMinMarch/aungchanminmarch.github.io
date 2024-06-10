@@ -1,0 +1,136 @@
+---
+title: "Ex 2(Page 110)"
+parent: 5212_3_1_Lemma_3_1
+order: 2
+includes: 
+	- functionplot
+---
+<div class="theorem">
+	<div class="statement">
+		Prove that the initial value problem
+			$$y'' + g(t, y) = 0, y(0) = y_{0}, y'(0) = z_{0}$$
+
+		where $y$ is continuous in some region $D$ containing $(0, y_0)$, is equivalent to the integral equation
+
+			$$y(t)=y_0 + z_0 t - \int_0^t (t - s) g(s,y(s))ds$$
+	</div>
+	<div class="proof">
+		<p>Suppose that $\phi(t)$ is a solution of the given initial value problem.</p>
+		$$\text{Then }\phi''(t) + g(t, \phi(t)) = 0, \phi(0) = y_{0}, \phi'(0) = z_{0}$$
+		<p>Integrating both sides from $0$ to $t$ gives</p>
+		\begin{align}
+			\sbracket{\phi'(t)}_0^t + \int_{0}^{t} g(s, \phi(s)) ds &= 0 \\
+			\phi'(t) - \phi'(0) + \int_{0}^{t} g(s, \phi(s)) ds &= 0 \\
+			\phi'(t) - z_0 + \int_{0}^{t} g(s, \phi(s)) ds &= 0 \\
+			\phi'(t) &= z_0 - \int_{0}^{t} g(s, \phi(s)) ds \\
+			\phi'(\tau) &= z_0 - \int_{0}^{\tau} g(s, \phi(s)) ds \\
+		\end{align}
+		<p>Integrating both sides with respect to $\tau$ from $0$ to $t$ gives</p>
+		\begin{align}
+			\sbracket{\phi(\tau)}_0^t &= \sbracket{z_0 \tau}_{0}^{t} - \int_0^t \int_{0}^{\tau} g(s, \phi(s)) ds d\tau \\
+			\phi(t) - \phi(0) &= (z_0 t - 0) - \int_0^t \int_{0}^{\tau} g(s, \phi(s)) ds d\tau \\
+		\end{align}
+		<div id="svg"></div>
+<script>
+if(!window.plots) window.plots = [];
+window.plots.push({
+	target: '#svg',
+  data: [
+		{ fn: '0' }, 
+		{ fn: 'x' }, 
+		{ fn: '3' },
+		{ fn: 'x', range: [0, 3], color: 'grey', closed: true},
+		{
+			graphType: 'text',
+      location: [1, 0],
+      text: 's=0',
+			attr: {
+	        'text-anchor': 'start',
+					'fill': 'black',
+					'font-size': 20
+	      }
+		}, 
+		{ fn: '2'},
+		{
+			graphType: 'text',
+      location: [1, 1],
+      text: 's=tau',
+			attr: {
+	        'text-anchor': 'start',
+					'fill': 'black',
+					'font-size': 20
+	      }
+		},  {
+			graphType: 'text',
+      location: [2, 2],
+      text: 'tau=s',
+			attr: {
+	        'text-anchor': 'middle',
+					'fill': 'black',
+					'font-size': 20
+	      }
+		}, {
+			graphType: 'text',
+      location: [3, 2],
+      text: 'tau=t',
+			attr: {
+	        'text-anchor': 'start',
+					'fill': 'black',
+					'font-size': 20
+	      }
+		}, {
+			graphType: 'text',
+      location: [3, 3],
+      text: '(t,t)',
+			attr: {
+	        'text-anchor': 'end',
+					'fill': 'black',
+					'font-size': 20
+	      }
+		}
+  ],
+  annotations: [{ x: 1 }]
+})
+</script>
+		\begin{align}
+			\phi(t) - \phi(0) &= (z_0 t - 0) - \int_0^t \int_{0}^{\tau} g(s, \phi(s)) ds d\tau \\
+			\phi(t) - y_0 &= z_0 t - \int_0^t \int_{s}^{t} g(s, \phi(s)) d\tau ds \\
+			\phi(t) &= y_0 + z_0 t - \int_0^t (\int_{s}^{t}  d\tau) g(s, \phi(s)) ds \\
+			\phi(t) &= y_0 + z_0 t - \int_0^t (t-s) g(s, \phi(s)) ds \\
+		\end{align}
+		<p>Therefore $\phi(t)$ is the solution of the given integral equation.</p>
+
+		<hr>
+		<p>Now conversely suppose that $\psi(t)$ is the solution of the given integral equation.</p>
+			$$\text{Then }\psi(t) = y_0 + z_0 t - \int_0^t (t-s) g(s, \psi(s)) ds \tag{1}$$
+		<p>Differentiating both sides with respect to $t$ gives</p>
+		\begin{align}
+			\psi'(t) &= z_0 - \frac{d}{dt} \int_0^t (t-s) g(s, \psi(s)) ds \\
+			\psi'(t) &= z_0 - \small\bracket{\int_0^t \partialwrt{t} (t-s) g(s, \psi(s)) ds  + (t-t) g(t, \psi(t)) \frac{dt}{dt} - (t-0) g(0, \psi(0)) \frac{d 0}{dt}}\\
+			\psi'(t) &= z_0 - (\int_0^t g(s, \psi(s)) ds + 0 - 0)
+		\end{align}
+			$$\text{Thus }\psi'(t) = z_0 - \int_0^t g(s, \psi(s)) ds \tag{2} $$
+		<p>Differentiating both sides with respect to $t$ gives</p>
+		\begin{align}
+			\psi''(t) &= - \frac{d}{dt} \bracket{\int_0^t g(s, \psi(s)) ds} \\
+			\psi''(t) &= -\bracket{\int_0^t \partialwrt{t} g(s, \psi(s)) ds + g(t, \psi(t)) \frac{dt}{dt} - g(0, \psi(0)) \frac{d 0}{dt} }\\
+			\psi''(t) &= -(0 + g(t, \psi(t)) -0) \\
+			\psi''(t) + g(t, \psi(t)) &= 0 \tag{3}
+		\end{align}
+		<p>Hence $\psi$ is the solution of the second order differential equation: $y''+g(t,y) = 0$.</p>
+		\begin{align}
+			\text{From Equation (1), } \\
+			\psi(t) &= y_0 + z_0 t - \int_0^t (t-s) g(s, \psi(s)) ds \\
+			\text{Put } t &= 0 \\
+			\psi(0) &= y_0 + z_0 \times 0 - \int_0^0 (t-s) g(s, \psi(s)) ds \\
+			\psi(0) &= y_0 \tag{4}\\
+			\text{From Equation (2), } \\
+			\psi'(t) &= z_0 - \int_0^t g(s, \psi(s)) ds \\
+			\text{Put } t &= 0 \\
+			\psi'(0) &= z_0 - \int_0^0 g(s, \psi(s)) ds \\
+			\psi'(0) &= z_0 \tag{5}
+		\end{align}
+		<p>By equation (3), (4) and (5), $\psi(t)$ is a solution of the given initial value problem. </p>
+		<p>Therefore the given initial value problem is equivalent to the give integral equation. </p>
+	</div>
+</div>
