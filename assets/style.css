@@ -31,7 +31,6 @@ main{
 	transform-origin: top left;
 }
 
-
 #history{
 	display: none;
 }
@@ -160,9 +159,14 @@ body.show_history #history{
 	margin: 10px 20px;
 	padding: 10px 20px;
 }
-
+.MathJax
+{
+	overflow-x: auto;
+	overflow-y: clip;
+}
 ::-webkit-scrollbar {
-  width: 10px; /* Adjust the width as needed */
+  width: 5px; /* Adjust the width as needed */
+  height: 5px;
 }
 
 /* Styling the scrollbar thumb (the draggable part) */

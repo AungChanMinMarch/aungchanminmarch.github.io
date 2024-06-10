@@ -2,10 +2,10 @@
 title: "Chapter 9: Functions of Several Variables"
 eleventyNavigation:
   key: rudinAnalysis09
-  parent: rudinAnalysis
+  parent: analysis6
 ---
-<h4>Reviewsion</h4>
-<summary>
+<h3>Preliminary</h3>
+<summary class="definition">
   <p>definitions of $\R, \R^k$, vector addtion, scalar multiplication, scalar product and norm</p>
   <details>
     <table>
@@ -40,9 +40,9 @@ eleventyNavigation:
   </details>
 </summary>
 
-<summary>
+<summary class="definition">
   <p>Show that $(\R^k, \norm{\cdot})$ is a metric space.</p>
-  <details open>
+  <details>
     <p>In $\R^k$, $d(x, y) = \norm{x - y} = \bracket{\sum_{i=1}^{k} (x_i - y_i)^2}^{\frac{1}{2}}$</p>
     <p>(i) Clearly,$ \norm{x - y}^2 = \sum_{i=1}^{k} (x_i - y_i)^2 \geq 0$. 
       \begin{array}{rrl}
@@ -71,3 +71,38 @@ eleventyNavigation:
 
   </details>
 </summary>
+
+<summary class="definition">
+  <p>Define vector space, vectors, real vector space, complex vector space, null vector, vector subspace, proper vector subspace.</p>
+  <details>
+    <h3>Vector Space</h3>
+    <p>A <b>vector space</b> is a set $X$ along with two operations: vector addition and scalar multiplication. If $ \vector{x}, \vector{y}, \vector{z} $ are vectors in $X$ and $\alpha, \beta$ are scalars, then the following properties must hold:</p>
+    <ul class="list-decimal mx-10">
+      <li>Commutativity of addition: $ \vector{x} + \vector{y} = \vector{y} + \vector{x} $</li>
+      <li>Associativity of addition: $ \vector{x} + (\vector{y} + \vector{z}) = (\vector{x} + \vector{y}) + \vector{z} $</li>
+      <li>Identity element of addition: There exists an element $ \vector{0} \in V $ such that $ \vector{x} + \vector{0} = \vector{x} $ for all $ \vector{x} \in V $</li>
+      <li>Inverse elements of addition: For each $ \vector{x} \in V $, there exists an element $ -\vector{x} \in V $ such that $ \vector{x} + (-\vector{x}) = \vector{0} $</li>
+
+      <li>Compatibility of scalar multiplication with field multiplication: $ \alpha (\beta \vector{x}) = (\alpha \beta) \vector{x} $</li>
+      <li>Distributivity of scalar multiplication with respect to field addition: $ (\alpha + \beta) \vector{x} = \alpha \vector{x} + \beta \vector{x} $</li>
+      <li>Distributivity of scalar multiplication with respect to vector addition: $ \alpha (\vector{x} + \vector{y}) = \alpha \vector{x} + \alpha \vector{y} $</li>
+      <li>Identity element of scalar multiplication: $ 1 \vector{x} = \vector{x} $, where 1 is the multiplicative identity in the field of scalars</li>
+    </ul>
+    <p>Elements of $X$ are called <b>vectors</b>.</p>
+    <p>If $\K = \R$, then $X$ is called a <b>real vector space</b>.</p>
+    <p>If $\K = \C$, then $X$ is called a <b>complex vector space</b>.</p>
+    <p>The zero element $\vector{0}$ is called the <b>null</b> vector.</p>
+    <p>A subset $E$ of a vector space $X$ is called a <b>vector subspace</b> if every $\alpha, \beta \in \K$ and $\vector{x}, \vector{y} \in E$, the vector $\alpha \vector{x}$, $\alpha \vector{y} \in E$.</p>
+    <ol class="list-disc mx-5">
+      Note that
+      <li>Every vector space is a subspace of itself.</li>
+      <li>$E$ is a <b>proper subspace</b> of $X$ if $E$ is a subspace of $X$ and $E \neq X$.</li>
+      <li>A subspace of a vector space is a vector space itself.</li>
+    </ol>
+    <p>Note that these definitions are <b>not</b> from Rudin Analysis.</p>
+  </details>
+</summary>
+
+<h1>LINEAR TRANSFORMATIONS</h1>
+
+<p>We begin this chapter with a discussion of sets of vectors in euclidean n-space R". The algebraic facts presented here extend without change to finite-dimensional vector spaces over any field of scalars. However, for our purposes it is quite sufficient to stay within the familiar framework provided by the euclidean spaces.</p>
