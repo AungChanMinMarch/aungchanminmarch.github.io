@@ -1,4 +1,5 @@
 const anchor = require('./_includes/components/anchor.js')
+const anchorTag = require('./_includes/shortcodes/anchorTag.js')
 
 const analysisToc = require('./_includes/components/analysisToc.js');
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
@@ -7,7 +8,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addShortcode("a", anchor);
   eleventyConfig.addShortcode("toc", analysisToc);
-
+  eleventyConfig.addShortcode('anchorTag', anchorTag);
 
   eleventyConfig.addPassthroughCopy({ "assets/*.css": "assets" });
   eleventyConfig.addPassthroughCopy("assets/topology");
@@ -31,7 +32,6 @@ module.exports = function(eleventyConfig) {
     });
     return [...tagSet];
   });
-
   return {
     dir: {
       input: "src",
