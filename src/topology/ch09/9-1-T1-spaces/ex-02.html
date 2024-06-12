@@ -1,0 +1,22 @@
+---
+title: "Solved Probles no.2"
+tauy: "$\\topologyTau_Y$"
+---
+<div class="theorem">
+	<div class="statement">Show that the property of being a $T_1$-space is hereditary, i.e. every subspace of a $T_{1}$ space is also a $T_1$-space.</div>
+	<div class="proof">
+		<p>Let $(X, \topologyTau)$ be $T_1$-space and let $(Y, \topologyTau_{Y})$ be a subspace of $(X, \topologyTau)$. </p>
+		<p>We need to show that every singleton subset $\{p\}$ of $Y$ is a {{tauy}}-closed set, or equivalently, that $Y \backslash \{p\}$ is {{tauy}}-open.</p>
+
+		<p>Let $p \in Y$. Since $Y \subset X$, we have $p \in X$.</p>
+		\begin{align}
+			\text{Since } p \in Y &\subset X, \\
+			Y \backslash \{p\} &= (Y \cap X) \backslash \{p\} \\
+			&= Y \cap (X \backslash \{p\})
+		\end{align}
+		<p>Since $(X, \topologyTau)$ is a $T_{1}$ space, $\{p\}$ is a $\topologyTau$-closed set. So $X \backslash \{p\}$ is $\topologyTau$-open.</p>
+		<p>Hence by definition of subspace, $Y \cap (X \backslash \{p\})$ is a {{tauy}}-open set. Therefore $Y \backslash \{p\}$ is a {{tauy}}-open set. </p>
+		<p>Thus $\{p\}$ is {{tauy}}-closed and $(Y, \topologyTau_{Y})$ is also a $T_{1}$ space.</</p>
+	</div>
+</div>
+
