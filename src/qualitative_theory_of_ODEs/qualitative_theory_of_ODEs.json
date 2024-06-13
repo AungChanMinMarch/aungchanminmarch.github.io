@@ -1,6 +1,5 @@
 {
 	"layout": "page.njk",
-	"parent": "qualitative_theory_of_ODEs",
 	"tags": ["ODE", "Qualitative-Theory-Of-ODEs"],
 	"permalink": "{{ page.filePathStem }}.html"
 }

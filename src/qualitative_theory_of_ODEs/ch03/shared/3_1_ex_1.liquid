@@ -1,0 +1,9 @@
+$$y' = t^2 + y^4, y(0) = 1$$
+<p>Integrate both sides from $0$ to $t$ gives</p>
+\begin{align}
+	\int_0^t y'(s) ds &= \int_0^t (s^2 + y^4(s)) ds \\
+	\sbracket{y(s)}_{0}^{t} &= \int_0^t s^2 ds + \int_0^t y^4(s) ds \\ 
+	y(t) - y(0) &= \sbracket{\frac{s^3}{3}}_0^t + \int_0^t y^4(s) ds \\
+	y(t) - 1 &= \frac{t^3}{3} + \int_0^t y^4(s) ds \\
+	y(t) &= 1 + \frac{t^3}{3} + \int_0^t y^4(s) ds 
+\end{align}

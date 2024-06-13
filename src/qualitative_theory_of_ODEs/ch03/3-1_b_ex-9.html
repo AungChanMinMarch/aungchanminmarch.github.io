@@ -1,0 +1,49 @@
+---
+title: "Ex 9(Page 118)"
+parent: 5212_3_1_Lemma_3_1_b
+order: 9
+---
+<div class="theorem">
+	<div class="statement">
+		Construct the successive approximations to the solution $\phi$ of the differential equation $y' = y$ that satisfies $\phi(0)=1$
+	</div>
+	<div class="proof">
+		$$y'=y, \phi(0) = 1$$
+		<p>We have $y'=f(t,y)=y$</p>
+		<p>The initial condition is $\phi(0)=1$. Hence $t_0 = 0, y_0 =1$</p>
+		<p>The successive approximation is</p>
+		$$\phi_{j + 1}(t) = y 0 + \int_{t_0}^t f(s, \phi_j (s))ds, j=0, 1, 2, \cdots$$
+		$$\phi_0(t) = y_0 =1$$
+		\begin{align}
+			\phi_{1}(t) &= y_{0} + \int_0^t f(s, \phi_{0}(s)) ds\\
+			&= 1 + \int_0^t \phi_{0}(s) ds\\
+			&= 1 + \int_0^t 1 ds\\
+			&= 1 + \sbracket{s}_0^t\\
+			&= 1 +  t
+		\end{align}
+
+		\begin{align}
+			\phi_{2}(t) &= y_{0} + \int_0^t f(s, \phi_{1}(s)) ds\\
+			&= 1 + \int_0^t \phi_{1}(s) ds\\
+			&= 1 + \int_0^t (1+s) ds\\
+			&= 1 + \sbracket{s + \frac{s^2}{2}}_0^t\\
+			&= 1 +  t + \frac{t^2}{2}
+		\end{align}
+
+		\begin{align}
+			\phi_{3}(t) &= y_{0} + \int_0^t f(s, \phi_{2}(s)) ds\\
+			&= 1 + \int_0^t \phi_{2}(s) ds\\
+			&= 1 + \int_0^t (1 +  s + \frac{s^2}{2}) ds\\
+			&= 1 + \sbracket{s + \frac{s^2}{2} + \frac{s^3}{6}}_0^t\\
+			&= 1 + t + \frac{t^2}{2!} + \frac{t^3}{3!}
+		\end{align}
+
+		\begin{align}
+			\phi_{n}(t) &= 1 + t + \frac{t^2}{2!} + \frac{t^3}{3!} + \cdots + \frac{t^n}{n!}\\
+			\phi_{n+1}(t) &= y_{0} + \int_0^t f(s, \phi_{n}(s)) ds\\
+			\phi_{n+1}(t) &= 1 + \int_0^t \phi_{n}(s) ds\\
+			\phi_{n+1}(t) &= 1 + t + \frac{t^2}{2!} + \frac{t^3}{3!} + \cdots + \frac{t^n}{n!} + \frac{t^{n+1}}{(n+1)!}
+		\end{align}
+		<p>Thus the formula for $\phi_n$ is valid for every $n=0,1,2, \cdots$</p>
+	</div>
+</div>

@@ -1,0 +1,54 @@
+---
+title: "Ex 1(Page 110)"
+parent: 5212_3_1_Lemma_3_1_a
+order: 1
+---
+<summary class="theorem">
+	<div class="statement">
+		Ex 1: Determine an integral equation equivalent to the initial value problem
+		$$y' = t^2 + y^4, y(0) = 1$$
+	</div>
+	<details open class="proof">
+		$$y' = t^2 + y^4, y(0) = 1$$
+		<p>Integrate both sides from $0$ to $t$ gives</p>
+		\begin{align}
+			\int_0^t y'(s) ds &= \int_0^t (s^2 + y^4(s)) ds \\
+			\sbracket{y(s)}_{0}^{t} &= \int_0^t s^2 ds + \int_0^t y^4(s) ds \\ 
+			y(t) - y(0) &= \sbracket{\frac{s^3}{3}}_0^t + \int_0^t y^4(s) ds \\
+			y(t) - 1 &= \frac{t^3}{3} + \int_0^t y^4(s) ds \\
+			y(t) &= 1 + \frac{t^3}{3} + \int_0^t y^4(s) ds 
+		\end{align}
+	</details>
+</summary>
+
+<summary class="theorem">
+	<div class="statement">
+		Ex 1: Prove that  the initial value problem
+		$$y' = t^2 + y^4, y(0) = 1$$ 
+		is equivalent to an integral equation
+		$$y(t) = 1 + \frac{t^3}{3} + \int_0^t y^4(s) ds $$
+	</div>
+	<details open class="proof">
+		<p>Suppose that $\phi(t)$ is the solution of the given initial value problem.</p>
+		$$\text{Then } \phi'(t) = t^2 + \phi^4(t), \phi(0) = 1$$
+		<p>Integrate both sides from $0$ to $t$ gives</p>
+		\begin{align}
+			\int_0^t \phi'(s) ds &= \int_0^t (s^2 + \phi^4(s)) ds \\
+			\sbracket{\phi(s)}_{0}^{t} &= \int_0^t s^2 ds + \int_0^t \phi^4(s) ds \\ 
+			\phi(t) - \phi(0) &= \sbracket{\frac{s^3}{3}}_0^t + \int_0^t \phi^4(s) ds \\
+			\phi(t) - 1 &= \frac{t^3}{3} + \int_0^t \phi^4(s) ds \\
+			\phi(t) &= 1 + \frac{t^3}{3} + \int_0^t \phi^4(s) ds 
+		\end{align}
+		<p>Therefore $\phi(t)$ is a solution of the given integral equation. </p>
+		<hr>
+		<p>Now suppose that $\psi(t)$ is a solution of the given integral equation. </p>
+		$$\text{Then } \psi(t) = 1 + \frac{t^3}{3} + \int_0^t \psi^4(s) ds $$
+		<p>Differentiating both sides with respect to $t$</p>
+		\begin{align}
+			\psi'(t) &= 0 + t^2 + \int_0^t \partialwrt[t] \phi^4(s) ds + \psi^4(t) \frac{dt}{dt} - \psi^4(0) \frac{d0}{dt} \\
+			\psi'(t) &= t^2 + \psi^4(t) \\
+		\end{align}
+		<p>Therefore $\psi(t)$ is the solution of the given initial value problem.</p>
+		<p>Hence they are equivalent.</p>
+	</details>
+</summary>

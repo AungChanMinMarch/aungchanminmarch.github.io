@@ -1,0 +1,100 @@
+---
+title: "Ex 10(Page 118)"
+parent: 5212_3_1_Lemma_3_1_b
+order: 10
+---
+<div class="theorem">
+	<div class="statement">
+		Construct the successive approximations to the solution $\phi$ of the differential equation $y' = y$ that satisfies $\phi(0)=1$ and $\phi_0(t) = \cos t$. Do these successive approximations converge, and if so, what is their limit?
+	</div>
+	<div class="proof">
+		$$y'=y, \phi(0) = 1, \phi_0(t) = \cos t$$
+		<p>We have $y'=f(t,y)=y$</p>
+		<p>The initial condition is $\phi(0)=1$. Hence $t_0 = 0, y_0 =1$</p>
+		<p>The successive approximation is</p>
+		$$\phi_{j + 1}(t) = y 0 + \int_{t_0}^t f(s, \phi_j (s))ds, j=0, 1, 2, \cdots$$
+		$$\phi_0(t) = y_0 =1$$
+		\begin{align}
+			\phi_{1}(t) &= y_{0} + \int_0^t f(s, \phi_{0}(s)) ds\\
+			&= 1 + \int_0^t \phi_{0}(s) ds\\
+			&= 1 + \int_0^t \cos s ds\\
+			&= 1 + \sbracket{\sin s}_0^t\\
+			&= 1 + \sin t
+		\end{align}
+
+		\begin{align}
+			\phi_{2}(t) &= y_{0} + \int_0^t f(s, \phi_{1}(s)) ds\\
+			&= 1 + \int_0^t \phi_{1}(s) ds\\
+			&= 1 + \int_0^t (1+\sin s) ds\\
+			&= 1 + \sbracket{s - \cos s}_0^t\\
+			&= 1 +  t - \cos t + 1 \\
+			&= 2 +  t - \cos t \\
+		\end{align}
+
+		\begin{align}
+			\phi_{3}(t) &= y_{0} + \int_0^t f(s, \phi_{2}(s)) ds\\
+			&= 1 + \int_0^t \phi_{2}(s) ds\\
+			&= 1 + \int_0^t (2 + s - \cos s) ds\\
+			&= 1 + \sbracket{2s + \frac{s^2}{2} - \sin s}_0^t\\
+			&= 1 + 2t + \frac{t^2}{2!} - \sin t
+		\end{align}
+
+		\begin{align}
+			\phi_{4}(t) &= y_{0} + \int_0^t f(s, \phi_{3}(s)) ds\\
+			&= 1 + \int_0^t \phi_{3}(s) ds\\
+			&= 1 + \int_0^t (1 + 2s + \frac{s^2}{2!} - \sin s) ds\\
+			&= 1 + \sbracket{s + s^2 + \frac{s^3}{6} + \cos s}_0^t\\
+			&= 1 + t + t^2 + \frac{t^3}{3!} + \cos t - 1\\
+			&= t + t^2 + \frac{t^3}{3!} + \cos t \\
+		\end{align}
+
+		\begin{align}
+			\phi_{5}(t) &= y_{0} + \int_0^t f(s, \phi_{4}(s)) ds\\
+			&= 1 + \int_0^t \phi_{4}(s) ds\\
+			&= 1 + \int_0^t (s + s^2 + \frac{s^3}{3!} + \cos s) ds\\
+			&= 1 + \sbracket{\frac{s^2}{2} + \frac{s^3}{3} + \frac{s^4}{4!} + \sin s}_0^t\\
+			&= 1 + \frac{t^2}{2} + \frac{t^3}{3} + \frac{t^4}{4!} + \sin t\\
+		\end{align}
+
+		\begin{align}
+			\phi_{6}(t) &= y_{0} + \int_0^t f(s, \phi_{5}(s)) ds\\
+			&= 1 + \int_0^t \phi_{5}(s) ds\\
+			&= 1 + \int_0^t (1 + \frac{s^2}{2} + \frac{s^3}{3} + \frac{s^4}{4!} + \sin s) ds\\
+			&= 1 + \sbracket{s + \frac{s^3}{3!} + 2\frac{s^4}{4!} + \frac{s^5}{5!} - \cos s}_0^t\\
+			&= 1 + t + \frac{t^3}{3!} + 2\frac{t^4}{4!} + \frac{t^5}{5!} - \cos t + 1 \\
+			&= 2 + t + \frac{t^3}{3!} + 2\frac{t^4}{4!} + \frac{t^5}{5!} - \cos t \\
+		\end{align}
+
+		<p>Therefore it appears that the successive approximations generate four types of terms. Indeed we can verify by induction that </p>
+		\begin{array}{ll}
+			\phi_{4n}(t)=& t + 2\frac{t^2}{2!} + \frac{t^3}{3!} + \cdots + \\
+			& \frac{t^{4n-3}}{(4n-3)!} + 2\frac{t^{4n-2}}{(4n-2)!} + \frac{t^{4n-1}}{(4n-1)!} + \cos t 
+		\end{array}
+
+		\begin{array}{ll}
+			\phi_{4n+2}(t)=& 2 + t + \frac{t^3}{3!} + 2\frac{t^4}{4!} + \frac{t^5}{5!} + \cdots + \\
+			& \frac{t^{4n-1}}{(4n-1)!} + 2\frac{t^{4n}}{(4n)!} + \frac{t^{4n+1}}{(4n+1)!} - \cos t 
+		\end{array}
+
+		\begin{array}{ll}
+			\phi_{4n + 1}(t)=& 1 + \frac{t^2}{2} + 2\frac{t^3}{3!} + \frac{t^4}{4!} + \cdots + \\
+			& \frac{t^{4n-2}}{(4n-2)!} + 2\frac{t^{4n-1}}{(4n-1)!} + \frac{t^{4n}}{(4n)!} + \sin t 
+		\end{array}
+
+		\begin{array}{ll}
+			\phi_{4n + 3}(t)=& 1 + 2t + \frac{t^2}{2!} + \cdots + \\
+			& \frac{t^{4n}}{(4n)!} + 2\frac{t^{4n+1}}{(4n+1)!} + \frac{t^{4n+2}}{(4n+2)!} - \sin t 
+		\end{array}
+
+		<p>The full sequenice $\{\phi_n(t)\}$ converges iff each of the subsequences $\{\phi_{4n}\}, \{\phi_{4n+2}\}, \{\phi_{4n+1}\}, \{\phi_{4n+3}\}$  converges to the same limit. Substituting the power series for $\sin t$ and $\cos t$, we observe that</p>
+
+		\begin{align}
+			\phi_{4n}(t) &= 1 + t + \frac{t^2}{2!} + \cdots + \frac{t^{4n}}{(4n)!} + R_{4n}\\
+			\phi_{4n+2}(t) &= 1 + t + \frac{t^2}{2!} + \cdots + \frac{t^{4n+2}}{(4n+2)!} - R_{4n}\\
+			\phi_{4n+1}(t) &= 1 + t + \frac{t^2}{2!} + \cdots + \frac{t^{4n+1}}{(4n+1)!} - \overset{\sim}{R}_{4n+1}\\
+			\phi_{4n+3}(t) &= 1 + t + \frac{t^2}{2!} + \cdots + \frac{t^{4n+3}}{(4n+3)!} - \overset{\sim}{R}_{4n+3}\\
+		\end{align}
+		<p>where $R_{4n}$ is the remainder in the power series expansion of $\cos t$ after the term $t^{4n}$ and $\overset{\sim}{R}_{4n+1}$ is the remainder in the power series expansion of $\sin t$ after the term $t^{n+1}$. </p>
+		<p>Clearly, each of these reminders tend to zero as $n \to \infty$ and thus $\phi_{4n}(t), \phi_{4n+2}(t), \phi_{4n+1}(t), \phi_{4n+3}(t)$ each converges to $1 + t + \frac{t^2}{2!} + \cdots + \frac{T^n}{n!} = e^t$. Therefore the full sequence $\{\phi(t)\}$ of successive approximations converges to $e^t$.</p>
+	</div>
+</div>

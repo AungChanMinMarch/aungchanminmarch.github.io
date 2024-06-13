@@ -1,6 +1,6 @@
 ---
 title: "Ex 3(Page 110)"
-parent: 5212_3_1_Lemma_3_1
+parent: 5212_3_1_Lemma_3_1_a
 order: 3
 ---
 <summary class="theorem">
@@ -10,7 +10,7 @@ order: 3
 		assuming that $g$ is continuous in a region $D$ containing $(0, y_0)$ and where $\mu > 0$ is a constant.
 	</div>
 	<details open class="proof">
-		{% include "./shared_3_1_ex_3.liquid" %}
+		{% include "./shared/3_1_ex_3.liquid" %}
 	</details>
 </summary>
 
@@ -24,7 +24,7 @@ order: 3
 			$$y(t)=y_0 \cos (\mu t) + \frac{z_0}{\mu} \sin (\mu t) + \frac{1}{\mu} \int_{t_0}^{t} \sin(\mu (t - s))g(s, y(s)) ds$$
 	</div>
 	<details open class="proof">
-		{% include "./shared_3_1_ex_3.liquid" %}
+		{% include "./shared/3_1_ex_3.liquid" %}
 		<hr>
 		<p>Now suppose $\psi$ is solution of the given integral equation.</p>
 		$$\text{Then } \psi(t)=y_0 \cos (\mu t) + \frac{z_0}{\mu} \sin (\mu t) + \frac{1}{\mu} \int_{t_0}^{t} \sin(\mu (t - s))g(s, \psi(s)) ds \tag{1}$$
