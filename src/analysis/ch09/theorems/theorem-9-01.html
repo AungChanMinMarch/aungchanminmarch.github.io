@@ -2,14 +2,83 @@
 title: "9.1 Definitions"
 ---
 <ol class="list-lowerAlpha mx-10">
-	<li>A nonempty set $X \subset \R^n$ is a vector space if $\vector{x} + \vector{y} \in X$ and $c \vector{x} \in X$ for all $\vector{x} \in X, \vector{y} \in X$ and for all scalars $c$.</li>
+	<li>A nonempty set $X \subset \R^n$ is a vector space if $\bvec{x} + \bvec{y} \in X$ and $c \bvec{x} \in X$ for all $\bvec{x} \in X, \bvec{y} \in X$ and for all scalars $c$.</li>
 	<li>
 		If $x_{1},..., x_k \in \R^n$ and $c_{1},..., c_k$ are scalars, the vector
-		$$c_{1} \vector{x_1} + \cdots + c_k \vector{x_k}$$
+		$$c_{1} \bvec{x_1} + \cdots + c_k \bvec{x_k}$$
 		is called a <b>linear combination</b> of $x_1, \cdots, x_k$. If $S \subset \R^n$ and if $E$ is the set of all linear combinations of elements of $S$, we say that $S$ <b>spans</b> $E$, or that $E$ is the <b>span</b> of $S$.
+	</li>
+	<li>A set consisting of vectors $\bvec{x_1}, ..., \bvec{x_k}$ is said to be <b>independent</b> if the relation $c_1 \bvec{x_1} + \cdots + c_k \bvec{x_k} = \bvec{0}$ implies that $c_1 = \cdots = c_k =0$. Otherwise $\{\bvec{x_1}, \cdots, \bvec{x_k} \}$ is said to be <b>dependent</b>.</li>
+	<li>If a vector space $X$ contains an independent set of $r$ vectors but contains no independent set of $r+1$ vectors, we say that $X$ has <b>dimension</b> $r$, and write: $\dim X = r$. 
+		<p class="indent-10">The set consisting of $\bvec{0}$ alone is a vector space; its dimension is $0$.</p>
+	</li>
+	<li>An independent subset of a vector space $X$ which spans $X$ is called a <b>basis</b> of $X$.
+		<p class="indent-10">Observe that if $B = \{ \bvec{x_1} ,...,\bvec{x_r} \}$ is a basis of $X$, then every $\bvec{x} \in X$ has a unique representation of the form $\bvec{x} = \sum c_{j} x_{j}$. Such a representation exists since $B$ spans $X$, and it is unique since $B$ is independent. The numbers $c_{1} ,...,c_r$ are called the <b>coordinates</b> of $\bvec{x}$ with respect to the basis $B$.</p>
+		<p class="indent-10">The most familiar example of a basis is the set $\{ \bvec{e_1}, \cdots, \bvec{e_n} \}$ where $\bvec{e_j}$ is the vector in $\R^{n}$ whose j<sup>th</sup> coordinate is $1$ and whose other coordinates are all $0$. If $\bvec{x} \in \R^n$, $\bvec{x} = (x_1, \cdots, x_n)$, then $\bvec{x} = \sum x_{i} \bvec{e_i}$. We shall call $\{ \bvec{e_1}, \cdots, \bvec{e_n} \}$ the <b>standard basis</b> of $\R^{n}$.</p>
 	</li>
 </ol>
 
 <div class="theorem">
 	<div class="statement">Show that every span in $\R^n$ is a vector space.</div>
+	<div class="proof">
+		<summary>
+			<h5>1<sup>st</sup> Method</h5>
+			<details>
+				<p>Let $S \subset \R^n$ and $E=\{ c_1 \bvec{x_1} + \cdots + c_k \bvec{x_k} | \bvec{x_1}, \cdots, \bvec{x_k} \in S, c_1, \cdots, c_k \text{ are scalars.} \}$.</p>
+				<p>Since $\bvec{x_1}, \cdots, \bvec{x_k} \in S$,
+				$\bvec{x_1}, \cdots, \bvec{x_k} \in \R^n$ and hence
+				$\bvec{x_1}, \cdots, \bvec{x_k} \in E$.</p>
+				<p>Thus $E \subset R^n$ and $E \neq \emptyset$.</p>
+				<p>Take any two vectors $c_1 \bvec{x_1} + \cdots + c_k \bvec{x_k}$ and $a_1 \bvec{x_1} + \cdots + a_k \bvec{x_k} \in E$, where $c_1, \cdots, c_k, a_1, \cdots, a_k$ are scalars. </p>
+
+				<p>\begin{align}
+					\text{Then }&(c_1 \bvec{x_1} + \cdots + c_k \bvec{x_k}) + 
+					(a_1 \bvec{x_1} + \cdots + a_k \bvec{x_k}) \\
+					= &(c_1 +a_1) \bvec{x_1} + \cdots + (c_k+a_k) \bvec{x_k}\\
+					\in &E
+				\end{align}
+				since $(c_1 +a_1) + \cdots + (c_k+a_k) $ are scalars.</p>
+
+				<p>\begin{align}
+					\text{Also }&a(c_1 \bvec{x_1} + \cdots + c_k \bvec{x_k}) \\
+					= &a(c_1) \bvec{x_1} + \cdots + a(c_k) \bvec{x_k}\\
+					= & (ac_1) \bvec{x_1} + \cdots + (ac_k) \bvec{x_k}\\
+					\in &E \\
+				\end{align}
+				since $(ac_1) + \cdots + (ac_k) $ are scalars.</p>
+
+				<p>Hence $E$ is a vector space.</p>
+			</details>
+		</summary>
+
+		<summary>
+			<h5>2<sup>nd</sup> Method</h5>
+			<details>
+				<h2 class="color-red">Comming Soon</h2>
+			</details>
+		</summary>
+
+	</div>
 </div>
+
+<summary class="theorem">
+	<div class="statement">
+		<p>Show that no independent set in $\R^n$ contains the null vectors.</p>
+		<div class="center">OR</div>
+		<p>Prove that any set of vectors containing the null vector is dependent.</p>
+	</div>
+	<details class="proof">
+		<p>Let X be a vector space over any field of scalars.</p>
+		<p>Now consider a set of vectors $\{\bvec{v_1}, \cdots, \bvec{v_n} \}$ \subset X$ where $\bvec{v_1} = \bvec{0}$. </p>
+		<p>Now, for any scalars $a_1,\cdots, a_n$, consider</p>
+		\begin{align}
+			a_1 \bvec{a_1} + a_2 \bvec{v_2} + \cdots + an \bvec{v_n} &= \bvec{0} \\
+			\bvec{0} + a_2 \bvec{v_2} + \cdots + an \bvec{v_n} &= \bvec{0} \\
+			a_2 \bvec{v_2} + \cdots + an \bvec{v_n} &= \bvec{0} \\
+		\end{align}
+		<p>If $\{ v_2, \cdots, v_n \}$ is  independent, then $a_2 = \cdots = a_n = 0$. </p>
+		<p>But we cannot conclude that $a_1 = 0$. </p>
+		<p>Thus we get at least non-zero scalar $a_1$ such that $a_1 \bvec{a_1} + a_2 \bvec{v_2} + \cdots + an \bvec{v_n} = \bvec{0}$</p>
+		<p>Thus, by definition, the given set of vectors containing the null vector is dependent.</p>
+	</details>
+</summary>

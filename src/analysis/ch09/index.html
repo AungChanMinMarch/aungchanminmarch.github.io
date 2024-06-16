@@ -6,7 +6,7 @@ eleventyNavigation:
 ---
 <h3>Preliminary</h3>
 <summary class="definition">
-  <p>definitions of $\R, \R^k$, vector addtion, scalar multiplication, scalar product and norm</p>
+  <p><b>Definitions</b> of $\R, \R^k$, vector addtion, scalar multiplication, scalar product and norm</p>
   <details>
     <table>
       <tr>
@@ -15,23 +15,23 @@ eleventyNavigation:
       </tr>
       <tr>
         <td>$\R^k$</td>
-        <td>the set of all ordered k-tuples $\vector{x} = (x_1, x_2, \cdots, x_n)$, where $x_1,...,x_n$ are real numbers,</td>
+        <td>the set of all ordered k-tuples $\bvec{x} = (x_1, x_2, \cdots, x_n)$, where $x_1,...,x_n$ are real numbers,</td>
       </tr>
       <tr>
         <td>vector addition</td>
-        <td>$\vector{x} + \vector{y} = (x_1+y_1, ..., x_n + y_n )$</td>
+        <td>$\bvec{x} + \bvec{y} = (x_1+y_1, ..., x_n + y_n )$</td>
       </tr>
       <tr>
         <td>scalar multiplication</td>
-        <td>$\alpha \vector{x} = (\alpha x_1, ..., \alpha x_n)$</td>
+        <td>$\alpha \bvec{x} = (\alpha x_1, ..., \alpha x_n)$</td>
       </tr>
       <tr>
         <td>scalar product</td>
-        <td>$\vector{x} \scalarProduct \vector{y} = \sum_{i=1}^{k} x_i y_i$</td>
+        <td>$\bvec{x} \scalarProduct \bvec{y} = \sum_{i=1}^{k} x_i y_i$</td>
       </tr>
       <tr>
         <td>Norm</td>
-        <td>$ \norm{x} = (\vector{x} \scalarProduct \vector{x})^{\frac{1}{2}}= \bracket{\sum_{1}^{k} x_i^2}^{\frac{1}{2}}$</td>
+        <td>$ \norm{x} = (\bvec{x} \scalarProduct \bvec{x})^{\frac{1}{2}}= \bracket{\sum_{1}^{k} x_i^2}^{\frac{1}{2}}$</td>
       </tr>
     </table>
     <a 
@@ -76,23 +76,23 @@ eleventyNavigation:
   <p>Define vector space, vectors, real vector space, complex vector space, null vector, vector subspace, proper vector subspace.</p>
   <details>
     <h3>Vector Space</h3>
-    <p>A <b>vector space</b> is a set $X$ along with two operations: vector addition and scalar multiplication. If $ \vector{x}, \vector{y}, \vector{z} $ are vectors in $X$ and $\alpha, \beta$ are scalars, then the following properties must hold:</p>
+    <p>A <b>vector space</b> is a set $X$ along with two operations: vector addition and scalar multiplication. If $ \bvec{x}, \bvec{y}, \bvec{z} $ are vectors in $X$ and $\alpha, \beta$ are scalars, then the following properties must hold:</p>
     <ul class="list-decimal mx-10">
-      <li>Commutativity of addition: $ \vector{x} + \vector{y} = \vector{y} + \vector{x} $</li>
-      <li>Associativity of addition: $ \vector{x} + (\vector{y} + \vector{z}) = (\vector{x} + \vector{y}) + \vector{z} $</li>
-      <li>Identity element of addition: There exists an element $ \vector{0} \in V $ such that $ \vector{x} + \vector{0} = \vector{x} $ for all $ \vector{x} \in V $</li>
-      <li>Inverse elements of addition: For each $ \vector{x} \in V $, there exists an element $ -\vector{x} \in V $ such that $ \vector{x} + (-\vector{x}) = \vector{0} $</li>
+      <li>Commutativity of addition: $ \bvec{x} + \bvec{y} = \bvec{y} + \bvec{x} $</li>
+      <li>Associativity of addition: $ \bvec{x} + (\bvec{y} + \bvec{z}) = (\bvec{x} + \bvec{y}) + \bvec{z} $</li>
+      <li>Identity element of addition: There exists an element $ \bvec{0} \in V $ such that $ \bvec{x} + \bvec{0} = \bvec{x} $ for all $ \bvec{x} \in V $</li>
+      <li>Inverse elements of addition: For each $ \bvec{x} \in V $, there exists an element $ -\bvec{x} \in V $ such that $ \bvec{x} + (-\bvec{x}) = \bvec{0} $</li>
 
-      <li>Compatibility of scalar multiplication with field multiplication: $ \alpha (\beta \vector{x}) = (\alpha \beta) \vector{x} $</li>
-      <li>Distributivity of scalar multiplication with respect to field addition: $ (\alpha + \beta) \vector{x} = \alpha \vector{x} + \beta \vector{x} $</li>
-      <li>Distributivity of scalar multiplication with respect to vector addition: $ \alpha (\vector{x} + \vector{y}) = \alpha \vector{x} + \alpha \vector{y} $</li>
-      <li>Identity element of scalar multiplication: $ 1 \vector{x} = \vector{x} $, where 1 is the multiplicative identity in the field of scalars</li>
+      <li>Compatibility of scalar multiplication with field multiplication: $ \alpha (\beta \bvec{x}) = (\alpha \beta) \bvec{x} $</li>
+      <li>Distributivity of scalar multiplication with respect to field addition: $ (\alpha + \beta) \bvec{x} = \alpha \bvec{x} + \beta \bvec{x} $</li>
+      <li>Distributivity of scalar multiplication with respect to vector addition: $ \alpha (\bvec{x} + \bvec{y}) = \alpha \bvec{x} + \alpha \bvec{y} $</li>
+      <li>Identity element of scalar multiplication: $ 1 \bvec{x} = \bvec{x} $, where 1 is the multiplicative identity in the field of scalars</li>
     </ul>
     <p>Elements of $X$ are called <b>vectors</b>.</p>
     <p>If $\K = \R$, then $X$ is called a <b>real vector space</b>.</p>
     <p>If $\K = \C$, then $X$ is called a <b>complex vector space</b>.</p>
-    <p>The zero element $\vector{0}$ is called the <b>null</b> vector.</p>
-    <p>A subset $E$ of a vector space $X$ is called a <b>vector subspace</b> if every $\alpha, \beta \in \K$ and $\vector{x}, \vector{y} \in E$, the vector $\alpha \vector{x}$, $\alpha \vector{y} \in E$.</p>
+    <p>The zero element $\bvec{0}$ is called the <b>null</b> vector.</p>
+    <p>A subset $E$ of a vector space $X$ is called a <b>vector subspace</b> if every $\alpha, \beta \in \K$ and $\bvec{x}, \bvec{y} \in E$, the vector $\alpha \bvec{x}$, $\alpha \bvec{y} \in E$.</p>
     <ol class="list-disc mx-5">
       Note that
       <li>Every vector space is a subspace of itself.</li>

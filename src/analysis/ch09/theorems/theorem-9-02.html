@@ -1,0 +1,54 @@
+---
+title: "Theorem 9.2"
+---
+<div class="theorem">
+	<div class="statement">Let $r$ be a positive integer. If a vector space $X$ is spanned by a set of $r$ vectors, then $\dim X \leq r$.</div>
+	<div class="proof">
+		<p>Let $X$ be a vector space. </p>
+		<p>Suppose $\dim X \leq r$ is false. Let $\dim X = r+1$. </p>
+		<p>Then $X$ contains an independent set of $r+1$ vectors, say $Q=\{ \bvec{y_1}, \cdots, \bvec{y}_{r + 1} \}$.</p>
+		<p>Since $X$ is spanned by a set of $r$ vectors, we let $S_0 = \{ \bvec{x_1} , \cdots , \bvec{x_r} \}$ span $X$. </p>
+		<p>Since $Q \subset X$, $Q$ is spanned by $S_0$.</p>
+		<p>For $0 \leq i < r$, we construct a set $S_i$ such that $S_i$ spans $X$ and $S_i$ consists of all $\bvec{y}_j$ with $1 \leq j \leq i$ plus a certain collection $r - i$ members of $S_0$, say $\bvec{x_1}, \cdots, \bvec{x}_{r-1}$. </p>
+		<p>In other words, $S_i$ is obtained from $S_0$ by replacing $i$ of its elements by members of $Q$ without altering the span.</p>
+		\begin{align}
+			S_0 &= \{ \bvec{x_1} , \cdots , \bvec{x_r} \} \\
+			S_1 &= \{ \bvec{x_1} , \cdots , \bvec{x}_{r-1} \} \cup \{ \bvec{y}_1 \} \\
+			S_2 &= \{ \bvec{x_1} , \cdots , \bvec{x}_{r-2} \} \cup \{ \bvec{y}_1, \bvec{y}_2 \} \\
+			\vdots \\
+			S_i &= \{ \bvec{x_1} , \cdots , \bvec{x}_{r-i} \} \cup \{ \bvec{y}_1 , \cdots, \bvec{y}_i\} \\
+		\end{align}
+		<p>Since $S_1$ spans $X$ and $\bvec{y}_i \in X$, there are scalars $\bvec{a}_1 ,\cdots , \bvec{a}_{i+1}, \bvec{b}_1,\cdots , \bvec{b}_{r-i}$ with $a_{i+1} = 1$ such that</p>
+		\begin{align}
+			\bvec{y}_{i+1} &= (- a_1) \bvec{y_1} + \cdots + (-a_{i}) \bvec{y}_{i} + (-b_1) \bvec{x}_1 + \cdots + (-b_{r-i}) \bvec{x}_{r-i} \\
+			a_{i+1} \bvec{y}_{i+1} &= (- a_1) \bvec{y_1} + \cdots + (-a_{i}) \bvec{y}_{i} + (-b_1) \bvec{x}_1 + \cdots + (-b_{r-i}) \bvec{x}_{r-i} \\
+		\end{align}
+			$$\sum_{j=1}^{i+1} a_j \bvec{y}_j + \sum_{j=1}^{r-i} b_j \bvec{x}_j = \bvec{0} \tag{1}$$
+		<p class="mt-5">Suppse all $b_{k}$'s were $0$0. Then Equation(1) becomes</p>
+			$$\sum_{j=1}^{i+1} a_j \bvec{y}_j = \bvec{0}$$
+		<p>Since $Q=\{ \bvec{y_1}, \cdots, \bvec{y}_{r + 1} \}$ is independent, all $a_j$'s are $0$. This contradicts that $a_{i+1} = 1$. </p>
+
+		<p>Suppose there is a $b_k \neq 0$. Then Equation (1) becomes</p>
+		$$\bvec{x}_k = -\frac{1}{b_k} (a_1 \bvec{y}_1 + \cdots + a_{i+1} \bvec{y}_{i+1} + b_1 \bvec{x}_1 + \cdots + b_{k-1} \bvec{x}_{k-1} + b_{k+1} \bvec{x}_{k+1} + \cdots + b_{r-i} \bvec{x}_{r-i})$$
+		<div class="center">OR</div>
+		$$\bvec{x}_k = -\frac{1}{b_k} (\sum_{j=1}^{i+1} a_j \bvec{y}_j + \sum_{j=1, j\neq k}^{r-i} b_j \bvec{x}_j)$$
+
+		<p>It follows that some $x_k \in S_i$ is a linear combination of the other members of $T_i = S_i \cup \{y_{i+1}\}$.</p>
+		<p>Remove this $x_k$ from $T_i$ and call the remaining set $S_{i+1}$. That is $S_{i+1} = T_i \backslash \{x_k\}$.</p>
+		<p>So $S_i$ has the properties postulated for $S_i$ with $i+1$ in place of $i$.</p>
+		<p>Starting with $S_0$, we thus construct sets $S_1,..., S_r$. </p>
+		<p>Clearly $S_r = \{ \bvec{y}_1, \cdots, \bvec{y}_r \}$, and our construction shows that it spans $X$. </p>
+		<p>But $Q$ is independent; hence $\bvec{y}_{r+1}$ is not in the span of $S_r$. </p>
+		<p>This is contradiction and hence $\dim X \leq r$.</p>
+	</div>
+</div>
+
+<div class="theorem">
+	<h1>Corollary</h1>
+	<div class="statement">$\dim \R^n = n$</div>
+	<div class="proof">
+		<p>Since $\{\bvec{e}_{1},\cdots , \bvec{e}_n \}$ spans $\R^n$, the theorem 9.2 shows that $\dim \R^n \leq n$.</p>
+		<p>Since $\{\bvec{e}_{1},\cdots , \bvec{e}_n \}$ is independent, $\dim \R^n \geq n$. </p>
+		<p>Therefore $\dim \R^n = n$</p>
+	</div>
+</div>
