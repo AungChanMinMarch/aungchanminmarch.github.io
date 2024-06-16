@@ -1,0 +1,24 @@
+---
+parent: 5208_10_2
+title: "Example 2.2"
+---
+<div class="theorem">
+	<h1>{{title}}</h1>
+	<div class="statement">
+		Let $\topologyTau$ be the cofinite topology on $\R$. Show that $(\R, \topologyTau)$ is not Hausdorff.
+	</div>
+	<div class="proof">
+		<p>Let $\topologyTau$ be the cofinite topology on $\R$.</p>
+		<p>Then $(\R, \topologyTau)$ is $T_1$ space.</p>
+		<p>Let $G$ and $H$ be non-empty $\topologyTau$-open set. </p>
+		<p>Then $G$ and $H$ are infinite since $\topologyTau$ is cofinite. </p>
+		<p>Hence $G^C$ and $H^C$ are finite.</p>
+		<p class="mt-5">Suppose $G \cap H = \emptyset$. </p>
+		<p>Then $G \subset H^C$. </p>
+		<p>Since $G$ is infinite and $H^C$ is finite, this is a contradiction.</p>
+		<p>$G \cap H \neq \emptyset$. </p>
+		<p>$G$ and $H$ are not disjoint.</p>
+		<p>Thus no pair of distinct points in $R$ belongs, respectively, to disjoint $\topologyTau$-open sets.</p>
+		<p>Thus $\topologyTau$ is not Hausdorff.</p>
+	</div>
+</div>
