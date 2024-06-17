@@ -1,0 +1,60 @@
+---
+title: "The Method of Successive Approximation"
+key: 5212_3_1_Lemma_3_1_c
+---
+We will consider the problem 
+\begin{align}
+	y'&=f(t,y) \tag{3.1}\\
+	\phi(t_0) &= y_0 \tag{3.2}
+\end{align}
+first with $f$ and $\partialwrt[f]{y}$ continuous on a closed rectangle $R = \{(t, y)| \abs{t=t_0} \leq a, \abs{y-y_0} \leq b \}$ centered at $(t_{0}, y_{0})$. Thus the functions $f$ and $\partialwrt[f]{y}$ are bounded on $R$, and there exist constants $M > 0, K > 0$ such that 
+
+$$\abs{f(t, y)} \leq M, \abs{\partialwrt[f]{y}(t, y')} \leq K \tag{3.6}$$
+
+for all points $(t, y)$ in $R$.
+ If $(t,y_1)$ and $(t,y_2)$ are two points in $R$, then by the mean value theorem, there exists a number $\eta$ between $y_{1}$ and $y_2$ such that 
+
+$$f(t, y_{2}) - f(t, y_{1}) = \partialwrt[f]{y}(t, \eta)(y_2 - y_1 )$$
+
+Since the point $(t, \eta)$ is also in $R$, $\abs{\partialwrt[f]{t}(t, \eta)} \leq K$ and we obtain 
+
+$$|f(t, y_{2}) - f(t, y_{1})| \leq K|y_{2} - y_{1}| \tag{3.7}$$ 
+
+valid whenever $(t, y_{1})$ and $(t, y_{2})$ are in $R$.
+
+<div class="definition"><b>Definition</b> A function $f$ that satisfies an inequality of the form (3.7) for all $(t, y_{1}), (t, y_{2})$ in a region $D$ is said to satisfy a Lipschitz condition in $D$.</div>
+
+The above argument shows that if f and partial f | partial y are continuous on R, then f satisfies a Lipschitz condition in R. It is possible for f to satisfy a Lipschitz condition in a region without having a continuous partial derivative with respect to y there, for example, f(t, y) = t|y| defined in any region containing (0, 0). In this chapter, we assume the continuity of partial f ( partial y for simplicity, but we could instead assume that satisfies a Lipschitz condition without sub- stantial changes in the proofs.
+
+<div class="theorem">
+	<div class="statement">
+		<h3>Example 1.</h3>
+		<p>If $f(t, y) = y^{1/3}$ in the rectangle $R=\{(t, y) ||t| ≤ 1, \abs{y} \leq 2\}$, then does $f$ satisfy a Lipschitz condition in $R$?</p>
+	</div>
+	<div class="proof">
+		$$f(t, y) = y^{\frac{1}{3}}, R=\{(t, y)|\abs{t} ≤ 1, \abs{y} \leq 2\}$$
+		<p>Consider the points $(t, y_1), (t, 0)$ with $|t| ≤ 1, y_1 > 0$.</p>
+		<p>$f(t, y_1) = {y_1}^{\frac{1}{3}}$ and $f(t, 0) = 0$.</p>
+
+		$$\text{Then } \frac{f(t, y_1) - f(t,0)}{y_1 - 0} = \frac{y_1^{\frac{1}{3}}}{y_1} =\frac{1}{y_1^{\frac{2}{3}}}$$
+
+		<p>As $y_1 \to 0$, $\abs{\partialwrt[f]{y}} \to \infty$.</p>
+		<p>Now choosing $y_1 > 0$ sufficiently small, it is clear that $K= {y_1}^{-\frac{2}{3}}$ can make larger than any preassigned constant. </p>
+		<p>Therefore (3.7) fails to hold for any $K$. $f$ does not satisfy a Lipschitz condition. </p>
+	</div>
+</div>
+
+<div class="theorem">
+	<div class="statement">
+		<h3>Example 2.</h3>
+	Let $f(t,y) = t y^2$, $R: \abs{t} \leq 1, \abs{y} \leq 1$. does $f$ satisfy a Lipschitz condition in $R$?</div>
+	<div class="proof">
+		\begin{align}
+		 \partialwrt[f]{y} &= 2ty \\
+		 \abs{\partialwrt[f]{y}} &= \abs{2ty} \\
+		 &= 2\abs{t}\abs{y} \\
+		 &\leq 2 (1) (1) =2 \\
+		 \therefore \abs{\partialwrt[f]{y}} &\leq 2 \\
+		\end{align}
+The function $f(t,y) =ty^2$ satisfies the lipschitz condition with lipschite constant $2$. Here $2$ is called <b>Lipschitz constant</b>.</div>
+</div>

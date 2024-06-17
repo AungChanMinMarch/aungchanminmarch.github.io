@@ -1,0 +1,87 @@
+---
+title: "Ex 5(Page 111)"
+parent: 5212_3_1_Lemma_3_1_b
+order: 5
+---
+<div class="theorem">
+	<div class="statement">
+		Construct the successive approximations to the solution $\phi$ of the differential equation $y' = -y$ that satisfies $\phi(0)=2$ and $\phi_0(t) =  t$. Do these successive approximations converge to a familiar function, and if so, is this function a solution of the problem?
+	</div>
+	<div class="proof">
+		$$y'= -y, \phi(0) = 2$$
+		<p>We have $y'=f(t,y)=-y$</p>
+		<p>The initial condition is $\phi(0)=2$. Hence $t_0 = 0, y_0 =2$</p>
+		<p>We have a constant function $\phi_0(t) = y_0 = 2$.</p>
+		<p>The successive approximation is</p>
+		$$\phi_{j + 1}(t) = y 0 + \int_{t_0}^t f(s, \phi_j (s))ds, j=0, 1, 2, \cdots$$
+		$$\phi_0(t) = 2$$
+		\begin{align}
+			\phi_{1}(t) &= y_{0} + \int_0^t f(s, \phi_{0}(s)) ds\\
+			&= 2 + \int_0^t -\phi_{0}(s) ds\\
+			&= 2 - \int_0^t 2 ds\\
+			&= 2 - \sbracket{2s}_0^t\\
+			&= 2 - 2t
+		\end{align}
+
+		\begin{align}
+			\phi_{2}(t) &= y_{0} + \int_0^t f(s, \phi_{1}(s)) ds\\
+			&= 2 + \int_0^t -\phi_{1}(s) ds\\
+			&= 2 - \int_0^t (2 - 2s) ds\\
+			&= 2 - \sbracket{2s - s^2}_0^t\\
+			&= 2 -  2t + t^2 \\
+			&= 2 -  2t + 2\frac{t^2}{2!} \\
+		\end{align}
+
+		\begin{align}
+			\phi_{3}(t) &= y_{0} + \int_0^t f(s, \phi_{2}(s)) ds\\
+			&= 2 + \int_0^t -\phi_{2}(s) ds\\
+			&= 2 - \int_0^t (2 -  2s + 2\frac{s^2}{2!}) ds\\
+			&= 2 - \sbracket{2s - 2\frac{s^2}{2} + 2 \frac{s^3}{3!} }_0^t\\
+			&= 2 - 2t + 2 \frac{t^2}{2!} - 2 \frac{t^3}{3!}
+		\end{align}
+
+		\begin{align}
+			\phi_{4}(t) &= y_{0} + \int_0^t f(s, \phi_{3}(s)) ds\\
+			&= 2 + \int_0^t -\phi_{3}(s) ds\\
+			&= 2 - \int_0^t (2 - 2s + 2 \frac{s^2}{2!} - 2 \frac{s^3}{3!}) ds\\
+			&= 2 - \sbracket{2s - 2\frac{s^2}{2!} + 2\frac{s^3}{3!} - 2 \frac{s^4}{4!} }_0^t\\
+			&= 2 - 2t + 2\frac{t^2}{2!} - 2 \frac{t^3}{3!} + 2 \frac{t^4}{4!}
+		\end{align}
+
+		<p>Assume that
+			$$\phi_n(t) = 2 - 2t + 2\frac{t^2}{2!} - 2 \frac{t^3}{3!} + 2 \frac{t^4}{4!} + \cdots + 2 \frac{t^n}{n!}$$
+		</p>
+		\begin{align}
+			\phi_{n+1}(t) &= y_{0} + \int_0^t f(s, \phi_{n}(s)) ds\\
+			&= 2 + \int_0^t -\phi_{n}(s) ds\\
+			&= 2 - \int_0^t (2 - 2s + 2\frac{s^2}{2!} - 2 \frac{s^3}{3!} + \cdots + 2 \frac{s^n}{n!}) ds\\
+			&= 2 + \sbracket{
+				2s - 2 \frac{s^2}{2!} + 2\frac{s^3}{3!} - 2 \frac{s^4}{4!} + \cdots + 2 \frac{s^{n+1}}{(n+1)!}
+			}_0^t\\
+			&= 2 + 2t - 2 \frac{t^2}{2!} + 2\frac{t^3}{3!} - 2 \frac{t^4}{4!} + \cdots + 2 \frac{t^{n+1}}{(n+1)!}\\
+		\end{align}
+		<p>Thus $\phi_n(s)$ is valid for every $n=0,1,2, \cdots$. </p>
+		\begin{align}
+			\phi_n(t) 
+			&= 2 - 2t + 2\frac{t^2}{2!} - 2 \frac{t^3}{3!} + 2 \frac{t^4}{4!} + \cdots + 2 \frac{t^n}{n!} \\
+			&= 2 + 2(-t) + 2\frac{(-t)^2}{2!} + 2 \frac{(-t)^3}{3!} + 2 \frac{(-t)^4}{4!} + \cdots + 2 \frac{(-t)^n}{n!} \\
+			&= \sum_{k=0}^{n} 2 \frac{(-t)^k}{k!} \\
+			&= 2 \sum_{k=0}^{n} \frac{(-t)^k}{k!} \\
+		\end{align}
+
+		\begin{align}
+			\limit \phi_n(t) 
+			&= \limit 2 \sum_{k=0}^{n} \frac{(-t)^k}{k!} \\
+			&= 2 \limit \sum_{k=0}^{n} \frac{(-t)^k}{k!} \\
+			&= 2 \sum_{k=0}^{\infty} \frac{(-t)^k}{k!} \\
+			&= 2 e^{-t}
+		\end{align}
+		<p>Yes, these successive approximations converge to a familiar function.</p>
+		\begin{align}
+			\text{Let } \phi(t) &= 2 e^{-t} \\
+			\phi'(t) &= - 2 e^{-t} = - \phi(t) \\
+			\phi(0) &= 2 e^{0} = 2 \\
+		\end{align}
+		<p>Therefore $\phi(t)$ is a solution of given differential equation with initial condition $\phi(0)=2$. </p>
+	</div>
+</div>
