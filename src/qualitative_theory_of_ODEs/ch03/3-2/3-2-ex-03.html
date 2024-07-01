@@ -1,0 +1,122 @@
+---
+title: "Ex 3(Page 124)"
+parent: 5212_3_2_Existence_Theory
+order: 3
+---
+<div class="theorem">
+	<div class="statement">Given the system 
+		\begin{align}
+			y_{1}' &= y_{1} ^ 2 + y_{1} ^ 2 + 1 \\
+			y_{2}' &= y_{1} ^ 2 - y_{2} ^ 2 - 1
+		\end{align} 
+
+		Let $y = \cvec{y_1 \\ y_2}$ and let $B$ be the "box" $\{(t, y) ||t| \leq 1,|y| \leq 2 \}$. Determine the bounds $M$, $K$ in (3.19) for $\bf$ and $\partialwrt[\bf]{y_j}$, for this case. Determine $\alpha$ of Theorem 3.3. Compute the first three successive approximations of the solution $\bPhi(t)$ satisfying the initial condition $\bPhi(0) = \mathbf{0}$, $\bPhi = \cvec{\phi_1 \\ \phi_2}$.</div>
+		<div class="proof">
+			\begin{align}
+				\by' &= \bf(t, \by) = (f_1(t,\by), f_2(t, \by)) \\
+				\by &= (y_1, y_2) \\
+				\by' &= (y_1', y_2') \\
+				y_{1}' &= y_{1} ^ 2 + y_{1} ^ 2 + 1 \\
+				y_{2}' &= y_{1} ^ 2 - y_{2} ^ 2 - 1 \\
+				\bf(t, \by) &= (f_1(t,\by), f_2(t, \by)) = \\
+				&= (y_1^2 + y_2^2 + 1, {y_1}^2 - {y_2}^2 -1) \\
+				\partialwrt[\bf(t, \by)]{y_1} &= (2y_1, 2y_1)\\
+				\partialwrt[\bf(t, \by)]{y_2} &= (2y_2, -2y_2)\\
+			\end{align}
+				$$\abs{\partialwrt[\bf(t, \by)]{y_1}} = \sqrt{(2y_1)^2 + (2y_1)^2} = \sqrt{3y_1^2 + 4 y_1^2} =\sqrt{8y_1^2} = 2\sqrt{2} \abs{y_1} \tag{1}$$
+				
+				$$\abs{\partialwrt[\bf(t, \by)]{y_2}} = \sqrt{(2y_2)^2 + (-2y_2)^2} = \sqrt{3y_1^2 + 4 y_1^2} =\sqrt{8y_2^2} = 2 \sqrt{2}\abs{y_2} \tag{2}$$
+
+				<p>Since $\abs{y} \leq 2$, we have</p>
+				\begin{align}
+					\abs{y} = \sqrt{y_1^2 + {y_2}^2} &\leq 2 \\
+					y_1^2 + {y_2}^2 &\leq 4 \tag{3}
+				\end{align}
+
+				\begin{align}
+					\text{If } y_2 &=0, & y_1^2 &\leq 4 & \implies \abs{y_1} &\leq 2\\
+					\text{If } y_1 &=0, & y_2^2 &\leq 4 & \implies \abs{y_2} &\leq 2
+				\end{align}
+
+				<p>From Equation (1), we have
+				$$\abs{\partialwrt[\bf(t, \by)]{y_1}} = 2\sqrt{2} \abs{y_1} \leq 2\sqrt{2} 2 = 4 \sqrt{2} = K \text{(say)}$$
+				</p>
+				<p>From Equation (2), we have
+				$$\abs{\partialwrt[\bf(t, \by)]{y_2}} = 2\sqrt{2} \abs{y_2} \leq 2\sqrt{2} 2 = 4 \sqrt{2} = K \text{(say)}$$
+				</p>
+
+				<p>Since $\bf(t, \by) = (f_1(t,\by), f_2(t, \by)) = (y_1^2 + y_2^2 + 1, {y_1}^2 - {y_2}^2 -1)$</p>
+				\begin{align}
+				\abs{\bf(t, \by)} 
+				&= \sqrt{(y_1^2 + y_2^2 + 1)^2 + ({y_1}^2 - {y_2}^2 -1)^2} \\
+				&= \sqrt{(y_1^2 + (y_2^2 + 1))^2 + ({y_1}^2 - ({y_2}^2 + 1))^2} \\
+				&= \sqrt{y_1^4 + 2 y_1^2 (y_2^2 + 1) + (y_2^2 + 1)^2 + y_1^4 - 2 y_1^2 (y_2^2 + 1) + ({y_2}^2 + 1)^2} \\
+				&= \sqrt{2 y_1^4 + 2(y_2^2 + 1)^2} \\
+				&= \sqrt{2 y_1^4 + 2(y_2^4 + 2y_2^2 + 1)} \\
+				&= \sqrt{2 y_1^4 + 2y_2^4 + 4y_2^2 + 2} \\
+				\end{align}
+
+				<p>From Equation (3), we have
+				\begin{align}
+					y_1^2 + {y_2}^2 &\leq 4 \\
+					(y_1^2 + {y_2}^2)^2 &\leq 16 \\
+					y_1^4 + 2y_1 ^2 y_2^2 + {y_2}^4 &\leq 16 \\
+					y_1^4 + {y_2}^4 &\leq 16 \\
+				\end{align}
+
+				\begin{align}
+					\abs{\bf(t, \by)} 
+					&= \sqrt{2 y_1^4 + 2y_2^4 + 4y_2^2 + 2} \\
+					&= \sqrt{2 (y_1^4 + y_2^4) + 4y_2^2 + 2} \\
+					&\leq \sqrt{2 (16) + 4y_2^2 + 2} \\
+					&= \sqrt{24 + 4y_2^2} \\
+					&= \sqrt{24 + 4(y_1^2 + y_2^2)} \\
+					&\leq \sqrt{24 + 4(4)} \\
+					&= \sqrt{50}
+				\end{align}
+				$$\therefore \abs{\bf(t, \by)} \leq \sqrt{50} = M \text{ (say)}$$
+				</p>
+				<hr>
+				\begin{align}
+					y_1' &= y_1^2 + y_2^2 + 1 \\
+					y_2' &= y_1^2 - y_2^2 - 1 \\
+					\by' &= \bf(t, \by) = \cvec{y_1' \\ y_2'} = \cvec{y_1^2 + y_2^2 + 1 \\ y_1^2 - y_2^2 - 1} \\
+					\bPhi(0) &= 0, \bPhi = \cvec{\phi_1 \\ \phi_2}
+				\end{align}
+				<p>We have $\Phi(t_0) = y_0$.</p>
+				$$t_0 = 0, y_0 = 0$$
+				<p>The successive approximation is 
+					$$ \bPhi_{j+1}(t) 
+						= \by_0 + \int_{t_0}^{t} \bf(s, \bPhi_j(s)) ds, j= 0,1,2,3,\dots $$
+				<p>The constant function $\bPhi_0(t) = \by_0 = \cvec{0 \\ 0}$. </p>
+					\begin{align}
+						\bPhi_1(t) &= \by_0 + \int_{t_0}^{t} \bf(s, \bPhi_0(s)) ds \\
+						&= \int_{t_0}^{t} \cvec{0^2 + 0^2 +1 \\ 0^2 - 0^2 -1} ds \\
+						&= \begin{array}{c|}\cvec{s \\ -s}\end{array}_0^t \\
+						&= \cvec{t \\ -t}
+					\end{align}
+
+				\begin{align}
+					\bPhi_2(t) &= \by_0 + \int_{t_0}^{t} \bf(s, \bPhi_1(s)) ds \\
+						&= \int_{t_0}^{t} \cvec{s^2 + (-s)^2 +1 \\ s^2 - (-s)^2 -1} ds \\
+						&= \begin{array}{c|}\cvec{2 \frac{s^3}{3} + s \\ -s }\end{array}_0^t \\
+						&= \cvec{\frac{2}{3} t^3 + t \\ -t}
+					\end{align}
+
+				\begin{align}
+					\bPhi_3(t) &= \by_0 + \int_{t_0}^{t} \bf(s, \bPhi_3(s)) ds \\
+						&= \int_{t_0}^{t} \cvec{(\frac{2}{3}s^3 +s)^2 + (-s)^2 +1 \\ (\frac{2}{3}s^3 +s)^2 - (-s)^2 -1} ds \\
+						&= \int_{t_0}^{t} \cvec{\frac{4}{9} s^6 + 2 \frac{2}{3}s^3(s) + s^2 + s^2 +1 \\ (\frac{4}{9} s^6 + 2 \frac{2}{3}s^3(s) + s^2 - s^2 -1} ds \\
+						&= \int_{t_0}^{t} \cvec{\frac{4}{9} s^6 + \frac{4}{3}s^4 + 2s^2 +1 \\ (\frac{4}{9} s^6 + \frac{4}{3}s^4 -1} ds \\
+
+						&= \begin{array}{c|}
+						\cvec{\frac{4}{9} \frac{s^7}{7} + \frac{4}{3} \frac{s^5}{5} + 2\frac{s^3}{3} + s \\ 
+						\frac{4}{9} \frac{s^7}{7} + \frac{4}{3}\frac{s^5}{5} -s}
+						\end{array}_{0}^{t} \\
+
+						&= \cvec{\frac{4}{63} t^7 + \frac{4}{15} t^5 + \frac{2}{3}t^3 + t \\ 
+						\frac{4}{63} t^7 + \frac{4}{15} t^5 - t}
+					\end{align}
+				</p>
+		</div>
+</div>

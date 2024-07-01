@@ -1,26 +1,27 @@
 ---
-title: "The Method of Successive Approximation"
+title: "Lipschitz Condition"
 key: 5212_3_1_Lemma_3_1_c
 ---
-We will consider the problem 
+<p class="indent-10">We will consider the problem 
 \begin{align}
 	y'&=f(t,y) \tag{3.1}\\
 	\phi(t_0) &= y_0 \tag{3.2}
 \end{align}
-first with $f$ and $\partialwrt[f]{y}$ continuous on a closed rectangle $R = \{(t, y)| \abs{t=t_0} \leq a, \abs{y-y_0} \leq b \}$ centered at $(t_{0}, y_{0})$. Thus the functions $f$ and $\partialwrt[f]{y}$ are bounded on $R$, and there exist constants $M > 0, K > 0$ such that 
+with $f$ and $\partialwrt[f]{y}$ continuous on a closed rectangle $R = \{(t, y)| \abs{t=t_0} \leq a, \abs{y-y_0} \leq b \}$ centered at $(t_{0}, y_{0})$. Thus the functions $f$ and $\partialwrt[f]{y}$ are bounded on $R$, and there exist constants $M > 0, K > 0$ such that 
 
 $$\abs{f(t, y)} \leq M, \abs{\partialwrt[f]{y}(t, y')} \leq K \tag{3.6}$$
 
-for all points $(t, y)$ in $R$.
- If $(t,y_1)$ and $(t,y_2)$ are two points in $R$, then by the mean value theorem, there exists a number $\eta$ between $y_{1}$ and $y_2$ such that 
+for all points $(t, y)$ in $R$.</p>
 
-$$f(t, y_{2}) - f(t, y_{1}) = \partialwrt[f]{y}(t, \eta)(y_2 - y_1 )$$
+<p class="indent-10">If $(t,y_1)$ and $(t,y_2)$ are two points in $R$, then by the mean value theorem, there exists a number $\eta$ between $y_{1}$ and $y_2$ such that 
 
-Since the point $(t, \eta)$ is also in $R$, $\abs{\partialwrt[f]{t}(t, \eta)} \leq K$ and we obtain 
+$$f(t, y_{2}) - f(t, y_{1}) = \partialwrt[f]{y}(t, \eta)(y_2 - y_1 )$$</p>
+
+<p class="indent-10">Since the point $(t, \eta)$ is also in $R$, $\abs{\partialwrt[f]{t}(t, \eta)} \leq K$ and we obtain 
 
 $$|f(t, y_{2}) - f(t, y_{1})| \leq K|y_{2} - y_{1}| \tag{3.7}$$ 
 
-valid whenever $(t, y_{1})$ and $(t, y_{2})$ are in $R$.
+valid whenever $(t, y_{1})$ and $(t, y_{2})$ are in $R$.</p>
 
 <div class="definition"><b>Definition</b> A function $f$ that satisfies an inequality of the form (3.7) for all $(t, y_{1}), (t, y_{2})$ in a region $D$ is said to satisfy a Lipschitz condition in $D$.</div>
 

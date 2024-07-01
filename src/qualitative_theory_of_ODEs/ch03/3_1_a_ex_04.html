@@ -1,0 +1,32 @@
+---
+title: "Ex 4(Page 111)"
+parent: 5212_3_1_Lemma_3_1_a
+order: 4
+---
+<div class="theorem">
+	<div class="statement">Prove that if $\phi$ is a solution of the integral equation
+		$$y(t) = e^{it} + \alpha \int\limits_{t}^{\infty} \sin (t-s) \frac{y(s)}{s^2} ds$$
+	then $\phi$ satisfies the differential equation $y''+ (1+\frac{\alpha}{t^2})y = 0$.
+	</div>
+	<div class="proof">
+		If $\phi$ is a solution of the integral equation
+		$y(t) = e^{it} + \alpha \int\limits_{t}^{\infty} \sin (t-s) \frac{y(s)}{s^2} ds$, then 
+		\begin{align}
+			\phi(t) 
+			&= e^{it} + \alpha \int\limits_{t}^{\infty} \sin (t-s) \frac{\phi(s)}{s^2} ds \\
+
+			\phi'(t) &= ie^{it} + \alpha \bracket{ \int\limits_{t}^{\infty} \partialwrt{t} (\sin (t-s) \frac{\phi(s)}{s^2}) ds + 0 - \sin(t-t) \frac{\phi(t)}{t^2} \frac{dt}{dt} }\\
+			&= ie^{it} + \alpha \int\limits_{t}^{\infty} \cos (t-s) \frac{\phi(s)}{s^2} ds \\
+			
+			\phi''(t)&= -e^{it} + \alpha \bracket{\int\limits_{t}^{\infty} \partialwrt{t}(\cos (t-s) \frac{\phi(s)}{s^2})ds + 0 - \cos(t-t) \frac{\phi(t)}{t^2} \frac{dt}{dt}} \\
+			&= -e^{it} + \alpha \bracket{\int\limits_{t}^{\infty} -\sin (t-s) \frac{\phi(s)}{s^2} ds - \frac{\phi(t)}{t^2} } \\
+			&= -e^{it} - \alpha \int\limits_{t}^{\infty} \sin (t-s) \frac{\phi(s)}{s^2} ds - \alpha \frac{\phi(t)}{t^2}  \\
+			&= -\bracket{e^{it} + \alpha \int\limits_{t}^{\infty} \sin (t-s) \frac{\phi(s)}{s^2} ds} - \alpha \frac{\phi(t)}{t^2}  \\
+			&= - \phi(t) - \alpha \frac{\phi(t)}{t^2}  \\
+			\phi''(t)&= - \phi(t) \bracket{1 + \frac{\alpha}{t^2}}\\
+		\end{align}
+
+		$$\phi''(t) + \bracket{1 + \frac{\alpha}{t^2}} \phi(t) = 0$$
+		<p>Therefore $\phi(t)$ satisfies the differential equation $y'' +\bracket{1+\frac{\alpha}{t^2}}y = 0$.</p>
+	</div>
+</div>

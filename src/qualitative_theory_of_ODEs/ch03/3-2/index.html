@@ -1,0 +1,19 @@
+---
+title: "3.2 Existence Theory for Systems of First-Order Equations"
+key: 5212_3_2_Existence_Theory
+parent: qualitative_theory_of_ODEs
+---
+<div class="definition">
+	<strong>Theorem 3.3 </strong> Let $\bf$ and $\partialwrt[\bf]{y_j}, (j = 1, \dots , n)$ be continuous on the box $B=\{ (t,\by) | \abs{t - t_0} \leq a , |\by - \beta| \leq b \}$, where $a$ and $b$ are positive numbers, and satisfying the bounds
+
+	$$|\bf(t, \by)| \leq M, \abs{\partialwrt[\bf(t,y)]{y_j}} \leq K (j = 1 ,...,n) \tag{3.19}$$
+
+	for $(t, \by)$ in $B$. Let $\alpha$ be the smaller of the numbers $a$ and $\frac{b}{M}$ and define the successive approximations
+
+\begin{align}
+\bPhi_0(t) &= \beta\\ 
+\bPhi_n(t) &= \beta + \int_{t_0}^{t} \bf(s, \bPhi_{n-1}(s))ds \tag{3.2}
+\end{align}
+
+Then the sequence $\{\phi_{j}\}$ of successive approximations converges (uniformly) on the interval $|t - t_{0}| \leq \alpha$ to a solution $\bPhi(t)$ of (3.16) that satisfies the initial condition $\bPhi(t_{0}) =  \beta $.
+</div>
