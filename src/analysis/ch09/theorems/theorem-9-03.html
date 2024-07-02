@@ -1,0 +1,50 @@
+---
+title: "Theorem 9.3"
+---
+<div class="theorem">
+	<div class="statement">
+		<h1>{{title}}</h1>
+		<p>Suppose $X$ is a vector space, and $\dim X = n$.</p>
+		<ol class="list-lowerAlpha mx-10">
+			<li>A set $E$ of $n$ vectors in $X$ spans $X$ if and only if $E$ is independent.</li>
+			<li>$X$ has a basis, and every basis consists of $n$ vectors.</li>
+			<li>If $1 \leq r \leq n$ and $\{ \bvec{y}_1, \dots, \bvec{y}_r \}$ is an independent set in $X$, then $X$ has a basis containing $\{ \bvec{y}_1, \dots, \bvec{y}_r \}$.</li>
+		</ol>
+	</div>
+	<div class="proof">
+		<ol class="list-lowerAlpha mx-10">
+			<li>
+				<p>Suppose $E = \{ \bvec{x}_1, \dots, \bvec{x}_n \}$.</p>
+				<p>Since $\dim X = n$ the set $\{ \bvec{x}_1, \dots, \bvec{x}_n, \bvec{y} \}$ is dependent, for every $\bvec{y} \in X$.</p>
+
+				<p class="mt-5">Suppose $E$ is dependent.</p>
+				<p>Then one of its member can be removed without changing the span of $E$. </p>
+				<p>Hence $E$ cannot span $X$, {% a 9.2 %}.</p>
+				<p>Thus if $E$ is dependent, then $E$ cannot span $X$.</p>
+				<p>Equivalently, if $E$ spans $X$, $E$ is independent.</p>
+
+				<p class="mt-5">Suppose $E$ is independent.</p>
+				<p>Then $\bvec{y}$ is in the span of $E$; hence $E$ spans $X$. </p>
+			</li>
+			<li>
+				<p>Since $\dim X = n$, $X$ contains an independent set of $n$ vectors.</p>
+				<p>part (a) shows that every independent set spans $X$. Hence every independent set of $n$ vectors is a basis of $X$. </p>
+			</li>
+			<li>
+				<p>Let $\{ \bvec{x}_1 , \dots , \bvec{x}_n \}$ be a basis of $X$. </p>
+				<p>Then $\{ \bvec{x}_1 , \dots , \bvec{x}_n \}$ is independent and spans $X$. </p>
+				<p> Consider the set $S = \{ \bvec{y}_1 , \dots , \bvec{y}_r , \bvec{x}_1 , \dots , \bvec{x}_n \}$. Then $S$ spans $X$ and Since $\dim X= n$, $S$ is dependent. </p>
+				<p>Put $\sum_{i=1}^{r} c_i \bvec{y}_i + \sum_{i=1}^n b_i \bvec{x}_i = \bvec{0}$, where $c_1, \dots, c_r, b_1, \dots, b_n$ are scalars. </p>
+				<p>Since $S$ is dependent, there is at least one $b_k \neq 0$.</p>
+				\begin{align}
+					\bvec{x}_k &= \frac{1}{b_k} \bracket{\sum_{i=1}^{r} c_i \bvec{y}_i + \sum_{i=1, i\neq k}^n b_i \bvec{x}_i} \\
+					\bvec{x}_k &\in \text{the span of } \{
+						\bvec{y}_1, \cdots, \bvec{y}_r, \bvec{x}_1 \dots, \bvec{x}_{k-1}, \bvec{x}_{k+1}, \dots, \bvec{x}_n \} \\
+					\bvec{x}_k &\in \text{the span of } S \setminus \{\bvec{x}_k\}
+				\end{align}
+				<p>Clearly, $S \setminus \{\bvec{x}_k\}$ spans $X$ but is dependent.</p>
+				<p>But repeating this process $r$ times leads to a basis of $X$ which contains $\{ y_1,...,y_r \}$.</p>
+			</li>
+		</ol>
+	</div>
+</div>

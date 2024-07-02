@@ -1,0 +1,72 @@
+---
+title: "9.4 Definitions: Linear Transformation"
+---
+<div class="definition">
+	<h1>{{title}}</h1>
+	<p>A mapping $A$ of a vector space $X$ into a vector space $Y$ is said to be a <b>linear transformation</b> if 
+	$$A(\bvec{x}_1 + \bvec{x}_2) = A\bvec{x}_1 + A\bvec{x}_2, 
+	A(c\bvec{x}) = cAx\bvec{x}$$
+for all $\bvec{x}, \bvec{x}_1, \bvec{x}_2 \in X$ and all scalars $c$. </p>
+	<p class="center">OR</p>
+	$$A(c_1 \bvec{x}_1 + c_2 \bvec{x}_2) = c_1 A\bvec{x}_1 + c_2 A\bvec{x}_2 \text{ for all } \bvec{x}_1, \bvec{x}_2 \in X \text{ and all scalars } c$$
+	<p>Note that one often writes $A\bvec{x}$ instead of $A(\bvec{x})$ if $A$ is linear.</p>
+</div>
+
+<summary class="theorem">
+	<div class="statement">Prove that $A\bvec{0} = \bvec{0}$ if $A$ is linear.</div>
+	<details class="proof">
+		<p>Take any $\bvec{x} \in X$. We have </p>
+		\begin{align}
+			A \bvec{0} 
+			&= A (\bvec{x} - \bvec{x}) \\
+			&= A (\bvec{x} + (-\bvec{x})) \\
+			&= A \bvec{x} + A(-\bvec{x}) \\
+			&= A \bvec{x} - A(\bvec{x}) \\
+			&= \bvec{0}
+		\end{align}
+	</details>
+</summary>
+
+<div>
+	<p>Observe also that a linear transformation $A$ of $X$ into $Y$ is completely determined by its action on any basis: If $\{ \bvec{x}_1 , \dots , \bvec{x}_n \}$ is a basis of $X$, then every $\bvec{x} \in X$ has a unique representation of the form</p>
+	
+	$$\bvec{x}= \sum_{i=1}^n c_i \bvec{x}_i$$
+	<p>and if $A:X \to Y$ is a linear transformation,</p>
+	\begin{align}
+		\bvec{x} &= \sum_{i=1}^n c_i \bvec{x}_i \\
+		&= c_1 \bvec{x}_1 + \dots + c_n \bvec{x}_n \\
+		A \bvec{x} &= A (\bvec{x}) \\
+		&= A(c_1 \bvec{x}_1 + \dots + c_n \bvec{x}_n) \\
+		&= A(c_1 \bvec{x}_1) + \dots + A(c_n \bvec{x}_n) \\
+		&= c_1 A(\bvec{x}_1) + \dots + c_n A(\bvec{x}_n) \\
+		&= c_1 A\bvec{x}_1 + \dots + c_n A\bvec{x}_n \\
+		&= \sum_{i=1}^n c_i A \bvec{x}_i 
+	\end{align}
+</div>
+ 
+<div class="definition">
+	<p>Linear transformations of $X$ into $X$ are often called <b>linear operators</b> on $X$.</p>
+	<p>If $A$ is a linear operator on $X$ which is one-to-one and onto, we say that A is <b>invertible</b>. In this case we can define an operator $A^{-1}$ on $X$ by requiring that $A^{-1}(A \bvec{x}) = \bvec{x}$ for all $x \in X$. </p>
+</div>
+
+<summary class="theorem">
+	<div class="statement">Let $A$ be a linear operator on $X$. If $A^{-1}$ exists, then show that $A^{-1}$ is linear.</div>
+	<details class="proof">
+		<p>Since $A^{-1}$ exists, $A^{-1}(A \bvec{x}) = \bvec{x}$  and $A^{-1}(A \bvec{y}) = \bvec{y}$ for all $\bvec{x}, \bvec{y} \in X$. Then, for all $\bvec{x}, \bvec{y} \in X$ and all scalars $c$, </p>
+		\begin{align}
+			A^{-1}(A\bvec{x} + A \bvec{y})
+			&= A^{-1}(A(\bvec{x} + \bvec{y})) \\
+			&= \bvec{x} + \bvec{y} \\
+			&= A^{-1}(A\bvec{x}) + A^{-1}(A \bvec{y}) \\
+		\end{align}
+
+		\begin{align}
+			\text{ and } A^{-1}(cA\bvec{x})
+			&= A^{-1}(A(c\bvec{x})) \\
+			&= c\bvec{x} \\
+			&= c A^{-1}(A \bvec{x}) \\
+		\end{align}
+
+		<p>Hence $A^{-1}$ is linear.</p>
+	</details>
+</summary>

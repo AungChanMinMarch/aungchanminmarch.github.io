@@ -1,0 +1,105 @@
+---
+title: "9.9 Matrices"
+---
+
+Suppose $\{x_1, \dots, x_n\}$ and $\{y_1, \dots, y_m\}$ are bases of vector spaces $X$ and $Y$ respectively.  Then $A$ every $A \in L(X,Y)$ determines a set of numbers such that 
+
+$$A x_j = \sum_{i=1}^{m} a_{ij} y_i (1 \leq 5 \leq n)$$
+\begin{align}
+x \in X \Rightarrow x &= c_1 x_1 + c_2 x_2 + \dots + c_n x_n\\
+Ax &= A(c_1 x_1 + c_2 x_2 + \dots + c_n x_n)\\
+&= A (c_1 x_1) + A(c_2 x_2) + \dots + A(c_n x_n)\\
+&= c_1 A x_1 + c_2 A x_2 + \dots + c_n A x_n \\
+
+\text{Since } 
+Ax_j \in Y, A x_j &= a_{1j} y_1 + a_{2j} y_2 + \dots + a_{mj} y_m \\
+&= \sum_{i=1}^{m} a{ij} y_i (1 \leq j \leq n)
+\end{align}
+
+Hence we have 
+\begin{align}
+A x_1 &= a_{11} y_1 + a_{21} y_2 + \dots + a_{m1} y_m \\
+A x_2 &= a_{12} y_1 + a_{22} y_2 + \dots + a_{m2} y_m \\
+\vdots \\
+A x_n &= a_{1n} y_1 + a_{2n} y_2 + \dots + a_{mn} y_m \\
+\end{align}
+
+so that
+$$
+	\begin{pmatrix}
+	Ax_1 & Ax_2 & \dots & Ax_n
+	\end{pmatrix}
+		=
+	\begin{pmatrix}
+	y_1 & y_2 & \dots & y_m
+	\end{pmatrix}
+	\begin{pmatrix}
+		a_{11} & a_{12} & \dots & a_{1n}\\
+		a_{21} & a_{22} & \dots & a_{2n}\\
+		\vdots & \vdots &  & \vdots \\
+		a_{m1} & a_{m2} & \dots & a_{mn}\\
+	\end{pmatrix}
+$$
+
+$$\text{Let } [A] = \begin{pmatrix}
+		a_{11} & a_{12} & \dots & a_{1j} & \dots & a_{1n}\\
+		a_{21} & a_{22} & \dots & a_{2j} & \dots & a_{2n}\\
+		\vdots &  &  & & & \vdots \\
+		a_{m1} & a_{m2} & \dots & a_{mj} & \dots & a_{mn}\\
+	\end{pmatrix}$$
+
+<ul class="list-disc ml-2">
+	<li>The coordinates $a_{ij}$ of the vectors $A x_j$ (with respect to the basis $\{y_1, \dots, y_m\}$) appears in the $j^\text{th}$ column of $[A]$.</li>
+
+<li>The vectors $A x_j$ are called the column vectors of $[A]$.</li>
+
+<li>With this terminology, the range of $A$ is spanned by the column vectors of $[A]$.</li>
+</ul>
+
+<summary class="theorem">
+	<div class="statement">Suppose $\{x_1, \dots, x_n\}$ and $\{y_1, \dots, y_m\}$ are bases of vector spaces $X$ and $Y$ respectively. If $\vec{x} = \sum  c_j x_j$ where $c_j$'s are scalors and $A \in L(X, Y)$, find the coordinates of $A \vec{x}$.</div>
+	<details open class="proof">
+		\begin{align}
+			\text{If } \vec{x} &= \sum_{j=1}^n c_j x_j, \text{ then } \\
+			A \vec{x} &= A (\sum_{j=1}^n c_j x_j) \\
+			&=  A(c_1 x_1 + c_2 x_2 + \dots + c_n x_n)\\
+			&= A (c_1 x_1) + A(c_2 x_2) + \dots + A(c_n x_n)\\
+			&= c_1 A x_1 + c_2 A x_2 + \dots + c_n A x_n \\
+			&= c_1 \sum_{i=1}^m a_{i1} y_i + c_2 \sum_{i=1}^m a_{i2} y_i + \dots + c_n \sum_{i=1}^m a_{i2} y_i \\
+			&\begin{array}{ll}
+				=& a_{11} c_1 y_1 + a_{21} c_1 y_2 + \dots + a_{m1} c_1 y_m \\
+				& a_{12} c_2 y_1 + a_{22} c_2 y_2 + \dots + a_{m2} c_2 y_m \\
+				&\vdots \\
+				& a_{1n} c_n y_1 + a_{2n} c_n y_2 + \dots + a_{mn} c_n y_m \\
+			\end{array} \\
+			&= (\sum_{j=1}^{n} a_{1j}c_j) y_1 + (\sum_{j=1}^{n} a_{2j}c_j) y_2 + \dots + (\sum_{j=1}^{n} a_{mj}c_j) y_m \\
+			&= \sum_{i=1}^{m} (\sum_{j=1}^{n} a_{ij}c_j) y_i
+		\end{align}
+		<p>The coordinates of $A\vec{x}$ are $(\sum_{j=1}^{n} a_{ij}c_j)$.</p>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<div class="statement">Suppose $\{x_1, \dots, x_n\}$ and $\{y_1, \dots, y_m\}$ are bases of vector spaces $X$ and $Y$ respectively. Suppose next that an $m$ by $n$ matrix $A$, is given with real entries $a_{ij}$. If $A$ is defined by $A \vec{x} =\sum\limits_{i=1}^n \bracket{\sum_{j=1}^{m} a_{ij} c_j} y_j$ where $\vec{x}=\sum c_j x_j$, show that $A \in L(X,Y)$</div>
+	<details class="proof" open>
+		<p>Let $\vec{x'} = \sum c'_j x_j$. Then </p>
+		\begin{align}
+			\vec{x} + \vec{x'} &= \sum c'_j x_j + \sum c'_j x_j \\
+			&= \sum (c_j x_j + c'_j x_j)\\
+			&= \sum (c_j + c'_j)x_j\\
+			\text{Since } A \vec{x} &= \sum_{i=1}^n \bracket{\sum_{j=1}^{m} a_{ij} c_j} y_j \\
+			A (\vec{x} + \vec{x'}) &= \sum_{i=1}^n \bracket{\sum_{j=1}^{m} a_{ij} (c_j + c_j')} y_j \\
+			&= \sum_{i=1}^n \bracket{\sum_{j=1}^{m} a_{ij} c_j} y_j + \sum_{i=1}^n \bracket{\sum_{j=1}^{m} a_{ij} c_j'} y_j \\
+			&= A \vec{x} + A \vec{x'}
+		\end{align}
+		<p>For any scalar $c$, </p>
+		\begin{align}
+			c\vec{x} &= c\sum c'_j x_j \\
+			&= \sum (c c_j)x_j\\
+			A (c\vec{x}) &= \sum_{i=1}^n \bracket{\sum_{j=1}^{m} a_{ij} (cc_j)} y_j \\
+			&= c \sum_{i=1}^n \bracket{\sum_{j=1}^{m} a_{ij} c_j} y_j\\
+			&= c A \vec{x}
+		\end{align}
+		<p>Hence $A \in L(X,Y)$.</p>
+	</details>
+</summary>
