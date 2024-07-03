@@ -1,0 +1,93 @@
+---
+title: "9.5 Two Vortex Filaments"
+includes:
+	- svgjs
+---
+<summary class="definition">
+	<h1>Case I. When the filaments are in the same sense.</h1>
+	<details open>
+		<p>Let us consider two rectilinear vortices of strengths $\kappa_{1}$ and $\kappa_{2}$ at $A_{1} (z = z_{1})$ and $A_{2}(z = z_{2})$. Then complex potential due to stationary system is
+			$$w = \frac{i \kappa_{1}}{2\pi} \log(z - z_{1}) + \frac{i \kappa_{2}}{2\pi} \log(z - z_{2}) \tag{1}$$</p>
+		<div id="svg1"></div>
+		<p>However, vortices situated at $A_{1}$ and $A_{2}$ would start moving due to the presence of each other. Let $u_1, v_1$ be components of the velocity $q_{1}$ of $A$, which is due to $A_{2}$ alone. Then, we have
+			$$u_1 - i v_1 = \sbracket{\frac{1}{2\pi} \frac{i \kappa_{1}}{z - z_{1}} + \bracket{- \frac{dw}{dz}}}_{z=z_1} = - \frac{i \kappa_2}{2 \pi} \frac{1}{z_1 - z_2} \tag{2}$$
+			$$\therefore q_1 = \abs{u_1 - i v_1} = \frac{\kappa_2}{2 \pi \abs{z - z_2}} = \frac{\kappa_2}{2 \pi (A_1 A_2)} \tag{3}$$
+
+			$$\text{Similarly, } u_2 - i v_2 = - \frac{i \kappa_1}{2 \pi} \frac{1}{z_2 - z_1} \tag{4}$$
+			$$\text{ and } q_2 = \frac{\kappa_1}{2 \pi (A_1 A_2)} \tag{5}$$
+
+			From (2) and (4)
+			$$ \frac{u_1 - i v_1}{\kappa_2} = - \frac{i}{2 \pi} \frac{1}{z_1 - z_2} = \frac{i}{2 \pi} \frac{1}{z_2 - z_1} =  - \frac{u_2 - i v_2}{\kappa_1} $$
+			\begin{align}
+				\frac{u_1 - i v_1}{\kappa_2} &=  - \frac{u_2 - i v_2}{\kappa_1} \\
+				\kappa_1(u_1 - i v_1) &=  - \kappa_2 (u_2 - i v_2) \\
+				\kappa_1(u_1 - i v_1) + \kappa_2 (u_2 - i v_2) &= 0 \\
+				(\kappa_1 u_1 + \kappa_2 u_2) - i (\kappa_1 v_1 + \kappa_2 v_2) &= 0 \\
+			\end{align}
+			$$\text{Hence } \kappa_1 u_1 + \kappa_2 u_2 = 0 \text{ and } \kappa_1 v_1 + \kappa_2 v_2 = 0 \tag{6}$$
+		</p>
+		<p>Since $\kappa_{1} + \kappa_{k_2} \neq 0$, (6) shows that a point G, the centroid of masses $\kappa_1, \kappa_{2}$ at $z_{1}$ and $z_{2}$ moving with velocities $(u_1, v_1), (u_2, v_2)$ is at rest. Hence the line $A_{1} A_{2}$ rotates about $G$. Since G is center of gravity of $\kappa_{1}$ and $\kappa_2$ we have </p>
+		\begin{align}
+			\kappa_{1} \cdot A_{1}G &= \kappa_{2} \cdot A_{2}G \\
+			\frac{A_{1}G}{\kappa_{2}} &= \frac{A_{2}G}{\kappa_{1}} \\
+		\end{align}
+		$$ \frac{A_{1}G}{\kappa_{2}} = \frac{A_{2}G}{\kappa_{1}} = \frac{A_{1}G + A_{2}G}{\kappa_{1} + \kappa_{2}} = \frac{A_{1} A_{2}}{\kappa_{1} + \kappa_{2}} $$
+
+		$$\text{Hence } A_{1}G = \frac{\kappa_{2}}{\kappa_{1} + \kappa_{2}} A_{1} A_{2} 
+		\text{ and }
+		A_{2}G =\frac{\kappa_{1}}{\kappa_{1} + \kappa_{2}} A_{1} A_{2} \tag{7}$$
+
+		From Eq(3)
+		\begin{align}
+			q_1 &= \frac{\kappa_2}{2 \pi (A_1 A_2)} \\
+			&= \frac{\kappa_2}{2 \pi (A_1 A_2)} \cdot \frac{\kappa_1 + \kappa_2}{\kappa_1 + \kappa_2} \cdot \frac{A_1 A_2}{A_1 A_2} \\
+			&= \frac{\kappa_{2}}{\kappa_{1} + \kappa_{2}} A_1 A_2 
+			\cdot \frac{\kappa_{1} + \kappa_{2}}{2 \pi (A_1 A_2)^2} \\
+			&= A_1G \cdot \omega
+		\end{align}
+		where $\omega = \dfrac{\kappa_{1} + \kappa_{2}}{2 \pi (A_1 A_2)^2}$ and $A_1 G = \frac{\kappa_{2}}{\kappa_{1} + \kappa_{2}} A_1 A_2$.
+		<p>Thus angular velocity of $A_{1}$ is $\omega$ about $G$. Similarly, we may show that the angular velocity of $A_{2}$ is $\omega$ about $G$. Hence the line $A_{1} A_{2}$ revolves about $G$ with uniform angular velocity $\omega$.</p>
+	</details>
+</summary>
+
+
+Remark. As a particular case, let $\kappa_{1} = \kappa_{2} = \kappa$ and $A_{1} A_{2} = 2a$. Then, we have 
+$$q_{1} = \frac{\kappa}{4 \pi a}, q_{2} = \frac{\kappa}{4\pi a} 
+\text{ and } 
+\omega = \frac{\kappa}{4 \pi a^2}$$ 
+and the stream function is given by 
+$$\psi= \frac{\kappa}{2 \pi} \log r_1 + \frac{\kappa}{2 \pi} \log r_2 = \frac{\kappa}{2 \pi} \log (r_1 r_2)$$ 
+where $r_{1} = A_{1} P, r_{2} = A_{2} P$ and $P$ is any point in the fluid. The stream lines are given by
+$\psi = \text{const.}$ i.e. $r_{1}r_{2} = \text{const.}$, which are Cassini's ovals.
+<script type="text/javascript">
+	if(!window.svgs) window.svgs = [];
+
+	window.svgs.push({
+		id: "#svg1",
+		width: 600,
+		height: 400,
+		drawSVG: function(draw, DEFAULT){
+			const side = this.width * 0.5;
+
+			const A_1 = draw.point(this.width * 0.2, this.height * 0.7);
+			A_1.label("A_1", -10, 15);	
+			const A_2 = draw.point(A_1.X + side, A_1.Y);
+			A_2.label("A_2", 5, 5);
+			const P = draw.point(A_1.X + side * 1.2, this.height * 0.3);
+			P.label("P", 10, 0);
+
+			const A_1A_2 = draw.myLine(A_1, A_2);
+			const PA_1 = draw.myLine(A_1, P);
+			const PA_2 = draw.myLine(A_2, P);
+
+			A_1A_2.getPoint(0.5).label("G", 0, -10);
+			PA_1.getPoint(0.5).label("r_1", -10, -10);
+			PA_2.getPoint(0.5).label("r_2", 10, -10);
+
+			draw.arrow(A_1.X, A_1.Y, A_1.X, A_1.Y+this.height * 0.2)
+			draw.arrow(A_2.X, A_2.Y, A_2.X, A_2.Y-this.height * 0.2)
+			draw.curvedArrow(`M${A_1.X - 20},${A_1.Y - 30} Q${A_1.X-30},${A_1.Y} ${A_1.X -20},${A_1.Y+20}`, 10)
+			draw.curvedArrow(`M${A_2.X + 20},${A_2.Y + 30} Q${A_2.X + 30},${A_2.Y} ${A_2.X + 20},${A_2.Y - 20}`, 10)
+		}
+	});
+</script>

@@ -3,21 +3,21 @@ title: "9.1B: Vorticity, Vorticity Components (or Components of Spin)"
 ---
 <div class="definition">
 	<h2>Definition: Vorticity Vector</h2>
-	<p>If $q$ is the velocity vector of a fluid particle, then the vector quantity $\Omega ( = \curl q)$, is called the <b>vorticity vector</b> or simply the <b>vorticity</b> and is a measure of the angular velocity of an infinitesimal element. </p>
+	<p>If $\vec{q}$ is the velocity vector of a fluid particle, then the vector quantity $\vec{\Omega} ( = \curl \vec{q})$, is called the <b>vorticity vector</b> or simply the <b>vorticity</b> and is a measure of the angular velocity of an infinitesimal element. </p>
 </div>
 <h3>Vorticity Components</h3>
-<p>Let $\Omega = \Omega_{x} i + \Omega_{y} j + \Omega_{z} k$ so that $(\Omega_{x}, \Omega_{y} , \Omega_z)$ are the vorticity components or the components of the spin. Then, we have</p> 
+<p>Let $\vec{\Omega} = \Omega_{x} i + \Omega_{y} j + \Omega_{z} k$ so that $(\Omega_{x}, \Omega_{y} , \Omega_z)$ are the vorticity components or the components of the spin. Then, we have </p> 
 \begin{align}
-\Omega &= \curl \vector{q} \\
-&= \grad \times \vector{q} \\
+\vec{\Omega} &= \curl \vec{q} \\
+&= \grad \times \vec{q} \\
 &= \begin{array}{||ccc||}
-	i & j & k \\
+	{\uvec{i}} & \uvec{j} & \uvec{k} \\
 	\dpartialwrt{x} & \dpartialwrt{y} & \dpartialwrt{z} \\
 	u & v & w
 \end{array} \\
-&= \bracket{\partialwrt[w]{y} - \partialwrt[v]{z} } i 
-+ \bracket{\partialwrt[u]{z} - \partialwrt[w]{x} } j
-+ \bracket{\partialwrt[v]{x} - \partialwrt[u]{y} } k \\
+&= \bracket{\partialwrt[w]{y} - \partialwrt[v]{z} } \uvec{i} 
++ \bracket{\partialwrt[u]{z} - \partialwrt[w]{x} } \uvec{j}
++ \bracket{\partialwrt[v]{x} - \partialwrt[u]{y} } \uvec{k} \\
 \Omega_x &= \bracket{\partialwrt[w]{y} - \partialwrt[v]{z} } \\
 \Omega_y &= \bracket{\partialwrt[u]{z} - \partialwrt[w]{x} } \\
 \Omega_z &=\bracket{\partialwrt[v]{x} - \partialwrt[u]{y} } 
@@ -31,4 +31,4 @@ In the case of two-dimensional motion, we know that $\omega = 0$ and $u$ and $v$
 	\Omega_z &=\bracket{\partialwrt[v]{x} - \partialwrt[u]{y} } 
 \end{align}
 
-<p class="indent-10">It follows that in owo-dimensional motion there can be at the most only one component of spin and its axis is perpendicolat to the plane of the motion</p>
+<p class="indent-10">It follows that in one-dimensional motion there can be at the most only one component of spin and its axis is perpendicolat to the plane of the motion</p>

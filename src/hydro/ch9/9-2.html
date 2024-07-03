@@ -2,48 +2,71 @@
 title: "9.2. Helmholtz's Vorticity Theorems. Properties of Vortex Tube."
 ---
 <h1>{{title}}</h1>
-<div class="theorem">
+<summary class="theorem">
 	<div class="statement">
 		(1) The product of the cross section and vorticity (or angular velocity) at any point on a vortex filament is constant along the filament and for all time when the body forces are conservative and the pressure is a single-valued function of density only.
 	</div>
-	<div class="proof">
-		<p>Let $\Omega$ be the vorticity vector and let $\omega$ be the angular velocity vector.</p>
-		<p>Then we have $\Omega = \curl \vector{q}$ and $\Omega = 2 \omega$.</p>
-		<p>Let $\delta S_{1}, \delta S_2$ be two sections of a vortex tube and let $n_1, n_2$ be the unit normals to these sections drawn outwards from the fluid between them.</p>
-		<p>Again, suppose $\delta S$ be the curved surface of the vortex tube</p>
+	<details class="proof">
+		<p>Let $\vec{\Omega}$ be the vorticity vector and let $\omega$ be the angular velocity vector.</p>
+		<p>Then we have $\vec{\Omega} = \curl \vec{q}$ and $\vec{\Omega} = 2 \omega$.</p>
+		<p>Let $\delta S_{1}, \delta S_2$ be two sections of a vortex tube and let $\uvec{n_1}, \uvec{n_2}$ be the unit normals to these sections drawn outwards from the fluid between them.</p>
+		<p>Again, suppose $\delta S$ be the curved surface of the vortex tube. </p>
 		<p>Let $\Delta S$ be the total surface area of element and $\Delta V$ be the total volume which $\Delta S$ contains.</p>
 		<p>Then $\Delta S = \delta S_1 + \delta S + \delta S_2$.</p>
 		<p>By Gauss divergence theorem, we have 
-		$$\int_{\Delta S} n \cdot \Omega dS = \int_{\Delta V} \grad \cdot \vector{\Omega} dV$$</p>
-		<p>Since $\grad \cdot \Omega = \grad \cdot \curl\vector{q} = 0$, we get 
+		$$\int_{\Delta S} \uvec{n} \cdot \vec{\Omega} dS = \int_{\Delta V} \grad \cdot \vec{\Omega} dV$$</p>
+		<p>Since $\grad \cdot \vec{\Omega} = \grad \cdot \curl\vec{q} = 0$, we get 
 		\begin{align}
-			\int_{\Delta V} \grad \cdot \vector{\Omega} dV &= 0 \\
-			\int_{\Delta S} n \cdot \Omega dS &= 0 \\
-			\int_{\delta S_1} n_1 \cdot \Omega dS
-			+ \int_{\delta S} n \cdot \Omega dS 
-			+ \int_{\delta S_2} n_2 \cdot \Omega dS & = 0
+			\int_{\Delta V} \grad \cdot \vec{\Omega} dV &= 0 \\
+			\int_{\Delta S} \uvec{n} \cdot \vec{\Omega} dS &= 0 \\
+			\int_{\delta S_1} \uvec{n_1} \cdot \vec{\Omega} dS
+			+ \int_{\delta S} \uvec{n} \cdot \vec{\Omega} dS 
+			+ \int_{\delta S_2} \uvec{n_2} \cdot \vec{\Omega} dS & = 0
 		\end{align}</p>
-		<p>Since $\Omega$ is tangential to the curved surface of the vortex tube, $n \cdot \Omega = 0$ at each point of $\delta S$. Thus $\int_{\delta S} n \cdot \Omega dS  = 0 $</p>
+		<p>Since $\vec{\Omega}$ is tangential to the curved surface of the vortex tube, $\uvec{n} \cdot \vec{\Omega} = 0$ at each point of $\delta S$. Thus $\int_{\delta S} \uvec{n} \cdot \vec{\Omega} dS  = 0 $</p>
 		\begin{align}
-			\int_{\delta S_1} n_1 \cdot \Omega dS
-			+ \int_{\delta S_2} n_2 \cdot \Omega dS & = 0 \\
+			\int_{\delta S_1} \uvec{n_1} \cdot \vec{\Omega} dS
+			+ \int_{\delta S_2} \uvec{n_2} \cdot \vec{\Omega} dS & = 0 \\
 
-			\int_{\delta S_1} n_1 \cdot \Omega dS
-			&= - \int_{\delta S_2} n_2 \cdot \Omega dS \\
+			\int_{\delta S_1} \uvec{n_1} \cdot \vec{\Omega} dS
+			&= - \int_{\delta S_2} \uvec{n_2} \cdot \vec{\Omega} dS \\
 
-			\int_{\delta S_1} \Omega \cdot dS
-			&= \int_{\delta S_2} \Omega \cdot dS \tag{4} \\
+			\int_{\delta S_1} \vec{\Omega} \cdot d\vec{S}
+			&= \int_{\delta S_2} \vec{\Omega} \cdot d\vec{S} \tag{4} \\
 
-			\int_{\delta S_1} 2\omega \cdot dS
-			&= \int_{\delta S_2} 2\omega \cdot dS \tag{5}\\
+			\int_{\delta S_1} 2\omega \cdot d\vec{S}
+			&= \int_{\delta S_2} 2\omega \cdot d\vec{S} \tag{5}\\
 		\end{align}
 		<p>To the first order of approximation, (4) and (5) give</p>
-		$$\Omega_1 \delta S_1 = \Omega_2 \delta S_2 \text{ and } 
+		$$\vec{\Omega}_1 \delta S_1 = \vec{\Omega}_2 \delta S_2 \text{ and } 
 		\omega_1 \delta S_1 = \omega_2 \delta S_2$$
-		<p>This shows that $\Omega \delta S$ or $2 \omega \delta S$ is constant over every section $\delta S$ of the vortex tube. </p>
-	</div>
-</div>
+		<p>This shows that $\vec{\Omega} \delta S$ or $2 \omega \delta S$ is constant over every section $\delta S$ of the vortex tube. </p>
+	</details>
+</summary>
 <div class="definition">
 	<p class="indent-10">The product of the cross section and vorticity (or angular velocity) at any point on a vortex filament is constant along the filament. This value is known as the <b>strength of the vortex tube</b>.</p>
 	<p class="indent-10">A vortex tube whose strength is unity is called a <b>unit vortex tube</b>.</p>
 </div>
+
+<summary class="theorem">
+	<div class="statement">(2) Vortex lines and tubes cannot originate or terminate at internal points in a fluid. </div>	
+	<details class="proof">
+		<p>Let $S$ be any closed surface containing a volume $V$. Then we have</p>
+		$$\int_{S} \vec{\Omega} \cdot d\vec{S} = \int_{S} \uvec{n} \cdot \vec{\Omega} dS = \int_{V} \grad \cdot \vec{\Omega} dV = 0 \tag{*}$$
+		<p>since $\grad \cdot \vec{\Omega} = \grad \cdot \curl \vec{q} = 0$.</p>
+
+		<p>Eq(*) shows that the total strength of vortex tubes emerging from $S$ must be equal to that entering $S$. Hence vortex lines and tubes cannot begin or end at any point within the liquid. They must either form closed curves or have their extremities on the boundary of the liquid.</p>
+	</details>
+</summary>
+
+<summary class="theorem">
+	<div class="statement">(3) Vortex lines move along with the liquid (i.e. they are composed of the same clements of the liquid) provided that body forces are conservative and the pressure is a single-valued function of density.</div>
+	<details class="proof">
+		<p>Let $C$ be a closed circuit of liquid particles and let $S$ be an open surface with $C$ as rim. Then the circulation $\Gamma$ is constant in the moving circuit $C$ by Kelvin's circulation theorem (refer Art. 6.4). Thus we have </p>
+		$$\Gamma= \int_C \vec{q} \cdot d\vec{r} = \int_S \curl \vec{q} \cdot d\vec{S}= \int_S \vec{\Omega} \cdot d\vec{S}$$
+		Since $\Gamma$ is constant, 
+		$$\int \vec{\Omega} \cdot d\vec{S} = \text{constant} \tag{7}$$
+
+		<p>Thus for a surface $S$ moving with the fluid (7) holds. The L.H.S. of (7) represents the total strength of vortex tubes passing through $S$. This shows that the vortex tubes move with the fluid. By taking $S \to 0$ it follows that the vortex lines move with the liquid.</p>
+	</details>
+</summary>

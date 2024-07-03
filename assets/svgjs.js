@@ -29,6 +29,56 @@ SVGextend(Container, {
       })
     }
     return p
+  },
+  arrow: function(x1, y1, x2, y2, options) {
+    //options { headSize: px, color }
+    const color = options?.color ?? DEFAULT?.color ?? 'black';
+    const headSize = options?.headSize ?? 20;
+
+    const group = this.group();
+    const shaft = group.line(x1, y1, x2, y2).stroke({ width: 2, color: color});
+    
+    // Calculate the arrowhead points
+    const angle = Math.atan2(y2 - y1, x2 - x1);
+    const headAngle1 = angle + Math.PI / 6;
+    const headAngle2 = angle - Math.PI / 6;
+    
+    const x3 = x2 - headSize * Math.cos(headAngle1);
+    const y3 = y2 - headSize * Math.sin(headAngle1);
+    
+    const x4 = x2 - headSize * Math.cos(headAngle2);
+    const y4 = y2 - headSize * Math.sin(headAngle2);
+    
+    // Draw the arrowhead
+    const arrowhead = group.polygon(`${x2},${y2} ${x3},${y3} ${x4},${y4}`).fill(color);
+    
+    return group;
+  },
+  curvedArrow: function(d, headSize) {
+    const group = this.group();
+    
+    // Draw the curve
+    const path = group.path(d).fill('none').stroke({ width: 2, color: 'black' });
+    
+    // Calculate the end point and direction of the curve for the arrowhead
+    const pathLength = path.length();
+    const endPoint = path.pointAt(pathLength);
+    const tangent = path.pointAt(pathLength * 0.9);
+    
+    const angle = Math.atan2(endPoint.y - tangent.y, endPoint.x - tangent.x);
+    const headAngle1 = angle + Math.PI / 6;
+    const headAngle2 = angle - Math.PI / 6;
+    
+    const x1 = endPoint.x - headSize * Math.cos(headAngle1);
+    const y1 = endPoint.y - headSize * Math.sin(headAngle1);
+    
+    const x2 = endPoint.x - headSize * Math.cos(headAngle2);
+    const y2 = endPoint.y - headSize * Math.sin(headAngle2);
+    
+    // Draw the arrowhead
+    const arrowhead = group.polygon(`${endPoint.x},${endPoint.y} ${x1},${y1} ${x2},${y2}`).fill('black');
+    
+    return group;
   }
 });
 
@@ -131,7 +181,7 @@ SVGextend(Line, {
 })
 
 addEventListener("load", (event) => {
-  window.svgs.forEach(svg => {
+  window.svgs?.forEach(svg => {
     const width = svg.width ?? DEFAULT.width;
     const height = svg.height ?? DEFAULT.height;
     const draw = SVG().addTo(svg.id).size(width, height);

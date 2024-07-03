@@ -1,0 +1,75 @@
+---
+title: "Ex. 1"
+parent: 5210_9_3
+u: "\\frac{ax - by}{x^2 + y^2}"
+v: "\\frac{ay+bx}{x^2 + y^2}"
+---
+<div class="theorem">
+	<div class="statement">
+		If $u=\frac{ax-by}{x^2 + y^2}, v = {{v}}, w=0$, investigate the nature of motion of the liquid. Also show that
+		<ol class="list-decimal mx-10">
+			<li>the velocity potential is
+				$$-\cbracket{\frac{a}{2} \log (x^2+y^2) + b \arctan \tan^{-1} \frac{y}{x}}$$
+			</li>
+			<li>the pressure at any point $(x, y)$ is given by
+				$$\frac{p}{\rho} = \text{constant} - \frac{1}{2} \frac{a^2 + b^2}{x^2+y^2}$$
+			</li>
+		</ol>
+	</div>
+	<div class="proof">
+		Since $u=\frac{ax-by}{x^2 + y^2}, v = \frac{ay+bx}{x^2 + y^2}, w=0$, the velocity of the liquid is 
+		$$ \vec{q} = \frac{ax-by}{x^2 + y^2} \uvec{i} +\frac{ay+bx}{x^2 + y^2} \uvec{j} $$
+
+		\begin{align}
+			\partialwrt[u]{x} &= \partialwrt{x} \frac{ax-by}{x^2 + y^2}\\
+			&= \frac{(x^2 + y^2)a - (ax-by)(2x)}{(x^2 + y^2)^2} \\
+			&= \frac{ay^2 - ax^2 + 2bxy}{(x^2 + y^2)^2} \\
+
+			\partialwrt[v]{y} &= \partialwrt{y} \frac{ay+bx}{x^2 + y^2}\\
+			&= \frac{(x^2 + y^2)a - (ay+bx)(2y)}{(x^2+y^2)^2}\\
+			&= \frac{ax^2 - ay^2 - 2bxy}{(x^2+y^2)^2}\\
+
+			\text{div } \vec{q} &= \grad \cdot \vec{q} \\
+			&= \partialwrt[u]{x} + \partialwrt[v]{y} + \partialwrt[w]{z} \\
+			&= \frac{ay^2 - ax^2 + 2bxy}{(x^2 + y^2)^2} + \frac{ax^2 - ay^2 - 2bxy}{(x^2+y^2)^2} + 0 \\
+			&= 0
+		\end{align}
+
+		<p>Hence the equation of continuity is satisfied. Therefore the motion is possible. The vorticity vector is </p>
+		\begin{align}
+			\vec{\Omega} &= \curl \vec{q} \\
+			&= \grad \times \vec{q} \\
+			&= \curlExpand{u}{v}{w}\\
+			&= \bracket{\partialwrt[w]{y} - \partialwrt[v]{z}} \uvec{i}+
+			\bracket{\partialwrt[u]{z} - \partialwrt[w]{x}} \uvec{j}+
+			\bracket{\partialwrt[v]{x} - \partialwrt[u]{y}} \uvec{k} \\
+
+			&= (0-0) \uvec{i} + (0-0) \uvec{j} + \bracket{\partialwrt{x} {{u}} - \partialwrt{y} {{ v }}} \uvec{k} \\
+
+			&= \bracket{\frac{(x^2 + y^2)(-b) - (ax-by)2y}{(x^2 + y^2)^2}- \frac{(x^2+y^2)b - (ay+bx)2x}{(x^2 + y^2)^2}} \uvec{k} \\
+
+			&= \bracket{\frac{-b x^2 + b y^2 - 2axy}{(x^2 + y^2)^2}- \frac{ -b x^2 + b y^2 - 2axy}{(x^2 + y^2)^2}} \uvec{k} \\
+
+			&= \vec{0}
+		\end{align}
+		<p>The components of the vorticity vector are $\Omega_x =0, \Omega_y =0, \Omega_z = 0$. Therefore the motion is irrotational.</p>
+
+		<ol class="list-decimal mx-10">
+			<li><div>
+				If $\phi$ is the velocity potential, then $\vec{q} = - \grad \phi$. Therefore $u = -\partialwrt[\phi]{x}, v = -\partialwrt[\phi]{y}, w=-\partialwrt[\phi]{z}$
+				\begin{align}
+				d\phi &= \partialwrt[\phi]{x} dx + \partialwrt[\phi]{y} dy \\
+				&= - u dx - v dy \\
+
+				\end{align}
+				$${{u}}dx + {{v}} dy$$
+			</div></li>
+		</ol>
+	</div>
+</div>
+
+
+
+Part (i) We have, Q Q( partial phi)= partial phi partial x dx + partial phi partial y dy = - udx - vdy =-[ (ax)/(x ^ 2) * (- b * y)/(y ^ 2) * dx + ay+ x^ 2 + bx y^ 2 dy] 2xdx + 2ydy x² + y² xdy-ydx = - [a/2 * d[log(x ^ 2 + y ^ 2)] + bd(la * n ^ - 1 * y/x)] phi = - \{a/2 * log(x ^ 2 + y ^ 2) + bla * n ^ - 1 * y/x\} Integrating,
+
+neo
