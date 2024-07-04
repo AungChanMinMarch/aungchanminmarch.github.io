@@ -1,0 +1,57 @@
+---
+title: "Theorem 3.4"
+parent: 5212_3_3_uniqueness
+order: 0
+---
+<div class="theorem">
+	<div class="statement">
+		Suppose $\vec{f}$ and $\partialwrt[\vec{f}]{y_j}, (j = 1,..., n)$ are continuous on the "box"
+			$$ B = \cbracket{(t,y) | \abs{t-t_0} \leq a, \abs{\vec{y} - \vec{\eta}} \leq b}$$
+		Then there exists at most one solution of (3.22) satisfying the initial condition (3.23).
+	</div>
+	<div class="proof">
+		<p>Suppose that $\Phi_1$ and $\Phi_2$ are two solutions of (3.22), (3.23) which both exist on some common interval $J$ containing $t_0$.</p>
+		Since every solution of (3.22), (3.23) also satisfies the integral equation (3.21), we have
+
+		$$\Phi_1(t) =\vec\eta +  \int_{t_0}^{t} \vec{f}(s, \Phi_1(s)) ds $$
+
+		$$\Phi_2(t) =\vec\eta +  \int_{t_0}^{t} \vec{f}(s, \Phi_2(s)) ds $$
+
+		for every $t \in J$. Subtracting these two equations, we obtain
+		\begin{align}
+			\Phi_1(t) - \Phi_2(t) 
+			&= \int_{t_0}^{t} \vec{f}(s, \Phi_1(s)) ds - \int_{t_0}^{t} \vec{f}(s, \Phi_1(s)) ds \\
+			&= \int_{t_0}^{t} (\vec{f}(s, \Phi_1(s)) - \vec{f}(s, \Phi_1(s))) ds \\
+		\end{align}
+		Taking norms and using $\abs{\vec{f}(t,\vec{y}) - \vec{f}(t, \vec{z})} \leq K \abs{\vec{y} - \vec{z}}$, we have
+		\begin{align}
+			\abs{\Phi_1(t) - \Phi_2(t)} 
+			&= \abs{\int_{t_0}^{t} (\vec{f}(s, \Phi_1(s)) - \vec{f}(s, \Phi_1(s))) ds} \\
+			&\leq \int_{t_0}^{t} \abs{\vec{f}(s, \Phi_1(s)) - \vec{f}(s, \Phi_1(s))} ds \\
+			&\leq \int_{t_0}^{t} K \abs{\Phi_2(s) - \Phi_1(s)} ds \\
+		\end{align}
+		since $(s, \Phi_1(s)) \in B, (s, \Phi_2(s)) \in B$ and $f$ satisfies Lipschitz condition on $B$.
+
+		<p>If $t \geq t_0$</p>
+		$$ \abs{\Phi_2(t) - \Phi_1(t)} \leq 0 + \int_{t_0}^{t} K \abs{\Phi_2(s) - \Phi_1(s)} ds $$
+		By Gronwall Inequality,
+		$$ \abs{\Phi_2(t) - \Phi_1(t)} \leq 0 \cdot \exp(\int_{t_0}^{t} K ds) = 0 $$
+
+		<p>If $t \leq t_0$</p>
+		$$ \abs{\Phi_2(t) - \Phi_1(t)} \leq 0 + \int_{t}^{t_0} K \abs{\Phi_2(s) - \Phi_1(s)} ds $$
+		By Gronwall Inequality,
+		$$ \abs{\Phi_2(t) - \Phi_1(t)} \leq 0 \cdot \exp(\int_{t}^{t_0} K ds) = 0 $$
+
+		For both cases, we get
+		$$ \abs{\Phi_2(t) - \Phi_1(t)} \leq 0$$
+		
+		Since $\abs{\Phi_2(t) - \Phi_1(t)}$ is non-negative,
+		\begin{align}
+			\abs{\Phi_2(t) - \Phi_1(t)} &= 0 \text{ for all } t \in J \\
+			\Phi_2(t) - \Phi_1(t) &= 0  \text{ for all } t \in J \\
+			\Phi_2(t) &= \Phi_1(t)  \text{ for all } t \in J \\
+		\end{align}
+
+		Thus there cannot be two distinct solutions and there exists at most one solution. This proves uniqueness.
+	</div>
+</div>

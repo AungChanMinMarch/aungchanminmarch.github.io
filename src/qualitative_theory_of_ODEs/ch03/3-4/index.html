@@ -1,0 +1,37 @@
+---
+title: "3.4 Continuation of Solutions"
+key: 5212_3_4_continuation
+parent: qualitative_theory_of_ODEs
+layout: toc
+---
+<p>
+	Suppose that $\vec{f}$ and $\partialwrt[\vec{f}]{y_j}, (j = 1, \dots, n)$ are continuous in a given region $D$ in $(n + 1)$-dimensional space. Let $(t_{0}, \vec{\eta})$ be a given point in $D$. Consider the initial value problem
+
+	$$y' = \vec{f}(t, \vec{y}) \tag{3.22}$$
+
+	$$\vec{y}(t_{0}) = \vec{\eta} \tag{3.23}$$
+</p>
+<p>By the definition of a region (p. 24), there exist numbers $a > 0 b > 0$ such that the "box" $B=\cbracket{(t,y)| |t - t_{0}| \leq a ,|\vec{y}- \vec{\eta}| \leq b}$ , centered at $(t_0 , \vec{\eta})$ is contained in $D$. By Theorem (3.3), there exists a number $\alpha > 0$ and a unique solution $\vec{\Phi}$ of (3.22), (3.23) existing on the interval $|t - t_{0}| \leq \alpha$ (see Figure 3.5).</p>
+
+Now consider the point $(t_{0} + \alpha, \vec{\phi}(t_{0} + \alpha))$ as a new initial point. Since this point is in $D$ (definitely boundary of $D$), there exist numbers $a_{1} > 0, b_{1} > 0$ such that the box
+
+$$B_1 =\{ (t,y)||t-(t_0 + \alpha)| \leq a_1, |y - \vec\Phi(t_{0} + \alpha)| <= b_{1} \} ,$$
+
+centered at $(t_{0} + \alpha, \vec\Phi(t_{0} + \alpha))$ is contained in $D$ (see Figure 3.6). Consider the system of (3.22), subject to the initial condition
+
+$$y(t_{0} + \alpha) = \vec\Phi(t_{0} + \alpha) \tag{3.24}$$
+
+By Theorem 3.3, there exists a number $\alpha_{1} > 0$ and a unique solution of (3.22), (3.24) existing on the interval $|t_{0} - (t_{0} +\alpha)| \leq \alpha_{1}$ (seo Figure 3.6).
+
+Because of the uniqueness,
+
+$$\vec\Phi(t) = \vec\Psi(t) (t_{0} + \alpha -\alpha_{1} <= t <= t_{0} + \alpha) \tag{3.25}$$
+
+We may now define the function $\vec\Phi$ on the interval $t_{0} - \alpha < t < t_{0} + \alpha + \alpha_{1}$ by 
+
+\begin{align} 
+	\vec\Phi(t) &= \vec\Phi(t),  (t_{0} - \alpha \leq t \leq t_{0} + \alpha),\\
+	\vec\Phi(t) &= \vec\Psi(t),  (t_{0} +\alpha \leq t \leq t_{0} + \alpha + \alpha_{1})
+\end{align}
+
+(see Figure 3.6). It is easy to verify that this function $\Phi$ is a solution of (3.22). This solution is called the continuation to the right of the solution to the interval $t_{0} - \alpha \leq t \leq t_0 + \alpha + \alpha_{1}$.

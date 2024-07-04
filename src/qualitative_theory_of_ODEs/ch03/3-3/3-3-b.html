@@ -1,7 +1,7 @@
 ---
 title: "Theorem 3.5"
 parent: 5212_3_3_uniqueness
-order: 0
+order: 3
 ---
 <div class="theorem">
 	<div class="statement">
@@ -13,11 +13,21 @@ order: 0
 		has at most one solution on any interval $J$ containing $t_0$.
 	</div>
 	<div class="proof">
-		<p>Suppose that $phi_1(t)$ and $\phi_2(t)$ are two solutions of 
-			\begin{align}
+		\begin{align}
 			y' &= f(t, y) \tag{3.1} \\
 			\phi(t_{0}) &= y_{0} \tag{3.2}
-			\end{align}
-		</p>
+		\end{align}
+		<p>Suppose $\phi_{1}$ and $\phi_{2}$ are two solutions of (3.1), (3.2), which agree on some interval to the right of $t_{0}$, but which differ somewhere in $t_{0} \leq t < t_{0} + \alpha_{1}$ for some $\alpha_{1} > 0$.</p>
+		<p>Suppose $\phi_{1}$ and $\phi_{2}$ are two solutions of (3.1), (3.2), and $\phi_{1} = \phi_{2}$ on some interval to the right of $t_{0}$, but $\phi_{1} \neq \phi_{2}$ somewhere in $t_{0} \leq t < t_{0} + \alpha_{1}$ for some $\alpha_{1} > 0$.</p>
+		<p>We may assume that $\phi_{2} > \phi_{1}$ on some interval $t_{1} < t < t_{1} + h < t_{0} + \alpha_{1}$ while $\phi_{2} = \phi_{1}$ on $t_{0} \leq t \leq t_{1}$.</p>
+		<p>More precisely, $t_{1}$ is the greatest lower bound of the set $E$ of values of $t$ on which $\phi_{2} > \phi_{1}$</p>
+		<p>This greatest lower bound exists because the set $E$ is bounded below, at any rate, by $t_{0}$. </p>
+		<p>This implies $f(t, \phi_{1}(t)) \geq f(t, \phi_{2}(t))$ on $t_{1} < t < t_{1} + h$. </p>
+		<p>$\phi_{1}$ and $\phi_{2}$ are both solutions of (3.1), we have $\phi_{1}' \geq \phi_{2}'$ on $t_{1} < t < t_{1} + h$. </p>
+		<p>The function $u = \phi_{2} - \phi_{1}$, then, is by hypothesis strictly positive $t_{1} < t < t_{1} + h$. </p>
+		<p>Since $u' = \phi_{2}' - \phi_{1}' \leq 0$ has a nonpositive derivative on $t_{1} < t < t_{1} + h$ and satisfies $u(t_{1}) = 0$.</p>
+		<p>This is impossible, and the supposition $\phi_{2} > \phi_{1}$ on $t_{1} < t < t_{1} + h$ must be false.</p> 
+		<p>Thus the solutions $\phi_{1}$ and $\phi_{2}$ are actually identical on $t_{0} \leq t < t_{0} + \alpha_{1}$. </p>
+		<p>A similar argument shows that $\phi_{1} = \phi_{2}$ on $t_{0} - \alpha_{2} < t \leq t_{0}, \alpha_{2} > 0$, and completes the proof of the theorem.</p>
 	</div>
 </div>

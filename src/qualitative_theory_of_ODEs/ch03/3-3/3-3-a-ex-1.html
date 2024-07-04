@@ -1,0 +1,47 @@
+---
+title: "Ex 1 (Page 126)"
+parent: 5212_3_3_uniqueness
+order: 2
+---
+<div class="theorem">
+	<div class="statement">
+		State and prove a uniqueness theorem for solutions of the initial value problem
+
+		$$y''+ g(t,y) =0, y(0) = y_0, y'(0) = z_0$$ 
+
+		where $g$ is a given function defined on a rectangle $R: \abs{t} \leq a, \abs{y-y_0} \leq b$.
+	</div>
+	<div class="proof">
+		We have
+
+		$$\phi(t) = y_{0} + z_{0} t - \int_0^t (t-s)g(s,\phi(s))ds \tag{1}$$ 
+		
+		is equivalent to the initial value problem 
+
+		$$y''+ g(t,y) =0, y(0) = y_0, y'(0) = z_0$$ 
+
+		let $\phi_1, \phi_2$ be two solutions of (1) on the interval $\abs{t} \leq \alpha$. Suppose now that $g$ satisfies the lipschitz condition $|g(t, y_{1}) - g(t, y_{2})| \leq K|y_{1} - y_{2}|$ on $R$. 
+		Then we have 
+
+		\begin{align}
+			| \phi_1 (t)- \phi_2 (t)|
+			&= \abs{ 
+				y_{0} + z_{0} t - \int_0^t (t-s)g(s,\phi_1(s))ds  
+				- y_{0} - z_{0} t + \int_0^t (t-s)g(s,\phi_2(s))ds 
+			}\\
+			&= \abs{ 
+				- \int_0^t (t-s)g(s,\phi_1(s))ds  
+				+ \int_0^t (t-s)g(s,\phi_2(s))ds 
+			} \\
+			&= \abs{ \int_0^t (t-s)(g(s,\phi_2(s)) - g(s,\phi_1(s)))ds } \\
+			&\leq  \int_0^t (t-s)\abs{g(s,\phi_2(s)) - g(s,\phi_1(s))}ds \\
+			&\leq  \int_0^t (t-s) K \abs{\phi_2(s) - \phi_1(s)}ds \\
+		\end{align}
+
+			Now by Gronwall inequality, we have 
+			$$|\phi_{1}(t) - \phi_{2}(t)| \leq 0 \cdot \exp \bracket{\int_0^t K ds }=0$$
+			$$\therefore \phi_{1}(t) = \phi_{2}(t)$$
+	</div>
+</div>
+
+
