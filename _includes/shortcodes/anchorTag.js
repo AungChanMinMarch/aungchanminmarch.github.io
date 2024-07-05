@@ -1,6 +1,6 @@
-module.exports = function(collections, text, urlId, id) {
+module.exports = function(collections, urlId, text, id) {
 	const page = collections.find(item => item.data.urlId == urlId);
-	const urlString = text != "" ? text : (item.page.title || urlId);
+	const urlString = (!!text) ? text : (page.data.title ?? urlId);
 	if (page) {
 		const url = id ? `${page.url}#${id}` : page.url;
 		console.log(url)

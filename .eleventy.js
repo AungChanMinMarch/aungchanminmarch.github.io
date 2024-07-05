@@ -8,7 +8,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addShortcode("a", anchor);
   eleventyConfig.addShortcode("toc", analysisToc);
-  eleventyConfig.addShortcode('anchorTag', anchorTag);
+  eleventyConfig.addShortcode('aTag', anchorTag);
 
   eleventyConfig.addPassthroughCopy({ "assets/*.css": "assets" });
   eleventyConfig.addPassthroughCopy("assets/topology");

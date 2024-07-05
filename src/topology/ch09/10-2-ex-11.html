@@ -1,0 +1,26 @@
+---
+title: "Solved Problems no. 11 (Theorem 10.5 proof)"
+parent: 5208_10_2
+order: 111
+tau: \topologyTau
+---
+<div class="theorem">
+	<div class="statement">Let $X$ be a first countable space. Then the following are equivalent:
+		<ol class="list-decimal">
+			<li>$X$ is Hausdorff.</li>
+			<li>Every convergent sequence has a unique limit.</li>
+		</ol>
+	</div>
+	<div class="proof">
+		<p>By {% aTag collections.all "5208_10_2_ex_10" %}, we have (i) implies (ii)</p>
+		<p>Hence we need only show that (ii) implies (i).</p>
+		<p>Suppose $X$ is not Hausdorff.</p>
+		<p>Then there exist $a, b \in X, a \ne b$ with the property that every open set containing a has a non-empty intersection with every open set containing b.</p>
+		<p>Now let $\{G_{n}\}$ and $\{H_{n}\}$ be nested local bases at $a$ and $b$ respectively. </p>
+		<p>Then $G_{n} \cap H_{n} \ne \emptyset$ for every $n \in \N$</p>
+		<p>Since $G_{1} \cap H_{1} \ne \emptyset$, take $a_1 \in G_{1} \cap H_{1}$. </p>
+		<p>Since $G_{2} \cap H_{2} \ne \emptyset$, take $a_2 \in G_{2} \cap H_{2}$. </p>
+		<p>By repeating the process, we get a sequence $\seq{a_n}$ such that $a_{1} \in (G_1 \cap H_1), a_{2} \in (G_2 \cap H_2) , \dots$ </p>
+		<p>Clearly, $\seq{a_n}$ converges to both $a$ and $b$. Hence there exists a sequence whose limit is not unique. In other words, (ii) implies (i).</p>
+	</div>
+</div>

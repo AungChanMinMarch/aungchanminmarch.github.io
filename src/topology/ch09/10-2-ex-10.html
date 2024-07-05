@@ -1,0 +1,19 @@
+---
+title: "Solved Problems no. 10 (Theorem 10.4 proof)"
+parent: 5208_10_2
+order: 109
+urlId: 5208_10_2_ex_10
+tau: \topologyTau
+---
+<div class="theorem">
+  <div class="statement">Let $X$ be a Hausdorff space. Then every convergent sequence in $X$ has a unique limit.</div>
+  <div class="proof">
+    <p>Suppose $X$ be a Hausdorff space.</p>
+    <p>Suppose $\seq{a_n} \in X$ converges to $a$ and $b$ and suppose $a \ne b$.</p>
+    <p>Since $X$ is Hausdorff, there exist open sets $G$ and $H$ such that $a \in G$, $b \in H$ and $G \cap H = \emptyset$.</p>
+    <p>Since $\seq{a_n}$ converges to $a$, there exists $n_{0} \in N$ such that $n > n_{0}$ implies $a_{n} \in G$ </p>
+    <p>i.e. $G$ contains all except a finite number of the terms of the sequence. </p>
+    <p>But $G$ and $H$ are disjoint: hence $H$ can only contain those terms of the sequence which do not belong to $G$ and there are only a finite number of these. </p>
+    <p>Accordingly, $\seq{a_n}$ cannot converge to $b$. But this violates the hypothesis: hence $a = b$.</p>
+  </div>
+</div>

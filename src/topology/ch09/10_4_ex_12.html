@@ -1,0 +1,41 @@
+---
+title: "Solved Problems no. 12 (Theorem 10.6 proof)"
+parent: 5208_10_4
+order: 112
+H: \comp{\closure{G}}
+---
+<div class="theorem">
+	<div class="statement">
+		<p>Let $X$ be a topological space. Then the following conditions are equivalent: </p>
+		<ol class="list-decimal">
+			<li>$X$ is normal.</li>
+			<li>If $H$ is an open superset of a closed set $F$, then there exists an open set $G$ such that $F \subset G \subset \closure{G} \subset H$.</li>
+		</ol>
+	</div>
+	<div class="proof">
+		<p>Let $X$ be a topological space.</p>
+		<p>Suppose $X$ is normal.</p>
+		<p>Let $F \subset H$, where $F$ is closed and $H$ is open.</p>
+		<p>Since $H$ is open, $\comp{H}$ is closed. </p>
+		<p>Since $F \subset H$, we have $F \cap \comp{H} = \emptyset$.</p>
+		<p>Since $F$ and $\comp{H}$ are disjoint closed sets of a normal space $X$, there exists disjoint open sets $G$ and $G^*$ such that $F \subset G$ and $\comp{H} \subset G^*$. </p>
+		<p>Since $G$ and $G^*$ are disjoint, we have $G \cap G^* = \emptyset$. Hence $G \subset \comp{G^*}$. </p>
+		<p>Since $\comp{H} \subset G^*$, $\comp{G^*} \subset H$.</p>
+		<p>Thus we have $F \subset G \subset \comp{G*} \subset H$. </p>
+		<p>Since $G^*$ is open, $\comp{G^*}$ is closed. </p>
+		<p>Since $G \subset \comp{G^*}$ and $\comp{G*}$ is closed, we have $G \subset \closure{G} \subset \comp{G^*}$.</p>
+		<p>So $F \subset G \subset \closure{G} \subset \comp{G*} \subset H$. Therefore there exists open set $G$ such that $F \subset G \subset \closure{G} \subset H$.</p>
+		<hr>
+
+		<p>Conversely, suppose that for every closed set $F$ and open set $H$ containing $F$, there exists open set $G$ such that $F \subset G \subset \closure{G} \subset H$.</p>
+		<p>Let $F_{1}$ and $F_{2}$ disjoint closed sets.</p>
+		<p>Since $F_{1} \cap F_{2} = \emptyset$, $F_1 \subset \comp{F_2}$</p>
+		<p>Since $F_{2}$ is closed, $\comp{F_2}$ is open. </p>
+		<p>Hence there exists an open set $G$ such that $F_1 \subset G \subset \closure{G} \subset \comp{F_{2}}$ </p>
+		<p>Since $\closure{G} \subset \comp{F_{2}}$, we have $F_{2} \subset {{H}}$</p>
+		<p>Since $G \subset \closure{G}$, we have $G \cap {{H}} = \emptyset$. </p>
+		<p>Since $\closure{G}$ is closed, ${{H}}$ is open. </p>
+		<p>Hence there exist open sets $G$ and ${{H}}$ such that $F_1 \subset G$ and $F_{2} \subset {{H}}$. </p>
+		<p>Therefore $X$ is normal. </p>
+	</div>
+</div>

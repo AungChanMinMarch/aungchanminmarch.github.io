@@ -1,0 +1,22 @@
+---
+title: "Solved Problems no. 8"
+parent: 5208_10_2
+order: 108
+---
+<div class="theorem">
+	<div class="statement">Show that the property of being a Hausdorff space is hereditary, i.e. every subspace of a Hausdorff space is also Hausdorff.</div>
+	<div class="proof">
+		<p>Let $(X, \topologyTau)$ be a Hausdorff space and let $(Y, \topologyTau_{Y})$ be a subspace of $(X, \topologyTau)$.</p>
+		<p>Furthermore, let $a, b \in Y \subset X$ with $a \ne b$. </p>
+		<p>Since $(X, \topologyTau)$ is Hausdorff, there exists $G, H \in \topologyTau$ such that $a \in G, b \in H$ and $G \cap H = \emptyset$.</p>
+		<p>Since $G, H \in \topologyTau$, by definition of a subspace, $(Y \cap G) \in \topologyTau_{Y}$ and $(Y \cap H) \in \topologyTau_{Y}$. </p>
+		<p>Furthermore, since $a \in Y$ and $a \in G$, we have $a \in Y \cap G$</p>
+		<p>Similarly, since $a \in Y$ and $a \in H$, we have $a \in Y \cap H$.</p>
+		\begin{align}
+			(Y \cap G) \cap (Y \cap H) &= Y \cap (G \cap H)\\
+			&= Y \cap \emptyset \\
+			&= \emptyset
+		\end{align}
+		<p>Hence there exists $(Y \cap G) \in \topologyTau_{Y}$ and $(Y \cap H) \in \topologyTau_{Y}$ such that $a \in (Y \cap G)$, $b \in (Y \cap H)$, and $(Y \cap G) \cap (Y \cap H) = \emptyset$. Therefore $(Y, \topologyTau_{Y})$ is also a Hausdorff space.</p>
+	</div>
+</div>

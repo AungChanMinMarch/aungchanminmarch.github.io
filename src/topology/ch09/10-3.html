@@ -1,0 +1,21 @@
+---
+title: "REGULAR SPACES"
+parent: topology09
+key: 5208_10_3
+layout: toc.njk
+tau: \topologyTau
+---
+<div class="definition">
+	<h1>{{title}}</h1>
+	<p>A topological space $X$ is regular iff it satisfies the following axiom:</p>
+	<p>$[R]$ If $F$ is a closed subset of $X$ and $p \in X$ does not belong to $F$, then there exist disjoint open sets $G$ and $H$ such that $F \subset G$ and $p \in Н$.</p>
+	<p>A regular space need not be a $T_{1}$-space. </p>
+</div>
+
+<div class="theorem">
+	<div class="statement"><strong>Example 3.1:</strong> Consider the topology ${{tau}} =\{ X, \emptyset , \{a\}, \{b,c\} \}$ on the set $X = \{a, b, c\}$. Prove that $(X, {{tau}})4 is regular but not $T_1$. </div>
+	<div>The closed subsets of $X$ are $\emptyset, X, \{b,c\}$ and $\{a\}$.</div>
+	<p>Observe that $(X, {{tau}})$ does satisfy $[R]$.</p>
+	<p>On the other hand, $(X, {{tau}})$ is not a $T_1$-space since $\{b \}$ is not closed.</p>
+</div>
+<div class="definition">A regular space $X$ which also satisfies the separation axiom $[T_1]$, i.e. a regular $T_1$-space, is called a <strong>$T_3$-space</strong>.</div>

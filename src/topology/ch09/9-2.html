@@ -2,7 +2,7 @@
 title: "HAUSDORFF SPACES"
 parent: topology09
 key: 5208_10_2
-r: \frac{\ep}{3}
+layout: toc.njk
 ---
 <div class="definition">
 	<h1>{{title}}</h1>
@@ -16,24 +16,4 @@ r: \frac{\ep}{3}
 <div class="definition">
 	<h3><b>Theorem 10.3</b>(Example 2.1)</h3>
 	<p class="statement">Every metric space is a Hausdorff space.</p>
-	<div class="proof">
-		<p>Let $X$ be a metric space.</p>
-		<p>Let $a$ and $b$ be distinct points of $X$, i.e. $a \in X, b \in X, a \neq b$</p>
-		<p>Then by $[M_4]$, $d(a,b) > 0$. Let $d(a,b) = \ep$.</p>
-		<p>Consider the open spheres $G=S(a,{{r}})$ centered at $a$ with radius ${{r}}$ and $H = S(b, {{r}})$, centered at $b$ with radius ${{r}}$.</p>
-		<p>We need to prove $G \cap H= \emptyset$.</p>
-		<p>Suppose that $G \cap H \neq \emptyset$. </p>
-		<p>Let $p \in G \cap H$.</p>
-		<p>Then $p \in G$ and $p \in H$.</p>
-		<p>Hence $d(p,a) < {{r}}$ and $d(p,b) < {{r}}$.</p>
-		<p>By the Triangle Inequality, </p>
-		\begin{align}
-			d(a,b) &\leq d(a, p) + d(p, b)\\
-			&< {{r}} + {{r}} \\
-			= \frac{2\ep}{3}
-		\end{align}
-		<p>$d(a,b) < \frac{2\ep}{3}$ contradicts that $d(a,b) = \ep$.</p>
-		<p>Therefore $G \cap H = \emptyset$. </p>
-		<p>Now we have $a \in G, b \in H$ and $G$ and $H$ are disjoint open spheres. Thus $X$ is a Hausdorff space.</p>
-	</div>
 </div>
