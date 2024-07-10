@@ -1,0 +1,18 @@
+---
+title: "Solved Problems no. 13"
+parent: 5208_10_4
+order: 113
+H: \comp{\closure{G}}
+---
+<div class="theorem">
+	<div class="statement">Let $\base$ be a base for a normal $T_{1}$-space $X$. Show that for each $G_{i} \in \base$ and any point $p \in G_{i}$, there exists a member $G_{j} \in \base$ such that $p \in \closure{G_j} \subset G_{i}$.</div>
+	<div class="proof">
+		<p>Let $G_{i} \in \base$ and $p \in G_{i}$.</p>
+		<p>Since $X$ is a $T_{1}$-space, $\{p\}$ is closed. </p>
+		<p>Hece we have $\{p\} \subset G_{i}$ where $\{p\}$ is closed and $G_{i}$ is open.</p>
+		<p>By {% aTag collections.all "5208_10_4" "Theorem 10.6" %}, there exists an open set $G$ such that $\{p\} \subset G \subset \closure{G} \subset G_{i}$. </p>
+		<p>Since $p \in G$ is open, there exists $G_{j} \in \base$ such that $p \in G_{j} \subset G$. </p>
+		<p>So $p \in \closure{G_{j}} \subset \closure{G}$. </p>
+		<p>Since $\closure{G} \subset G_{i}$, we get $p \in \closure{G_{j}} \subset G_{j}$.</p>
+	</div>
+</div>

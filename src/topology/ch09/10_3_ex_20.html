@@ -1,0 +1,31 @@
+---
+parent: 5208_10_3
+title: "Solved Problems no. 20"
+order: 120
+tau: \topologyTau
+---
+<div class="theorem">
+	<div class="statement">
+		Show that the property of being a regular space is hereditary, i.e. every subspace of a regular space is regular.
+	</div>
+	<div class="proof">
+		<p>Let $(X, {{tau}})$ be a regular space and let $(Y, {{tau}}_{y})$ be a subspace of $(X, {{tau}})$.</p>
+		<p>Suppose $F$ is a ${{tau}}_Y$-closed subset of Y$ and $p \inY$ does not belong to $F$. </p>
+		<p>Then $F = {{tau}}_Y$-closure of $F$.</p>
+		<p>Since $p \notin F$, $p$ does not belong to ${{tau}}_Y$-closure of $F$.</p>
+		<p>Since ${{tau}}_Y$-closure of $F = Y \cap \closure{F}$, p does not belong to $Y \cap \closure{F}$. </p>
+		<p>Since $p \in Y$ and p \notin (Y \cap \closure{F})$, we have $p \notin \closure{F}$.</p>
+		<p>Hence $\closure{F}$ is closed and $p \in X$ does not belong to $\closure{F}$. </p>
+		<p>Since $(X, {{tau}})$ is regular, there exists ${{tau}}$-open sets $G$ and $H$ such that
+			$$\closure{F} \subset G, p \in H \text{ and } G \cap H = \emptyset$$
+		</p>
+		<p>Since $G, H \in {{tau}}$, we have $(Y \cap G) \in {{tau}}_Y$ and $(Y \cap H) \in {{tau}}_Y$</p>
+		<p>Since $F \subset Y$ and $F \subset \closure{F} \subset G$, we have $F \subset (Y \cap H)$.</p>
+		<p>Since $p \in Y$ and $p \in H$, we have $p \in (Y \cap H)$.</p>
+		<p>$(Y \cap G) \cap (Y \cap H) = Y \cap (G \cap H) = Y \cap \emptyset$</p>
+		<p>Hence, there exists ${{tau}}_Y$-open sets $Y \cap G$ and $Y \cap H$ such that
+			$$F \subset (Y \cap G), p \in (Y \cap H) \text{ and } (Y \cap G) \cap (Y \cap H) = \emptyset$$
+		</p>
+		<p>In other words, $(Y, {{tau}}_Y)$ is also regular.</p>
+	</div>
+</div>

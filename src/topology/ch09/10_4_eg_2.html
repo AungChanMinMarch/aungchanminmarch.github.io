@@ -1,0 +1,21 @@
+---
+parent: 5208_10_4
+title: "Example 4.2"
+order: 2
+tau: \topologyTau
+---
+<div class="theorem">
+	<div class="statement">
+		<h1>{{title}}</h1>
+		<p>Consider the topology ${{tau}}, = \{X, \emptyset, \{a\}, \{b\}, \{a, b\} \}$ on the set $X = \{a, b, c \}$. Is $X$ a normal space? Is it a $T_{1}$-space? Is it a regular space?</p>
+	</div>
+	<div class="proof">
+		<p>Observe that the closed sets are $\emptyset, X, \{b, c\}, \{a, c\}$ and $\{c\}$.</p>
+		<p>If $F_{1}$ and $F_{2}$ are disjoint closed subsets of $(X, {{tau}})$, then one them, say $F_{1}$ must be the empty set .</p>
+		<p>Hence $\emptyset$ and $X$ are disjoint open sets and $F_{1} \subset \emptyset, F_{2} \subset X$.</p>
+		<p>In other words, $(X, {{tau}})$ is a normal space.</p>
+		<p>Since the singleton set $\{a\}$ is not closed, $(X,{{tau}})$ is not $T_1$-space.</p>
+		<p>Furthermore, $(X,{{tau}})$ is not a regular space since $\{c\}$ is closed and $a \notin \{c\}$, but the only open superset of the closed set $\{c\}$ is X which also contains a.</p>
+	</div>
+</div>
+  

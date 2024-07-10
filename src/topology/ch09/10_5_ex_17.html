@@ -1,0 +1,23 @@
+---
+title: "Solved Problems no. 17 (Proposition 10.10 proof)"
+parent: 5208_10_5
+order: 117
+H: \comp{\closure{G}}
+---
+<div class="theorem">
+	<div class="statement">A completely regular space $X$ is also regular.</div>
+	<div class="proof">
+		<p>Let $F$ be a closed subset of $X$ and suppose $p \in X$ does not belong to $F$.</p>
+		<p>Since $X$ is completely regular, there exists a continuous function $f:X \to [0, 1]$ such that $f(p) = 0$ and $f[F] = \{1\}$.</p>
+		<p>Since $\R$ is Hausdorff space and every subspace of a Hausdorff space is also Hausdorff, $[0,1]$ is Hausdorff.</p>
+		<p>Since a Hausdorff space is always a $T_{1}$-space, $[0,1]$ is a $T_{1}$-space.</p>
+		<p>By {% aTag collections.all "5208_10_1" "Theorem 10.1" %}, $\{0\}$ and $\{1\}$ are closed. </p>
+		<p>Since $[0,1]$ is Hausdorff, by $[T_2]$, there exists open sets $G$ and $H$ such that $\{0\} \subset G, \{1\} \subset H$ and $G \cap H = \emptyset$. </p>
+		<p>Since $f$ is continuous and $G$ and $H$ are disjoint open sets, $\inverse{f}{G}$ and $\inverse{f}{H}$ are disjoint open sets. </p>
+		\begin{align}
+			f(p) = 0 &\in G & &\text{ and } & f(F) = \{1\} &\subset H \\
+			p &\in \inverse{f}{G} & &\text{ and } & F &\subset \inverse{f}{H} \\
+		\end{align}
+		<p>Hence there exists open sets $\inverse{f}{G}$ and $\inverse{f}{H}$ such that $p \in \inverse{f}{G}$ and $F \subset \inverse{f}{H}$. Therefore, $X$ is also regular.</p>
+	</div>
+</div>
