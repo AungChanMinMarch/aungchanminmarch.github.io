@@ -36,6 +36,13 @@ jobs:
       - name: Build Site
         run: npm run build # Replace with your build command
 
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: ./build
+          retention-days: 30  # Retain artifacts for 30 days
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
       # - name: Deploy to GitHub Pages
