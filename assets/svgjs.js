@@ -22,8 +22,9 @@ SVGextend(Container, {
     let p = this.text('').move(x, y);
     p.X = x;
     p.Y = y;
-    p.label = function(text, moveX = 0, moveY = 0){
+    p.label = function(text, moveX = 0, moveY = 0, attr = {}){
       return p.text(text).attr({
+        ...attr,
         x: p.X + moveX,
         y: p.Y + moveY
       })
@@ -89,7 +90,7 @@ SVGextend(Shape, {
 });
 
 SVGextend(Circle, {
-  getPointOnArc: function(angle) {
+  getPointOnArc: function(angle) { //angle in degree
     const angleInRadian = (angle * Math.PI) / 180;
 
     return this.parent().point(
@@ -134,6 +135,27 @@ function approximatelyEqual(v1, v2, epsilon = 0.001) {
   return Math.abs(v1 - v2) < epsilon;
 }
 SVGextend(Line, {
+  produced: function(extensionLength) {
+    const { x1, y1, x2, y2 } = this.attr();
+
+    // Calculate the direction vector
+    const dx = x2 - x1;
+    const dy = y2 - y1;
+
+    // Normalize the direction vector
+    const length = Math.sqrt(dx * dx + dy * dy);
+    const unitDx = dx / length;
+    const unitDy = dy / length;
+
+    // Calculate the new extended points
+    const extendedX1 = x1 - unitDx * extensionLength;
+    const extendedY1 = y1 - unitDy * extensionLength;
+    const extendedX2 = x2 + unitDx * extensionLength;
+    const extendedY2 = y2 + unitDy * extensionLength;
+
+    // Draw the extended line
+    return this.plot(extendedX1, extendedY1, extendedX2, extendedY2);
+  },
   getDistance: function(){
     const { x1, y1, x2, y2 } = this.attr();
     return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
@@ -167,9 +189,10 @@ SVGextend(Line, {
 
         const perpendicularM = - 1/m ;
         const perpendicularB = point.Y - perpendicularM * point.X;
-
-        const perpendicularX = - ( m - perpendicularM ) / (b- perpendicularB);
-        const perpendicularY = (b * perpendicularM - perpendicularB * m) / ( perpendicularM - m);
+        
+        // Calculate the intersection point
+        const perpendicularX = (perpendicularB - b) / (m - perpendicularM);
+        const perpendicularY = m * perpendicularX + b;
 
         return this.parent().point(perpendicularX, perpendicularY, this.parent());
       }
