@@ -12,4 +12,42 @@ title: "Aung Chan Min"
     <span class="text-nowrap px-4">a Math student.</span>
   </h1>
 <!-- Enthusiastic university math student eager to teach IGCSE math part-time on weekends. Committed to fostering student success through engaging lessons. Passionate about inspiring math excellence in a supportive environment. -->
+
+<div class="container">
+<h1>Current Courses</h1>
+  <ul id="postList" class="md:grid md:grid-cols-2 lg:grid-cols-3 gap-12" >
+    {% for post in collections.current %}
+      <li class="post-item mb-12" data-tags="{{ post.data.tags | join: ',' }}">
+        <a 
+          class="group hover:no-underline focus:no-underline" 
+          href="{{ post.url }}">
+          <div 
+            class="h-72 rounded bg-secondary w-full transform duration-200 group-hover:shadow-lg group-focus:shadow-lg group-hover:-translate-y-1 group-focus:-translate-y-1 " 
+            style="display: block; overflow: hidden; position: relative;">
+            {% if post.data.img %}
+              <img class="w-full h-full object-cover hover:object-contain" src="{{ post.data.img }}" />
+            {% else %}
+              <div class="w-full h-full bg-secondary flex justify-center items-center">
+                <p class="h-fit text-4xl text-center">
+                  {{ post.data.title }}
+                </p>
+              </div>
+            {% endif %}
+          </div>
+          <div class="mt-6">
+            <p class="text-xs text-inverted-muted my-2">
+              Posted {{ post.data.date | default : "January 25, 2021"}}
+            </p>
+            <p class="color-theme text-2xl leading-tight text-inverted group-hover:underline group-focus:underline">
+              {{ post.data.title | default: "Unnamed Post" }}
+            </p>
+            <p class="text-inverted-muted">
+              {{ post.data.description | default: "My website released to critical acclaim, with thousands of visits in a few days. Learn why did I soft launch my website nearly a month earlier in secret"}}
+            </p>
+          </div>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
 </div>
