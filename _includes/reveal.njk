@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>{{title}}</title>
+
+		<link rel="stylesheet" href="/reveal/dist/reset.css">
+		<link rel="stylesheet" href="/reveal/dist/reveal.css">
+		<link rel="stylesheet" href="/reveal/dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="/reveal/plugin/highlight/monokai.css">
+  	<link rel="stylesheet" type="text/css" href="/assets/css/base_styles.css">
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				{{ content | safe }}
+			</div>
+		</div>
+
+    <script type="text/javascript" src="/assets/svgjs.js"></script>
+		<script src="/reveal/dist/reveal.js"></script>
+		<script src="/reveal/plugin/notes/notes.js"></script>
+		<script src="/reveal/plugin/markdown/markdown.js"></script>
+		<script src="/reveal/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+			// Initialize SVG
+
+document.getElementById("clicker").onclick = function(){
+	window.animate()
+}
+function animateToMonoclinic() {
+  window.monoclinic.animate(1000).plot('50,15 150,45 100,150 10,90').attr({ fill: '#f06' });
+}
+
+// Hexagonal: two sides equal, two angles equal
+function animateToHexagonal() {
+  window.monoclinic.animate(1000).plot('75,10 225,10 300,100 225,190 75,190 0,100').attr({ fill: '#0f6' });
+}
+
+// Cubic: all sides equal
+function animateToCubic() {
+  window.monoclinic.animate(1000).plot('75,10 225,10 225,160 75,160').attr({ fill: '#00f' });
+}
+			Reveal.on('slidechanged', function(event) {
+			  if (event.currentSlide.dataset.state === 'monoclinic') {
+			  	console.log("hi")
+			    animateToHexagonal();
+			    // animateToMonoclinic();
+			  } else if (event.currentSlide.dataset.state === 'hexagonal') {
+			  } else if (event.currentSlide.dataset.state === 'cubic') {
+			    animateToCubic();
+			  }
+			});
+
+		</script>
+	</body>
+</html>

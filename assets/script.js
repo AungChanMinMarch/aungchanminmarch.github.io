@@ -26,7 +26,7 @@ window.MathJax = {
 function loadMathJax() {
   const script = document.createElement("script");
   script.src =
-    "https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js";
+    "https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-chtml.js";
   script.async = true;
   script.onload = function(){
     MathJax.startup.getComponents();
