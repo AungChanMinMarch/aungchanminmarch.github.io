@@ -3,11 +3,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
-    index: './assets/script.js',
-    svgjs: './assets/svgjs.js',
+    index: './assets/js/script.js',
+    svgjs: './assets/js/svgjs.js',
     cytoscape: './assets/js/cytoscape.js',
-    functionplot: './assets/functionplot.js',
-    tailwind: './assets/tailwind.js',
+    functionplot: './assets/js/functionplot.js'
   },
   output: {
     filename: '[name].js',
