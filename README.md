@@ -5,3 +5,14 @@ Welcome to [acmlearnlounge](/404)! My aim is to share my knowledge and make math
 Whether you're a math whiz or someone who usually shies away from numbers, I've got something for you. My lessons range from basic arithmetic to mind-boggling puzzles that'll challenge even the sharpest minds. I'm here to guide you through, step by step.
 
 As a young busy math enthusiast, I will priortize what I learn from my university, but you will see other corners of __math__ in very near future. So, if you're ready to unlock the power of math and have some fun along the way, you're in the right place. Join us at Ethan's Math Hub and let's embark on this numerical adventure together!
+
+# Comming soon Features
+
+## make more book like (next page, prev page, ...)
+## add buttons to increase or decrease font size
+## make more mobile friendly : some  long mathjax expand beyond screen
+### solve idea => ask to rotate if there is too long content.
+
+## make edit history available
+### after fetching edit history form github, mathjax does not render them.
+## write license copyright ...
