@@ -4,12 +4,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   entry: {
     index: './assets/js/script.js',
-    svgjs: './assets/js/svgjs.js',
-    cytoscape: './assets/js/cytoscape.js',
-    functionplot: './assets/js/functionplot.js'
+    //svgjs: './assets/js/svgjs.js',
+    //cytoscape: './assets/js/cytoscape.js',
+    //functionplot: './assets/js/functionplot.js',
+	style: './assets/css/base_styles.css'
   },
   output: {
-    filename: '[name].js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, '_site/assets'),
   },
   module: {

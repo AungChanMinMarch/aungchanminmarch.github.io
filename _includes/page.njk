@@ -121,10 +121,10 @@ layout: base.njk
 <main>
     {{ content | safe }}
 </main>
-<script type="text/javascript" src="/assets/index.js"></script>
+<script type="text/javascript" src="/assets/index.bundle.js"></script>
 
 {% if includes %}
   {% for jsFileName in includes %}
-    <script type="text/javascript" src="/assets/{{ jsFileName }}.js"></script>
+    <script type="text/javascript" src="/assets/{{ jsFileName }}.bundle.js"></script>
   {% endfor %}
 {% endif %}
