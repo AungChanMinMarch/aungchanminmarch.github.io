@@ -154,10 +154,18 @@ window.onload = function () {
   //     child.remove();
   //   });
   // } else {
-    const scale = document.documentElement.offsetWidth / 780;
-    const main = document.querySelector('main');
-    main.style.width = "780px";
-    main.style.transform = `scale(${scale})`;
-  // }
-  loadMathJax();
+	const scale = document.documentElement.offsetWidth / 780;
+	const main = document.querySelector('main');
+
+	// Set explicit width for scaling
+	main.style.width = "780px";
+	main.style.transform = `scale(${scale})`;
+	main.style.transformOrigin = "top left"; // Ensure scaling starts from the top-left corner
+
+	// Adjust layout to prevent overlap
+	main.style.position = "relative";
+	main.style.marginTop = document.querySelector('header')?.offsetHeight + "px" || "0px";
+
+	// }
+	loadMathJax();
 };
