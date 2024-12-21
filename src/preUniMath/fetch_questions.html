@@ -1,0 +1,51 @@
+---
+title: "Filter Past Paper Questions"
+---
+<div class="form-container">
+	<h1>Find Past Paper Questions</h1>
+	<form id="question-filter-form">
+		<!-- Exam Type Filter -->
+		<div class="form-group">
+			<label for="exam-type">Exam Type:</label>
+			<select id="exam-type" name="exam-type[]" multiple>
+				<option value="igcse-math-a">IGCSE Math A</option>
+				<option value="igcse-math-b">IGCSE Math B</option>
+				<option value="igcse-pure-maths">IGCSE Pure Maths</option>
+				<option value="sat">SAT</option>
+				<option value="ged">GED</option>
+				<option value="gre">GRE</option>
+			</select>
+		</div>
+
+		<!-- Year Filter -->
+		<div class="form-group">
+			<label for="year">Year:</label>
+			<select id="year" name="year[]" multiple>
+				<option value="2024">2024</option>
+				<option value="2023">2023</option>
+				<option value="2022">2022</option>
+				<option value="2021">2021</option>
+				<option value="2020">2020</option>
+				<!-- Add more years as needed -->
+			</select>
+		</div>
+
+		<!-- Math Topic Filter -->
+		<div class="form-group">
+			<label for="math-topic">Math Topic:</label>
+			<select id="math-topic" name="math-topic[]" multiple>
+				<option value="ratio">Ratio</option>
+				<option value="integration">Integration</option>
+				<option value="circle">Circle</option>
+				<option value="algebra">Algebra</option>
+				<option value="probability">Probability</option>
+				<!-- Add more topics as needed -->
+			</select>
+		</div>
+
+		<!-- Submit Button -->
+		<div class="form-group">
+			<button type="submit" class="btn">Find Questions</button>
+		</div>
+	</form>
+</div>

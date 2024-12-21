@@ -165,6 +165,7 @@ window.onload = function () {
 	// Adjust layout to prevent overlap
 	main.style.position = "relative";
 	main.style.marginTop = document.querySelector('header')?.offsetHeight + "px" || "0px";
+	main.height = "calc(100% * ${scale})";
 
 	// }
 	loadMathJax();

@@ -125,6 +125,7 @@ body
     }
     main
     {
+		padding: 0px 20px;
         margin-bottom: 100px;
     }
 }

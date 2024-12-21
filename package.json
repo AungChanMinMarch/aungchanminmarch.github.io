@@ -7,8 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "start": "npm run eleventy:watch & npm run webpack:watch",
-    "eleventy:watch": "npx @11ty/eleventy --serve --watch",
+    "webpack": "npm run webpack --no-watch --mode development",
+    "start": "npm run 11ty & npm run webpack:watch",
+    "11ty": "npx @11ty/eleventy --serve --watch",
     "webpack:watch": "webpack --config webpack.config.js --mode development --watch",
     "build": "npm run eleventy:build & npm run webpack:build",
     "eleventy:build": "npx @11ty/eleventy",
@@ -38,6 +39,7 @@
     "@svgdotjs/svg.js": "^3.2.0",
     "babel-loader": "^9.1.3",
     "cytoscape": "^3.29.2",
+    "firebase": "^11.0.2",
     "function-plot": "^1.24.0",
     "octokit": "^3.1.1",
     "pixi.js": "^7.3.1",

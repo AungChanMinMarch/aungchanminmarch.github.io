@@ -10,7 +10,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addShortcode("toc", analysisToc);
   eleventyConfig.addShortcode('aTag', anchorTag);
 
-  eleventyConfig.addPassthroughCopy({ "assets/*.css": "assets" });
+  eleventyConfig.addPassthroughCopy({ "assets/css/style.css": "assets/style.css" });
   eleventyConfig.addPassthroughCopy("assets/topology");
   eleventyConfig.addPassthroughCopy("assets/img");
 

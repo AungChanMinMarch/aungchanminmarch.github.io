@@ -4,10 +4,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   entry: {
     index: './assets/js/script.js',
+	fetchPastPapers: './assets/js/fetchPastPapers.js',
     //svgjs: './assets/js/svgjs.js',
     //cytoscape: './assets/js/cytoscape.js',
     //functionplot: './assets/js/functionplot.js',
-	style: './assets/css/base_styles.css'
+	base_styles: './assets/css/base_styles.css',
+	//style: './assets/css/styles.css'
   },
   output: {
     filename: '[name].bundle.js',
@@ -34,7 +36,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/base_styles.css',
+      filename: 'css/[name].css',
     }),
   ],
   resolve: {
