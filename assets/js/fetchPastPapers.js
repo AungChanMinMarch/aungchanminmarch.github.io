@@ -15,7 +15,7 @@ async function fetchDataFromSource() {
 async function fetchTestData() {
   return new Promise((resolve, reject) => {
     const script = document.createElement("script");
-    script.src = "/local/questions.js";
+    script.src = "/questions.js";
     script.async = true;
 
     script.onload = () => {
@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     questionList.appendChild(questionEl);
   });
+	MathJax.typeset();
 });
 const uploadButton = document.getElementById("uploadBtn");
 uploadButton?.addEventListener("click", () => {
