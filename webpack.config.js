@@ -9,7 +9,7 @@ module.exports = {
     //cytoscape: './assets/js/cytoscape.js',
     //functionplot: './assets/js/functionplot.js',
 	base_styles: './assets/css/base_styles.css',
-	//style: './assets/css/styles.css'
+	style: './assets/css/index.css'
   },
   output: {
     filename: '[name].bundle.js',

@@ -196,3 +196,6 @@ summary
 {
     list-style: none;
 }
+.theorem p{
+	margin: 20px 5px !important;
+}
