@@ -4,7 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   entry: {
     index: './assets/js/script.js',
-	fetchPastPapers: './assets/js/fetchPastPapers.js',
+	testBeforeUpload: './assets/js/testBeforeUpload.js',
+	preUniMath: './assets/js/preUniMath.js',
     //svgjs: './assets/js/svgjs.js',
     //cytoscape: './assets/js/cytoscape.js',
     //functionplot: './assets/js/functionplot.js',

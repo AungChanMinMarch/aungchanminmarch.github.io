@@ -2,10 +2,9 @@ function createPapers(paperArr) {
   console.log("fetching from firestore");
   const el = document.createElement("div");
   for (let i = 0; i < paperArr?.length; i++) {
-    const paper = paperArr[i].paper;
-    const no = paperArr[i].number + 1;
+    const {paper, no, mark} = paperArr[i];
     const a = document.createElement("a");
-    a.append(`${paper} no. ${no}, `);
+    a.append(`${paper} no. ${no+1} (${mark} marks) `);
     a.href = paper;
     el.appendChild(a);
   }

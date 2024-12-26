@@ -1,7 +1,7 @@
 {
 	"parent": "igcse",
 	"layout": "preUniMath.njk",
-	"includes": ["fetchPastPapers"],
+	"includes": ["preUniMath"],
 	"permalink": "{{ page.filePathStem }}.html"
 }
 
