@@ -32,16 +32,22 @@ module.exports = function(eleventyConfig) {
     });
     return [...tagSet];
   });
+eleventyConfig.setServerOptions({
+		module: "@11ty/eleventy-server-browsersync",
+
+	host: '0.0.0.0',
+		port: 8080,
+		open: false,
+		notify: false,
+		ui: false,
+		ghostMode: false,
+	});
   return {
     dir: {
       input: "src",
       output: "_site",
       includes: '../_includes'
     },
-    serverOptions: {
-      host: "0.0.0.0", // This binds the server to all interfaces
-      port: 8080 // Default port, you can change this if needed
-    }
   }
 };
 
