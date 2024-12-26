@@ -1,9 +1,10 @@
 const admin = require("firebase-admin");
 const fs = require("fs");
+const path = require("path");
 const beautify = require("js-beautify").html;
 
 // Load and fix service account JSON
-const serviceAccount = require("./serviceAccount.json");
+const serviceAccount = require(path.join(__dirname, "./serviceAccount.json"));
 serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, "\n");
 
 // Initialize Firebase Admin
@@ -74,7 +75,7 @@ function prettifyObject(obj, seen = new WeakSet(), indent = 2) {
 // Export Firestore data
 const exportQuestionsToFile = async () => {
   try {
-    const template = fs.readFileSync("./template.js", 'utf-8');
+    const template = fs.readFileSync(path.join(__dirname, "./template.js"), 'utf-8');
 					console.log(template)
     const templateContent = template.split("[firestoreObj]");
     if(templateContent.length !==2){
@@ -97,7 +98,7 @@ const exportQuestionsToFile = async () => {
     const fileContent = templateContent[0] + prettifyObject(questions) + templateContent[1];
 
     // Write the prettified object to a JavaScript file
-    fs.writeFileSync("questions.js", fileContent, "utf8");
+    fs.writeFileSync(path.join(__dirname, "../../_site/questions.js"), fileContent, "utf8");
     console.log("Questions exported successfully as a JavaScript module!");
   } catch (error) {
     console.error("Error exporting questions:", error);
