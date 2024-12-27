@@ -6,7 +6,7 @@ module.exports = {
     index: './assets/js/script.js',
 	testBeforeUpload: './assets/js/testBeforeUpload.js',
 	preUniMath: './assets/js/preUniMath.js',
-    //svgjs: './assets/js/svgjs.js',
+    svgjs: './assets/js/svgjs.js',
     //cytoscape: './assets/js/cytoscape.js',
     //functionplot: './assets/js/functionplot.js',
 	base_styles: './assets/css/base_styles.css',
