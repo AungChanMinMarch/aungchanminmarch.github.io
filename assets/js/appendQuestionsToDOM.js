@@ -1,70 +1,118 @@
-function createPapers(paperArr) {
-  console.log("fetching from firestore");
-  const el = document.createElement("div");
-  for (let i = 0; i < paperArr?.length; i++) {
-    const {paper, no, mark} = paperArr[i];
-    const a = document.createElement("a");
-    a.append(`${paper} no. ${no+1} (${mark} marks) `);
-    a.href = paper;
-    el.appendChild(a);
-  }
-  return el;
+function createPaperLinks(paperArr = []) {
+  // Create a container for the paper links
+  const container = document.createElement("div");
+  
+  paperArr.forEach(({ paper, no, mark }) => {
+    const link = document.createElement("a");
+    link.textContent = `${paper} no. ${no} (${mark} marks)`;
+    link.href = paper;
+    container.appendChild(link);
+  });
+  
+  return container;
 }
 
-function toggleTopics(e) {
-  e.target.closest(".theorem").querySelector(".topic-box").classList.toggle("hidden");
+function toggleTopics(event) {
+  const topicBox = event.target.closest(".theorem").querySelector(".topic-box");
+  if (topicBox) {
+    topicBox.classList.toggle("hidden");
+  }
 }
 
 function fetchAnswer() {
   alert("I am very busy. Coming soon!!!");
 }
-export default function(questions){
-	const questionList = document.getElementById("question-list");
 
-	questions.forEach((question) => {
-		const questionEl = document.createElement("details");
-		questionEl.classList.add("theorem");
+function createBar(question, papers) {
+  const bar = document.createElement("h3");
+  bar.classList.add("bar");
 
-		const qEl = document.createElement("summary");
-		qEl.classList.add("statement");
-		qEl.innerHTML = question.question;
-		questionEl.appendChild(qEl);
+  // Toggle button
+  const toggleButton = document.createElement("button");
+  toggleButton.textContent = "Toggle Content";
+  toggleButton.addEventListener("click", toggleTopics);
+  
+  // Fetch button
+  const fetchButton = document.createElement("button");
+  fetchButton.textContent = "Fetch Answer";
+  fetchButton.addEventListener("click", fetchAnswer);
 
-		const contentBody = document.createElement("div");
-		questionEl.appendChild(contentBody);
+  // Difficulty span
+  const difficulty = document.createElement("span");
+  difficulty.textContent = `Difficulty = ${question.difficulty}`;
 
-		// Create bar with buttons
-		const bar = document.createElement("h3");
-		bar.classList.add("bar");
+  // Append elements to the bar
+  bar.appendChild(toggleButton);
+  bar.appendChild(fetchButton);
+  bar.appendChild(difficulty);
+  
+  // Add paper links
+  const paperLinks = createPaperLinks(papers);
+  bar.appendChild(paperLinks);
 
-		const toggleButton = document.createElement("button");
-		toggleButton.textContent = "Toggle Content";
-		toggleButton.addEventListener("click", toggleTopics);
+  return bar;
+}
 
-		const fetchButton = document.createElement("button");
-		fetchButton.textContent = "Fetch Answer";
-		fetchButton.addEventListener("click", fetchAnswer);
+function createContentContainer(question) {
+  const contentContainer = document.createElement("div");
+  contentContainer.classList.add("content-container");
 
-		const difficulty = document.createElement("span");
-		difficulty.textContent = `Difficulty = ${question.difficulty}`;
+  // Topics section
+  const topicsHTML = question.topics
+    ?.map(topic => `<a href='/preUniMath/${topic}.html'>${topic}</a>`)
+    .join(", ") || "No topics available";
+  
+  contentContainer.innerHTML = `
+    <p class="topic-box hidden">${topicsHTML}</p>
+    <div class="answer"></div>
+  `;
 
-		bar.appendChild(toggleButton);
-		bar.appendChild(fetchButton);
-		bar.appendChild(difficulty);
-		bar.appendChild(createPapers(question.papers));
+  return contentContainer;
+}
 
-		// Create content container
-		const contentContainer = document.createElement("div");
-		contentContainer.classList.add("content-container");
-		contentContainer.innerHTML = `
-      <p class="topic-box hidden">${question.topics?.map(topic => `<a href='/preUniMath/${topic}.html'>${topic}</a>`).join(", ")}</p>
-      <div class="answer"></div>
-    `;
+export default function renderQuestions(questions) {
+  const questionList = document.getElementById("question-list");
+  if (!questionList) return;
 
-		contentBody.appendChild(bar);
-		contentBody.appendChild(contentContainer);
+  questions.forEach((question) => {
+    const questionEl = document.createElement("details");
+    questionEl.classList.add("theorem");
 
-		questionList.appendChild(questionEl);
-	});
-	MathJax.typeset();
+    // Question summary
+    const summaryEl = document.createElement("summary");
+    summaryEl.classList.add("statement");
+    summaryEl.innerHTML = question.question;
+    questionEl.appendChild(summaryEl);
+
+    // Content body
+    const contentBody = document.createElement("div");
+
+    // Bar with buttons and papers
+    const bar = createBar(question, question.papers || []);
+    contentBody.appendChild(bar);
+
+    // Content container
+    const contentContainer = createContentContainer(question);
+    contentBody.appendChild(contentContainer);
+
+    questionEl.appendChild(contentBody);
+    questionList.appendChild(questionEl);
+
+    // Handle SVG rendering
+    const { svgs } = question;
+    if (svgs && svgs.length > 0) {
+      if (window.renderSVG) {
+        svgs.forEach(svg => {
+								window.renderSVG(svg)
+				});
+      } else {
+        window.svgs = [...(window.svgs || []), ...svgs];
+      }
+    }
+  });
+
+  // ReRender MathJax if it has been rendered
+  if (window.hasMathJaxRendered) {
+    MathJax.typesetPromise();
+  }
 }

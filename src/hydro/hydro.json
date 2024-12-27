@@ -2,5 +2,6 @@
 	"layout": "page.njk",
 	"tags": "hydro",
 	"parent": "hydro",
+	"includes": ["svgjs"],
 	"permalink": "{{ page.filePathStem }}.html"
 }

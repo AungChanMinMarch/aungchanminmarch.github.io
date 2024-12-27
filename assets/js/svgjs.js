@@ -202,13 +202,21 @@ SVGextend(Line, {
     return centerPoint.label(text, x, y);
   }
 })
-
-addEventListener("load", (event) => {
-  window.svgs?.forEach(svg => {
+window.renderSVG = function(svg){
     const width = svg.width ?? DEFAULT.width;
     const height = svg.height ?? DEFAULT.height;
     const draw = SVG().addTo(svg.id).size(width, height);
 
-    svg.drawSVG(draw, DEFAULT)
+    if(!!svg.drawSVG){
+				svg.drawSVG(draw, DEFAULT);
+    } else {
+				const tempFn = new Function('draw', 'DEFAULT', svg.drawSVGstr);
+				tempFn(draw, DEFAULT);
+				console.log(typeof tempFn);
+    }
+}
+addEventListener("load", function(){
+  window.svgs?.forEach(svg => {
+				window.renderSVG(svg);
   });
-});
+})

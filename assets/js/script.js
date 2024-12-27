@@ -1,3 +1,4 @@
+window.hasMathJaxRendered = false;
 window.MathJax = {
   loader: { load: ["[tex]/newcommand"] },
   tex: {
@@ -21,6 +22,7 @@ function loadMathJax() {
     MathJax.startup.getComponents();
     MathJax.startup.promise.then(()=>{
       console.log("MathJax is rendered");
+      window.hasMathJaxRendered = true;
       let delay = 0.3;
       document.querySelector('.progress-bar').style.animation = `loaded ${delay}s linear forwards`;
       window.setTimeout(()=>{
