@@ -3,7 +3,6 @@ reveal.js/
 mathModules/plotly.js
 
 assets/firestore/serviceAccount.json
-assets/firestore/questions.js
 
 # build output
 _site

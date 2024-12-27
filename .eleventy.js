@@ -11,7 +11,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addShortcode('aTag', anchorTag);
 
   eleventyConfig.addPassthroughCopy({ "assets/css/style.css": "assets/style.css" });
-  eleventyConfig.addPassthroughCopy({ "assets/firestore/questions.js": "questions.js" });
   eleventyConfig.addPassthroughCopy("assets/topology");
   eleventyConfig.addPassthroughCopy("assets/img");
 
