@@ -139,12 +139,12 @@
       document.getElementById("dark-light-toggler").onclick = function(e)
       {
         const root = document.documentElement;
-        if(root.classList.contains('dark')){
-          root.classList.remove("dark");
-          localStorage.setItem(isDarkMode, false); 
-        }else{
-          root.classList.add("dark");
+        if(root.classList.contains('light')){
+          root.classList.remove("light");
           localStorage.setItem(isDarkMode, true); 
+        }else{
+          root.classList.add("light");
+          localStorage.setItem(isDarkMode, false); 
         }
       }
 
@@ -158,9 +158,9 @@
         const isDark = JSON.parse(localStorage.getItem(isDarkMode));
         const selectedColor = localStorage.getItem(themeColor);
         if(!!isDark){
-          document.documentElement.classList.add("dark");
+          document.documentElement.classList.remove("light");
         }else{
-          document.documentElement.classList.remove("dark");
+          document.documentElement.classList.add("light");
         }
         document.documentElement.style.setProperty('--my-theme-color', selectedColor);
 

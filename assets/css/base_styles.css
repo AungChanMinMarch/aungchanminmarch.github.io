@@ -10,13 +10,13 @@
     --my-secondary-dark: #222;
     --my-theme-color: cyan;
 }
-html
+html.light
 {
     --my-primary-color: var(--my-primary-light);
     --my-secondary-color: var(--my-secondary-light);
     --my-current-color: var(--my-primary-dark);
 }
-html.dark
+html
 {
     --my-primary-color: var(--my-primary-dark);
     --my-secondary-color: var(--my-secondary-dark);
