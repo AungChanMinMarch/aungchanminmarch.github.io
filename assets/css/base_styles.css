@@ -199,3 +199,7 @@ summary
 .theorem p{
 	margin: 20px 5px !important;
 }
+
+.mx-25{
+				margin-left: calc(100vw / 4);
+}
