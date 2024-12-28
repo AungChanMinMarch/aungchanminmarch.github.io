@@ -1,7 +1,7 @@
 const admin = require("firebase-admin");
 const fs = require("fs");
 const path = require("path");
-const beautify = require("js-beautify").html;
+const mypretty = require(path.join(__dirname, './prettifyFirebaseObj.js'));
 
 // Load and fix service account JSON
 const serviceAccount = require(path.join(__dirname, "./serviceAccount.json"));
@@ -14,69 +14,10 @@ admin.initializeApp({
 
 const db = admin.firestore();
 
-
-
-function prettifyObject(obj, seen = new WeakSet(), indent = 2) {
-  if (seen.has(obj)) {
-    return '"[Circular Reference]"'; // Prevent infinite recursion
-  }
-
-  seen.add(obj); // Track visited objects
-  const indentation = ' '.repeat(indent);
-
-  if (Array.isArray(obj)) {
-    // Handle arrays distinctly
-    let result = '[\n';
-    for (const value of obj) {
-      if (typeof value === 'string' && value.trim().startsWith('<')) {
-        // Prettify HTML strings
-        const prettyHTML = beautify(value, { indent_size: 2, space_in_empty_paren: true });
-        result += `${indentation}\`\n${' '.repeat(indent + 2)}${prettyHTML.replace(/\n/g, `\n${' '.repeat(indent + 2)}`)}\n${indentation}\`,\n`;
-      } else if (typeof value === 'object' && value !== null) {
-        // Recursively prettify nested objects or arrays
-        result += `${indentation}${prettifyObject(value, seen, indent + 2)},\n`;
-      } else {
-        // Stringify primitive values
-        result += `${indentation}${JSON.stringify(value)},\n`;
-      }
-    }
-    result += `${' '.repeat(indent - 2)}]`;
-    seen.delete(obj); // Allow garbage collection
-    return result;
-  }
-
-  if (typeof obj === 'object' && obj !== null) {
-    // Handle objects
-    let result = '{\n';
-    for (const [key, value] of Object.entries(obj)) {
-      result += `${indentation}${JSON.stringify(key)}: `;
-      if (typeof value === 'string' && value.trim().startsWith('<')) {
-        // Prettify HTML strings
-        const prettyHTML = beautify(value, { indent_size: 2, space_in_empty_paren: true });
-        result += `\`\n${' '.repeat(indent + 2)}${prettyHTML.replace(/\n/g, `\n${' '.repeat(indent + 2)}`)}\n${indentation}\``;
-      } else if (typeof value === 'object' && value !== null) {
-        // Recursively prettify nested objects
-        result += prettifyObject(value, seen, indent + 2);
-      } else {
-        // Stringify primitive values
-        result += JSON.stringify(value);
-      }
-      result += ',\n';
-    }
-    result += `${' '.repeat(indent - 2)}}`;
-    seen.delete(obj); // Allow garbage collection
-    return result;
-  }
-
-  // For primitives, return JSON string
-  return JSON.stringify(obj);
-}
-
 // Export Firestore data
 const exportQuestionsToFile = async () => {
   try {
     const template = fs.readFileSync(path.join(__dirname, "./template.js"), 'utf-8');
-					console.log(template)
     const templateContent = template.split("[firestoreObj]");
     if(templateContent.length !==2){
 				console.log(`template error: [] must exist exactly once in template.js, found=${templateContent.length-1}`);
@@ -95,7 +36,7 @@ const exportQuestionsToFile = async () => {
       const data = doc.data();
       questions.push({ id: doc.id, ...data });
     });
-    const fileContent = templateContent[0] + prettifyObject(questions) + templateContent[1];
+    const fileContent = templateContent[0] + mypretty(questions) + templateContent[1];
 
     // Write the prettified object to a JavaScript file
     fs.writeFileSync(path.join(__dirname, "../../_site/questions.js"), fileContent, "utf8");

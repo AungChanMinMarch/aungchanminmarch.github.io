@@ -2,9 +2,9 @@ function createPaperLinks(paperArr = []) {
   // Create a container for the paper links
   const container = document.createElement("div");
   
-  paperArr.forEach(({ paper, no, mark }) => {
+  paperArr.forEach(({ paper, number, mark }) => {
     const link = document.createElement("a");
-    link.textContent = `${paper} no. ${no} (${mark} marks)`;
+    link.textContent = `${paper} no. ${number} (${mark} marks)`;
     link.href = paper;
     container.appendChild(link);
   });

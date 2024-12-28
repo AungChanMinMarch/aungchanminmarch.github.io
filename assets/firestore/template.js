@@ -1,3 +1,4 @@
+const DEFAULT_PAPER = "";
 window.questions = [firestoreObj];
 window.questions.forEach(function(question, i){
 	if(DEFAULT_PAPER != ""){
