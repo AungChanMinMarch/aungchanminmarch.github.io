@@ -11,6 +11,50 @@ const DEFAULT = {
 }
 
 SVGextend(Container, {
+  gridGraph: function (independentLabels, dependentLabels, independentRange, dependentRange, options = {}) {
+    const {
+      gridSpacing = 50,
+      gridColor = '#ccc',
+      labelColor = '#000'
+    } = options;
+
+    // Determine graph dimensions
+    const width = (independentRange[1] - independentRange[0]) * gridSpacing;
+    const height = (dependentRange[1] - dependentRange[0]) * gridSpacing;
+
+    // Draw grid lines
+    for (let x = 0; x <= width; x += gridSpacing) {
+      this.line(x, 0, x, height)
+        .stroke({ width: 1, color: gridColor });
+    }
+
+    for (let y = 0; y <= height; y += gridSpacing) {
+      this.line(0, y, width, y)
+        .stroke({ width: 1, color: gridColor });
+    }
+
+    // Add independent variable labels (x-axis)
+    independentLabels.forEach((label, index) => {
+      const x = index * gridSpacing;
+      this.text(label)
+        .font({ fill: labelColor })
+        .move(x + 5, height + 10);
+    });
+
+    // Add dependent variable labels (y-axis)
+    dependentLabels.forEach((label, index) => {
+      const y = height - index * gridSpacing;
+      this.text(label)
+        .font({ fill: labelColor })
+        .move(-30, y - 10);
+    });
+
+    // Draw axes
+    this.line(0, 0, 0, height).stroke({ width: 2, color: labelColor }); // y-axis
+    this.line(0, height, width, height).stroke({ width: 2, color: labelColor }); // x-axis
+
+    return this; // Allow chaining
+  },
   myLine: function(point1, point2, color){
 
     return this.line(point1.X, point1.Y, point2.X, point2.Y).stroke({
@@ -131,53 +175,6 @@ SVGextend(Circle, {
   }
 });
 
-// Extend SVG.js with a custom gridGraph function
-SVG.extend(SVG.Container, {
-  gridGraph: function (independentLabels, dependentLabels, independentRange, dependentRange, options = {}) {
-    const {
-      gridSpacing = 50,
-      gridColor = '#ccc',
-      labelColor = '#000'
-    } = options;
-
-    // Determine graph dimensions
-    const width = (independentRange[1] - independentRange[0]) * gridSpacing;
-    const height = (dependentRange[1] - dependentRange[0]) * gridSpacing;
-
-    // Draw grid lines
-    for (let x = 0; x <= width; x += gridSpacing) {
-      this.line(x, 0, x, height)
-        .stroke({ width: 1, color: gridColor });
-    }
-
-    for (let y = 0; y <= height; y += gridSpacing) {
-      this.line(0, y, width, y)
-        .stroke({ width: 1, color: gridColor });
-    }
-
-    // Add independent variable labels (x-axis)
-    independentLabels.forEach((label, index) => {
-      const x = index * gridSpacing;
-      this.text(label)
-        .font({ fill: labelColor })
-        .move(x + 5, height + 10);
-    });
-
-    // Add dependent variable labels (y-axis)
-    dependentLabels.forEach((label, index) => {
-      const y = height - index * gridSpacing;
-      this.text(label)
-        .font({ fill: labelColor })
-        .move(-30, y - 10);
-    });
-
-    // Draw axes
-    this.line(0, 0, 0, height).stroke({ width: 2, color: labelColor }); // y-axis
-    this.line(0, height, width, height).stroke({ width: 2, color: labelColor }); // x-axis
-
-    return this; // Allow chaining
-  }
-});
 
 function approximatelyEqual(v1, v2, epsilon = 0.001) {
   return Math.abs(v1 - v2) < epsilon;
