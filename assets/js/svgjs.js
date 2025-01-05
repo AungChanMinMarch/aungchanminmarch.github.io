@@ -1,4 +1,4 @@
-import { SVG, Shape, Circle, Line, Container, Rect, Text, invent } from '@svgdotjs/svg.js';
+import { SVG, Elememt, Shape, Circle, Line, Container, Rect, Text, invent } from '@svgdotjs/svg.js';
 import { extend as SVGextend } from '@svgdotjs/svg.js';
 
 const DEFAULT = {
@@ -6,31 +6,48 @@ const DEFAULT = {
   height: 500,
   stroke: { 
     width: 2, 
-    color: '#000'
+    color: 'var(--my-current-color)'
   }
 }
 
 SVGextend(Container, {
-  gridGraph: function (independentLabels, dependentLabels, independentRange, dependentRange, options = {}) {
+  gridGraph: function (independentLabels, dependentLabels, options = {}) {
     const {
-      gridSpacing = 50,
-      gridColor = '#ccc',
-      labelColor = '#000'
+      gridSpacing = 100, // Distance between labeled grid lines
+      subGridColor = 'var(--my-current-color)', // Color for the smaller grid lines
+      mainGridColor = 'var(--my-current-color)', // Color for the main grid lines
+      labelColor = 'var(--my-current-color)', // Color for axis labels
+      padding = 50, // Padding for labels
     } = options;
 
-    // Determine graph dimensions
-    const width = (independentRange[1] - independentRange[0]) * gridSpacing;
-    const height = (dependentRange[1] - dependentRange[0]) * gridSpacing;
+    const independentCount = independentLabels.length;
+    const dependentCount = dependentLabels.length;
 
-    // Draw grid lines
-    for (let x = 0; x <= width; x += gridSpacing) {
-      this.line(x, 0, x, height)
-        .stroke({ width: 1, color: gridColor });
+    // Calculate total graph dimensions
+    const width = (independentCount - 1) * gridSpacing;
+    const height = (dependentCount - 1) * gridSpacing;
+
+    // Adjust SVG size to fit graph with padding
+    const totalWidth = width + 2 * padding;
+    const totalHeight = height + 2 * padding;
+    this.size(totalWidth, totalHeight);
+
+    // Move origin to accommodate padding
+    const graph = this.group();
+
+    // Draw 10x10 smaller grids within each labeled grid
+    const subSpacing = gridSpacing / 10;
+
+    for (let x = 0; x <= width; x += subSpacing) {
+      const isMainLine = x % gridSpacing === 0;
+      graph.line(x, 0, x, height)
+        .stroke({ width: isMainLine ? 1.5 : 0.5, color: isMainLine ? mainGridColor : subGridColor });
     }
 
-    for (let y = 0; y <= height; y += gridSpacing) {
-      this.line(0, y, width, y)
-        .stroke({ width: 1, color: gridColor });
+    for (let y = 0; y <= height; y += subSpacing) {
+      const isMainLine = y % gridSpacing === 0;
+      graph.line(0, y, width, y)
+        .stroke({ width: isMainLine ? 1.5 : 0.5, color: isMainLine ? mainGridColor : subGridColor });
     }
 
     // Add independent variable labels (x-axis)
@@ -38,7 +55,7 @@ SVGextend(Container, {
       const x = index * gridSpacing;
       this.text(label)
         .font({ fill: labelColor })
-        .move(x + 5, height + 10);
+        .move(x + padding + 5, height + padding + 10);
     });
 
     // Add dependent variable labels (y-axis)
@@ -46,20 +63,21 @@ SVGextend(Container, {
       const y = height - index * gridSpacing;
       this.text(label)
         .font({ fill: labelColor })
-        .move(-30, y - 10);
+        .move(padding - 30, y + padding - 10);
     });
 
-    // Draw axes
-    this.line(0, 0, 0, height).stroke({ width: 2, color: labelColor }); // y-axis
-    this.line(0, height, width, height).stroke({ width: 2, color: labelColor }); // x-axis
-
+    // Draw axes (within the graph group)
+    graph.line(0, 0, 0, height).stroke({ width: 2, color: labelColor }); // y-axis
+    graph.line(0, height, width, height).stroke({ width: 2, color: labelColor }); // x-axis
+    graph.move(padding, padding);
     return this; // Allow chaining
   },
+
   myLine: function(point1, point2, color){
 
     return this.line(point1.X, point1.Y, point2.X, point2.Y).stroke({
       width: 2,
-      color: color ?? 'black'
+      color: color ?? 'var(--my-current-color)'
     })
   },
   point: function(x, y) {
@@ -77,7 +95,7 @@ SVGextend(Container, {
   },
   arrow: function(x1, y1, x2, y2, options) {
     //options { headSize: px, color }
-    const color = options?.color ?? DEFAULT?.color ?? 'black';
+    const color = options?.color ?? DEFAULT?.color ?? 'var(--my-current-color)';
     const headSize = options?.headSize ?? 20;
 
     const group = this.group();
@@ -103,7 +121,7 @@ SVGextend(Container, {
     const group = this.group();
     
     // Draw the curve
-    const path = group.path(d).fill('none').stroke({ width: 2, color: 'black' });
+    const path = group.path(d).fill('none').stroke({ width: 2, color: 'var(--my-current-color)' });
     
     // Calculate the end point and direction of the curve for the arrowhead
     const pathLength = path.length();
@@ -121,7 +139,7 @@ SVGextend(Container, {
     const y2 = endPoint.y - headSize * Math.sin(headAngle2);
     
     // Draw the arrowhead
-    const arrowhead = group.polygon(`${endPoint.x},${endPoint.y} ${x1},${y1} ${x2},${y2}`).fill('black');
+    const arrowhead = group.polygon(`${endPoint.x},${endPoint.y} ${x1},${y1} ${x2},${y2}`).fill('var(--my-current-color)');
     
     return group;
   }
@@ -251,14 +269,18 @@ window.renderSVG = function(svg){
     const width = svg.width ?? DEFAULT.width;
     const height = svg.height ?? DEFAULT.height;
     const draw = SVG().addTo(svg.id).size(width, height);
+    const graph = draw.group();
 
     if(!!svg.drawSVG){
-				svg.drawSVG(draw, DEFAULT);
+				svg.drawSVG(graph, DEFAULT);
     } else {
 				const tempFn = new Function('draw', 'DEFAULT', svg.drawSVGstr);
-				tempFn(draw, DEFAULT);
-				console.log(typeof tempFn);
+				tempFn(graph, DEFAULT);
     }
+				graph.css({
+          stroke: 'var(--my-current-color)',
+          fill: 'var(--my-current-color)',
+				})
 }
 addEventListener("load", function(){
   window.svgs?.forEach(svg => {
