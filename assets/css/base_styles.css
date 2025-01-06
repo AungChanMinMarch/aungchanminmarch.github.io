@@ -218,3 +218,8 @@ table.border td {
   border: 1px solid var(--my-current-color); /* Adds border to each cell */
   padding: 5px; /* Optional: Adds padding for better appearance */
 }
+
+div[id] > svg {
+				width: 100%;
+				height: auto;
+}

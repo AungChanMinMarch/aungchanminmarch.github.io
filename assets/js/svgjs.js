@@ -11,13 +11,12 @@ const DEFAULT = {
 }
 
 SVGextend(Container, {
-  gridGraph: function (independentLabels, dependentLabels, options = {}) {
+  gridGraph: function (independentLabels, dependentLabels, independentLabel = '', dependentLabel = '', options = {}) {
     const {
       gridSpacing = 100, // Distance between labeled grid lines
       subGridColor = 'var(--my-current-color)', // Color for the smaller grid lines
       mainGridColor = 'var(--my-current-color)', // Color for the main grid lines
       labelColor = 'var(--my-current-color)', // Color for axis labels
-      padding = 50, // Padding for labels
     } = options;
 
     const independentCount = independentLabels.length;
@@ -27,16 +26,42 @@ SVGextend(Container, {
     const width = (independentCount - 1) * gridSpacing;
     const height = (dependentCount - 1) * gridSpacing;
 
-    // Adjust SVG size to fit graph with padding
-    const totalWidth = width + 2 * padding;
-    const totalHeight = height + 2 * padding;
-    this.size(totalWidth, totalHeight);
+    const xLabel = this.text(independentLabel); 
+    const yLabel = this.text(dependentLabel);
+    
+    const yLabelWidth = yLabel.bbox().width;
+    const xLabelHeight = xLabel.bbox().height;
+
+    // Move origin to accommodate padding
+    const yLabels = this.group();
+    // Add dependent variable labels (y-axis)
+    const yWidths = dependentLabels.map((label, index) => {
+      const y = height - index * gridSpacing;
+      const textBox = yLabels.text(label)
+        .font({ fill: labelColor })
+        .move(0, y)
+      return textBox.bbox().width;
+    });
+    const xPadding = Math.max(...yWidths); //width of y labels
+
+    // Move origin to accommodate padding
+    const xLabels = this.group();
+    // Add independent variable labels (x-axis)
+    const xHeights = independentLabels.map((label, index) => {
+      const x = index * gridSpacing;
+      const textBox = xLabels.text(label)
+        .font({ fill: labelColor })
+        .move(x, height);
+      return textBox.bbox().height;
+    });
+    const yPadding = Math.max(...xHeights);
+
 
     // Move origin to accommodate padding
     const graph = this.group();
-
     // Draw 10x10 smaller grids within each labeled grid
     const subSpacing = gridSpacing / 10;
+    
 
     for (let x = 0; x <= width; x += subSpacing) {
       const isMainLine = x % gridSpacing === 0;
@@ -50,26 +75,15 @@ SVGextend(Container, {
         .stroke({ width: isMainLine ? 1.5 : 0.5, color: isMainLine ? mainGridColor : subGridColor });
     }
 
-    // Add independent variable labels (x-axis)
-    independentLabels.forEach((label, index) => {
-      const x = index * gridSpacing;
-      this.text(label)
-        .font({ fill: labelColor })
-        .move(x + padding + 5, height + padding + 10);
-    });
-
-    // Add dependent variable labels (y-axis)
-    dependentLabels.forEach((label, index) => {
-      const y = height - index * gridSpacing;
-      this.text(label)
-        .font({ fill: labelColor })
-        .move(padding - 30, y + padding - 10);
-    });
-
     // Draw axes (within the graph group)
     graph.line(0, 0, 0, height).stroke({ width: 2, color: labelColor }); // y-axis
     graph.line(0, height, width, height).stroke({ width: 2, color: labelColor }); // x-axis
-    graph.move(padding, padding);
+
+    graph.move(yLabelWidth + xPadding + 10, 0);
+    xLabels.move(yLabelWidth + xPadding, height + 10);
+    yLabels.move(yLabelWidth, -15);
+    yLabel.move(0, (height / 2) - (yLabel.bbox().height / 2));
+    xLabel.move(yLabelWidth + xPadding + (width / 2) - (xLabel.bbox().width / 2), height + yPadding + 15);
     return this; // Allow chaining
   },
 
@@ -268,19 +282,21 @@ SVGextend(Line, {
 window.renderSVG = function(svg){
     const width = svg.width ?? DEFAULT.width;
     const height = svg.height ?? DEFAULT.height;
-    const draw = SVG().addTo(svg.id).size(width, height);
-    const graph = draw.group();
+    const draw = SVG().addTo(svg.id);
 
     if(!!svg.drawSVG){
-				svg.drawSVG(graph, DEFAULT);
+				svg.drawSVG(draw, DEFAULT);
     } else {
 				const tempFn = new Function('draw', 'DEFAULT', svg.drawSVGstr);
-				tempFn(graph, DEFAULT);
+				tempFn(draw, DEFAULT);
     }
-				graph.css({
+				draw.css({
           stroke: 'var(--my-current-color)',
           fill: 'var(--my-current-color)',
-				})
+				});
+    // Dynamically adjust the viewBox
+    const bbox = draw.bbox();
+    draw.viewbox(bbox.x, bbox.y, bbox.width, bbox.height);
 }
 addEventListener("load", function(){
   window.svgs?.forEach(svg => {
