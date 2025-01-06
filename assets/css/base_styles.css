@@ -203,3 +203,18 @@ summary
 .mx-25{
 				margin-left: calc(100vw / 4);
 }
+
+
+/* Table styling */
+table.border {
+  border-collapse: separate; /* Ensures borders are separate, not collapsed */
+  border-spacing: 0; /* Ensures no gaps between cells */
+  width: 100%; /* Optional: Makes the table width consistent */
+}
+
+/* Cell styling */
+table.border th,
+table.border td {
+  border: 1px solid var(--my-current-color); /* Adds border to each cell */
+  padding: 5px; /* Optional: Adds padding for better appearance */
+}
